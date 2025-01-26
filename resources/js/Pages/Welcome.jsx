@@ -38,37 +38,39 @@ export default function Welcome({ auth }) {
             <NavBar auth={auth} />
             {/* End Navbar */}
 
-            {/* Start HomePage */}
-            // Tulis Kode Disini
-            {/* End HomePage */}
+            <main className="px-12 bg-[#F7F7F7]">
+                {/* Start HomePage */}
+                // Tulis Kode Disini
+                {/* End HomePage */}
 
-            {/* Start Tentang PKM-TI */}
-            // Tulis Kode Disini
-            {/* End Tentang PKM-TI */}
+                {/* Start Tentang PKM-TI */}
+                // Tulis Kode Disini
+                {/* End Tentang PKM-TI */}
 
-            {/* Start Ekspolari PKM-TI */}
-            // Tulis Kode Disini
-            {/* End Ekspolari PKM-TI */}
+                {/* Start Ekspolari PKM-TI */}
+                // Tulis Kode Disini
+                {/* End Ekspolari PKM-TI */}
 
-            {/* Start Pembicara */}
-            // Tulis Kode Disini
-            {/* End Pembicara */}
+                {/* Start Pembicara */}
+                // Tulis Kode Disini
+                {/* End Pembicara */}
 
-            {/* Start Timeline */}
-            // Tulis Kode Disini
-            {/* End Timeline */}
+                {/* Start Timeline */}
+                // Tulis Kode Disini
+                {/* End Timeline */}
 
-            {/* Start News Letter */}
-            // Tulis Kode Disini
-            {/* End News Letter */}
+                {/* Start News Letter */}
+                // Tulis Kode Disini
+                {/* End News Letter */}
 
-            {/* Start FAQ */}
-            // Tulis Kode Disini
-            {/* End FAQ */}
+                {/* Start FAQ */}
+                // Tulis Kode Disini
+                {/* End FAQ */}
 
-            {/* Start Kontak Kami */}
-            // Tulis Kode Disini
-            {/* End Kontak Kami */}
+                {/* Start Kontak Kami */}
+                // Tulis Kode Disini
+                {/* End Kontak Kami */}
+            </main>
 
             {/* Start Footer */}
             <footer className="footer p-12 bg-base-200 text-base-content grid-flow-row sm:grid-cols-2 md:grid-cols-6 gap-x-20">
