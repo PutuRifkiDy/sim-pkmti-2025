@@ -54,7 +54,7 @@ const ScrollToTop = () => {
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
                     onClick={scrollToTop}
-                    className={`bg-blue-500 transition-all duration-100 ease-in-out text-white rounded-full p-3 ${
+                    className={`bg-[#42A1A4] transition-all duration-100 ease-in-out text-white rounded-full p-3 ${
                         isHovered ? "tooltip tooltip-open tooltip-left" : ""
                     }`}
                     {...(isHovered ? { "data-tip": "Click untuk naik" } : {})}
@@ -66,7 +66,7 @@ const ScrollToTop = () => {
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
                     onClick={scrollToBottom}
-                    className={`bg-blue-500 transition-all duration-100 ease-in-out text-white rounded-full p-3 ${
+                    className={`bg-[#42A1A4] transition-all duration-100 ease-in-out text-white rounded-full p-3 ${
                         isHovered ? "tooltip tooltip-open tooltip-left" : ""
                     }`}
                     {...(isHovered ? { "data-tip": "Click untuk turun" } : {})}

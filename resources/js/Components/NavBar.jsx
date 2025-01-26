@@ -30,7 +30,7 @@ export default function NavBar({ auth }) {
         >
             <div className="flex justify-between w-full lg:w-1/3 lg:navbar-start px-6 lg:px-0 py-2 sm:px-10 bg-base-100">
                 <a href="#" className="cursor-pointer w-14">
-                    <img src="/images/Logo-PKM-TI.png?v=1.0" alt="w-full" />
+                    <img src="/images/Logo-PKM-TI-2025.png" alt="w-full" />
                 </a>
 
                 <div className="flex space-x-6 lg:hidden">
@@ -53,16 +53,16 @@ export default function NavBar({ auth }) {
                 <div className="lg:navbar-center flex-col lg:flex">
                     <ul className="menu menu-vertical lg:menu-horizontal px-1">
                         <li>
-                            <a href="#">Beranda</a>
+                            <a href="#" className="hover:text-[#42A1A4]">Beranda</a>
                         </li>
                         <li>
-                            <a href="#about-us">Tentang PKM TI</a>
+                            <a href="#about-us" className="hover:text-[#42A1A4]">Tentang PKM TI</a>
                         </li>
                         <li>
-                            <a href="#FaQ">Pertanyaan Umum</a>
+                            <a href="#FaQ" className="hover:text-[#42A1A4]">Pertanyaan Umum</a>
                         </li>
                         <li>
-                            <a href="#contact-us">Kontak Kami</a>
+                            <a href="#contact-us" className="hover:text-[#42A1A4]">Kontak Kami</a>
                         </li>
                     </ul>
                 </div>
@@ -85,18 +85,18 @@ export default function NavBar({ auth }) {
                             <Link
                                 as="button"
                                 href={route("login")}
-                                className="font-medium bg-primary px-6 py-2 rounded-md text-white hover:text-white hover:bg-blue-lagoon dark:text-gray-400 dark:hover:text-white transition-all duration-300"
+                                className="font-medium bg-[#42A1A4] px-6 py-2 rounded-md text-white hover:text-white hover:bg-blue-lagoon dark:text-gray-400 dark:hover:text-white transition-all duration-300"
                             >
                                 Log in
                             </Link>
 
-                            <Link
+                            {/* <Link
                                 as="button"
                                 href={route("register")}
                                 className="font-medium px-6 py-2 rounded-md text-primary outline outline-primary outline-2 -outline-offset-2 hover:text-white hover:bg-primary dark:text-gray-400 dark:hover:text-white transition-all duration-300"
                             >
                                 Register
-                            </Link>
+                            </Link> */}
                         </>
                     )}
                 </div>

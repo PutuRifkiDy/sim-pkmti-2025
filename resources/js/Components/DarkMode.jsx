@@ -24,7 +24,7 @@ export default function DarkMode({}) {
     return (
         <>
             <div className="toggle-theme cursor-pointer">
-                <label className="swap swap-rotate bg-primary p-2 rounded-full">
+                <label className="swap swap-rotate bg-[#42A1A4] p-2 rounded-full">
                     <input
                         type="checkbox"
                         onChange={handleTheme}

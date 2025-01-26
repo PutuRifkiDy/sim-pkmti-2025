@@ -74,7 +74,7 @@ export default function Welcome({ auth }) {
             <footer className="footer p-12 bg-base-200 text-base-content grid-flow-row sm:grid-cols-2 md:grid-cols-6 gap-x-20">
                 <aside className="col-span-2 w-4/5 md:w-full">
                     <img
-                        src="images/Logo-PKM-TI.png"
+                        src="images/Logo-PKM-TI-2025.png"
                         className="w-32"
                         alt="PKM TI Logo"
                     />
@@ -108,10 +108,10 @@ export default function Welcome({ auth }) {
                 </nav>
             </footer>
             <footer className="py-5 px-12 bg-base-300 text-slate-600">
-                <p>© 2024 PKM TI Udayana </p>
+                <p>© 2025 PKM TI Udayana </p>
             </footer>
             {/* End Footer */}
-            
+
             <ScrollToTop />
         </>
     );
