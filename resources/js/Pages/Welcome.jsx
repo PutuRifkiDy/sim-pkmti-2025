@@ -35,13 +35,13 @@ export default function Welcome({ auth }) {
         <>
             <Head title="PKM TI" />
 
-
-            <NavBar auth={auth} />
-            <main className="px-12 pt-20 light:bg-[#F7F7F7]">
             {/* Start Navbar */}
+            <NavBar auth={auth} />
             {/* End Navbar */}
+
+            <main className="px-12 pt-20 light:bg-[#F7F7F7]">
                 {/* Start HomePage */}
-                <section className="flex md:flex-row flex-col-reverse w-full justify-between pb-36">
+                <section className="flex md:flex-row flex-col-reverse w-full justify-between pb-20">
                     {/* Home Page Bagian Kiri */}
                     <div className="flex flex-col gap-7 justify-center items-center">
                         <div className="relative md:w-[581px] w-full md:h-[210px] h-[148px] text-center md:text-start">
@@ -72,7 +72,7 @@ export default function Welcome({ auth }) {
                                     <Link
                                         as="button"
                                         href={route("register")}
-                                        className="font-bold bg-[#42A1A4] px-12 py-3 rounded-md text-white hover:text-white hover:bg-[#42A1A4] dark:text-gray-400 dark:hover:text-white transition-all duration-300"
+                                        className="font-bold bg-[#42A1A4] px-12 py-3 rounded-md text-white hover:text-white hover:bg-[#59DFD1] dark:text-gray-400 dark:hover:text-white transition-all duration-300"
                                     >
                                         Sign Up Now
                                     </Link>
@@ -90,14 +90,86 @@ export default function Welcome({ auth }) {
                     </div>
                     {/* Home Page Bagian Kanan */}
                     <div className="flex justify-center items-center pt-2">
-                        <img src="/images/image-homepage.png" alt="" className="md:w-[672.34px] w-full md:h-[552px] h-auto"/>
+                        <img src="/images/image-homepage.png" alt="" className="md:w-[672.34px] w-full md:h-[552px] h-auto" />
                     </div>
                 </section>
                 {/* End HomePage */}
 
+                {/* Agenda Acara*/}
+                <section className="mb-36 flex justify-center items-center md:mx-36 mx-0">
+                    <div className="flex md:flex-row flex-col justify-between gap-5 bg-[#FFFFFF] px-12 py-10 w-full shadow-xl border border-base-300 rounded-2xl ">
+                        <div className="flex flex-row gap-4 sm:pr-10">
+                            <BookmarkSquareIcon className="w-6 h-6 font-extrabold" />
+                            <div className="block">
+                                <span className="capitalize text-gray-400 font-normal text-sm md:text-base">
+                                    Agenda Acara
+                                </span>
+
+                                <p className="text-base md:text-sm font-light">
+                                    Pembukaan PKM-TI 2024
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="divider divider-horizontal before:bg-black after:bg-black"></div>
+
+                        <div className="flex flex-row gap-4">
+                            <CalendarDaysIcon className="w-6 h-6 font-extrabold" />
+                            <div className="block">
+                                <span className="capitalize text-gray-400 font-normal text-sm md:text-base">
+                                    Date
+                                </span>
+
+                                <p className="text-base md:text-sm font-light">
+                                    Minggu, 4 Februari 2024
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="divider divider-horizontal before:bg-black after:bg-black"></div>
+
+                        <div className="flex flex-row gap-4">
+                            <MapPinIcon className="w-6 h-6 font-extrabold" />
+
+                            <div className="block">
+                                <span className="capitalize text-gray-400 font-normal text-sm md:text-base">
+                                    Lokasi Acara
+                                </span>
+
+                                <p className="text-base md:text-sm font-light ">
+                                    Gedung Teknologi Informasi Fakultas
+                                    Teknik Universitas Udayana
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                {/* End Agenda Acara */}
 
                 {/* Start Tentang PKM-TI */}
+                <section className="flex md:flex-row flex-col w-full md:gap-24 gap-12 pb-20">
+                    <div>
+                        {/* Tentang PKM Bagian kiri */}
+                        <img src="images/image-tentangpkmti2025.png" alt="" className="md:w-[521px] w-full md:h-[479px] h-auto"/>
+                    </div>
+                    <div className="flex flex-col justify-center md:w-[687px] w-full gap-10">
 
+                        <div className="relative text-center md:text-start">
+                            <div className="md:absolute md:block hidden md:left-72 left-12 top-14">
+                                <IconTextHomePage />
+                            </div>
+                            <p className="font-bold md:text-[56px] text-[36px] light:text-[#111E41] leading-[1.1em] dark:text-[#42A1A4]">Tentang PKM TI 2025</p>
+                        </div>
+                        <div className="flex flex-col gap-3 text-center md:text-start">
+                            <p className="text-[20px] leading-[1.8em] text-[#111E41]">
+                                Apa itu PKM TI 2025?
+                            </p>
+                            <p className="text-[16px] leading-[1.8em] text-[#111E41]">
+                                Pelatihan PKM Teknologi Informasi 2025 oleh HMTI bertujuan memberikan platform bagi mahasiswa untuk memperluas pengetahuan tentang Program Kreativitas Mahasiswa (PKM). Mengusung tema “...” pelatihan ini diharapkan memotivasi mahasiswa Teknologi Informasi untuk mengembangkan kreativitas visioner dan mengikuti tren masa depan. Kegiatan ini juga bertujuan meningkatkan pemahaman mahasiswa terkait pengembangan judul, penyesuaian format pedoman, teknik penelitian, dan keterampilan teknis.
+                            </p>
+                        </div>
+                    </div>
+                </section>
                 {/* End Tentang PKM-TI */}
 
 
