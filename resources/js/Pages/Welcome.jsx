@@ -334,7 +334,7 @@
                             <h3 className="capitalize text-3xl md:text-[48px] lg:text-5xl font-bold text-[#285B70] leading-12 md:leading-16">
                                 Bertemu dengan mereka yang sudah profesional
                             </h3>
-                            <p className="text-[16px] leading-[1.5em] font-normal text-[#111E41] mt-3">
+                            <p className="text-[16px] leading-[1.5em] font-normal light:text-[#111E41] mt-3">
                                 Selamatkan tempat di barisan terdepan karena
                                 kami mempersembahkan Narasumber yang luar biasa
                                 di acara spesial PKM kami! Bersiaplah untuk
