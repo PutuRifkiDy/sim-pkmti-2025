@@ -14,7 +14,7 @@
     import NavBar from "@/Components/NavBar";
     import ScrollToTop from "@/Components/ScrollTop";
     import SlickCarousel from "@/Components/SlickCarousel";
-    import { IconTextHomePage, IconViewDemo } from "@/Components/IconLanding";
+    import { IconTextHomePage, IconViewDemo, IconTextTopics } from "@/Components/IconLanding";
 
     export default function Welcome({ auth }) {
         const controls = useAnimation();
@@ -30,6 +30,39 @@
             visible: { opacity: 1, scale: 1, transition: { duration: 0.8 } },
             hidden: { opacity: 0, scale: 0.5, transition: { duration: 0.5 } },
         };
+
+        const topics = [
+            {
+              title: "PKM-KC",
+              links: "https://drive.google.com/file/d/1VhnGeOLCPxXXNy1WIshnUoMjLaNTu4nb/view?usp=sharing",
+              description:
+                "Program Kreativitas Mahasiswa-Karsa Cipta (PKM-KC) merupakan program penciptaan yang didasari atas karsa dan nalar mahasiswa, bersifat konstruktif serta menghasilkan suatu sistem...",
+            },
+            {
+              title: "PKM-K",
+              links: "https://drive.google.com/file/d/1P2Xi_pevKDFX82gv7NviF2yYZl4azjoj/view?usp=sharing",
+              description:
+                "Program Kreativitas Mahasiswa Kewirausahaan (PKM-K) merupakan program kreativitas mahasiswa dalam menciptakan aktivitas usaha. Dalam PKM-K, tim mahasiswa berlatih membuat...",
+            },
+            {
+              title: "PKM-PM",
+              links: "https://drive.google.com/file/d/10AyHDJx650ORiSBwg2h9S8xV6H-OYWgr/view?usp=sharing",
+              description:
+                "PKM-PM adalah program penerapan ilmu pengetahuan, teknologi dan seni yang berorientasi non profit dalam upaya untuk membantu mengatasi permasalahan kemiskinan...",
+            },
+            {
+              title: "PKM-PI",
+              links: "https://drive.google.com/file/d/19JHFO6JWpAyw-vi7dnuoiSOZ9X-P0cfO/view?usp=sharing",
+              description:
+                "Program Kreativitas Mahasiswa Penerapan-IPTEK (PKM-PI) termasuk ke dalam salah satu kelompok PKM 5 bidang yang menerapkan ilmu pengetahuan dan teknologi untuk menjadi...",
+            },
+            {
+              title: "PKM-GFT",
+              links: "https://drive.google.com/file/d/1BXEK5quZ7oIfbPTju1qU1M9SuagRhHtq/view?usp=sharing",
+              description:
+                "PKM Gagasan Futuristik Tertulis (PKM-GFT) merupakan gagasan kreatif yang futuristik sebagai respons intelektual atas persoalan aktual yang dihadapi bangsa. Gagasan tersebut tidak terkait...",
+            },
+          ];
 
         return (
             <>
@@ -182,6 +215,36 @@
 
                     {/* Start Ekspolari PKM-TI */}
 
+                    <section className="flex flex-col mb-36 justify-center items-center md:mx-12 mx-0 text-white">
+                        <div className="flex flex-row bg-white gap-2 md:py-5 py-4 px-3 rounded-t-2xl w-full shadow-2xl">
+                            <div className="md:w-3 md:h-3 w-2 h-2 rounded-full bg-[#E11D48]"></div>
+                            <div className="md:w-3 md:h-3 w-2 h-2 bg-[#FBBF24] rounded-full"></div>
+                            <div className="md:w-3 md:h-3 w-2 h-2 bg-[#22C55E] rounded-full"></div>
+                        </div>
+                        <div className="flex flex-col bg-gradient-custom w-full h-auto rounded-b-2xl shadow-2xl">
+                            <div className="flex flex-col relative items-center text-center m-8 md:m-16 md:gap-2 gap-1">
+                                <h2 className="md:text-xl text-lg font-bold uppercase">Eksplorasi Topik PKM</h2>
+                                <h1 className="font-bold md:text-[48px] text-[36px] leading-9 z-10">Kembangkan Ide Cemerlang Anda</h1>
+                                <div className="md:absolute md:block hidden md:left-[740px] left-12 top-20 z-0">
+                                    <IconTextTopics />
+                                </div>
+                                <p className="text-base font-normal leading-6 md:mx-[70px] mt-2 md:mt-6">
+                                    Jelajahi kategori-kategori sub topik PKM kami dan temukan passion yang menggetarkan hati Anda. Mulai dari keberlanjutan hingga teknologi, kesehatan hingga seni, kami mengundang Anda untuk meresapi setiap sub topik dengan penuh antusiasme. Temukan tempat Anda di dunia PKM, di mana setiap kategori adalah panggung bagi idealisasi dan perubahan.
+                                </p>
+                            </div>
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-2 mx-8 mb-12">
+                            {topics.map((topic, index) => (
+                                <div key={index} className="flex flex-col justify-center items-center bg-white text-black m-2 px-4 py-6 rounded-lg text-center gap-2">
+                                    <h1 className="text-xl text-[#111E41]">{topic.title}</h1>
+                                    <p className="text-[14px] text-[#475569]">{topic.description}</p>
+                                    <Link href={topic.links} className="border-[2px] w-full border-[#285B70] p-2 rounded-lg mt-1 text-[#285B70] text-sm">
+                                        Selengkapnya
+                                    </Link>
+                                </div>
+                            ))}
+                            </div>
+                        </div>
+                    </section>
                     {/* End Ekspolari PKM-TI */}
 
 
