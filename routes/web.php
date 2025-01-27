@@ -58,13 +58,22 @@ Route::get('/dashboard', function () {
     $user = User::with('team', 'team.proposal', 'team.members', 'team.assistanceProofs')->find(Auth::id());
 
     $infos = [
-        "hasTeam" => !is_null($user->team_id),
-        "hasEnoughTeamMembers" => $user->team->members->count() >= 3,
-        "hasProposal" => !is_null($user->team->proposal),
-        "proposalStatus" => $user->team->proposal->status ?? "unsubmitted",
+        // "hasTeam" => !is_null($user->team_id),
+        // "hasEnoughTeamMembers" => $user->team->members->count() >= 3,
+        // "hasProposal" => !is_null($user->team->proposal),
+        // "proposalStatus" => $user->team->proposal->status ?? "unsubmitted",
         // "note" => $user->team->proposal->note ?? "",
-        "hasEnoughAssistanceProofs" => $user->team->assistanceProofs->count() >= 3,
+        // "hasEnoughAssistanceProofs" => $user->team->assistanceProofs->count() >= 3,
     ];
+
+    // $infos = [
+    //     "hasTeam" => !is_null($user->team_id),
+    //     "hasEnoughTeamMembers" => $user->team?->members->count() >= 3,
+    //     "hasProposal" => !is_null($user->team?->proposal),
+    //     "proposalStatus" => $user->team?->proposal?->status ?? "unsubmitted",
+    //     "note" => $user->team?->proposal?->note ?? "",
+    //     "hasEnoughAssistanceProofs" => $user->team?->assistanceProofs->count() >= 3,
+    // ];
 
     return Inertia::render('Dashboard', compact('infos'));
 })->middleware(['auth', 'verified'])->name('dashboard');

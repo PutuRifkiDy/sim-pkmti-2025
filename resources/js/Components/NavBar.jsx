@@ -33,7 +33,7 @@ export default function NavBar({ auth }) {
                     <img src="/images/Logo-PKM-TI-2025.png" alt="w-full" />
                 </a>
 
-                <div className="flex space-x-6 lg:hidden">
+                <div className="flex space-x-2 lg:hidden">
                     <DarkMode />
                     <button onClick={toggleNav}>
                         {!openNav ? (
@@ -48,26 +48,26 @@ export default function NavBar({ auth }) {
             <div
                 className={`${
                     openNav ? "translate-y-16" : "-translate-y-full"
-                } z-[-5] absolute pl-6 left-0 bg-base-100 w-full flex-col items-start pt-6 pb-10 shadow-md lg:bg-transparent lg:relative lg:translate-y-0 lg:px-0 lg:shadow-none lg:py-0 lg:flex lg:flex-row lg:justify-between lg:items-center ease-out duration-500`}
+                } z-[-5] absolute left-0 bg-base-100 w-full flex-col items-start pt-6 pb-10 shadow-md lg:bg-transparent lg:relative lg:translate-y-0 lg:px-0 lg:shadow-none lg:py-0 lg:flex lg:flex-row lg:justify-between lg:items-center ease-out duration-500`}
             >
                 <div className="lg:navbar-center flex-col lg:flex">
-                    <ul className="menu menu-vertical lg:menu-horizontal px-1">
+                    <ul className="menu menu-vertical lg:menu-horizontal gap-5">
                         <li>
-                            <a href="#" className="hover:text-[#42A1A4]">Beranda</a>
+                            <a href="#" className="hover:text-[#42A1A4] text-[18px]">Beranda</a>
                         </li>
                         <li>
-                            <a href="#about-us" className="hover:text-[#42A1A4]">Tentang PKM TI</a>
+                            <a href="#about-us" className="hover:text-[#42A1A4] text-[18px]">Tentang PKM TI</a>
                         </li>
                         <li>
-                            <a href="#FaQ" className="hover:text-[#42A1A4]">Pertanyaan Umum</a>
+                            <a href="#FaQ" className="hover:text-[#42A1A4] text-[18px]">Pertanyaan Umum</a>
                         </li>
                         <li>
-                            <a href="#contact-us" className="hover:text-[#42A1A4]">Kontak Kami</a>
+                            <a href="#contact-us" className="hover:text-[#42A1A4] text-[18px]">Kontak Kami</a>
                         </li>
                     </ul>
                 </div>
 
-                <div className="flex flex-col space-y-4 lg:w-fit lg:flex-row lg:navbar-end lg:space-y-0 lg:space-x-4 lg:items-center">
+                <div className="flex flex-col space-y-4 lg:w-fit lg:flex-row lg:navbar-end lg:space-y-0 lg:space-x-4 lg:items-center md:pl-0 pl-5">
                     <div className="hidden lg:block">
                         <DarkMode />
                     </div>
@@ -76,7 +76,7 @@ export default function NavBar({ auth }) {
                         <Link
                             as="button"
                             href={route("dashboard")}
-                            className="font-medium bg-primary px-6 py-2 rounded-md text-white hover:text-white hover:bg-blue-lagoon dark:text-gray-400 dark:hover:text-white transition-all duration-300"
+                            className="font-medium bg-[#42A1A4] px-6 py-2 rounded-md text-white hover:text-white hover:bg-[#59DFD1] dark:text-gray-400 dark:hover:text-white transition-all duration-300"
                         >
                             Dashboard
                         </Link>
@@ -85,7 +85,7 @@ export default function NavBar({ auth }) {
                             <Link
                                 as="button"
                                 href={route("login")}
-                                className="font-medium bg-[#42A1A4] px-6 py-2 rounded-md text-white hover:text-white hover:bg-blue-lagoon dark:text-gray-400 dark:hover:text-white transition-all duration-300"
+                            className="font-medium bg-[#42A1A4] px-6 py-2 rounded-md text-white hover:text-white hover:bg-[#59DFD1] dark:text-gray-400 dark:hover:text-white transition-all duration-300"
                             >
                                 Log in
                             </Link>

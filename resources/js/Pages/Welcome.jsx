@@ -14,6 +14,7 @@ import CustomCarousel from "@/Components/CustomCorausel";
 import NavBar from "@/Components/NavBar";
 import ScrollToTop from "@/Components/ScrollTop";
 import SlickCarousel from "@/Components/SlickCarousel";
+import { IconTextHomePage, IconViewDemo } from "@/Components/IconLanding";
 
 export default function Welcome({ auth }) {
     // const controls = useAnimation();
@@ -34,42 +35,101 @@ export default function Welcome({ auth }) {
         <>
             <Head title="PKM TI" />
 
-            {/* Start Navbar */}
-            <NavBar auth={auth} />
-            {/* End Navbar */}
 
-            <main className="px-12 bg-[#F7F7F7]">
+            <NavBar auth={auth} />
+            <main className="px-12 pt-20 light:bg-[#F7F7F7]">
+            {/* Start Navbar */}
+            {/* End Navbar */}
                 {/* Start HomePage */}
-                // Tulis Kode Disini
+                <section className="flex md:flex-row flex-col-reverse w-full justify-between pb-36">
+                    {/* Home Page Bagian Kiri */}
+                    <div className="flex flex-col gap-7 justify-center items-center">
+                        <div className="relative md:w-[581px] w-full md:h-[210px] h-[148px] text-center md:text-start">
+                            <div className="md:absolute md:block hidden md:left-2 left-12 top-14">
+                                <IconTextHomePage />
+                            </div>
+                            <p className="font-bold md:text-[64px] text-[36px] light:text-[#111E41] leading-[1.1em] dark:text-[#42A1A4]">Sistem Informasi Pelatihan PKM TI Udayana</p>
+                        </div>
+                        <div>
+                            <p className="text-[16px] leading-[1.6em] light:text-[#0F172A] md:w-[581px] w-full font-normal dark:text-[#42A1A4] text-center md:text-start">
+                                Pelatihan PKM TI 2025 merupakan bagian dari program kerja Himpunan Mahasiswa Teknologi Informasi Universitas Udayana periode 2025, yang bertujuan membimbing mahasiswa dalam merancang Program Kreativitas Mahasiswa (PKM) yang inovatif dan kreatif di bidang Teknologi Informasi.
+                            </p>
+                        </div>
+                        <div className="flex md:flex-row flex-col md:gap-5 gap-1 md:justify-start justify-center md:w-[581px] w-full">
+                            {auth.user ? (
+                                <>
+                                    <Link
+                                        as="button"
+                                        href={route("register")}
+                                        className="font-bold border-2 border-[#59DFD1] px-6 py-2 rounded-md text-[#59DFD1] hover:text-white hover:bg-[#42A1A4] dark:text-gray-400 dark:hover:text-white transition-all duration-300 flex flex-row gap-2 justify-center items-center "
+                                    >
+                                        <IconViewDemo />
+                                        View Demo
+                                    </Link>
+                                </>
+                            ) : (
+                                <>
+                                    <Link
+                                        as="button"
+                                        href={route("register")}
+                                        className="font-bold bg-[#42A1A4] px-12 py-3 rounded-md text-white hover:text-white hover:bg-[#42A1A4] dark:text-gray-400 dark:hover:text-white transition-all duration-300"
+                                    >
+                                        Sign Up Now
+                                    </Link>
+                                    <Link
+                                        as="button"
+                                        href={route("register")}
+                                        className="font-bold border-2 border-[#59DFD1] px-6 py-2 rounded-md text-[#59DFD1] hover:text-white hover:bg-[#42A1A4] dark:text-gray-400 dark:hover:text-white transition-all duration-300 flex flex-row gap-2 justify-center items-center "
+                                    >
+                                        <IconViewDemo />
+                                        View Demo
+                                    </Link>
+                                </>
+                            )}
+                        </div>
+                    </div>
+                    {/* Home Page Bagian Kanan */}
+                    <div className="flex justify-center items-center pt-2">
+                        <img src="/images/image-homepage.png" alt="" className="md:w-[672.34px] w-full md:h-[552px] h-auto"/>
+                    </div>
+                </section>
                 {/* End HomePage */}
 
+
                 {/* Start Tentang PKM-TI */}
-                // Tulis Kode Disini
+
                 {/* End Tentang PKM-TI */}
 
+
                 {/* Start Ekspolari PKM-TI */}
-                // Tulis Kode Disini
+
                 {/* End Ekspolari PKM-TI */}
 
+
                 {/* Start Pembicara */}
-                // Tulis Kode Disini
+
                 {/* End Pembicara */}
 
+
                 {/* Start Timeline */}
-                // Tulis Kode Disini
+
                 {/* End Timeline */}
 
+
                 {/* Start News Letter */}
-                // Tulis Kode Disini
+
                 {/* End News Letter */}
 
+
                 {/* Start FAQ */}
-                // Tulis Kode Disini
+
                 {/* End FAQ */}
 
+
                 {/* Start Kontak Kami */}
-                // Tulis Kode Disini
+
                 {/* End Kontak Kami */}
+                <ScrollToTop />
             </main>
 
             {/* Start Footer */}
@@ -114,7 +174,6 @@ export default function Welcome({ auth }) {
             </footer>
             {/* End Footer */}
 
-            <ScrollToTop />
         </>
     );
 }

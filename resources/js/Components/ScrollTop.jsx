@@ -48,7 +48,7 @@ const ScrollToTop = () => {
     };
 
     return (
-        <div className="fixed bottom-10 z-40 right-10 transition-all duration-100 ease-in-out flex flex-col items-center space-y-4">
+        <div className="fixed bottom-10 z-40 md:right-10 right-32 transition-all duration-100 ease-in-out flex flex-col items-center space-y-4">
             {isVisible ? (
                 <button
                     onMouseEnter={() => setIsHovered(true)}
@@ -76,7 +76,7 @@ const ScrollToTop = () => {
             )}
             <div className="h-1 w-full bg-slate-300 rounded-2xl relative">
                 <div
-                    className="h-full bg-linear-blue absolute rounded-2xl"
+                    className="h-full bg-[#59DFD1] absolute rounded-2xl"
                     style={{ width: `${scrollProgress}%` }}
                 />
             </div>
