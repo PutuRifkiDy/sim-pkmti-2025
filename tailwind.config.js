@@ -43,7 +43,7 @@ export default {
                 '19': '4.2rem',
             },
             backgroundImage: {
-                "gradient-blue" : "linear-gradient(180deg, rgba(54,116,217,0.7) 0%, rgba(29,68,137,1) 100%)"
+                "gradient-blue" : "linear-gradient(to right, rgba(40, 91, 112, 1) 0%, rgba(40, 91, 112, 0.82) 41%, rgba(40, 91, 112, 0.82) 41%, rgba(40, 91, 112, 0.71) 65%, rgba(40, 91, 112, 0.66) 75%, rgba(40, 91, 112, 0.55) 100%)"
             }
         },
     },

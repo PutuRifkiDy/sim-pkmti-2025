@@ -40,7 +40,7 @@ const Accordion = ({ title, answer }) => {
                             : "grid-rows-[0] opacity-0"
                     }`}
                 >
-                    <p className="overflow-hidden text-base">{answer}</p>
+                    <p className="overflow-hidden text-[16px] leading-[1.5em]">{answer}</p>
                 </div>
             </div>
         </>

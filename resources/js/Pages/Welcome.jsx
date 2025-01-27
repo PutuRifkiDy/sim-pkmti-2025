@@ -72,7 +72,7 @@
                 <NavBar auth={auth} />
                 {/* End Navbar */}
 
-                <main className="md:px-12 px-2 pt-20 light:bg-[#F7F7F7] overflow-x-hidden">
+                <main className="md:px-12 px-2 pt-24 light:bg-[#F7F7F7] overflow-x-hidden">
                     {/* Start HomePage */}
                     <section className="flex md:flex-row flex-col-reverse max-w-full justify-between pb-20">
                         {/* Home Page Bagian Kiri */}
@@ -194,7 +194,7 @@
                                 <p className="font-bold md:text-[56px] text-[36px] light:text-[#111E41] leading-[1.1em] dark:text-[#42A1A4]">Tentang PKM TI 2025</p>
                             </div>
                             <div className="flex flex-col gap-3 text-center md:text-start">
-                                <p className="text-[20px] leading-[1.8em] light:text-[#111E41] dark:text-[#42A1A4]">
+                                <p className="text-[20px] leading-[1.8em] light:text-[#111E41] dark:text-[#42A1A4] font-bold">
                                     Apa itu PKM TI 2025?
                                 </p>
                                 <p className="text-[16px] leading-[1.8em] light:text-[#111E41] dark:text-[#42A1A4]">
@@ -214,7 +214,6 @@
 
 
                     {/* Start Ekspolari PKM-TI */}
-
                     <section className="flex flex-col mb-36 justify-center items-center text-white">
                         <div className="flex flex-row bg-white gap-2 md:py-5 py-4 px-3 rounded-t-2xl w-full shadow-2xl border-[1px] border-slate-200">
                             <div className="md:w-3 md:h-3 w-2 h-2 rounded-full bg-[#E11D48]"></div>
