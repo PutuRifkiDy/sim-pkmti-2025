@@ -72,23 +72,23 @@
                 <NavBar auth={auth} />
                 {/* End Navbar */}
 
-                <main className="px-12 pt-20 light:bg-[#F7F7F7]">
+                <main className="md:px-12 px-2 pt-20 light:bg-[#F7F7F7] overflow-x-hidden">
                     {/* Start HomePage */}
-                    <section className="flex md:flex-row flex-col-reverse w-full justify-between pb-20">
+                    <section className="flex md:flex-row flex-col-reverse max-w-full justify-between pb-20">
                         {/* Home Page Bagian Kiri */}
                         <div className="flex flex-col gap-7 justify-center items-center">
-                            <div className="relative md:w-[581px] w-full md:h-[210px] h-[148px] text-center md:text-start">
+                            <div className="relative md:w-[581px] max-w-full md:h-[210px] h-[148px] text-center md:text-start">
                                 <div className="md:absolute md:block hidden md:left-2 left-12 top-14">
                                     <IconTextHomePage />
                                 </div>
                                 <p className="font-bold md:text-[64px] text-[36px] light:text-[#111E41] leading-[1.1em] dark:text-[#42A1A4]">Sistem Informasi Pelatihan PKM TI Udayana</p>
                             </div>
                             <div>
-                                <p className="text-[16px] leading-[1.6em] light:text-[#0F172A] md:w-[581px] w-full font-normal dark:text-[#42A1A4] text-center md:text-start">
+                                <p className="text-[16px] leading-[1.6em] light:text-[#0F172A] md:w-[581px] max-max-w-full font-normal dark:text-[#42A1A4] text-center md:text-start">
                                     Pelatihan PKM TI 2025 merupakan bagian dari program kerja Himpunan Mahasiswa Teknologi Informasi Universitas Udayana periode 2025, yang bertujuan membimbing mahasiswa dalam merancang Program Kreativitas Mahasiswa (PKM) yang inovatif dan kreatif di bidang Teknologi Informasi.
                                 </p>
                             </div>
-                            <div className="flex md:flex-row flex-col md:gap-5 gap-1 md:justify-start justify-center md:w-[581px] w-full">
+                            <div className="flex md:flex-row flex-col md:gap-5 gap-1 md:justify-start justify-center md:w-[581px] max-w-full">
                                 {auth.user ? (
                                     <>
                                         <Link
@@ -123,14 +123,14 @@
                         </div>
                         {/* Home Page Bagian Kanan */}
                         <div className="flex justify-center items-center pt-2">
-                            <img src="/images/image-homepage.png" alt="" className="md:w-[672.34px] w-full md:h-[552px] h-auto" />
+                            <img src="/images/image-homepage.png" alt="" className="md:w-[672.34px] max-w-full md:h-[552px] h-auto" />
                         </div>
                     </section>
                     {/* End HomePage */}
 
                     {/* Agenda Acara*/}
                     <section className="mb-36 flex justify-center items-center md:mx-36 mx-0">
-                        <div className="flex md:flex-row flex-col justify-between gap-5 px-12 py-10 w-full shadow-xl border border-base-300 rounded-2xl ">
+                        <div className="flex md:flex-row flex-col justify-between gap-5 px-12 py-10 max-w-full shadow-xl border border-base-300 rounded-2xl ">
                             <div className="flex flex-row gap-4 sm:pr-10">
                                 <BookmarkSquareIcon className="w-6 h-6 font-extrabold" />
                                 <div className="block">
@@ -180,12 +180,12 @@
                     {/* End Agenda Acara */}
 
                     {/* Start Tentang PKM-TI */}
-                    <section className="flex md:flex-row flex-col w-full justify-around mb-36">
+                    <section className="flex md:flex-row flex-col max-w-full justify-around mb-36">
                         <div>
                             {/* Tentang PKM Bagian kiri */}
-                            <img src="images/image-tentangpkmti2025.png" alt="" className="md:w-[521px] w-full md:h-[479px] h-auto" />
+                            <img src="images/image-tentangpkmti2025.png" alt="" className="md:w-[521px] max-w-full md:h-[479px] h-auto" />
                         </div>
-                        <div className="flex flex-col justify-center md:w-[687px] w-full gap-10">
+                        <div className="flex flex-col justify-center md:w-[687px] max-w-full gap-10">
 
                             <div className="relative text-center md:text-start">
                                 <div className="md:absolute md:block hidden md:left-72 left-12 top-14">
@@ -215,13 +215,13 @@
 
                     {/* Start Ekspolari PKM-TI */}
 
-                    <section className="flex flex-col mb-36 justify-center items-center md:mx-12 mx-0 text-white">
-                        <div className="flex flex-row bg-white gap-2 md:py-5 py-4 px-3 rounded-t-2xl w-full shadow-2xl">
+                    <section className="flex flex-col mb-36 justify-center items-center text-white">
+                        <div className="flex flex-row bg-white gap-2 md:py-5 py-4 px-3 rounded-t-2xl w-full shadow-2xl border-[1px] border-slate-200">
                             <div className="md:w-3 md:h-3 w-2 h-2 rounded-full bg-[#E11D48]"></div>
                             <div className="md:w-3 md:h-3 w-2 h-2 bg-[#FBBF24] rounded-full"></div>
                             <div className="md:w-3 md:h-3 w-2 h-2 bg-[#22C55E] rounded-full"></div>
                         </div>
-                        <div className="flex flex-col bg-gradient-custom w-full h-auto rounded-b-2xl shadow-2xl">
+                        <div className="flex flex-col bg-gradient-custom max-w-full h-auto rounded-b-2xl shadow-2xl">
                             <div className="flex flex-col relative items-center text-center m-8 md:m-16 md:gap-2 gap-1">
                                 <h2 className="md:text-xl text-lg font-bold uppercase">Eksplorasi Topik PKM</h2>
                                 <h1 className="font-bold md:text-[48px] text-[36px] leading-9 z-10">Kembangkan Ide Cemerlang Anda</h1>
@@ -237,7 +237,7 @@
                                 <div key={index} className="flex flex-col justify-center items-center bg-white text-black m-2 px-4 py-6 rounded-lg text-center gap-2">
                                     <h1 className="text-xl text-[#111E41]">{topic.title}</h1>
                                     <p className="text-[14px] text-[#475569]">{topic.description}</p>
-                                    <Link href={topic.links} className="border-[2px] w-full border-[#285B70] p-2 rounded-lg mt-1 text-[#285B70] text-sm">
+                                    <Link href={topic.links} className="border-[2px] max-w-full border-[#285B70] p-2 rounded-lg mt-1 text-[#285B70] text-sm">
                                         Selengkapnya
                                     </Link>
                                 </div>
@@ -249,7 +249,7 @@
 
 
                     {/* Start Pembicara */}
-                    <section className="flex flex-col-reverse lg:flex-row items-center w-full gap-6 mb-36">
+                    <section className="flex flex-col-reverse lg:flex-row items-center max-w-full gap-6 mb-36">
                         <SlickCarousel>
                             <div>
                                 <div className="relative mx-2 overflow-hidden group rounded-lg">
@@ -389,7 +389,7 @@
                             variants={variantFade(100, 0)}
                             initial="hidden"
                             animate={controls}
-                            className="flex flex-col w-full lg:w-1/2"
+                            className="flex flex-col max-w-full lg:w-1/2"
                         >
                             <span className="uppercase text-[20px] font-semibold sm:text-base text-[#42A1A4] mb-1">
                                 Pembicara
@@ -422,8 +422,8 @@
 
 
                     {/* Start FAQ */}
-                    {/* <section className="flex flex-col gap-5 justify-center items-center">
-                        <div className="flex flex-col gap-2 justify-center items-center text-center md:w-[684px] w-full">
+                    <section className="flex flex-col gap-5 justify-center items-center">
+                        <div className="flex flex-col gap-2 justify-center items-center text-center md:w-[684px] max-w-full">
                             <p className="font-bold text-[20px] tracking-[0.01em] text-[#42A1A4]">
                                 FAQ
                             </p>
@@ -431,14 +431,40 @@
                                 Pertanyaan Umum yang Sering Ditanyakan
                             </h1>
                         </div>
-                        <div className="flex flex-row justify-evenly">
-
+                        <div className="flex md:flex-row flex-col justify-center items-center gap-5 w-full">
+                            <div className="hover:bg-[#59DFD1] hover:text-white md:w-[196px] w-full md:h-[50px] h-[60px] flex justify-center items-center rounded-[50px] border-[1px] border-[#42A1A4] text-[#42A1A4] font-bold text-[20px]">
+                                UI/UX Design
+                            </div>
+                            <div className="hover:bg-[#59DFD1] hover:text-white md:w-[196px] w-full md:h-[50px] h-[60px] flex justify-center items-center rounded-[50px] border-[1px] border-[#42A1A4] text-[#42A1A4] font-bold text-[20px]">
+                                UI/UX Design
+                            </div>
+                            <div className="hover:bg-[#59DFD1] hover:text-white md:w-[196px] w-full md:h-[50px] h-[60px] flex justify-center items-center rounded-[50px] border-[1px] border-[#42A1A4] text-[#42A1A4] font-bold text-[20px]">
+                                UI/UX Design
+                            </div>
                         </div>
-                        <div>
-
+                        <div className="flex md:flex-row flex-col justify-evenly items-center">
+                            <img src="images/faq.png" alt="" className="md:w-[481px] w-full md:h-[483px] h-auto"/>
+                            <div className="flex flex-col gap-2 md:w-1/2 w-full">
+                                <Accordion
+                                    title="Apakah mahasiswa program studi Teknologi Informasi Universitas Udayana wajib mengikuti Pelatihan PKM TI 2024?"
+                                    answer="Mahasiswa yang belum mengikuti Pelatihan PKM TI periode sebelumnya atau belum lulus pada pelatihan sebelumnya wajib untuk mengikuti Pelatihan PKM TI 2024. Dan bagi mahasiswa yang sudah mengikuti Pelatihan PKM TI periode sebelumnya juga boleh mengikuti Pelatihan PKM TI 2024."
+                                />
+                                <Accordion
+                                    title="Apa yang akan dilakukan mahasiswa selama Pelatihan PKM TI 2024?"
+                                    answer="Selama Pelatihan PKM TI 2024, mahasiswa akan dibimbing dalam merancang Program Kreativitas Mahasiswa (PKM) yang inovatif dan kreatif di bidang Teknologi Informasi."
+                                />
+                                <Accordion
+                                    title="Apa yang diharapkan mahasiswa peroleh setelah mengikuti Pelatihan PKM TI 2024?"
+                                    answer="Setelah mengikuti Pelatihan PKM TI 2024, diharapkan mahasiswa akan memperoleh pemahaman mendalam mengenai pengembangan judul, penyesuaian format berdasarkan pedoman, teknik penelitian, serta keterampilan teknis yang diperlukan untuk mengimplementasikan ide-ide tersebut."
+                                />
+                                <Accordion
+                                    title="Apa luaran yang dihasilkan oleh mahasiswa setelah mengikuti Pelatihan PKM TI 2024?"
+                                    answer="Luaran dari kegiatan ini berupa proposal PKM yang memiliki potensi memberikan manfaat signifikan dalam konteks Teknologi Informasi dan dapat diajukan untuk mendapatkan dukungan dan pendanaan pada tahun 2025."
+                                />
+                            </div>
                         </div>
-                    </section> */}
-                    {/* End FAQ */}
+                    </section>
+                    {/* End FAQ
 
 
                     {/* Start Kontak Kami */}
@@ -449,7 +475,7 @@
 
                 {/* Start Footer */}
                 <footer className="footer p-12 bg-base-200 text-base-content grid-flow-row sm:grid-cols-2 md:grid-cols-6 gap-x-20">
-                    <aside className="col-span-2 w-4/5 md:w-full">
+                    <aside className="col-span-2 w-4/5 md:max-w-full">
                         <img
                             src="images/Logo-PKM-TI-2025.png"
                             className="w-32"
@@ -495,22 +521,22 @@
 
     {/* <div className="flex flex-col pt-28 overflow-x-hidden">
     <main className="px-6 sm:px-0">
-        <div className="relative w-full">
-            <div className="flex flex-col sm:flex-row gap-6 items-center justify-between sm:px-12 w-full">
+        <div className="relative max-w-full">
+            <div className="flex flex-col sm:flex-row gap-6 items-center justify-between sm:px-12 max-w-full">
                 <motion.div
                     whileInView="visible"
                     variants={variantFade(-100, 0)}
                     initial="hidden"
                     animate={controls}
-                    className="flex flex-col w-full"
+                    className="flex flex-col max-w-full"
                 >
                     <span className="uppercase font-semibold text-sm sm:text-base mb-1 text-blue-lagoon">
                         Pelatihan PKM TI 2024
                     </span>
-                    <h3 className="capitalize text-secondary leading-19 font-bold text-5xl lg:text-6xl w-full">
+                    <h3 className="capitalize text-secondary leading-19 font-bold text-5xl lg:text-6xl max-w-full">
                         Sistem Informasi Pelatihan PKM TI Udayana
                     </h3>
-                    <p className="text-sm sm:text-base my-5 font-light w-full">
+                    <p className="text-sm sm:text-base my-5 font-light max-w-full">
                         Pelatihan PKM TI 2024 merupakan bagian dari program kerja Himpunan Mahasiswa Teknologi Informasi Universitas Udayana periode 2024, yang bertujuan membimbing mahasiswa dalam merancang Program Kreativitas Mahasiswa (PKM) yang inovatif dan kreatif di bidang Teknologi Informasi.
                     </p>
                     <div className="mt-3 w-64 none">
@@ -526,7 +552,7 @@
                     variants={variantFade(100, 0)}
                     initial="hidden"
                     animate={controls}
-                    className="hidden justify-center items-center w-full h-full lg:flex"
+                    className="hidden justify-center items-center max-w-full h-full lg:flex"
                 >
                     <div className="relative min-h-full">
                         <div className="transform rotate-y-45 translate-x-7 rounded-bl-3xl rounded-tr-3xl translate-y-8 absolute inset-0 bg-primary md:w-[350px] md:h-[350px] lg:w-[450px] lg:h-[450px]"></div>
@@ -541,13 +567,13 @@
         </div>
 
         {/* important date section */}
-    // <div className="flex flex-row w-full justify-center items-center mt-16 sm:mt-24 sm:px-12">
+    // <div className="flex flex-row max-w-full justify-center items-center mt-16 sm:mt-24 sm:px-12">
     //     <motion.div
     //         whileInView="visible"
     //         variants={variantFade(0, 100)}
     //         initial="hidden"
     //         animate={controls}
-    //         className="flex flex-col md:flex-row gap-4 justify-between items-start w-full md:w-11/12 bg-base-100 shadow-lg border border-base-300 px-6 py-6 rounded-lg"
+    //         className="flex flex-col md:flex-row gap-4 justify-between items-start max-w-full md:w-11/12 bg-base-100 shadow-lg border border-base-300 px-6 py-6 rounded-lg"
     //     >
     //         <div className="flex flex-row gap-4 sm:pr-10">
     //             <BookmarkSquareIcon className="w-6 h-6 font-extrabold" />
@@ -607,7 +633,7 @@
     //         variants={variantFade(-100, 0)}
     //         initial="hidden"
     //         animate={controls}
-    //         className="relative h-fit items-center w-full lg:w-1/2"
+    //         className="relative h-fit items-center max-w-full lg:w-1/2"
     //     >
     //         <div className="mx-auto hidden lg:block  lg:w-[450px] lg:h-[450px] transform -translate-x-8 translate-y-8 rounded-bl-3xl rounded-tr-3xl absolute inset-0 bg-primary"></div>
     //         <img
@@ -621,7 +647,7 @@
     //         variants={variantFade(100, 0)}
     //         initial="hidden"
     //         animate={controls}
-    //         className="w-full ml-0 mt-14 sm:mt-0 lg:w-1/2"
+    //         className="max-w-full ml-0 mt-14 sm:mt-0 lg:w-1/2"
     //     >
     //         <div className="flex items-center space-x-2 mb-4">
     //             <span className="inline h-1 w-32 bg-secondary rounded-full"></span>
@@ -655,7 +681,7 @@
     {/* pkm topic section */ }
     // <section id="pkm-topik" className="p-0 sm:p-10 mt-20">
     //     <div className="relative">
-    //         <div className="relative z-[1] h-fit pb-28 sm:pb-40 w-full rounded-2xl sm:rounded-3xl overflow-hidden p-6 sm:p-10 bg-[url('images/pkm-ti-2023-pembukaan.jpg')] bg-cover bg-no-repeat bg-center before:content-[''] before:absolute before:inset-0 before:block before:bg-gradient-to-t before:from-secondary before:to-blue-500 before:opacity-80 before:-z-[1]">
+    //         <div className="relative z-[1] h-fit pb-28 sm:pb-40 max-w-full rounded-2xl sm:rounded-3xl overflow-hidden p-6 sm:p-10 bg-[url('images/pkm-ti-2023-pembukaan.jpg')] bg-cover bg-no-repeat bg-center before:content-[''] before:absolute before:inset-0 before:block before:bg-gradient-to-t before:from-secondary before:to-blue-500 before:opacity-80 before:-z-[1]">
     //             <motion.div
     //                 whileInView="visible"
     //                 variants={variantZoom}
@@ -814,7 +840,7 @@
     {/* end pkm topic section */ }
 
     {/*  speakers section */ }
-    // <section className="flex flex-col-reverse lg:flex-row items-center w-full gap-6 sm:px-12 mt-20">
+    // <section className="flex flex-col-reverse lg:flex-row items-center max-w-full gap-6 sm:px-12 mt-20">
     //     <SlickCarousel>
     //         <div>
     //             <div className="relative mx-2 overflow-hidden group rounded-lg">
@@ -954,7 +980,7 @@
     //         variants={variantFade(100, 0)}
     //         initial="hidden"
     //         animate={controls}
-    //         className="flex flex-col w-full lg:w-1/2"
+    //         className="flex flex-col max-w-full lg:w-1/2"
     //     >
     //         <span className="uppercase text-sm sm:text-base text-primary font-semibold mb-1">
     //             Pembicara
@@ -1012,7 +1038,7 @@
     //         variants={variantZoom}
     //         initial="hidden"
     //         animate={controls}
-    //         className="overflow-x-auto w-full mt-6"
+    //         className="overflow-x-auto max-w-full mt-6"
     //     >
     //         <table className="table overflow-hidden">
     //             <thead>
@@ -1197,8 +1223,8 @@
     // </section>
 
     {/* testimoni section */ }
-    // <section className="flex flex-col w-full py-4 mt-24 sm:px-12">
-    //     <div className="relative z-[1] h-fit pb-28 sm:pb-40 w-full rounded-2xl sm:rounded-3xl overflow-hidden p-10 bg-[url('images/pkm-ti-2023.jpg')] bg-cover bg-no-repeat bg-center before:content-[''] before:absolute before:inset-0 before:block before:bg-gradient-to-t before:from-secondary before:to-blue-500 before:opacity-80 before:-z-[1]">
+    // <section className="flex flex-col max-w-full py-4 mt-24 sm:px-12">
+    //     <div className="relative z-[1] h-fit pb-28 sm:pb-40 max-w-full rounded-2xl sm:rounded-3xl overflow-hidden p-10 bg-[url('images/pkm-ti-2023.jpg')] bg-cover bg-no-repeat bg-center before:content-[''] before:absolute before:inset-0 before:block before:bg-gradient-to-t before:from-secondary before:to-blue-500 before:opacity-80 before:-z-[1]">
     //         <motion.div
     //             whileInView="visible"
     //             variants={variantZoom}
@@ -1228,7 +1254,7 @@
     //         <CustomCarousel className="flex justify-center items-center text-center space-x-4">
     //             <div className="relative flex justify-center items-center pb-5">
     //                 <div className="flex flex-col items-center w-11/12 md:max-w-[50rem] p-6 bg-white/75 backdrop-blur-2xl backdrop-brightness-150 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-    //                     <div className="w-full flex justify-center items-center mb-4 max-w-[12rem] max-h-[12rem] rounded-full overflow-hidden border-2 border-primary">
+    //                     <div className="max-w-full flex justify-center items-center mb-4 max-w-[12rem] max-h-[12rem] rounded-full overflow-hidden border-2 border-primary">
     //                         <img
     //                             src="images/kak-kepin.jpg?v=1"
     //                             className="object-contain object-center bg-no-repeat"
@@ -1249,7 +1275,7 @@
 
     //             <div className="relative flex justify-center items-center pb-5">
     //                 <div className="flex flex-col items-center w-11/12 md:max-w-[50rem] p-6 bg-white/75 backdrop-blur-2xl backdrop-brightness-150 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-    //                     <div className="w-full flex justify-center items-center mb-4 max-w-[12rem] max-h-[12rem] rounded-full overflow-hidden border-2 border-primary">
+    //                     <div className="max-w-full flex justify-center items-center mb-4 max-w-[12rem] max-h-[12rem] rounded-full overflow-hidden border-2 border-primary">
     //                         <img
     //                             src="images/kak-christina.jpg?v=1"
     //                             className="object-contain object-center bg-no-repeat"
@@ -1273,8 +1299,8 @@
     // </section>
 
     {/* FAQ section */ }
-    // <section id="FaQ" className="block w-full mt-20 py-16 sm:px-12">
-    //     <div className="flex flex-col w-full">
+    // <section id="FaQ" className="block max-w-full mt-20 py-16 sm:px-12">
+    //     <div className="flex flex-col max-w-full">
     //         <motion.div
     //             whileInView="visible"
     //             variants={variantFade(-100, 0)}
@@ -1293,7 +1319,7 @@
     //         </motion.div>
     //     </div>
 
-    //     <div className="flex flex-col-reverse lg:flex-row w-full mt-10 justify-between items-start lg:items-center">
+    //     <div className="flex flex-col-reverse lg:flex-row max-w-full mt-10 justify-between items-start lg:items-center">
     //         <motion.div
     //             whileInView="visible"
     //             variants={variantZoom}
@@ -1337,9 +1363,9 @@
     {/* Contact section */ }
     // <section
     //     id="contact-us"
-    //     className="min-h-screen flex flex-col justify-start w-full text-center items-center sm:pt-16 pb-0 sm:px-12"
+    //     className="min-h-screen flex flex-col justify-start max-w-full text-center items-center sm:pt-16 pb-0 sm:px-12"
     // >
-    //     <div className="mt-4 block justify-center  w-full text-center items-center">
+    //     <div className="mt-4 block justify-center  max-w-full text-center items-center">
     //         <motion.div
     //             whileInView="visible"
     //             variants={variantZoom}
@@ -1355,8 +1381,8 @@
     //                 </span>
     //             </h3>
 
-    //             <div className="flex w-full items-center text-center justify-center">
-    //                 <p className="font-light text-sm md:text-base text-slate-500 text-center mt-2 w-full md:w-4/5 ">
+    //             <div className="flex max-w-full items-center text-center justify-center">
+    //                 <p className="font-light text-sm md:text-base text-slate-500 text-center mt-2 max-w-full md:w-4/5 ">
     //                     Jika Anda memiliki pertanyaan lebih lanjut, jangan ragu untuk menghubungi narahubung yang tertera di bawah ini.
     //                 </p>
     //             </div>
@@ -1367,7 +1393,7 @@
     //             variants={variantZoom}
     //             initial="hidden"
     //             animate={controls}
-    //             className="flex flex-wrap md:flex-row justify-center items-center relative w-full gap-4 mt-5"
+    //             className="flex flex-wrap md:flex-row justify-center items-center relative max-w-full gap-4 mt-5"
     //         >
     //             <button className="bg-white-blue rounded-lg px-4 py-2 flex flex-row gap-3 items-center">
     //                 <ChatBubbleLeftEllipsisIcon className="w-12 h-12 text-primary" />

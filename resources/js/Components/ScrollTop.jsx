@@ -48,7 +48,7 @@ const ScrollToTop = () => {
     };
 
     return (
-        <div className="fixed bottom-10 z-40 md:right-10 right-20 transition-all duration-100 ease-in-out flex flex-col items-center space-y-4">
+        <div className="fixed bottom-10 z-40 md:right-20 right-10 transition-all duration-100 ease-in-out flex flex-col items-center space-y-4">
             {isVisible ? (
                 <button
                     onMouseEnter={() => setIsHovered(true)}
