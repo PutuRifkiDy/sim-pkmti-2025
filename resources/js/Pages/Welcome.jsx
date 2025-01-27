@@ -147,7 +147,7 @@
                     {/* End Agenda Acara */}
 
                     {/* Start Tentang PKM-TI */}
-                    <section className="flex md:flex-row flex-col w-full justify-around md:gap-0 gap-12 mb-36">
+                    <section className="flex md:flex-row flex-col w-full justify-around mb-36">
                         <div>
                             {/* Tentang PKM Bagian kiri */}
                             <img src="images/image-tentangpkmti2025.png" alt="" className="md:w-[521px] w-full md:h-[479px] h-auto" />
@@ -186,7 +186,7 @@
 
 
                     {/* Start Pembicara */}
-                    <section className="flex flex-col-reverse lg:flex-row items-center w-full gap-6 sm:px-12 mb-36">
+                    <section className="flex flex-col-reverse lg:flex-row items-center w-full gap-6 mb-36">
                         <SlickCarousel>
                             <div>
                                 <div className="relative mx-2 overflow-hidden group rounded-lg">
@@ -359,7 +359,22 @@
 
 
                     {/* Start FAQ */}
+                    {/* <section className="flex flex-col gap-5 justify-center items-center">
+                        <div className="flex flex-col gap-2 justify-center items-center text-center md:w-[684px] w-full">
+                            <p className="font-bold text-[20px] tracking-[0.01em] text-[#42A1A4]">
+                                FAQ
+                            </p>
+                            <h1 className="font-bold text-[50px] leading-[50px] text-[#285B70]">
+                                Pertanyaan Umum yang Sering Ditanyakan
+                            </h1>
+                        </div>
+                        <div className="flex flex-row justify-evenly">
 
+                        </div>
+                        <div>
+
+                        </div>
+                    </section> */}
                     {/* End FAQ */}
 
 
