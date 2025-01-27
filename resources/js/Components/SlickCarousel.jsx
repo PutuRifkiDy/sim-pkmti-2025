@@ -73,13 +73,13 @@ function SlickCarousel({ children }) {
 
                 <div className="flex flex-row md:justify-start justify-center gap-4 mt-4">
                     <button
-                        className="btn glass btn-sm"
+                        className="px-5 py-2 rounded-[5px] hover:bg-slate-100 border-2 border-gray-solid shadow-xl"
                         onClick={handlePrevClick}
                     >
-                        <ArrowLongLeftIcon className="w-7 h-7 font-black " />
+                        <ArrowLongLeftIcon className="w-7 h-7 font-black" />
                     </button>
                     <button
-                        className="btn glass btn-sm"
+                        className="px-5 py-2 rounded-[5px] hover:bg-slate-100 border-2 border-gray-solid shadow-xl"
                         onClick={handleNextClick}
                     >
                         <ArrowLongRightIcon className="w-7 h-7 font-black" />
