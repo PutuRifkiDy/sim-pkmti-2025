@@ -6,6 +6,14 @@ export const IconTextHomePage = () => {
     );
 }
 
+export const IconTextTopics = () => {
+    return(
+        <svg width="196" height="23" viewBox="0 0 196 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0.5 9.23334C25.5 6.73335 116.5 1.87106 191 9.23336C152.328 9.23336 101.942 9.97781 69.5 17.7334" stroke="#59DFD1" stroke-width="10" stroke-linejoin="round"/>
+        </svg>
+    );
+}
+
 export const IconViewDemo = () => {
     return(
         <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg" >
