@@ -1,27 +1,26 @@
-import { Head, Link } from "@inertiajs/react";
-import { motion, useAnimation } from "framer-motion";
-import { BookOpenIcon } from "@heroicons/react/24/outline";
-import {
-    MapPinIcon,
-    CalendarDaysIcon,
-    BookmarkSquareIcon,
-    CalendarIcon,
-    ArrowLongDownIcon,
-    ChatBubbleLeftEllipsisIcon,
-} from "@heroicons/react/24/solid";
-import Accordion from "@/Components/Accordion";
-import { useState } from "react";
-import CustomCarousel from "@/Components/CustomCorausel";
-import NavBar from "@/Components/NavBar";
-import ScrollToTop from "@/Components/ScrollTop";
-import SlickCarousel from "@/Components/SlickCarousel";
-import { IconTextHomePage, IconViewDemo, IconTextTopics } from "@/Components/IconLanding";
-import { BoardArt } from "@/Components/Boards";
-import { BoardArtDark } from "@/Components/BoardDark";
-export default function Welcome({ auth }) {
-    const controls = useAnimation();
-    const [openIndex, setOpenIndex] = useState(null);
-    const [activeCategoryFaq, setActiveCategoryFaq] = useState("Hari H PKM");
+    import { Head, Link } from "@inertiajs/react";
+    import { motion, useAnimation } from "framer-motion";
+    import { BookOpenIcon } from "@heroicons/react/24/outline";
+    import {
+        MapPinIcon,
+        CalendarDaysIcon,
+        BookmarkSquareIcon,
+        CalendarIcon,
+        ArrowLongDownIcon,
+        ChatBubbleLeftEllipsisIcon,
+    } from "@heroicons/react/24/solid";
+    import Accordion from "@/Components/Accordion";
+    import { useState } from "react";
+    import CustomCarousel from "@/Components/CustomCorausel";
+    import NavBar from "@/Components/NavBar";
+    import ScrollToTop from "@/Components/ScrollTop";
+    import SlickCarousel from "@/Components/SlickCarousel";
+    import { IconTextHomePage, IconViewDemo, IconTextTopics, IconLine, IconWhatsapp } from "@/Components/IconLanding";
+    import { BoardArt } from "@/Components/Boards";
+    import { BoardArtDark } from "@/Components/BoardDark";
+    export default function Welcome({ auth }) {
+        const controls = useAnimation();
+        const [openIndex, setOpenIndex] = useState(null);
 
     const handleAccordionClick = (index) => {
         setOpenIndex(openIndex === index ? null : index);
@@ -420,178 +419,165 @@ export default function Welcome({ auth }) {
 
 
                 {/* Start Timeline */}
-                <section className="px-6 md:px-24 mb-20" id="Timeline">
-                    <div className="absolute hidden md:flex flex-row left-[50%] -translate-x-1/2 z-0 pt-20">
-                        <div className="block dark:hidden">
-                            <BoardArt />
-                            <BoardArt />
-                        </div>
-
-                        <div className="hidden dark:block">
-                            <BoardArtDark />
-                            <BoardArtDark />
-                        </div>
-                    </div>
+                <section className="px-6 md:px-24 mt-36 mb-16 " id="Timeline">
                     <div className="flex flex-col justify-center items-center z-10">
                         <h1 className="text-center text-[#42A1A4] text-[14px] md:text-[20px] font-bold" data-aos="fade-left">
                             TIMELINE PKM TI 2025
                         </h1>
-                        <h1 className="text-center text-[24px] md:text-[48px] font-bold w-full tracking-[0.2px] z-10 text-[#285B70]" data-aos="fade-right">
+                        <h1 className="md:w-1/3 text-center text-[24px] md:text-[48px] font-bold w-full tracking-[0.2px] z-10 text-[#285B70]" data-aos="fade-right">
                             Jangan Lewatkan Kesempatan Ini
                         </h1>
                     </div>
                     <div
-                        className="z-0 flex relative left-[170px] top-[50px] animate-bounce-custom animate-pulse"
-                        width={40}
-                        height={40}
+                        alt="gambar"
+                        className="max-w-[570px] h-[445px] absolute right-0 top-[6000px] md:top-[3200px] animate-bounce-custom"
                         data-aos="fade-up"
                     >
                     </div>
-                    <div className="flex flex-col z-10 mt-3 md:mt-10 text-black">
-                        <div className="flex flex-col gap-[130px] left-4 items-center pt-16 absolute w-1 bg-[#285B70] h-max md:left-1/2 transform md:-translate-x-1/2 z-10">
-                            <div className="w-5 h-5 md:w-9 md:h-9 bg-[#285B70] rounded-full relative z-20">
-                                <div className="items-center w-full h-full bg-[#285B70] rounded-full animate-ping"></div>
-                            </div>
-                            <div className="w-5 h-5 md:w-9 md:h-9 bg-[#285B70] rounded-full relative z-20">
-                                <div className="items-center w-full h-full bg-[#285B70] rounded-full animate-ping"></div>
-                            </div>
-                            <div className="w-5 h-5 md:w-9 md:h-9 bg-[#285B70] rounded-full relative z-20">
-                                <div className="items-center w-full h-full bg-[#285B70] rounded-full animate-ping"></div>
-                            </div>
-                            <div className="w-5 h-5 md:w-9 md:h-9 bg-[#285B70] rounded-full relative z-20">
-                                <div className="items-center w-full h-full bg-[#285B70] rounded-full animate-ping"></div>
-                            </div>
-                            <div className="w-5 h-5 md:w-9 md:h-9 bg-[#285B70] rounded-full relative z-20">
-                                <div className="items-center w-full h-full bg-[#285B70] rounded-full animate-ping"></div>
-                            </div>
-                            <div className="w-5 h-5 md:w-9 md:h-9 bg-[#285B70] rounded-full relative z-20">
-                                <div className="items-center w-full h-full bg-[#285B70] rounded-full animate-ping"></div>
-                            </div>
-                            <div className="w-5 h-5 md:w-9 md:h-9 bg-[#285B70] rounded-full relative z-20">
-                                <div className="items-center w-full h-full bg-[#285B70] rounded-full animate-ping"></div>
-                            </div>
-                            <div className="w-5 h-5 md:w-9 md:h-9 bg-[#285B70] rounded-full relative z-20">
-                                <div className="items-center w-full h-full bg-[#285B70] rounded-full animate-ping"></div>
-                            </div>
-                            <div className="w-5 h-5 md:w-9 md:h-9 bg-[#285B70] rounded-full relative z-20">
-                                <div className="items-center w-full h-full bg-[#285B70] rounded-full animate-ping"></div>
-                            </div>
-                            <div className="w-5 h-5 md:w-9 md:h-9 bg-[#285B70] rounded-full relative z-20">
-                                <div className="items-center w-full h-full bg-[#285B70] rounded-full animate-ping"></div>
-                            </div>
+                    <div className="font-sans my-3 md:my-5 flex w-full justify-end z-10 pl-0 md:pl-20" data-aos="fade-up">
+                        <div className="w-full md:w-[466px] ml-5 md:ml-0 mr-0 md:mr-20 p-4 bg-white border shadow-lg rounded-md">
+                            <h3 className="text-[16px] md:text-[20px] font-bold">Pelatihan PKM TI 2024</h3>
+                            <p className="text-[14px] md:text-[16px] font-medium mb-1">
+                                30 Maret 2024
+                            </p>
+                            <p className="text-[14px]">Aula Suastika, Gedung TI, Fakultas Teknik, Jimbaran</p>
                         </div>
-                        <div className="font-sans my-3 md:my-5 flex w-full justify-end z-10 md:pl-20" data-aos="fade-up">
-                            <div className="w-full md:w-[466px] ml-5 md:ml-0 mr-0 md:mr-20 p-4 bg-white border shadow-lg rounded-md ">
-                                <h3 className="text-[16px] md:text-[20px] font-bold">Pendaftaran dan Pengumpulan Judul</h3>
-                                <p className="text-[14px] md:text-[16px] font-medium mb-1"> 8 - 14 Maret 2024
-                                </p>
-                                <p className="text-[14px] md:text-[16px]">Melalui website resmi PKM TI https://pkm.hmtiudayana.id/</p>
-                            </div>
+                    </div>
+                    <div className="font-sans my-3 md:my-5 flex w-full justify-end md:justify-start z-10 pr-0 md:pr-24" data-aos="fade-up">
+                        <div className="w-full md:w-[466px] ml-5 md:ml-20 p-4 bg-white border shadow-lg rounded-md">
+                            <h3 className="text-[16px] md:text-[20px] font-bold">Masa Asistensi Draf Proposal PKM TI</h3>
+                            <p className="text-[14px] md:text-[16px] font-medium mb-1">
+                                30 Maret - 17 Mei 2024
+                            </p>
+                            <p className="text-[14px]">Hybird</p>
                         </div>
-                        <div className="font-sans my-3 md:my-5 flex w-full justify-end md:justify-start z-10 pr-0 md:pr-24" data-aos="fade-up">
-                            <div className="w-full md:w-[466px] ml-5 md:ml-20 p-4 bg-white border shadow-lg rounded-md">
-                                <h3 className="text-[16px] md:text-[20px] font-bold">Seleksi Judul</h3>
-                                <p className="text-[14px] md:text-[16px] font-medium mb-1">
-                                    8 - 21 Maret 2024
-                                </p>
-                                <p className="text-[14px]">Online</p>
-                            </div>
+                    </div>
+                    <div className="font-sans my-3 md:my-5 flex w-full justify-end z-10 pl-0 md:pl-20" data-aos="fade-up">
+                        <div className="w-full md:w-[466px] ml-5 md:ml-0 mr-0 md:mr-20 p-4 bg-white border shadow-lg rounded-md">
+                            <h3 className="text-[16px] md:text-[20px] font-bold">Pengumpulan Bukti Asistensi</h3>
+                            <p className="text-[14px] md:text-[16px] font-medium mb-1">
+                                31 Maret - 16 Mei 2024
+                            </p>
+                            {/* <p className="text-[14px]">On Webex https://webex</p> */}
                         </div>
-                        <div className="font-sans my-3 md:my-5 flex w-full justify-end z-10 pl-0 md:pl-20" data-aos="fade-up">
-                            <div className="w-full md:w-[466px] ml-5 md:ml-0 mr-0 md:mr-20 p-4 bg-white border shadow-lg rounded-md">
-                                <h3 className="text-[16px] md:text-[20px] font-bold">Pengumuman Tim Terdaftar</h3>
-                                <p className="text-[14px] md:text-[16px] font-medium mb-1">
-                                    22 Maret 2024
-                                </p>
-                                <p className="text-[14px]">Online</p>
-                            </div>
+                    </div>
+                    <div className="font-sans my-3 md:my-5 flex w-full justify-end md:justify-start z-10 pr-0 md:pr-24" data-aos="fade-up">
+                        <div className="w-full md:w-[466px] ml-5 md:ml-20 p-4 bg-white border shadow-lg rounded-md">
+                            <h3 className="text-[16px] md:text-[20px] font-bold">Pengumpulan Draf Proposal</h3>
+                            <p className="text-[14px] md:text-[16px] font-medium mb-1">
+                                11 - 17 Mei 2024
+                            </p>
+                            <p className="text-[14px]">Melalui website resmi PKM TI https://pkm.hmtiudayana.id/</p>
                         </div>
-                        <div className="font-sans my-3 md:my-5 flex w-full justify-end md:justify-start z-10 pr-0 md:pr-24" data-aos="fade-up">
-                            <div className="w-full md:w-[466px] ml-5 md:ml-20 p-4 bg-white border shadow-lg rounded-md">
-                                <h3 className="text-[16px] md:text-[20px] font-bold">Technical Meeting Peserta</h3>
-                                <p className="text-[14px] md:text-[16px] font-medium mb-1">
-                                    23 Maret 2024
-                                </p>
-                                <p className="text-[14px]">Online</p>
-                            </div>
+                    </div>
+                    <div className="font-sans my-3 md:my-5 flex w-full justify-end z-10 pl-0 md:pl-20" data-aos="fade-up">
+                        <div className="w-full md:w-[466px] ml-5 md:ml-0 mr-0 md:mr-20 p-4 bg-white border shadow-lg rounded-md">
+                            <h3 className="text-[16px] md:text-[20px] font-bold">Klinik PKM TI 2024</h3>
+                            <p className="text-[14px] md:text-[16px] font-medium mb-1">
+                                8 Juni 2024
+                            </p>
+                            <p className="text-[14px]">Online</p>
                         </div>
-                        <div
-                            alt="gambar"
-                            className="max-w-[570px] h-[445px] absolute right-0 top-[6000px] md:top-[3200px] animate-bounce-custom"
-                            data-aos="fade-up"
-                        >
+                    </div>
+                    <div className="font-sans my-3 md:my-5 flex w-full justify-end md:justify-start z-10 pr-0 md:pr-24" data-aos="fade-up">
+                        <div className="w-full md:w-[466px] ml-5 md:ml-20 p-4 bg-white border shadow-lg rounded-md">
+                            <h3 className="text-[16px] md:text-[20px] font-bold">Pengumpulan Proposal Final</h3>
+                            <p className="text-[14px] md:text-[16px] font-medium mb-1">
+                                12 - 15 Juni 2024
+                            </p>
+                            <p className="text-[14px]">Melalui website resmi PKM TI https://pkm.hmtiudayana.id/</p>
                         </div>
-                        <div className="font-sans my-3 md:my-5 flex w-full justify-end z-10 pl-0 md:pl-20" data-aos="fade-up">
-                            <div className="w-full md:w-[466px] ml-5 md:ml-0 mr-0 md:mr-20 p-4 bg-white border shadow-lg rounded-md">
-                                <h3 className="text-[16px] md:text-[20px] font-bold">Pelatihan PKM TI 2024</h3>
-                                <p className="text-[14px] md:text-[16px] font-medium mb-1">
-                                    30 Maret 2024
-                                </p>
-                                <p className="text-[14px]">Aula Suastika, Gedung TI, Fakultas Teknik, Jimbaran</p>
-                            </div>
-                        </div>
-                        <div className="font-sans my-3 md:my-5 flex w-full justify-end md:justify-start z-10 pr-0 md:pr-24" data-aos="fade-up">
-                            <div className="w-full md:w-[466px] ml-5 md:ml-20 p-4 bg-white border shadow-lg rounded-md">
-                                <h3 className="text-[16px] md:text-[20px] font-bold">Masa Asistensi Draf Proposal PKM TI</h3>
-                                <p className="text-[14px] md:text-[16px] font-medium mb-1">
-                                    30 Maret - 17 Mei 2024
-                                </p>
-                                <p className="text-[14px]">Hybird</p>
-                            </div>
-                        </div>
-                        <div className="font-sans my-3 md:my-5 flex w-full justify-end z-10 pl-0 md:pl-20" data-aos="fade-up">
-                            <div className="w-full md:w-[466px] ml-5 md:ml-0 mr-0 md:mr-20 p-4 bg-white border shadow-lg rounded-md">
-                                <h3 className="text-[16px] md:text-[20px] font-bold">Pengumpulan Bukti Asistensi</h3>
-                                <p className="text-[14px] md:text-[16px] font-medium mb-1">
-                                    31 Maret - 16 Mei 2024
-                                </p>
-                                {/* <p className="text-[14px]">On Webex https://webex</p> */}
-                            </div>
-                        </div>
-                        <div className="font-sans my-3 md:my-5 flex w-full justify-end md:justify-start z-10 pr-0 md:pr-24" data-aos="fade-up">
-                            <div className="w-full md:w-[466px] ml-5 md:ml-20 p-4 bg-white border shadow-lg rounded-md">
-                                <h3 className="text-[16px] md:text-[20px] font-bold">Pengumpulan Draf Proposal</h3>
-                                <p className="text-[14px] md:text-[16px] font-medium mb-1">
-                                    11 - 17 Mei 2024
-                                </p>
-                                <p className="text-[14px]">Melalui website resmi PKM TI https://pkm.hmtiudayana.id/</p>
-                            </div>
-                        </div>
-                        <div className="font-sans my-3 md:my-5 flex w-full justify-end z-10 pl-0 md:pl-20" data-aos="fade-up">
-                            <div className="w-full md:w-[466px] ml-5 md:ml-0 mr-0 md:mr-20 p-4 bg-white border shadow-lg rounded-md">
-                                <h3 className="text-[16px] md:text-[20px] font-bold">Klinik PKM TI 2024</h3>
-                                <p className="text-[14px] md:text-[16px] font-medium mb-1">
-                                    8 Juni 2024
-                                </p>
-                                <p className="text-[14px]">Online</p>
-                            </div>
-                        </div>
-                        <div className="font-sans my-3 md:my-5 flex w-full justify-end md:justify-start z-10 pr-0 md:pr-24" data-aos="fade-up">
-                            <div className="w-full md:w-[466px] ml-5 md:ml-20 p-4 bg-white border shadow-lg rounded-md">
-                                <h3 className="text-[16px] md:text-[20px] font-bold">Pengumpulan Proposal Final</h3>
-                                <p className="text-[14px] md:text-[16px] font-medium mb-1">
-                                    12 - 15 Juni 2024
-                                </p>
-                                <p className="text-[14px]">Melalui website resmi PKM TI https://pkm.hmtiudayana.id/</p>
-                            </div>
-                        </div>
-                        <div className="font-sans my-3 md:my-5 flex w-full justify-end z-10 pl-0 md:pl-20" data-aos="fade-up">
-                            <div className="w-full md:w-[466px] ml-5 md:ml-0 mr-0 md:mr-20 p-4 bg-white border shadow-lg rounded-md">
-                                <h3 className="text-[16px] md:text-[20px] font-bold">Pengumuman Kelulusan Pelatihan PKM TI 2024</h3>
-                                <p className="text-[14px] md:text-[16px] font-medium mb-1">
-                                    22 Juni 2024
-                                </p>
-                                {/* <p className="text-[14px]">On Webex https://webex</p> */}
-                            </div>
+                    </div>
+                    <div className="font-sans my-3 md:my-5 flex w-full justify-end z-10 pl-0 md:pl-20" data-aos="fade-up">
+                        <div className="w-full md:w-[466px] ml-5 md:ml-0 mr-0 md:mr-20 p-4 bg-white border shadow-lg rounded-md">
+                            <h3 className="text-[16px] md:text-[20px] font-bold">Pengumuman Kelulusan Pelatihan PKM TI 2024</h3>
+                            <p className="text-[14px] md:text-[16px] font-medium mb-1">
+                                22 Juni 2024
+                            </p>
+                            {/* <p className="text-[14px]">On Webex https://webex</p> */}
                         </div>
                     </div>
                 </section>
                 {/* End Timeline */}
 
 
-                {/* Start News Letter */}
+                    {/* Start News Letter */}
+                    <section className="flex flex-col max-w-full py-4 my-24 sm:px-12">
+                        <div className="relative z-[1] h-fit pb-28 sm:pb-40 max-w-full rounded-2xl sm:rounded-3xl overflow-hidden p-10 bg-cover bg-no-repeat bg-center before:content-[''] before:absolute before:inset-0 before:block bg-gradient-custom2 before:-z-[1]">
+                        <motion.div
+                                    whileInView="visible"
+                                    variants={variantZoom}
+                                    initial="hidden"
+                                    animate={controls}
+                                    className="flex flex-col justify-start items-center"
+                                >
+                                    <div className="flex items-center space-x-2 mb-2">
+                                        <p className="uppercase font-bold text-sm sm:text-xl text-center text-white px-6">
+                                            para suhu berbicara
+                                        </p>
+                                    </div>
+                                    <div className="relative flex">
+                                        <h2 className="capitalize text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center mb-2 z-10">
+                                            Bergabung dengan mereka
+                                        </h2>
+                                        <div className="md:absolute md:block hidden top-[65px] z-0">
+                                            <IconTextTopics />
+                                        </div>
+                                    </div>
+                                    <p className="text-slate-200 text-center text-sm sm:text-base mt-6 mx-12">
+                                    Jelajahi kategori-kategori sub topik PKM kami dan temukan passion yang menggetarkan hati Anda. Mulai dari keberlanjutan hingga teknologi, kesehatan hingga seni, kami mengundang Anda untuk meresapi setiap sub topik dengan penuh antusiasme. Temukan tempat Anda di dunia PKM, di mana setiap kategori adalah panggung bagi idealisasi dan perubahan.
+                                    </p>
+                                </motion.div>
+                            </div>
 
-                {/* End News Letter */}
+                            <div className="relative -mt-24 sm:-mt-32 z-[5] flex justify-center items-center">
+                                <CustomCarousel className="flex justify-center items-center text-center space-x-4">
+                                    <div className="relative flex justify-center items-center pb-5">
+                                        <div className="flex flex-col items-center w-11/12 md:max-w-[50rem] p-6 bg-white backdrop-brightness-150 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                                            <div className="flex justify-center items-center mb-4 max-w-[12rem] max-h-[12rem] rounded-full overflow-hidden border-2 border-primary">
+                                                <img
+                                                    src="images/image-bayu.png"
+                                                    className="object-contain object-center bg-no-repeat"
+                                                    alt="Kepin"
+                                                />
+                                            </div>
+                                            <p className="text-center text-slate-600 mb-2">
+                                            “ Program Kreativitas Mahasiswa-Karsa Cipta (PKM-KC) merupakan program penciptaan yang didasari atas karsa dan nalar mahasiswa, bersifat konstruktif serta menghasilkan suatu sistem, desain, model/barang atau prototipe dan sejenisnya. “
+                                            </p>
+                                            <h3 className="capitalize text-xl text-primary font-bold mb-2">
+                                                Bayu Zilong
+                                            </h3>
+                                            <p className="capitalize text-slate-400">
+                                                mahasiswa aktif teknologi informasi
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div className="relative flex justify-center items-center pb-5">
+                                        <div className="flex flex-col items-center w-11/12 md:max-w-[50rem] p-6 bg-white backdrop-brightness-150 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                                            <div className="flex justify-center items-center mb-4 max-w-[12rem] max-h-[12rem] rounded-full overflow-hidden border-2 border-primary">
+                                                <img
+                                                    src="images/kak-christina.jpg?v=1"
+                                                    className="object-contain object-center bg-no-repeat"
+                                                    alt="Christina"
+                                                />
+                                            </div>
+                                            <p className="text-center text-slate-600 mb-2">
+                                                “Banyak insight dan pandangan baru yang saya dapat berkat tips and trick dari Pelatihan PKM TI. Saya merasa lebih siap dan percaya diri untuk eksplorasi ide menjadi hasil yang inovatif.”
+                                            </p>
+                                            <h3 className="capitalize text-xl text-primary font-bold mb-2">
+                                                Christina
+                                            </h3>
+                                            <p className="capitalize text-slate-400">
+                                                mahasiswa aktif teknologi informasi
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                </CustomCarousel>
+                            </div>
+                        </section>
+                    {/* End News Letter */}
 
 
                 {/* Start FAQ */}
@@ -726,10 +712,57 @@ export default function Welcome({ auth }) {
 
 
                     {/* Start Kontak Kami */}
-
-                {/* End Kontak Kami */}
-                <ScrollToTop />
-            </main>
+                    <section className="flex flex-col justify-center items-center w-full my-12">
+                        <div className="flex flex-col justify-center items-center">
+                            <h1 className="font-bold text-[48px] text-[#285B70]">
+                                Kontak Kami
+                            </h1>
+                            <p className="w-4/5 text-base text-center">
+                                Jika Anda memiliki pertanyaan lebih lanjut, jangan ragu untuk menghubungi narahubung yang tertera di bawah ini.
+                            </p>
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-3 justify-between my-8 gap-16">
+                            <div className="flex flex-col gap-2 bg-[#2A337433] py-4 pl-4 pr-24 rounded-b-2xl border-t-2 border-[#285B70]">
+                                <h1 className="font-bold text-xl">Someone</h1>
+                                <div className="flex flex-row justify-start gap-4">
+                                    <IconLine/>
+                                    <a href="" className="text-base text-[#2A3374]">@clickablecontact</a>
+                                </div>
+                                <div className="flex flex-row justify-start gap-4">
+                                    <IconWhatsapp/>
+                                    <a href="" className="text-base text-[#2A3374]">0853121212123</a>
+                                </div>
+                            </div>
+                            <div className="flex flex-col gap-2 bg-[#27B8CD33] py-4 pl-4 pr-24 rounded-b-2xl border-t-2 border-[#2c98c6]">
+                                <h1 className="font-bold text-xl">Someone</h1>
+                                <div className="flex flex-row justify-start gap-4">
+                                    <IconLine/>
+                                    <a href="" className="text-base text-[#2A3374]">@clickablecontact</a>
+                                </div>
+                                <div className="flex flex-row justify-start gap-4">
+                                    <IconWhatsapp/>
+                                    <a href="" className="text-base text-[#2A3374]">0853121212123</a>
+                                </div>
+                            </div>
+                            <div className="flex flex-col gap-2 bg-[#2A337433] py-4 pl-4 pr-24 rounded-b-2xl border-t-2 border-[#285B70]">
+                                <h1 className="font-bold text-xl">Someone</h1>
+                                <div className="flex flex-row justify-start gap-4">
+                                    <IconLine/>
+                                    <a href="" className="text-base text-[#2A3374]">@clickablecontact</a>
+                                </div>
+                                <div className="flex flex-row justify-start gap-4">
+                                    <IconWhatsapp/>
+                                    <a href="" className="text-base text-[#2A3374]">0853121212123</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="">
+                            <img src="images/kontak-kami.png" alt="KONTAK-KAMI" className="md:w-[520px] w-full md:h-[416px] h-auto my-2"/>
+                        </div>
+                    </section>
+                    {/* End Kontak Kami */}
+                    <ScrollToTop />
+                </main>
 
             {/* Start Footer */}
             <footer className="footer p-12 bg-base-200 text-base-content grid-flow-row sm:grid-cols-2 md:grid-cols-6 gap-x-20">
