@@ -435,11 +435,81 @@
                         data-aos="fade-up"
                     >
                     </div>
+                    <div className="flex flex-col gap-[130px] left-4 items-center pt-16 absolute w-1 bg-[#285B70] h-max md:left-1/2 transform md:-translate-x-1/2 z-10">
+                        <div className="w-5 h-5 md:w-9 md:h-9 bg-[#285B70] rounded-full relative z-20">
+                            <div className="items-center w-full h-full bg-[#285B70] rounded-full animate-ping"></div>
+                        </div>
+                        <div className="w-5 h-5 md:w-9 md:h-9 bg-[#285B70] rounded-full relative z-20">
+                            <div className="items-center w-full h-full bg-[#285B70] rounded-full animate-ping"></div>
+                        </div>
+                        <div className="w-5 h-5 md:w-9 md:h-9 bg-[#285B70] rounded-full relative z-20">
+                            <div className="items-center w-full h-full bg-[#285B70] rounded-full animate-ping"></div>
+                        </div>
+                        <div className="w-5 h-5 md:w-9 md:h-9 bg-[#285B70] rounded-full relative z-20">
+                            <div className="items-center w-full h-full bg-[#285B70] rounded-full animate-ping"></div>
+                        </div>
+                        <div className="w-5 h-5 md:w-9 md:h-9 bg-[#285B70] rounded-full relative z-20">
+                            <div className="items-center w-full h-full bg-[#285B70] rounded-full animate-ping"></div>
+                        </div>
+                        <div className="w-5 h-5 md:w-9 md:h-9 bg-[#285B70] rounded-full relative z-20">
+                            <div className="items-center w-full h-full bg-[#285B70] rounded-full animate-ping"></div>
+                        </div>
+                        <div className="w-5 h-5 md:w-9 md:h-9 bg-[#285B70] rounded-full relative z-20">
+                            <div className="items-center w-full h-full bg-[#285B70] rounded-full animate-ping"></div>
+                        </div>
+                        <div className="w-5 h-5 md:w-9 md:h-9 bg-[#285B70] rounded-full relative z-20">
+                            <div className="items-center w-full h-full bg-[#285B70] rounded-full animate-ping"></div>
+                        </div>
+                        <div className="w-5 h-5 md:w-9 md:h-9 bg-[#285B70] rounded-full relative z-20">
+                            <div className="items-center w-full h-full bg-[#285B70] rounded-full animate-ping"></div>
+                        </div>
+                    </div>
+                    <div className="font-sans my-3 md:my-5 flex w-full justify-end z-10 md:pl-20" data-aos="fade-up">
+                        <div className="w-full md:w-[466px] ml-5 md:ml-0 mr-0 md:mr-20 p-4 bg-white border shadow-lg rounded-md ">
+                            <h3 className="text-[16px] md:text-[20px] font-bold">Pendaftaran dan Pengumpulan Judul</h3>
+                            <p className="text-[14px] md:text-[16px] font-medium mb-1"> 8 - 14 Maret 2024
+                            </p>
+                            <p className="text-[14px] md:text-[16px]">Melalui website resmi PKM TI https://pkm.hmtiudayana.id/</p>
+                        </div>
+                    </div>
+                    <div className="font-sans my-3 md:my-5 flex w-full justify-end md:justify-start z-10 pr-0 md:pr-24" data-aos="fade-up">
+                        <div className="w-full md:w-[466px] ml-5 md:ml-20 p-4 bg-white border shadow-lg rounded-md">
+                            <h3 className="text-[16px] md:text-[20px] font-bold">Seleksi Judul</h3>
+                            <p className="text-[14px] md:text-[16px] font-medium mb-1">
+                            8 - 21 Maret 2024
+                            </p>
+                            <p className="text-[14px]">Online</p>
+                        </div>
+                    </div>
+                    <div className="font-sans my-3 md:my-5 flex w-full justify-end z-10 pl-0 md:pl-20" data-aos="fade-up">
+                        <div className="w-full md:w-[466px] ml-5 md:ml-0 mr-0 md:mr-20 p-4 bg-white border shadow-lg rounded-md">
+                            <h3 className="text-[16px] md:text-[20px] font-bold">Pengumuman Tim Terdaftar</h3>
+                            <p className="text-[14px] md:text-[16px] font-medium mb-1">
+                            22 Maret 2024
+                            </p>
+                            <p className="text-[14px]">Online</p>
+                        </div>
+                    </div>
+                    <div className="font-sans my-3 md:my-5 flex w-full justify-end md:justify-start z-10 pr-0 md:pr-24" data-aos="fade-up">
+                        <div className="w-full md:w-[466px] ml-5 md:ml-20 p-4 bg-white border shadow-lg rounded-md">
+                            <h3 className="text-[16px] md:text-[20px] font-bold">Technical Meeting Peserta</h3>
+                            <p className="text-[14px] md:text-[16px] font-medium mb-1">
+                            23 Maret 2024
+                            </p>
+                            <p className="text-[14px]">Online</p>
+                        </div>
+                    </div>
+                    <div
+                        alt="gambar"
+                        className="max-w-[570px] h-[445px] absolute right-0 top-[6000px] md:top-[3200px] animate-bounce-custom"
+                        data-aos="fade-up"
+                    >
+                    </div>
                     <div className="font-sans my-3 md:my-5 flex w-full justify-end z-10 pl-0 md:pl-20" data-aos="fade-up">
                         <div className="w-full md:w-[466px] ml-5 md:ml-0 mr-0 md:mr-20 p-4 bg-white border shadow-lg rounded-md">
                             <h3 className="text-[16px] md:text-[20px] font-bold">Pelatihan PKM TI 2024</h3>
                             <p className="text-[14px] md:text-[16px] font-medium mb-1">
-                                30 Maret 2024
+                            30 Maret 2024
                             </p>
                             <p className="text-[14px]">Aula Suastika, Gedung TI, Fakultas Teknik, Jimbaran</p>
                         </div>
@@ -457,7 +527,7 @@
                         <div className="w-full md:w-[466px] ml-5 md:ml-0 mr-0 md:mr-20 p-4 bg-white border shadow-lg rounded-md">
                             <h3 className="text-[16px] md:text-[20px] font-bold">Pengumpulan Bukti Asistensi</h3>
                             <p className="text-[14px] md:text-[16px] font-medium mb-1">
-                                31 Maret - 16 Mei 2024
+                            31 Maret - 16 Mei 2024
                             </p>
                             {/* <p className="text-[14px]">On Webex https://webex</p> */}
                         </div>
@@ -475,7 +545,7 @@
                         <div className="w-full md:w-[466px] ml-5 md:ml-0 mr-0 md:mr-20 p-4 bg-white border shadow-lg rounded-md">
                             <h3 className="text-[16px] md:text-[20px] font-bold">Klinik PKM TI 2024</h3>
                             <p className="text-[14px] md:text-[16px] font-medium mb-1">
-                                8 Juni 2024
+                            8 Juni 2024
                             </p>
                             <p className="text-[14px]">Online</p>
                         </div>
@@ -493,7 +563,7 @@
                         <div className="w-full md:w-[466px] ml-5 md:ml-0 mr-0 md:mr-20 p-4 bg-white border shadow-lg rounded-md">
                             <h3 className="text-[16px] md:text-[20px] font-bold">Pengumuman Kelulusan Pelatihan PKM TI 2024</h3>
                             <p className="text-[14px] md:text-[16px] font-medium mb-1">
-                                22 Juni 2024
+                            22 Juni 2024
                             </p>
                             {/* <p className="text-[14px]">On Webex https://webex</p> */}
                         </div>
