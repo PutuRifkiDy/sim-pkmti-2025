@@ -10,6 +10,7 @@
         ChatBubbleLeftEllipsisIcon,
     } from "@heroicons/react/24/solid";
     import Accordion from "@/Components/Accordion";
+    import { useState } from "react";
     import CustomCarousel from "@/Components/CustomCorausel";
     import NavBar from "@/Components/NavBar";
     import ScrollToTop from "@/Components/ScrollTop";
@@ -19,7 +20,11 @@
     import { BoardArtDark } from "@/Components/BoardDark";
     export default function Welcome({ auth }) {
         const controls = useAnimation();
+        const [openIndex, setOpenIndex] = useState(null);
 
+        const handleAccordionClick = (index) => {
+            setOpenIndex(openIndex === index ? null : index);
+        };
         const variantFade = (x, y) => {
             return {
                 visible: { opacity: 1, x: 0, y: 0, transition: { duration: 0.8 } },
@@ -31,6 +36,8 @@
             visible: { opacity: 1, scale: 1, transition: { duration: 0.8 } },
             hidden: { opacity: 0, scale: 0.5, transition: { duration: 0.5 } },
         };
+
+
 
         const topics = [
             {
@@ -235,9 +242,9 @@
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-2 mx-8 mb-12">
                             {topics.map((topic, index) => (
                                 <div key={index} className="flex flex-col justify-center items-center bg-white text-black m-2 px-4 py-6 rounded-lg text-center gap-2">
-                                    <h1 className="text-xl text-[#111E41]">{topic.title}</h1>
-                                    <p className="text-[14px] text-[#475569]">{topic.description}</p>
-                                    <Link href={topic.links} className="border-[2px] max-w-full border-[#285B70] p-2 rounded-lg mt-1 text-[#285B70] text-sm">
+                                    <h1 className="text-[20px] text-[#111E41] leading-[1.1em]">{topic.title}</h1>
+                                    <p className="text-[14px] text-[#475569] leading-[1.4em]">{topic.description}</p>
+                                    <Link href={topic.links} className="border-[2px] w-full border-[#285B70] p-2 rounded-lg mt-1 text-[#285B70] text-[14px] leading-[24px] tracking-[0.5px]">
                                         Selengkapnya
                                     </Link>
                                 </div>
@@ -426,7 +433,7 @@
                                 TIMELINE PKM TI 2025
                             </h1>
                             <h1 className="md:w-1/3 text-center text-[24px] md:text-[48px] font-bold w-full tracking-[0.2px] z-10 text-[#285B70]" data-aos="fade-right">
-                                Jangan Lewatkan Kesempatan Ini 
+                                Jangan Lewatkan Kesempatan Ini
                             </h1>
                         </div>
                         <div
@@ -595,34 +602,43 @@
                         </div>
                         <div className="flex md:flex-row flex-col justify-center items-center gap-5 w-full">
                             <div className="hover:bg-[#59DFD1] hover:text-white md:w-[196px] w-full md:h-[50px] h-[60px] flex justify-center items-center rounded-[50px] border-[1px] border-[#42A1A4] text-[#42A1A4] font-bold text-[20px]">
-                                UI/UX Design
+                                Guidebook
                             </div>
                             <div className="hover:bg-[#59DFD1] hover:text-white md:w-[196px] w-full md:h-[50px] h-[60px] flex justify-center items-center rounded-[50px] border-[1px] border-[#42A1A4] text-[#42A1A4] font-bold text-[20px]">
-                                Branding Design
+                                Hari H PKM
                             </div>
                             <div className="hover:bg-[#59DFD1] hover:text-white md:w-[196px] w-full md:h-[50px] h-[60px] flex justify-center items-center rounded-[50px] border-[1px] border-[#42A1A4] text-[#42A1A4] font-bold text-[20px]">
-                                Wordpress
+                                Klinik PKM
                             </div>
                         </div>
                         <div className="flex md:flex-row flex-col justify-evenly items-center">
                             <img src="images/faq.png" alt="" className="md:w-[481px] w-full md:h-[483px] h-auto"/>
                             <div className="flex flex-col gap-2 md:w-1/2 w-full">
                                 <Accordion
-                                    title="Apakah mahasiswa program studi Teknologi Informasi Universitas Udayana wajib mengikuti Pelatihan PKM TI 2024?"
-                                    answer="Mahasiswa yang belum mengikuti Pelatihan PKM TI periode sebelumnya atau belum lulus pada pelatihan sebelumnya wajib untuk mengikuti Pelatihan PKM TI 2024. Dan bagi mahasiswa yang sudah mengikuti Pelatihan PKM TI periode sebelumnya juga boleh mengikuti Pelatihan PKM TI 2024."
+                                    heading="Apakah mahasiswa program studi Teknologi Informasi Universitas Udayana wajib mengikuti Pelatihan PKM TI 2024?"
+                                    description="Mahasiswa yang belum mengikuti Pelatihan PKM TI periode sebelumnya atau belum lulus pada pelatihan sebelumnya wajib untuk mengikuti Pelatihan PKM TI 2024. Dan bagi mahasiswa yang sudah mengikuti Pelatihan PKM TI periode sebelumnya juga boleh mengikuti Pelatihan PKM TI 2024."
+                                    isOpen={openIndex === 0}
+                                    onClick={() => handleAccordionClick(0)}
                                 />
                                 <Accordion
-                                    title="Apa yang akan dilakukan mahasiswa selama Pelatihan PKM TI 2024?"
-                                    answer="Selama Pelatihan PKM TI 2024, mahasiswa akan dibimbing dalam merancang Program Kreativitas Mahasiswa (PKM) yang inovatif dan kreatif di bidang Teknologi Informasi."
+                                    heading="Apa yang akan dilakukan mahasiswa selama Pelatihan PKM TI 2024?"
+                                    description="Selama Pelatihan PKM TI 2024, mahasiswa akan dibimbing dalam merancang Program Kreativitas Mahasiswa (PKM) yang inovatif dan kreatif di bidang Teknologi Informasi."
+                                    isOpen={openIndex === 1}
+                                    onClick={() => handleAccordionClick(1)}
                                 />
                                 <Accordion
-                                    title="Apa yang diharapkan mahasiswa peroleh setelah mengikuti Pelatihan PKM TI 2024?"
-                                    answer="Setelah mengikuti Pelatihan PKM TI 2024, diharapkan mahasiswa akan memperoleh pemahaman mendalam mengenai pengembangan judul, penyesuaian format berdasarkan pedoman, teknik penelitian, serta keterampilan teknis yang diperlukan untuk mengimplementasikan ide-ide tersebut."
+                                    heading="Apa yang diharapkan mahasiswa peroleh setelah mengikuti Pelatihan PKM TI 2024?"
+                                    description="Setelah mengikuti Pelatihan PKM TI 2024, diharapkan mahasiswa akan memperoleh pemahaman mendalam mengenai pengembangan judul, penyesuaian format berdasarkan pedoman, teknik penelitian, serta keterampilan teknis yang diperlukan untuk mengimplementasikan ide-ide tersebut."
+                                    isOpen={openIndex === 3}
+                                    onClick={() => handleAccordionClick(3)}
                                 />
                                 <Accordion
-                                    title="Apa luaran yang dihasilkan oleh mahasiswa setelah mengikuti Pelatihan PKM TI 2024?"
-                                    answer="Luaran dari kegiatan ini berupa proposal PKM yang memiliki potensi memberikan manfaat signifikan dalam konteks Teknologi Informasi dan dapat diajukan untuk mendapatkan dukungan dan pendanaan pada tahun 2025."
+                                    heading="Apa luaran yang dihasilkan oleh mahasiswa setelah mengikuti Pelatihan PKM TI 2024?"
+                                    description="Luaran dari kegiatan ini berupa proposal PKM yang memiliki potensi memberikan manfaat signifikan dalam konteks Teknologi Informasi dan dapat diajukan untuk mendapatkan dukungan dan pendanaan pada tahun 2025."
+                                    isOpen={openIndex === 4}
+                                    onClick={() => handleAccordionClick(4)}
                                 />
+
                             </div>
                         </div>
                     </section>

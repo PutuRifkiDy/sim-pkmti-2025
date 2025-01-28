@@ -1,50 +1,41 @@
 import React, { useState } from "react";
-import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/solid";
 
-const Accordion = ({ title, answer }) => {
-    const [accordionOpen, setAccordionOpen] = useState(false);
+const Accordion = ({ heading, description, isOpen, onClick }) => {
+
+
     return (
-        <>
-            <div
-                className={`px-4 rounded-xl items-center border border-slate-200 ${
-                    accordionOpen
-                        ? "bg-[#285B70] py-5"
-                        : "bg-white shadow-md py-5"
-                }`}
+        <div className={`w-full md:w-[636px] border rounded-[10px] m-2 p-2 shadow-lg ${isOpen ? 'bg-[#285B70]' : ''}`}>
+            <button
+                className="w-full px-4 py-2 text-left focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75"
+                onClick={onClick}
             >
-                <button
-                    className="flex justify-between w-full "
-                    onClick={() => setAccordionOpen(!accordionOpen)}
-                >
-                    {accordionOpen ? (
-                        <div className="w-11/12 text-base text-white font-semibold text-start">
-                            {title}
-                        </div>
-                    ) : (
-                        <div className="w-11/12 text-base text-slate-800 font-semibold text-start">
-                            {title}
-                        </div>
-                    )}
-
-                    {accordionOpen ? (
-                        <ChevronUpIcon className="text-white w-5 h-5" />
-                    ) : (
-                        <ChevronDownIcon className="text-slate-900 cw-5 h-5" />
-                    )}
-                </button>
-
-                <div
-                    className={`grid overflow-hidden transition-all duration-300 ease-in-out text-white text-base ${
-                        accordionOpen
-                            ? "grid-rows-[1fr] opacity-100 mt-4"
-                            : "grid-rows-[0] opacity-0"
-                    }`}
-                >
-                    <p className="overflow-hidden text-[16px] leading-[1.5em]">{answer}</p>
+                <div className="flex items-center justify-between">
+                    <span className={`text-[15px] md:text-lg font-semibold light:text-gray-900 w-[550px] ${isOpen ? 'text-[#FFFFFF]' : ''}`}>{heading}</span>
+                    {/* icon arrow */}
+                    <svg
+                        className={`w-6 h-6 transition-transform transform ${isOpen ? 'rotate-180 stroke-white' : ''
+                            }`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M19 9l-7 7-7-7"
+                        />
+                    </svg>
                 </div>
-            </div>
-        </>
+            </button>
+            {isOpen && (
+                <div className={`px-4 py-2 text-gray-700 ${isOpen ? 'text-[#FFFFFF]' : ''}`}>
+                    {description}
+                </div>
+            )}
+        </div>
     );
-};
+}
 
 export default Accordion;
