@@ -441,7 +441,7 @@
                                 TIMELINE PKM TI 2025
                             </h1>
                             <h1 className="md:w-1/3 text-center text-[24px] md:text-[48px] font-bold w-full tracking-[0.2px] z-10 text-[#285B70]" data-aos="fade-right">
-                                Jangan Lewatkan Kesempatan Ini 
+                                Jangan Lewatkan Kesempatan Ini
                             </h1>
                         </div>
                         <div
