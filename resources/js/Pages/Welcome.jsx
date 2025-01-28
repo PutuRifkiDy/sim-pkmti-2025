@@ -93,7 +93,7 @@ export default function Welcome({ auth }) {
                             <p className="font-bold md:text-[64px] text-[36px] light:text-[#111E41] leading-[1.1em] dark:text-[#42A1A4]">Sistem Informasi Pelatihan PKM TI Udayana</p>
                         </div>
                         <div>
-                            <p className="text-[16px] leading-[1.6em] light:text-[#0F172A] md:w-[581px] max-max-w-full font-normal dark:text-[#42A1A4] text-center md:text-start">
+                            <p className="text-[18px] leading-[1.6em] light:text-[#0F172A] md:w-[581px] max-max-w-full font-normal dark:text-[#42A1A4] text-center md:text-start">
                                 Pelatihan PKM TI 2025 merupakan bagian dari program kerja Himpunan Mahasiswa Teknologi Informasi Universitas Udayana periode 2025, yang bertujuan membimbing mahasiswa dalam merancang Program Kreativitas Mahasiswa (PKM) yang inovatif dan kreatif di bidang Teknologi Informasi.
                             </p>
                         </div>
@@ -203,15 +203,15 @@ export default function Welcome({ auth }) {
                             <p className="font-bold md:text-[56px] text-[36px] light:text-[#111E41] leading-[1.1em] dark:text-[#42A1A4]">Tentang PKM TI 2025</p>
                         </div>
                         <div className="flex flex-col gap-3 text-center md:text-start">
-                            <p className="text-[20px] leading-[1.8em] light:text-[#111E41] dark:text-[#42A1A4] font-bold">
+                            <p className="text-[24px] leading-[1.8em] light:text-[#111E41] dark:text-[#42A1A4] font-bold">
                                 Apa itu PKM TI 2025?
                             </p>
-                            <p className="text-[16px] leading-[1.8em] light:text-[#111E41] dark:text-[#42A1A4]">
+                            <p className="text-[17px] leading-[1.8em] light:text-[#111E41] dark:text-[#42A1A4]">
                                 Pelatihan PKM Teknologi Informasi 2025 oleh HMTI bertujuan memberikan platform bagi mahasiswa untuk memperluas pengetahuan tentang Program Kreativitas Mahasiswa (PKM). Mengusung tema “...” pelatihan ini diharapkan memotivasi mahasiswa Teknologi Informasi untuk mengembangkan kreativitas visioner dan mengikuti tren masa depan. Kegiatan ini juga bertujuan meningkatkan pemahaman mahasiswa terkait pengembangan judul, penyesuaian format pedoman, teknik penelitian, dan keterampilan teknis.
                             </p>
                             <a
                                 href="#pkm-topik"
-                                className="flex mt-4 text-sm text-slate-500 cursor-pointer"
+                                className="flex mt-4 text-[17px] text-slate-500 cursor-pointer"
                             >
                                 <ArrowLongDownIcon className="w-6 h-6 mr-3 animate-bounce" />
                                 Jelajahi Bidang PKM TI 2025
@@ -236,16 +236,16 @@ export default function Welcome({ auth }) {
                             <div className="md:absolute md:block hidden md:left-[740px] left-12 top-20 z-0">
                                 <IconTextTopics />
                             </div>
-                            <p className="text-base font-normal leading-6 md:mx-[70px] mt-2 md:mt-6">
+                            <p className="text-[16px] leading-[1.5em] font-normal md:mx-[70px] mt-2 md:mt-6">
                                 Jelajahi kategori-kategori sub topik PKM kami dan temukan passion yang menggetarkan hati Anda. Mulai dari keberlanjutan hingga teknologi, kesehatan hingga seni, kami mengundang Anda untuk meresapi setiap sub topik dengan penuh antusiasme. Temukan tempat Anda di dunia PKM, di mana setiap kategori adalah panggung bagi idealisasi dan perubahan.
                             </p>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-2 mx-8 mb-12">
                             {topics.map((topic, index) => (
                                 <div key={index} className="flex flex-col justify-center items-center bg-white text-black m-2 px-4 py-6 rounded-lg text-center gap-2">
-                                    <h1 className="text-[20px] text-[#111E41] leading-[1.1em]">{topic.title}</h1>
-                                    <p className="text-[14px] text-[#475569] leading-[1.4em]">{topic.description}</p>
-                                    <Link href={topic.links} className="border-[2px] w-full border-[#285B70] p-2 rounded-lg mt-1 text-[#285B70] text-[14px] leading-[24px] tracking-[0.5px]">
+                                    <h1 className="text-[24px] text-[#111E41] leading-[1.1em]">{topic.title}</h1>
+                                    <p className="text-[17px] text-[#475569] leading-[1.4em]">{topic.description}</p>
+                                    <Link href={topic.links} className="border-[2px] w-full border-[#285B70] p-2 rounded-lg mt-1 text-[#285B70] text-[17px] leading-[24px] tracking-[0.5px]">
                                         Selengkapnya
                                     </Link>
                                 </div>
@@ -405,7 +405,7 @@ export default function Welcome({ auth }) {
                         <h3 className="capitalize text-3xl md:text-[48px] lg:text-5xl font-bold text-[#285B70] leading-12 md:leading-16">
                             Bertemu dengan mereka yang sudah profesional
                         </h3>
-                        <p className="text-[16px] leading-[1.5em] font-normal light:text-[#111E41] mt-3">
+                        <p className="text-[18px] leading-[1.5em] font-normal light:text-[#111E41] mt-3">
                             Selamatkan tempat di barisan terdepan karena
                             kami mempersembahkan Narasumber yang luar biasa
                             di acara spesial PKM kami! Bersiaplah untuk
@@ -609,27 +609,27 @@ export default function Welcome({ auth }) {
                     </div>
                     {/* Buttons */}
                     <div className="flex md:flex-row flex-col justify-center items-center gap-5 w-full">
-                        <button
+                        <div
                             onClick={() => setActiveCategoryFaq("Guidebook")}
                             className={`${activeCategoryFaq === "Guidebook" ? "bg-[#59DFD1] shadow-[0_0_10px_#59DFD1] text-white" : ""
-                                } hover:bg-[#59DFD1] hover:shadow-[0_0_10px_#59DFD1] hover:text-white md:w-[196px] w-full md:h-[50px] h-[60px] flex justify-center items-center rounded-[50px] border-[1px] text-[#42A1A4] font-bold text-[20px]`}
+                                } hover:bg-[#59DFD1] hover:shadow-[0_0_10px_#59DFD1] hover:text-white md:w-[196px] w-full md:h-[50px] h-[60px] flex justify-center items-center rounded-[50px] border-[1px] border-slate-200 text-[#42A1A4] font-bold text-[20px]`}
                         >
                             Guidebook
-                        </button>
-                        <button
+                        </div>
+                        <div
                             onClick={() => setActiveCategoryFaq("Hari H PKM")}
                             className={`${activeCategoryFaq === "Hari H PKM" ? "bg-[#59DFD1] text-white shadow-[0_0_10px_#59DFD1]" : ""
-                                } hover:bg-[#59DFD1] hover:shadow-[0_0_10px_#59DFD1] hover:text-white md:w-[196px] w-full md:h-[50px] h-[60px] flex justify-center items-center rounded-[50px] border-[1px] text-[#42A1A4] font-bold text-[20px]`}
+                                } hover:bg-[#59DFD1] hover:shadow-[0_0_10px_#59DFD1] hover:text-white md:w-[196px] w-full md:h-[50px] h-[60px] flex justify-center items-center rounded-[50px] border-[1px] border-slate-200 text-[#42A1A4] font-bold text-[20px]`}
                         >
                             Hari H PKM
-                        </button>
-                        <button
+                        </div>
+                        <div
                             onClick={() => setActiveCategoryFaq("Klinik PKM")}
                             className={`${activeCategoryFaq === "Klinik PKM" ? "bg-[#59DFD1] text-white shadow-[0_0_10px_#59DFD1]" : ""
-                                } hover:bg-[#59DFD1] hover:shadow-[0_0_10px_#59DFD1] hover:text-white md:w-[196px] w-full md:h-[50px] h-[60px] flex justify-center items-center rounded-[50px] border-[1px] text-[#42A1A4] font-bold text-[20px]`}
+                                } hover:bg-[#59DFD1] hover:shadow-[0_0_10px_#59DFD1] hover:text-white md:w-[196px] w-full md:h-[50px] h-[60px] flex justify-center items-center rounded-[50px] border-[1px] border-slate-200 text-[#42A1A4] font-bold text-[20px]`}
                         >
                             Klinik PKM
-                        </button>
+                        </div>
                     </div>
                     <div className="flex md:flex-row flex-col justify-evenly items-center w-full">
                         <img src="images/faq.png" alt="" key={activeCategoryFaq} className="w-full md:w-[481px] md:h-[483px] h-auto" />
