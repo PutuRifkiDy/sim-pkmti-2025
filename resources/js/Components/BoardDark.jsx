@@ -1,4 +1,6 @@
+
 export const BoardArtDark = () => {
+<<<<<<< HEAD
     return (
         <svg width="869" height="872" viewBox="0 0 869 872" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <rect x="320.5" width="632.798" height="641" transform="rotate(30 320.5 0)" fill="url(#pattern0_227_1045)" />
@@ -20,4 +22,9 @@ export const BoardArtDark = () => {
 
 
     );
+=======
+  return (
+    <img src={'images/artboarddark.png'} alt="Backdrop" className="block light:hidden"/>
+  );
+>>>>>>> 3c937278984b4e5732e491ba5766fcc234c38eec
 };

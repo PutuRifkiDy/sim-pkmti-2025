@@ -419,6 +419,7 @@ export default function Welcome({ auth }) {
                 {/* End Pembicara */}
 
 
+<<<<<<< HEAD
                 {/* Start Timeline */}
                 <section className="px-6 md:px-24 mb-20" id="Timeline">
                     <div className="absolute hidden md:flex flex-row left-[50%]  -translate-x-1/2 z-0 translate-y-1/4">
@@ -484,6 +485,17 @@ export default function Welcome({ auth }) {
                             <div className="w-5 h-5 md:w-9 md:h-9 bg-[#285B70] rounded-full relative z-20">
                                 <div className="items-center w-full h-full bg-[#285B70] rounded-full animate-ping"></div>
                             </div>
+=======
+                    {/* Start Timeline */}
+                    <section className="px-6 md:px-24 mt-36 mb-16 " id="Timeline">
+                        <div className="absolute hidden md:flex flex-row left-[50%]  -translate-x-1/2 z-0 translate-y-1/4">
+                            <BoardArtDark />
+                            <BoardArt />
+                        </div>
+                        <div className="absolute hidden md:flex flex-row left-[50%]  -translate-x-1/2 z-0 translate-y-[950px]">
+                            <BoardArtDark />
+                            <BoardArt />
+>>>>>>> 3c937278984b4e5732e491ba5766fcc234c38eec
                         </div>
                         <div className="font-sans my-3 md:my-5 flex w-full justify-end z-10 md:pl-20" data-aos="fade-up">
                             <div className="w-full md:w-[466px] ml-5 md:ml-0 mr-0 md:mr-20 p-4 bg-white border shadow-lg rounded-md ">
