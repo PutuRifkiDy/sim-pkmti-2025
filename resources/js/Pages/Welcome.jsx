@@ -21,21 +21,22 @@
     export default function Welcome({ auth }) {
         const controls = useAnimation();
         const [openIndex, setOpenIndex] = useState(null);
+        const [activeCategoryFaq, setActiveCategoryFaq] = useState("Guidebook");
 
-    const handleAccordionClick = (index) => {
-        setOpenIndex(openIndex === index ? null : index);
-    };
-    const variantFade = (x, y) => {
-        return {
-            visible: { opacity: 1, x: 0, y: 0, transition: { duration: 0.8 } },
-            hidden: { opacity: 0, x: x, y: y, transition: { duration: 0.5 } },
+        const handleAccordionClick = (index) => {
+            setOpenIndex(openIndex === index ? null : index);
         };
-    };
+        const variantFade = (x, y) => {
+            return {
+                visible: { opacity: 1, x: 0, y: 0, transition: { duration: 0.8 } },
+                hidden: { opacity: 0, x: x, y: y, transition: { duration: 0.5 } },
+            };
+        };
 
-    const variantZoom = {
-        visible: { opacity: 1, scale: 1, transition: { duration: 0.8 } },
-        hidden: { opacity: 0, scale: 0.5, transition: { duration: 0.5 } },
-    };
+        const variantZoom = {
+            visible: { opacity: 1, scale: 1, transition: { duration: 0.8 } },
+            hidden: { opacity: 0, scale: 0.5, transition: { duration: 0.5 } },
+        };
 
 
 
