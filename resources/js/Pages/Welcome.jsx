@@ -21,7 +21,7 @@ import { BoardArtDark } from "@/Components/BoardDark";
 export default function Welcome({ auth }) {
     const controls = useAnimation();
     const [openIndex, setOpenIndex] = useState(null);
-    const [activeCategoryFaq, setActiveCategoryFaq] = useState("Guidebook");
+    const [activeCategoryFaq, setActiveCategoryFaq] = useState("Hari H PKM");
 
     const handleAccordionClick = (index) => {
         setOpenIndex(openIndex === index ? null : index);
@@ -97,7 +97,7 @@ export default function Welcome({ auth }) {
                                 Pelatihan PKM TI 2025 merupakan bagian dari program kerja Himpunan Mahasiswa Teknologi Informasi Universitas Udayana periode 2025, yang bertujuan membimbing mahasiswa dalam merancang Program Kreativitas Mahasiswa (PKM) yang inovatif dan kreatif di bidang Teknologi Informasi.
                             </p>
                         </div>
-                        <div className="flex md:flex-row flex-col md:gap-5 gap-1 md:justify-start justify-center md:w-[581px] max-w-full">
+                        <div className="flex md:flex-row flex-col md:gap-5 gap-1 md:justify-start justify-center md:w-[581px] w-full">
                             {auth.user ? (
                                 <>
                                     <Link
@@ -419,22 +419,16 @@ export default function Welcome({ auth }) {
                 {/* End Pembicara */}
 
 
-<<<<<<< HEAD
                 {/* Start Timeline */}
                 <section className="px-6 md:px-24 mb-20" id="Timeline">
-                    <div className="absolute hidden md:flex flex-row left-[50%]  -translate-x-1/2 z-0 translate-y-1/4">
+                    <div className="absolute hidden md:flex flex-row left-[50%] -translate-x-1/2 z-0 pt-20">
                         <div className="block dark:hidden">
                             <BoardArt />
+                            <BoardArt />
                         </div>
+
                         <div className="hidden dark:block">
                             <BoardArtDark />
-                        </div>
-                    </div>
-                    <div className="absolute hidden md:flex flex-row left-[50%]  -translate-x-1/2 z-0 translate-y-[950px]">
-                        <div className="block dark:hidden">
-                            <BoardArt />
-                        </div>
-                        <div className="hidden dark:d-block">
                             <BoardArtDark />
                         </div>
                     </div>
@@ -485,17 +479,6 @@ export default function Welcome({ auth }) {
                             <div className="w-5 h-5 md:w-9 md:h-9 bg-[#285B70] rounded-full relative z-20">
                                 <div className="items-center w-full h-full bg-[#285B70] rounded-full animate-ping"></div>
                             </div>
-=======
-                    {/* Start Timeline */}
-                    <section className="px-6 md:px-24 mt-36 mb-16 " id="Timeline">
-                        <div className="absolute hidden md:flex flex-row left-[50%]  -translate-x-1/2 z-0 translate-y-1/4">
-                            <BoardArtDark />
-                            <BoardArt />
-                        </div>
-                        <div className="absolute hidden md:flex flex-row left-[50%]  -translate-x-1/2 z-0 translate-y-[950px]">
-                            <BoardArtDark />
-                            <BoardArt />
->>>>>>> 3c937278984b4e5732e491ba5766fcc234c38eec
                         </div>
                         <div className="font-sans my-3 md:my-5 flex w-full justify-end z-10 md:pl-20" data-aos="fade-up">
                             <div className="w-full md:w-[466px] ml-5 md:ml-0 mr-0 md:mr-20 p-4 bg-white border shadow-lg rounded-md ">
@@ -612,8 +595,8 @@ export default function Welcome({ auth }) {
 
 
                 {/* Start FAQ */}
-                <section className="flex flex-col gap-5 justify-center items-center">
-                    <div className="flex flex-col gap-2 justify-center items-center text-center max-w-full">
+                <section className="flex flex-col gap-5 justify-center items-center w-full">
+                    <div className="flex flex-col gap-2 justify-center items-center text-center">
                         <p className="font-bold text-[20px] tracking-[0.01em] text-[#42A1A4]">
                             FAQ
                         </p>
@@ -648,10 +631,10 @@ export default function Welcome({ auth }) {
                             Klinik PKM
                         </button>
                     </div>
-                    <div className="flex md:flex-row flex-col justify-evenly items-center">
-                        <img src="images/faq.png" alt="" className="md:w-[481px] w-full md:h-[483px] h-auto" />
+                    <div className="flex md:flex-row flex-col justify-evenly items-center w-full">
+                        <img src="images/faq.png" alt="" key={activeCategoryFaq} className="w-full md:w-[481px] md:h-[483px] h-auto" />
                         {activeCategoryFaq === "Guidebook" && (
-                            <div className="flex flex-col gap-2 md:w-1/2 w-full">
+                            <div className="flex flex-col gap-2">
                                 <Accordion
                                     heading="Apakah mahasiswa program studi Teknologi Informasi Universitas Udayana wajib mengikuti Pelatihan PKM TI 2024?"
                                     description="Mahasiswa yang belum mengikuti Pelatihan PKM TI periode sebelumnya atau belum lulus pada pelatihan sebelumnya wajib untuk mengikuti Pelatihan PKM TI 2024. Dan bagi mahasiswa yang sudah mengikuti Pelatihan PKM TI periode sebelumnya juga boleh mengikuti Pelatihan PKM TI 2024."
@@ -680,8 +663,8 @@ export default function Welcome({ auth }) {
                             </div>
                         )}
                         {activeCategoryFaq === "Hari H PKM" && (
-                            <div className="flex flex-col gap-2 md:w-1/2 w-full">
-                                {/* <Accordion
+                            <div className="flex flex-col gap-2">
+                                <Accordion
                                     heading="Apakah mahasiswa program studi Teknologi Informasi Universitas Udayana wajib mengikuti Pelatihan PKM TI 2024?"
                                     description="Mahasiswa yang belum mengikuti Pelatihan PKM TI periode sebelumnya atau belum lulus pada pelatihan sebelumnya wajib untuk mengikuti Pelatihan PKM TI 2024. Dan bagi mahasiswa yang sudah mengikuti Pelatihan PKM TI periode sebelumnya juga boleh mengikuti Pelatihan PKM TI 2024."
                                     isOpen={openIndex === 0}
@@ -704,12 +687,12 @@ export default function Welcome({ auth }) {
                                     description="Luaran dari kegiatan ini berupa proposal PKM yang memiliki potensi memberikan manfaat signifikan dalam konteks Teknologi Informasi dan dapat diajukan untuk mendapatkan dukungan dan pendanaan pada tahun 2025."
                                     isOpen={openIndex === 4}
                                     onClick={() => handleAccordionClick(4)}
-                                /> */}
+                                />
 
                             </div>
                         )}
                         {activeCategoryFaq === "Klinik PKM" && (
-                            <div className="flex flex-col gap-2 md:w-1/2 w-full">
+                            <div className="flex flex-col gap-2">
                                 {/* <Accordion
                                     heading="Apakah mahasiswa program studi Teknologi Informasi Universitas Udayana wajib mengikuti Pelatihan PKM TI 2024?"
                                     description="Mahasiswa yang belum mengikuti Pelatihan PKM TI periode sebelumnya atau belum lulus pada pelatihan sebelumnya wajib untuk mengikuti Pelatihan PKM TI 2024. Dan bagi mahasiswa yang sudah mengikuti Pelatihan PKM TI periode sebelumnya juga boleh mengikuti Pelatihan PKM TI 2024."
