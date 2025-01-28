@@ -103,7 +103,7 @@ export default function Welcome({ auth }) {
                                     <Link
                                         as="button"
                                         href={route("register")}
-                                        className="font-bold border-2 border-[#59DFD1] px-6 py-2 rounded-md text-[#59DFD1] hover:text-white hover:bg-[#42A1A4] dark:text-gray-400 dark:hover:text-white transition-all duration-300 flex flex-row gap-2 justify-center items-center "
+                                        className="font-bold border-[1px] border-slate-300 px-6 py-2 rounded-md text-[#59DFD1] hover:text-white hover:bg-[#42A1A4] dark:text-gray-400 dark:hover:text-white transition-all duration-300 flex flex-row gap-2 justify-center items-center hover:shadow-[0_0_10px_#42A1A4]"
                                     >
                                         <IconViewDemo />
                                         View Demo
@@ -114,14 +114,14 @@ export default function Welcome({ auth }) {
                                     <Link
                                         as="button"
                                         href={route("register")}
-                                        className="font-bold bg-[#42A1A4] px-12 py-3 rounded-md text-white hover:text-white hover:bg-[#59DFD1] dark:text-gray-400 dark:hover:text-white transition-all duration-300"
+                                        className="font-bold bg-[#42A1A4] px-12 py-3 rounded-md text-white hover:text-white hover:bg-[#59DFD1] dark:text-gray-400 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#42A1A4]"
                                     >
                                         Sign Up Now
                                     </Link>
                                     <Link
                                         as="button"
                                         href={route("register")}
-                                        className="font-bold border-2 border-[#59DFD1] px-6 py-2 rounded-md text-[#59DFD1] hover:text-white hover:bg-[#42A1A4] dark:text-gray-400 dark:hover:text-white transition-all duration-300 flex flex-row gap-2 justify-center items-center "
+                                        className="font-bold border-[1px] border-slate-300 px-6 py-2 rounded-md text-[#59DFD1] hover:text-white hover:bg-[#42A1A4] dark:text-gray-400 dark:hover:text-white transition-all duration-300 flex flex-row gap-2 justify-center items-center hover:shadow-[0_0_10px_#42A1A4]"
                                     >
                                         <IconViewDemo />
                                         View Demo
@@ -242,10 +242,10 @@ export default function Welcome({ auth }) {
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-2 mx-8 mb-12">
                             {topics.map((topic, index) => (
-                                <div key={index} className="flex flex-col justify-center items-center bg-white text-black m-2 px-4 py-6 rounded-lg text-center gap-2">
-                                    <h1 className="text-[24px] text-[#111E41] leading-[1.1em]">{topic.title}</h1>
+                                <div key={index} className="flex flex-col justify-center items-center bg-white text-black m-2 px-4 py-6 rounded-lg text-center gap-2 hover:shadow-[0_0_10px_#285B70] hover:scale-110 transition-all duration-500 ease-in-out">
+                                    <h1 className="font-semibold text-[24px] text-[#111E41] leading-[1.1em]">{topic.title}</h1>
                                     <p className="text-[17px] text-[#475569] leading-[1.4em]">{topic.description}</p>
-                                    <Link href={topic.links} className="border-[2px] w-full border-[#285B70] p-2 rounded-lg mt-1 text-[#285B70] text-[17px] leading-[24px] tracking-[0.5px]">
+                                    <Link href={topic.links} className="border-[2px] w-full border-[#285B70] p-2 rounded-lg mt-1 text-[#285B70] text-[17px] leading-[24px] tracking-[0.5px] hover:bg-[#285B70] hover:text-white hover:shadow-[0_0_10px_#285B70] transition-all duration-500 ease-in-250">
                                         Selengkapnya
                                     </Link>
                                 </div>
@@ -612,21 +612,21 @@ export default function Welcome({ auth }) {
                         <div
                             onClick={() => setActiveCategoryFaq("Guidebook")}
                             className={`${activeCategoryFaq === "Guidebook" ? "bg-[#59DFD1] shadow-[0_0_10px_#59DFD1] text-white" : ""
-                                } hover:bg-[#59DFD1] hover:shadow-[0_0_10px_#59DFD1] hover:text-white md:w-[196px] w-full md:h-[50px] h-[60px] flex justify-center items-center rounded-[50px] border-[1px] border-slate-200 text-[#42A1A4] font-bold text-[20px]`}
+                                } hover:bg-[#59DFD1] hover:shadow-[0_0_10px_#59DFD1] hover:text-white md:w-[196px] w-full md:h-[50px] h-[60px] flex justify-center items-center rounded-[50px] border-[1px] border-slate-200 text-[#42A1A4] font-bold text-[20px] transition-all duration-300 ease-in-out cursor-pointer`}
                         >
                             Guidebook
                         </div>
                         <div
                             onClick={() => setActiveCategoryFaq("Hari H PKM")}
                             className={`${activeCategoryFaq === "Hari H PKM" ? "bg-[#59DFD1] text-white shadow-[0_0_10px_#59DFD1]" : ""
-                                } hover:bg-[#59DFD1] hover:shadow-[0_0_10px_#59DFD1] hover:text-white md:w-[196px] w-full md:h-[50px] h-[60px] flex justify-center items-center rounded-[50px] border-[1px] border-slate-200 text-[#42A1A4] font-bold text-[20px]`}
+                                } hover:bg-[#59DFD1] hover:shadow-[0_0_10px_#59DFD1] hover:text-white md:w-[196px] w-full md:h-[50px] h-[60px] flex justify-center items-center rounded-[50px] border-[1px] border-slate-200 text-[#42A1A4] font-bold text-[20px] transition-all duration-300 ease-in-out cursor-pointer`}
                         >
                             Hari H PKM
                         </div>
                         <div
                             onClick={() => setActiveCategoryFaq("Klinik PKM")}
                             className={`${activeCategoryFaq === "Klinik PKM" ? "bg-[#59DFD1] text-white shadow-[0_0_10px_#59DFD1]" : ""
-                                } hover:bg-[#59DFD1] hover:shadow-[0_0_10px_#59DFD1] hover:text-white md:w-[196px] w-full md:h-[50px] h-[60px] flex justify-center items-center rounded-[50px] border-[1px] border-slate-200 text-[#42A1A4] font-bold text-[20px]`}
+                                } hover:bg-[#59DFD1] hover:shadow-[0_0_10px_#59DFD1] hover:text-white md:w-[196px] w-full md:h-[50px] h-[60px] flex justify-center items-center rounded-[50px] border-[1px] border-slate-200 text-[#42A1A4] font-bold text-[20px] transition-all duration-300 ease-in-out cursor-pointer`}
                         >
                             Klinik PKM
                         </div>
