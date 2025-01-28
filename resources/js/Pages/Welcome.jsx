@@ -25,7 +25,7 @@ export default function Welcome({ auth }) {
     const [offsetY, setOffsetY] = useState(0);
 
     const handleScroll = () => {
-      setOffsetY(window.scrollY * 0.21); // Efek Parallax
+      setOffsetY(window.scrollY * 0.23); // Efek Parallax
     };
 
     useEffect(() => {
@@ -636,17 +636,17 @@ export default function Welcome({ auth }) {
                         <CustomCarousel className="flex justify-center items-center text-center space-x-4">
                             <div className="relative flex justify-center items-center pb-5">
                                 <div className="flex flex-col items-center w-11/12 md:max-w-[50rem] p-6 bg-white backdrop-brightness-150 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-                                    <div className="flex justify-center items-center mb-4 max-w-[12rem] max-h-[12rem] rounded-full overflow-hidden border-2 border-primary">
+                                    <div className="flex justify-center items-center mb-4 max-w-[12rem] max-h-[12rem] rounded-full overflow-hidden border-2 border-[#285b70]">
                                         <img
                                             src="images/image-bayu.png"
-                                            className="object-contain object-center bg-no-repeat"
+                                            className="object-contain object-center bg-no-repeat hover:scale-110"
                                             alt="Kepin"
                                         />
                                     </div>
                                     <p className="text-center text-slate-600 mb-2">
                                         “ Program Kreativitas Mahasiswa-Karsa Cipta (PKM-KC) merupakan program penciptaan yang didasari atas karsa dan nalar mahasiswa, bersifat konstruktif serta menghasilkan suatu sistem, desain, model/barang atau prototipe dan sejenisnya. “
                                     </p>
-                                    <h3 className="capitalize text-xl text-primary font-bold mb-2">
+                                    <h3 className="capitalize text-xl text-[#285b70] font-bold mb-2">
                                         Bayu Zilong
                                     </h3>
                                     <p className="capitalize text-slate-400">
