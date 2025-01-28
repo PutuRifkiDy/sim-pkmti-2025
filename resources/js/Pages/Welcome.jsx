@@ -435,10 +435,10 @@
                                 UI/UX Design
                             </div>
                             <div className="hover:bg-[#59DFD1] hover:text-white md:w-[196px] w-full md:h-[50px] h-[60px] flex justify-center items-center rounded-[50px] border-[1px] border-[#42A1A4] text-[#42A1A4] font-bold text-[20px]">
-                                UI/UX Design
+                                Branding Design
                             </div>
                             <div className="hover:bg-[#59DFD1] hover:text-white md:w-[196px] w-full md:h-[50px] h-[60px] flex justify-center items-center rounded-[50px] border-[1px] border-[#42A1A4] text-[#42A1A4] font-bold text-[20px]">
-                                UI/UX Design
+                                Wordpress
                             </div>
                         </div>
                         <div className="flex md:flex-row flex-col justify-evenly items-center">
