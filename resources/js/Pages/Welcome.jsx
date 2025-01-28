@@ -412,22 +412,14 @@
 
 
                     {/* Start Timeline */}
-                    <section className="px-6 md:px-24 mt-36 mb-16" id="Timeline">
+                    <section className="px-6 md:px-24 mt-36 mb-16 " id="Timeline">
                         <div className="absolute hidden md:flex flex-row left-[50%]  -translate-x-1/2 z-0 translate-y-1/4">
-                            <div className="block dark:hidden">
-                            <BoardArt />
-                            </div>
-                            <div className="hidden dark:block">
                             <BoardArtDark />
-                            </div>
+                            <BoardArt />
                         </div>
                         <div className="absolute hidden md:flex flex-row left-[50%]  -translate-x-1/2 z-0 translate-y-[950px]">
-                            <div className="block dark:hidden">
-                            <BoardArt />
-                            </div>
-                            <div className="hidden dark:block">
                             <BoardArtDark />
-                            </div>
+                            <BoardArt />
                         </div>
                         <div className="flex flex-col justify-center items-center z-10">
                             <h1 className="text-center text-[#42A1A4] text-[14px] md:text-[20px] font-bold" data-aos="fade-left">

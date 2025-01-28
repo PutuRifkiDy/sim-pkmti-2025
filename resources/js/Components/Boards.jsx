@@ -1,5 +1,5 @@
 export const BoardArt = () => (
-<svg width="791" height="827" viewBox="0 0 791 827" fill="none" xmlns="http://www.w3.org/2000/svg" >
+<svg width="791" height="827" viewBox="0 0 791 827" fill="none" xmlns="http://www.w3.org/2000/svg" className="hidden light:block">
 <rect x="320.624" y="0.188965" width="543" height="641" transform="rotate(30 320.624 0.188965)" fill="url(#pattern0_311_2882)"/>
 <rect x="320.624" y="0.188965" width="543" height="641" transform="rotate(30 320.624 0.188965)" fill="url(#paint0_linear_311_2882)"/>
 <defs>
