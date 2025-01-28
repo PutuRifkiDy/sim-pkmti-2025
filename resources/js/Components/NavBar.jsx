@@ -76,7 +76,7 @@ export default function NavBar({ auth }) {
                         <Link
                             as="button"
                             href={route("dashboard")}
-                            className="font-medium bg-[#42A1A4] px-6 py-2 rounded-md text-white hover:text-white hover:bg-[#59DFD1] dark:text-gray-400 dark:hover:text-white transition-all duration-300"
+                            className="font-medium bg-[#42A1A4] px-6 py-2 rounded-md text-white hover:text-white hover:bg-[#59DFD1] dark:text-gray-400 dark:hover:text-white transition-all duration-300 hover:shadow-[0_0_10px_#59DFD1]"
                         >
                             Dashboard
                         </Link>
@@ -85,7 +85,7 @@ export default function NavBar({ auth }) {
                             <Link
                                 as="button"
                                 href={route("login")}
-                            className="font-medium bg-[#42A1A4] px-6 py-2 rounded-md text-white hover:text-white hover:bg-[#59DFD1] dark:text-gray-400 dark:hover:text-white transition-all duration-300"
+                            className="font-medium bg-[#42A1A4] px-6 py-2 rounded-md text-white hover:text-white hover:bg-[#59DFD1] dark:text-gray-400 dark:hover:text-white transition-all duration-300 hover:shadow-[0_0_10px_#59DFD1] shadow-[0_0_10px_#59DFD1]"
                             >
                                 Log in
                             </Link>
