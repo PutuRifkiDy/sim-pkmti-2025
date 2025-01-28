@@ -4,7 +4,7 @@ const Accordion = ({ heading, description, isOpen, onClick }) => {
 
 
     return (
-        <div className={`w-full md:w-[636px] border rounded-[10px] m-2 p-2 shadow-lg ${isOpen ? 'bg-[#285B70]' : ''}`}>
+        <div className={`w-full border rounded-[10px] m-2 p-2 shadow-lg ${isOpen ? 'bg-[#285B70]' : ''}`}>
             <button
                 className="w-full px-4 py-2 text-left focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75"
                 onClick={onClick}
@@ -13,7 +13,7 @@ const Accordion = ({ heading, description, isOpen, onClick }) => {
                     <span className={`text-[15px] md:text-lg font-semibold light:text-gray-900 w-[550px] ${isOpen ? 'text-[#FFFFFF]' : ''}`}>{heading}</span>
                     {/* icon arrow */}
                     <svg
-                        className={`w-6 h-6 transition-transform transform ${isOpen ? 'rotate-180 stroke-white' : ''
+                        className={`w-6 h-6 transition-transform transform duration-300 ease-out ${isOpen ? 'rotate-180 stroke-white' : ''
                             }`}
                         fill="none"
                         stroke="currentColor"
@@ -30,7 +30,7 @@ const Accordion = ({ heading, description, isOpen, onClick }) => {
                 </div>
             </button>
             {isOpen && (
-                <div className={`px-4 py-2 text-gray-700 ${isOpen ? 'text-[#FFFFFF]' : ''}`}>
+                <div className={`px-4 py-2 ${isOpen ? 'text-[#FFFFFF]' : 'text-gray-700'}`}>
                     {description}
                 </div>
             )}
