@@ -1010,7 +1010,7 @@ export default function Welcome({ auth }) {
                         className="grid grid-cols-1 md:grid-cols-3 justify-between my-8 gap-16"
                     >
                         <div className="flex flex-col gap-2 bg-[#285B70] py-4 pl-4 pr-24 rounded-b-2xl border-t-2 border-[#285B70] bg-opacity-20">
-                            <h1 className="font-bold text-xl">Ina</h1>
+                            <h1 className="font-bold text-xl">Tiksna Apsari</h1>
                             <div className="flex flex-row justify-start gap-4">
                                 <IconLine />
                                 <a href="https://line.me/R/ti/p/~tiksnaapsr." className="text-base light:text-[#2A3374] dark:text-white">tiksnaapsr.</a>
@@ -1032,7 +1032,7 @@ export default function Welcome({ auth }) {
                             </div>
                         </div>
                         <div className="flex flex-col gap-2 bg-[#285B70] py-4 pl-4 pr-24 rounded-b-2xl border-t-2 border-[#285B70] bg-opacity-20">
-                            <h1 className="font-bold text-xl">Rifki</h1>
+                            <h1 className="font-bold text-xl">Putu Rifki</h1>
                             <div className="flex flex-row justify-start gap-4">
                                 <IconLine />
                                 <a href="https://line.me/R/ti/p/~puturifki56" className="text-base light:text-[#2A3374] dark:text-white">puturifki56</a>
