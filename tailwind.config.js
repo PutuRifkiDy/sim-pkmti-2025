@@ -44,7 +44,21 @@ export default {
             },
             backgroundImage: {
                 "gradient-blue" : "linear-gradient(to right, rgba(40, 91, 112, 1) 0%, rgba(40, 91, 112, 0.82) 41%, rgba(40, 91, 112, 0.82) 41%, rgba(40, 91, 112, 0.71) 65%, rgba(40, 91, 112, 0.66) 75%, rgba(40, 91, 112, 0.55) 100%)"
-            }
+            },
+            animation: {
+                "bounce-custom": 'bounce-custom 4s ease-in-out infinite',
+                "bounce-merch": 'bounce-custom 2s ease-in-out infinite',
+              },
+              keyframes: {
+                "bounce-custom": {
+                  '0%, 100%': { transform: 'translateY(0)' },
+                  '50%': { transform: 'translateY(15px)' },
+                },
+                "bounce-merch": {
+                  '0%, 100%': { transform: 'translateY(0)' },
+                  '50%': { transform: 'translateY(40px)' },
+                },
+            },
         },
     },
     plugins: [require("daisyui"), require("@tailwindcss/typography")],

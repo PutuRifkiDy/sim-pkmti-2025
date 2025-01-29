@@ -174,7 +174,7 @@ export default function Welcome({ auth }) {
                         className="flex justify-center items-center pt-2"
                     >
                         {/* Home Page Bagian Kanan */}
-                        <img src="/images/image-homepage.png" alt="" className="md:w-[672.34px] max-w-full md:h-[552px] h-auto" />
+                        <img src="/images/image-homepage.png" alt="" className="md:w-[672.34px] max-w-full md:h-[552px] h-auto animate-bounce-custom" />
                     </motion.div>
                 </section>
 
@@ -246,7 +246,7 @@ export default function Welcome({ auth }) {
                         animate={controls}
                     >
                         {/* Tentang PKM Bagian kiri */}
-                        <img src="images/image-tentangpkmti2025.png" alt="" className="md:w-[521px] max-w-full md:h-[479px] h-auto" />
+                        <img src="images/image-tentangpkmti2025.png" alt="" className="md:w-[521px] max-w-full md:h-[479px] h-auto animate-bounce-custom" />
                     </motion.div>
                     <motion.div
                         whileInView="visible"
@@ -509,13 +509,13 @@ export default function Welcome({ auth }) {
                         className="absolute right-0 left-0 top-[400px] flex justify-center items-center -z-10"
                         style={{ transform: `translateY(${offsetY}px)`, transition: "transform 0.1s ease-out" }}
                     >
-                        <img src="images/Logo-PKM-TI-2025.png" alt="Background Icon" className="w-[400px] opacity-30" />
+                        <img src="images/Logo-PKM-TI-2025.png" alt="Background Icon" className="w-[400px] opacity-30 animate-bounce-custom" />
                     </div>
                     <div
                         className="absolute right-0 left-0 bottom-[1800px] flex justify-center items-center -z-10"
                         style={{ transform: `translateY(${offsetY}px)`, transition: "transform 0.1s ease-out" }}
                     >
-                        <img src="images/Logo-PKM-TI-2025.png" alt="Background Icon" className="w-[400px] opacity-30" />
+                        <img src="images/Logo-PKM-TI-2025.png" alt="Background Icon" className="w-[400px] opacity-30 animate-bounce-custom" />
                     </div>
                     <div className="flex flex-col justify-center items-center z-10 mb-20">
                         <h1 className="text-center text-[#42A1A4] text-[14px] md:text-[20px] font-bold" data-aos="fade-left">
@@ -527,12 +527,6 @@ export default function Welcome({ auth }) {
                         <p className="font-normal text-[16px] tracking-[0.01em] text-slate-500 text-center">
                             Setiap detik adalah kesempatan untuk belajar, berbagi, dan terhubung dengan komunitas kreatif. Catat tanggalnya dan pastikan Anda tidak melewatkan momen magis di PKM Wonderland. Ayo, mari jadwalkan momen berharga kita bersama!
                         </p>
-                    </div>
-                    <div
-                        alt="gambar"
-                        className="max-w-[570px] h-[445px] absolute right-0 top-[6000px] md:top-[3200px] animate-bounce-custom"
-                        data-aos="fade-up"
-                    >
                     </div>
                     <div className="flex flex-col gap-[130px] left-4 items-center pt-12 absolute w-1 bg-[#285B70] h-max md:left-1/2 transform md:-translate-x-1/2 z-10">
                         <div className="w-5 h-5 md:w-9 md:h-9 bg-[#285B70] rounded-full relative z-20">
@@ -880,7 +874,7 @@ export default function Welcome({ auth }) {
                             initial="hidden"
                             animate={controls}
                         >
-                            <img src="images/faq.png" alt="" key={activeCategoryFaq} className="w-full md:w-[481px] md:h-[483px] h-auto" />
+                            <img src="images/faq.png" alt="" key={activeCategoryFaq} className="w-full md:w-[481px] md:h-[483px] h-auto animate-bounce-custom" />
                         </motion.div>
                         {activeCategoryFaq === "Guidebook" && (
                             <motion.div
@@ -1049,7 +1043,7 @@ export default function Welcome({ auth }) {
                         initial="hidden"
                         animate={controls}
                     >
-                        <img src="images/kontak-kami.png" alt="KONTAK-KAMI" className="md:w-[520px] w-full md:h-[416px] h-auto my-2" />
+                        <img src="images/kontak-kami.png" alt="KONTAK-KAMI" className="md:w-[584px] w-full md:h-[540px] h-auto my-2 animate-bounce-custom" />
                     </motion.div>
                 </section>
                 {/* End Kontak Kami */}
