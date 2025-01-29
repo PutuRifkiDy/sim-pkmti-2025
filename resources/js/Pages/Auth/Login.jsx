@@ -26,7 +26,7 @@ export default function Login({ status, canResetPassword }) {
             <Head title="Masuk" />
 
             {/* Start Login */}
-            <section className="flex md:flex-row flex-col md:justify-between justify-center items-center md:px-24 px-2 light:bg-[#F4F4F4] w-full h-[100vh]">
+            <section className="flex md:flex-row flex-col md:justify-between justify-center items-center md:px-24 px-2 dark:bg-[#1d232a] light:bg-[#F4F4F4] w-full h-[100vh]">
                 {status && (
                     <div className="mb-4 font-medium text-sm text-green-600">
                         {status}
@@ -35,7 +35,7 @@ export default function Login({ status, canResetPassword }) {
                 <div className="md:flex hidden justify-center items-center md:w-7/12 w-full">
                     <img src="images/icon-login.png" className="md:w-[504px] w-full md:h-[504.06px] h-auto" alt="icon-login" />
                 </div>
-                <div className="border-[1px] shadow-sm-[#000000] border-slate-300 flex flex-col light:bg-[#FFFFFF] rounded-[15px] md:p-10 p-5 md:w-5/12 w-full gap-5">
+                <div className="border-[1px] shadow-sm-[#000000] border-slate-300 flex flex-col dark:bg-[#1d232a] light:bg-[#FFFFFF] rounded-[15px] md:p-10 p-5 md:w-5/12 w-full gap-5">
                     <div className="flex justify-center items-center">
                         <Link href={route("welcome")}>
                             <img src="images/Logo-PKM-TI-2025.png" alt="" className="w-[115px] h-[143px] " />
