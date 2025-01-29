@@ -831,36 +831,36 @@ export default function Welcome({ auth }) {
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 justify-between my-8 gap-16">
                         <div className="flex flex-col gap-2 bg-[#285B70] py-4 pl-4 pr-24 rounded-b-2xl border-t-2 border-[#285B70] bg-opacity-20">
-                            <h1 className="font-bold text-xl">Someone</h1>
+                            <h1 className="font-bold text-xl">Ina</h1>
                             <div className="flex flex-row justify-start gap-4">
                                 <IconLine />
-                                <a href="" className="text-base text-[#2A3374]">@clickablecontact</a>
+                                <a href="https://line.me/R/ti/p/~tiksnaapsr." className="text-base text-[#2A3374]">tiksnaapsr.</a>
                             </div>
                             <div className="flex flex-row justify-start gap-4">
                                 <IconWhatsapp />
-                                <a href="" className="text-base text-[#2A3374]">0853121212123</a>
+                                <a href="wa.me/6285739490558" className="text-base text-[#2A3374]">+62 857-3949-0558</a>
                             </div>
                         </div>
                         <div className="flex flex-col gap-2 bg-[#42A1A4] py-4 pl-4 pr-24 rounded-b-2xl border-t-2 border-[#285B70] bg-opacity-20">
-                            <h1 className="font-bold text-xl">Someone</h1>
+                            <h1 className="font-bold text-xl">Dewa Ayu</h1>
                             <div className="flex flex-row justify-start gap-4">
                                 <IconLine />
-                                <a href="" className="text-base text-[#2A3374]">@clickablecontact</a>
+                                <a href="https://line.me/R/ti/p/~dewayu1275" className="text-base text-[#2A3374]">dewayu1275</a>
                             </div>
                             <div className="flex flex-row justify-start gap-4">
                                 <IconWhatsapp />
-                                <a href="" className="text-base text-[#2A3374]">0853121212123</a>
+                                <a href="wa.me/6285940899163" className="text-base text-[#2A3374]">+62 859-4089-9163</a>
                             </div>
                         </div>
                         <div className="flex flex-col gap-2 bg-[#285B70] py-4 pl-4 pr-24 rounded-b-2xl border-t-2 border-[#285B70] bg-opacity-20">
-                            <h1 className="font-bold text-xl">Someone</h1>
+                            <h1 className="font-bold text-xl">Rifki</h1>
                             <div className="flex flex-row justify-start gap-4">
                                 <IconLine />
-                                <a href="" className="text-base text-[#2A3374]">@clickablecontact</a>
+                                <a href="https://line.me/R/ti/p/~puturifki56" className="text-base text-[#2A3374]">puturifki56</a>
                             </div>
                             <div className="flex flex-row justify-start gap-4">
                                 <IconWhatsapp />
-                                <a href="" className="text-base text-[#2A3374]">0853121212123</a>
+                                <a href="wa.me/62881038194017" className="text-base text-[#2A3374]">+62 881-0381-94017</a>
                             </div>
                         </div>
                     </div>
