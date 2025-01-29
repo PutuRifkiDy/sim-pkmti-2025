@@ -988,15 +988,27 @@ export default function Welcome({ auth }) {
 
                 {/* Start Kontak Kami */}
                 <section className="flex flex-col justify-center items-center w-full my-12" id="contact-us">
-                    <div className="flex flex-col justify-center items-center">
+                    <motion.div
+                        whileInView="visible"
+                        variants={variantZoom}
+                        initial="hidden"
+                        animate={controls}
+                        className="flex flex-col justify-center items-center"
+                    >
                         <h1 className="font-bold text-[48px] text-[#285B70]">
                             Kontak Kami
                         </h1>
                         <p className="w-4/5 text-base text-center">
                             Jika Anda memiliki pertanyaan lebih lanjut, jangan ragu untuk menghubungi narahubung yang tertera di bawah ini.
                         </p>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 justify-between my-8 gap-16">
+                    </motion.div>
+                    <motion.div
+                        whileInView="visible"
+                        variants={variantZoom}
+                        initial="hidden"
+                        animate={controls}
+                        className="grid grid-cols-1 md:grid-cols-3 justify-between my-8 gap-16"
+                    >
                         <div className="flex flex-col gap-2 bg-[#285B70] py-4 pl-4 pr-24 rounded-b-2xl border-t-2 border-[#285B70] bg-opacity-20">
                             <h1 className="font-bold text-xl">Ina</h1>
                             <div className="flex flex-row justify-start gap-4">
@@ -1030,10 +1042,15 @@ export default function Welcome({ auth }) {
                                 <a href="wa.me/62881038194017" className="text-base text-[#2A3374]">+62 881-0381-94017</a>
                             </div>
                         </div>
-                    </div>
-                    <div className="">
+                    </motion.div>
+                    <motion.div
+                        whileInView="visible"
+                        variants={variantZoom}
+                        initial="hidden"
+                        animate={controls}
+                    >
                         <img src="images/kontak-kami.png" alt="KONTAK-KAMI" className="md:w-[520px] w-full md:h-[416px] h-auto my-2" />
-                    </div>
+                    </motion.div>
                 </section>
                 {/* End Kontak Kami */}
                 <ScrollToTop />
