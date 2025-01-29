@@ -502,13 +502,13 @@ export default function Welcome({ auth }) {
                 {/* Start Timeline */}
                 <section className="relative px-6 md:px-24 mt-36 mb-16 " id="Timeline">
                     <div
-                        className="absolute right-0 left-0 top-[400px] flex justify-center items-center -z-10"
+                        className="absolute right-0 left-0 top-[400px] md:flex hidden justify-center items-center -z-10"
                         style={{ transform: `translateY(${offsetY}px)`, transition: "transform 0.1s ease-out" }}
                     >
                         <img src="images/Logo-PKM-TI-2025.png" alt="Background Icon" className="w-[400px] opacity-30 animate-bounce-custom" />
                     </div>
                     <div
-                        className="absolute right-0 left-0 bottom-[1800px] flex justify-center items-center -z-10"
+                        className="absolute right-0 left-0 bottom-[1800px] md:flex hidden justify-center items-center -z-10"
                         style={{ transform: `translateY(${offsetY}px)`, transition: "transform 0.1s ease-out" }}
                     >
                         <img src="images/Logo-PKM-TI-2025.png" alt="Background Icon" className="w-[400px] opacity-30 animate-bounce-custom" />
