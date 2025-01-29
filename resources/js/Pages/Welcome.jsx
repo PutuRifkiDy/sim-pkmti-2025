@@ -830,7 +830,7 @@ export default function Welcome({ auth }) {
                         </p>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 justify-between my-8 gap-16">
-                        <div className="flex flex-col gap-2 bg-[#2A337433] py-4 pl-4 pr-24 rounded-b-2xl border-t-2 border-[#285B70]">
+                        <div className="flex flex-col gap-2 bg-[#2A337433] py-4 pl-4 pr-24 rounded-b-2xl border-t-2 border-[#2A3374] bg-opacity-20">
                             <h1 className="font-bold text-xl">Someone</h1>
                             <div className="flex flex-row justify-start gap-4">
                                 <IconLine />
@@ -841,7 +841,7 @@ export default function Welcome({ auth }) {
                                 <a href="" className="text-base text-[#2A3374]">0853121212123</a>
                             </div>
                         </div>
-                        <div className="flex flex-col gap-2 bg-[#27B8CD33] py-4 pl-4 pr-24 rounded-b-2xl border-t-2 border-[#2c98c6]">
+                        <div className="flex flex-col gap-2 bg-[#27B8CD33] py-4 pl-4 pr-24 rounded-b-2xl border-t-2 border-[#27B8CD] bg-opacity-20">
                             <h1 className="font-bold text-xl">Someone</h1>
                             <div className="flex flex-row justify-start gap-4">
                                 <IconLine />
@@ -852,7 +852,7 @@ export default function Welcome({ auth }) {
                                 <a href="" className="text-base text-[#2A3374]">0853121212123</a>
                             </div>
                         </div>
-                        <div className="flex flex-col gap-2 bg-[#2A337433] py-4 pl-4 pr-24 rounded-b-2xl border-t-2 border-[#285B70]">
+                        <div className="flex flex-col gap-2 bg-[#2A337433] py-4 pl-4 pr-24 rounded-b-2xl border-t-2 border-[#2A3374] bg-opacity-20">
                             <h1 className="font-bold text-xl">Someone</h1>
                             <div className="flex flex-row justify-start gap-4">
                                 <IconLine />
