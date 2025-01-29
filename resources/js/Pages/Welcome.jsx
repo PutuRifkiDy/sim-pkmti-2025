@@ -1010,7 +1010,7 @@ export default function Welcome({ auth }) {
                                 <a href="wa.me/6285739490558" className="text-base light:text-[#2A3374] dark:text-white">+62 857-3949-0558</a>
                             </div>
                         </div>
-                        <div className="flex flex-col gap-2 bg-[#42A1A4] py-4 pl-4 pr-24 rounded-b-2xl border-t-2 border-[#285B70] bg-opacity-20">
+                        <div className="flex flex-col gap-2 bg-[#42A1A4] py-4 pl-4 pr-24 rounded-b-2xl border-t-2 border-[#42A1A4] bg-opacity-20">
                             <h1 className="font-bold text-xl">Dewa Ayu</h1>
                             <div className="flex flex-row justify-start gap-4">
                                 <IconLine />
