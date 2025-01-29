@@ -25,12 +25,12 @@ export default function Welcome({ auth }) {
     const [offsetY, setOffsetY] = useState(0);
 
     const handleScroll = () => {
-      setOffsetY(window.scrollY * 0.23); // Efek Parallax
+        setOffsetY(window.scrollY * 0.23); // Efek Parallax
     };
 
     useEffect(() => {
-      window.addEventListener("scroll", handleScroll);
-      return () => window.removeEventListener("scroll", handleScroll);
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
     const handleAccordionClick = (index) => {
@@ -95,7 +95,13 @@ export default function Welcome({ auth }) {
                 {/* Start HomePage */}
                 <section className="flex md:flex-row flex-col-reverse max-w-full justify-between pb-20">
                     {/* Home Page Bagian Kiri */}
-                    <div className="flex flex-col gap-7 justify-center items-center">
+                    <motion.div
+                        whileInView="visible"
+                        variants={variantFade(-100, 0)}
+                        initial="hidden"
+                        animate={controls}
+                        className="flex flex-col gap-7 justify-center items-center"
+                    >
                         <div className="relative md:w-[581px] max-w-full md:h-[210px] h-[148px] text-center md:text-start">
                             <div className="md:absolute md:block hidden md:left-2 left-12 top-14">
                                 <IconTextHomePage />
@@ -119,16 +125,16 @@ export default function Welcome({ auth }) {
                                         View Demo
                                     </Link> */}
                                     {/* You can open the modal using document.getElementById('ID').showModal() method */}
-                                    <button className="font-bold border-[1px] border-slate-300 px-6 py-2 rounded-md text-[#59DFD1] hover:text-white hover:bg-[#42A1A4] dark:text-gray-400 dark:hover:text-white transition-all duration-300 flex flex-row gap-2 justify-center items-center hover:shadow-[0_0_10px_#42A1A4]" onClick={()=>document.getElementById('my_modal_4').showModal()}>open modal</button>
-                                        <dialog id="my_modal_4" className="modal">
+                                    <button className="font-bold border-[1px] border-slate-300 px-6 py-2 rounded-md text-[#59DFD1] hover:text-white hover:bg-[#42A1A4] dark:text-gray-400 dark:hover:text-white transition-all duration-300 flex flex-row gap-2 justify-center items-center hover:shadow-[0_0_10px_#42A1A4]" onClick={() => document.getElementById('my_modal_4').showModal()}>open modal</button>
+                                    <dialog id="my_modal_4" className="modal">
                                         <div className="modal-box w-11/12 max-w-5xl">
                                             <h3 className="font-bold text-lg">Hello!</h3>
                                             <p className="py-4">Click the button below to close</p>
                                             <div className="modal-action">
-                                            <form method="dialog">
-                                                {/* if there is a button, it will close the modal */}
-                                                <button className="btn">Close</button>
-                                            </form>
+                                                <form method="dialog">
+                                                    {/* if there is a button, it will close the modal */}
+                                                    <button className="btn">Close</button>
+                                                </form>
                                             </div>
                                         </div>
                                     </dialog>
@@ -143,33 +149,46 @@ export default function Welcome({ auth }) {
                                         Sign Up Now
                                     </Link>
                                     {/* You can open the modal using document.getElementById('ID').showModal() method */}
-                                    <button className="font-bold border-[1px] border-slate-300 px-6 py-2 rounded-md text-[#59DFD1] hover:text-white hover:bg-[#42A1A4] dark:text-gray-400 dark:hover:text-white transition-all duration-300 flex flex-row gap-2 justify-center items-center hover:shadow-[0_0_10px_#42A1A4]" onClick={()=>document.getElementById('my_modal_4').showModal()}>View Demo</button>
-                                        <dialog id="my_modal_4" className="modal">
+                                    <button className="font-bold border-[1px] border-slate-300 px-6 py-2 rounded-md text-[#59DFD1] hover:text-white hover:bg-[#42A1A4] dark:text-gray-400 dark:hover:text-white transition-all duration-300 flex flex-row gap-2 justify-center items-center hover:shadow-[0_0_10px_#42A1A4]" onClick={() => document.getElementById('my_modal_4').showModal()}>View Demo</button>
+                                    <dialog id="my_modal_4" className="modal">
                                         <div className="modal-box w-11/12 max-w-5xl">
                                             <h3 className="font-bold text-lg">Hello!</h3>
                                             <p className="py-4">Click the button below to close</p>
                                             <div className="modal-action">
-                                            <form method="dialog">
-                                                {/* if there is a button, it will close the modal */}
-                                                <button className="btn">Close</button>
-                                            </form>
+                                                <form method="dialog">
+                                                    {/* if there is a button, it will close the modal */}
+                                                    <button className="btn">Close</button>
+                                                </form>
                                             </div>
                                         </div>
                                     </dialog>
                                 </>
                             )}
                         </div>
-                    </div>
-                    {/* Home Page Bagian Kanan */}
-                    <div className="flex justify-center items-center pt-2">
+                    </motion.div>
+                    <motion.div
+                        whileInView="visible"
+                        variants={variantFade(100, 0)}
+                        initial="hidden"
+                        animate={controls}
+                        className="flex justify-center items-center pt-2"
+                    >
+                        {/* Home Page Bagian Kanan */}
                         <img src="/images/image-homepage.png" alt="" className="md:w-[672.34px] max-w-full md:h-[552px] h-auto" />
-                    </div>
+                    </motion.div>
                 </section>
+
                 {/* End HomePage */}
 
                 {/* Agenda Acara*/}
                 <section className="mb-20 flex justify-center items-center md:mx-36 mx-0">
-                    <div className="flex md:flex-row flex-col justify-between gap-5 px-12 py-10 max-w-full shadow-xl border border-base-300 rounded-2xl ">
+                    <motion.div
+                        whileInView="visible"
+                        variants={variantFade(0, 100)}
+                        initial="hidden"
+                        animate={controls}
+                        className="flex md:flex-row flex-col justify-between gap-5 px-12 py-10 max-w-full shadow-xl border border-base-300 rounded-2xl"
+                    >
                         <div className="flex flex-row gap-4 sm:pr-10">
                             <BookmarkSquareIcon className="w-6 h-6 font-extrabold" />
                             <div className="block">
@@ -214,18 +233,28 @@ export default function Welcome({ auth }) {
                                 </p>
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
                 </section>
                 {/* End Agenda Acara */}
 
                 {/* Start Tentang PKM-TI */}
                 <section className="flex md:flex-row flex-col max-w-full justify-around mb-20" id="about-us">
-                    <div>
+                    <motion.div
+                        whileInView="visible"
+                        variants={variantFade(-100, 0)}
+                        initial="hidden"
+                        animate={controls}
+                    >
                         {/* Tentang PKM Bagian kiri */}
                         <img src="images/image-tentangpkmti2025.png" alt="" className="md:w-[521px] max-w-full md:h-[479px] h-auto" />
-                    </div>
-                    <div className="flex flex-col justify-center md:w-[687px] max-w-full gap-10">
-
+                    </motion.div>
+                    <motion.div
+                        whileInView="visible"
+                        variants={variantFade(100, 0)}
+                        initial="hidden"
+                        animate={controls}
+                        className="flex flex-col justify-center md:w-[687px] max-w-full gap-10"
+                    >
                         <div className="relative text-center md:text-start">
                             <div className="md:absolute md:block hidden md:left-72 left-12 top-14">
                                 <IconTextHomePage />
@@ -247,20 +276,34 @@ export default function Welcome({ auth }) {
                                 Jelajahi Bidang PKM TI 2025
                             </a>
                         </div>
-                    </div>
+                    </motion.div>
+
                 </section>
                 {/* End Tentang PKM-TI */}
 
 
                 {/* Start Ekspolari PKM-TI */}
-                <section className="flex flex-col mb-20 justify-center items-center text-white" id="pkm-topik">
+                <motion.div
+                    whileInView="visible"
+                    variants={variantFade(0, 100)}
+                    initial="hidden"
+                    animate={controls}
+                    className="flex flex-col mb-20 justify-center items-center text-white"
+                    id="pkm-topik"
+                >
                     <div className="flex flex-row bg-white gap-2 md:py-5 py-4 px-3 rounded-t-2xl w-full shadow-2xl border-[1px] border-slate-200">
                         <div className="md:w-3 md:h-3 w-2 h-2 rounded-full bg-[#E11D48]"></div>
                         <div className="md:w-3 md:h-3 w-2 h-2 bg-[#FBBF24] rounded-full"></div>
                         <div className="md:w-3 md:h-3 w-2 h-2 bg-[#22C55E] rounded-full"></div>
                     </div>
                     <div className="flex flex-col bg-gradient-custom max-w-full h-auto rounded-b-2xl shadow-2xl">
-                        <div className="flex flex-col relative items-center text-center m-8 md:m-16 md:gap-2 gap-1">
+                        <motion.div
+                            whileInView="visible"
+                            variants={variantZoom}
+                            initial="hidden"
+                            animate={controls}
+                            className="flex flex-col relative items-center text-center m-8 md:m-16 md:gap-2 gap-1"
+                        >
                             <h2 className="md:text-xl text-lg font-bold uppercase">Eksplorasi Topik PKM</h2>
                             <h1 className="font-bold md:text-[48px] text-[36px] leading-9 z-10">Kembangkan Ide Cemerlang Anda</h1>
                             <div className="md:absolute md:block hidden md:left-[740px] left-12 top-20 z-0">
@@ -269,20 +312,27 @@ export default function Welcome({ auth }) {
                             <p className="text-[16px] leading-[1.5em] font-normal md:mx-[70px] mt-2 md:mt-6">
                                 Jelajahi kategori-kategori sub topik PKM kami dan temukan passion yang menggetarkan hati Anda. Mulai dari keberlanjutan hingga teknologi, kesehatan hingga seni, kami mengundang Anda untuk meresapi setiap sub topik dengan penuh antusiasme. Temukan tempat Anda di dunia PKM, di mana setiap kategori adalah panggung bagi idealisasi dan perubahan.
                             </p>
-                        </div>
+                        </motion.div>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-2 mx-8 mb-12">
                             {topics.map((topic, index) => (
-                                <div key={index} className="flex flex-col justify-center items-center bg-white text-black m-2 px-4 py-6 rounded-lg text-center gap-2 hover:shadow-[0_0_10px_#285B70] hover:scale-110 transition-all duration-500 ease-in-out">
+                                <motion.div
+                                    whileInView="visible"
+                                    variants={variantZoom}
+                                    initial="hidden"
+                                    animate={controls}
+                                    key={index} className="flex flex-col justify-center items-center bg-white text-black m-2 px-4 py-6 rounded-lg text-center gap-2 hover:shadow-[0_0_10px_#285B70]"
+                                    id="pkm-topik"
+                                >
                                     <h1 className="font-semibold text-[24px] text-[#111E41] leading-[1.1em]">{topic.title}</h1>
                                     <p className="text-[17px] text-[#475569] leading-[1.4em]">{topic.description}</p>
                                     <Link href={topic.links} className="border-[2px] w-full border-[#285B70] p-2 rounded-lg mt-1 text-[#285B70] text-[17px] leading-[24px] tracking-[0.5px] hover:bg-[#285B70] hover:text-white hover:shadow-[0_0_10px_#285B70] transition-all duration-500 ease-in-250">
                                         Selengkapnya
                                     </Link>
-                                </div>
+                                </motion.div>
                             ))}
                         </div>
                     </div>
-                </section>
+                </motion.div>
                 {/* End Ekspolari PKM-TI */}
 
 
@@ -519,15 +569,27 @@ export default function Welcome({ auth }) {
                             <div className="items-center w-full h-full bg-[#285B70] rounded-full animate-ping"></div>
                         </div>
                     </div>
-                    <div className="font-sans my-3 md:my-5 flex w-full justify-end z-10 md:pl-20" data-aos="fade-up">
+                    <motion.div
+                        whileInView="visible"
+                        variants={variantFade(-100, 0)}
+                        initial="hidden"
+                        animate={controls}
+                        className="font-sans my-3 md:my-5 flex w-full justify-end z-10 md:pl-20"
+                    >
                         <div className="w-full md:w-[466px] ml-5 md:ml-0 mr-0 md:mr-18 p-4 border shadow-lg rounded-md ">
                             <h3 className="text-[16px] md:text-[20px] font-bold">Pendaftaran dan Pengumpulan Judul</h3>
                             <p className="text-[14px] md:text-[16px] font-medium mb-1">⌛ 8 - 14 Maret 2024
                             </p>
                             <p className="text-[14px] md:text-[16px]">📍 Melalui website resmi PKM TI https://pkm.hmtiudayana.id/</p>
                         </div>
-                    </div>
-                    <div className="font-sans my-3 md:my-12 flex w-full justify-end md:justify-start z-10 pr-0 md:pr-24" data-aos="fade-up">
+                    </motion.div>
+                    <motion.div
+                        whileInView="visible"
+                        variants={variantFade(100, 0)}
+                        initial="hidden"
+                        animate={controls}
+                        className="font-sans my-3 md:my-12 flex w-full justify-end md:justify-start z-10 pr-0 md:pr-24"
+                    >
                         <div className="w-full md:w-[466px] ml-5 md:ml-18 p-4 border shadow-lg rounded-md">
                             <h3 className="text-[16px] md:text-[20px] font-bold">Seleksi Judul</h3>
                             <p className="text-[14px] md:text-[16px] font-medium mb-1">⌛
@@ -535,8 +597,14 @@ export default function Welcome({ auth }) {
                             </p>
                             <p className="text-[16px]">📍 Online</p>
                         </div>
-                    </div>
-                    <div className="font-sans my-10 md:my-5 flex w-full justify-end z-10 pl-0 md:pl-20" data-aos="fade-up">
+                    </motion.div>
+                    <motion.div
+                        whileInView="visible"
+                        variants={variantFade(-100, 0)}
+                        initial="hidden"
+                        animate={controls}
+                        className="font-sans my-10 md:my-5 flex w-full justify-end z-10 pl-0 md:pl-20"
+                    >
                         <div className="w-full md:w-[466px] ml-5 md:ml-0 mr-0 md:mr-18 p-4 border shadow-lg rounded-md">
                             <h3 className="text-[16px] md:text-[20px] font-bold">Pengumuman Tim Terdaftar</h3>
                             <p className="text-[14px] md:text-[16px] font-medium mb-1">⌛
@@ -544,8 +612,14 @@ export default function Welcome({ auth }) {
                             </p>
                             <p className="text-[16px]">📍 Online</p>
                         </div>
-                    </div>
-                    <div className="font-sans my-3 md:my-16 flex w-full justify-end md:justify-start z-10 pr-0 md:pr-24" data-aos="fade-up">
+                    </motion.div>
+                    <motion.div
+                        whileInView="visible"
+                        variants={variantFade(100, 0)}
+                        initial="hidden"
+                        animate={controls}
+                        className="font-sans my-3 md:my-16 flex w-full justify-end md:justify-start z-10 pr-0 md:pr-24"
+                    >
                         <div className="w-full md:w-[466px] ml-5 md:ml-18 p-4 border shadow-lg rounded-md">
                             <h3 className="text-[16px] md:text-[20px] font-bold">Technical Meeting Peserta</h3>
                             <p className="text-[14px] md:text-[16px] font-medium mb-1">⌛
@@ -553,14 +627,20 @@ export default function Welcome({ auth }) {
                             </p>
                             <p className="text-[16px]">📍 Online</p>
                         </div>
-                    </div>
+                    </motion.div>
                     <div
                         alt="gambar"
                         className="max-w-[570px] h-[445px] absolute right-0 top-[6000px] md:top-[3200px] animate-bounce-custom"
                         data-aos="fade-up"
                     >
                     </div>
-                    <div className="font-sans my-3 md:my-5 flex w-full justify-end z-10 pl-0 md:pl-20" data-aos="fade-up">
+                    <motion.div
+                        whileInView="visible"
+                        variants={variantFade(-100, 0)}
+                        initial="hidden"
+                        animate={controls}
+                        className="font-sans my-3 md:my-5 flex w-full justify-end z-10 pl-0 md:pl-20"
+                    >
                         <div className="w-full md:w-[466px] ml-5 md:ml-0 mr-0 md:mr-18 p-4 border shadow-lg rounded-md">
                             <h3 className="text-[16px] md:text-[20px] font-bold">Pelatihan PKM TI 2024</h3>
                             <p className="text-[14px] md:text-[16px] font-medium mb-1">⌛
@@ -568,8 +648,14 @@ export default function Welcome({ auth }) {
                             </p>
                             <p className="text-[16px]">📍 Aula Suastika, Gedung TI, Fakultas Teknik, Jimbaran</p>
                         </div>
-                    </div>
-                    <div className="font-sans my-3 md:my-12 flex w-full justify-end md:justify-start z-10 pr-0 md:pr-24" data-aos="fade-up">
+                    </motion.div>
+                    <motion.div
+                        whileInView="visible"
+                        variants={variantFade(100, 0)}
+                        initial="hidden"
+                        animate={controls}
+                        className="font-sans my-3 md:my-12 flex w-full justify-end md:justify-start z-10 pr-0 md:pr-24"
+                    >
                         <div className="w-full md:w-[466px] ml-5 md:ml-18 p-4 border shadow-lg rounded-md">
                             <h3 className="text-[16px] md:text-[20px] font-bold">Masa Asistensi Draf Proposal PKM TI</h3>
                             <p className="text-[14px] md:text-[16px] font-medium mb-1">⌛
@@ -577,8 +663,14 @@ export default function Welcome({ auth }) {
                             </p>
                             <p className="text-[16px]">📍 Hybird</p>
                         </div>
-                    </div>
-                    <div className="font-sans my-10 md:my-5 flex w-full justify-end z-10 pl-0 md:pl-20" data-aos="fade-up">
+                    </motion.div>
+                    <motion.div
+                        whileInView="visible"
+                        variants={variantFade(-100, 0)}
+                        initial="hidden"
+                        animate={controls}
+                        className="font-sans my-10 md:my-5 flex w-full justify-end z-10 pl-0 md:pl-20"
+                    >
                         <div className="w-full md:w-[466px] ml-5 md:ml-0 mr-0 md:mr-18 p-4 border shadow-lg rounded-md">
                             <h3 className="text-[16px] md:text-[20px] font-bold">Pengumpulan Bukti Asistensi</h3>
                             <p className="text-[14px] md:text-[16px] font-medium mb-1">⌛
@@ -587,8 +679,14 @@ export default function Welcome({ auth }) {
                             <p className="text-[14px] md:text-[16px]">📍 Melalui website resmi PKM TI https://pkm.hmtiudayana.id/</p>
                             {/* <p className="text-[16px]">📍 On Webex https://webex</p> */}
                         </div>
-                    </div>
-                    <div className="font-sans my-3 md:my-14 flex w-full justify-end md:justify-start z-10 pr-0 md:pr-24" data-aos="fade-up">
+                    </motion.div>
+                    <motion.div
+                        whileInView="visible"
+                        variants={variantFade(100, 0)}
+                        initial="hidden"
+                        animate={controls}
+                        className="font-sans my-3 md:my-14 flex w-full justify-end md:justify-start z-10 pr-0 md:pr-24"
+                    >
                         <div className="w-full md:w-[466px] ml-5 md:ml-18 p-4 border shadow-lg rounded-md">
                             <h3 className="text-[16px] md:text-[20px] font-bold">Pengumpulan Draf Proposal</h3>
                             <p className="text-[14px] md:text-[16px] font-medium mb-1">⌛
@@ -596,8 +694,14 @@ export default function Welcome({ auth }) {
                             </p>
                             <p className="text-[16px]">📍 Melalui website resmi PKM TI https://pkm.hmtiudayana.id/</p>
                         </div>
-                    </div>
-                    <div className="font-sans my-3 md:my-5 flex w-full justify-end z-10 pl-0 md:pl-20" data-aos="fade-up">
+                    </motion.div>
+                    <motion.div
+                        whileInView="visible"
+                        variants={variantFade(-100, 0)}
+                        initial="hidden"
+                        animate={controls}
+                        className="font-sans my-3 md:my-5 flex w-full justify-end z-10 pl-0 md:pl-20"
+                    >
                         <div className="w-full md:w-[466px] ml-5 md:ml-0 mr-0 md:mr-18 p-4 border shadow-lg rounded-md">
                             <h3 className="text-[16px] md:text-[20px] font-bold">Klinik PKM TI 2024</h3>
                             <p className="text-[14px] md:text-[16px] font-medium mb-1">⌛
@@ -605,8 +709,14 @@ export default function Welcome({ auth }) {
                             </p>
                             <p className="text-[16px]">📍 Online</p>
                         </div>
-                    </div>
-                    <div className="font-sans my-3 md:my-5 flex w-full justify-end md:justify-start z-10 pr-0 md:pr-24" data-aos="fade-up">
+                    </motion.div>
+                    <motion.div
+                        whileInView="visible"
+                        variants={variantFade(100, 0)}
+                        initial="hidden"
+                        animate={controls}
+                        className="font-sans my-3 md:my-5 flex w-full justify-end md:justify-start z-10 pr-0 md:pr-24"
+                    >
                         <div className="w-full md:w-[466px] ml-5 md:ml-18 p-4 border shadow-lg rounded-md">
                             <h3 className="text-[16px] md:text-[20px] font-bold">Pengumpulan Proposal Final</h3>
                             <p className="text-[14px] md:text-[16px] font-medium mb-1">⌛
@@ -614,8 +724,14 @@ export default function Welcome({ auth }) {
                             </p>
                             <p className="text-[16px]">📍 Melalui website resmi PKM TI https://pkm.hmtiudayana.id/</p>
                         </div>
-                    </div>
-                    <div className="font-sans my-3 md:my-16 flex w-full justify-end z-10 pl-0 md:pl-20" data-aos="fade-up">
+                    </motion.div>
+                    <motion.div
+                        whileInView="visible"
+                        variants={variantFade(-100, 0)}
+                        initial="hidden"
+                        animate={controls}
+                        className="font-sans my-3 md:my-16 flex w-full justify-end z-10 pl-0 md:pl-20"
+                    >
                         <div className="w-full md:w-[466px] ml-5 md:ml-0 mr-0 md:mr-18 p-4 border shadow-lg rounded-md">
                             <h3 className="text-[16px] md:text-[20px] font-bold">Pengumuman Kelulusan Pelatihan PKM TI 2024</h3>
                             <p className="text-[14px] md:text-[16px] font-medium mb-1">⌛
@@ -624,7 +740,7 @@ export default function Welcome({ auth }) {
                             <p className="text-[14px] md:text-[16px]">📍 Melalui website resmi PKM TI https://pkm.hmtiudayana.id/</p>
                             {/* <p className="text-[16px]">📍 On Webex https://webex</p> */}
                         </div>
-                    </div>
+                    </motion.div>
                 </section>
                 {/* End Timeline */}
 
@@ -710,7 +826,13 @@ export default function Welcome({ auth }) {
 
                 {/* Start FAQ */}
                 <section className="flex flex-col gap-5 justify-center items-center w-full mb-20" id="FaQ">
-                    <div className="flex flex-col gap-2 justify-center items-center text-center">
+                    <motion.div
+                        whileInView="visible"
+                        variants={variantZoom}
+                        initial="hidden"
+                        animate={controls}
+                        className="flex flex-col gap-2 justify-center items-center text-center"
+                    >
                         <p className="font-bold text-[20px] tracking-[0.01em] text-[#42A1A4]">
                             FAQ
                         </p>
@@ -720,9 +842,15 @@ export default function Welcome({ auth }) {
                         <p className="font-normal text-[16px] tracking-[0.01em] text-slate-500">
                             Pertanyaan umum yang sering ditanyakan terkait PKM TI 2025. Jika masih ada yang ingin ditanyakan lebih lanjut, kalian bisa hubungi narahubung dibawah ini.
                         </p>
-                    </div>
+                    </motion.div>
                     {/* Buttons */}
-                    <div className="flex md:flex-row flex-col justify-center items-center gap-5 w-full">
+                    <motion.div
+                        whileInView="visible"
+                        variants={variantZoom}
+                        initial="hidden"
+                        animate={controls}
+                        className="flex md:flex-row flex-col justify-center items-center gap-5 w-full"
+                    >
                         <div
                             onClick={() => setActiveCategoryFaq("Guidebook")}
                             className={`${activeCategoryFaq === "Guidebook" ? "bg-[#59DFD1] shadow-[0_0_20px_#59DFD1] text-white" : ""
@@ -744,11 +872,24 @@ export default function Welcome({ auth }) {
                         >
                             Klinik PKM
                         </div>
-                    </div>
+                    </motion.div>
                     <div className="flex md:flex-row flex-col justify-evenly items-center w-full">
-                        <img src="images/faq.png" alt="" key={activeCategoryFaq} className="w-full md:w-[481px] md:h-[483px] h-auto" />
+                        <motion.div
+                            whileInView="visible"
+                            variants={variantFade(-100, 0)}
+                            initial="hidden"
+                            animate={controls}
+                        >
+                            <img src="images/faq.png" alt="" key={activeCategoryFaq} className="w-full md:w-[481px] md:h-[483px] h-auto" />
+                        </motion.div>
                         {activeCategoryFaq === "Guidebook" && (
-                            <div className="flex flex-col gap-2 md:w-[636px] w-full">
+                            <motion.div
+                                whileInView="visible"
+                                variants={variantZoom}
+                                initial="hidden"
+                                animate={controls}
+                                className="flex flex-col gap-2 md:w-[636px] w-full"
+                            >
                                 <Accordion
                                     heading="Apakah mahasiswa program studi Teknologi Informasi Universitas Udayana wajib mengikuti Pelatihan PKM TI 2024?"
                                     description="Mahasiswa yang belum mengikuti Pelatihan PKM TI periode sebelumnya atau belum lulus pada pelatihan sebelumnya wajib untuk mengikuti Pelatihan PKM TI 2024. Dan bagi mahasiswa yang sudah mengikuti Pelatihan PKM TI periode sebelumnya juga boleh mengikuti Pelatihan PKM TI 2024."
@@ -774,10 +915,16 @@ export default function Welcome({ auth }) {
                                     onClick={() => handleAccordionClick(4)}
                                 />
 
-                            </div>
+                            </motion.div>
                         )}
                         {activeCategoryFaq === "Hari H PKM" && (
-                            <div className="flex flex-col gap-2 md:w-[636px] w-full">
+                            <motion.div
+                                whileInView="visible"
+                                variants={variantZoom}
+                                initial="hidden"
+                                animate={controls}
+                                className="flex flex-col gap-2 md:w-[636px] w-full"
+                            >
                                 <Accordion
                                     heading="Apakah mahasiswa program studi Teknologi Informasi Universitas Udayana wajib mengikuti Pelatihan PKM TI 2024?"
                                     description="Mahasiswa yang belum mengikuti Pelatihan PKM TI periode sebelumnya atau belum lulus pada pelatihan sebelumnya wajib untuk mengikuti Pelatihan PKM TI 2024. Dan bagi mahasiswa yang sudah mengikuti Pelatihan PKM TI periode sebelumnya juga boleh mengikuti Pelatihan PKM TI 2024."
@@ -803,7 +950,7 @@ export default function Welcome({ auth }) {
                                     onClick={() => handleAccordionClick(4)}
                                 />
 
-                            </div>
+                            </motion.div>
                         )}
                         {activeCategoryFaq === "Klinik PKM" && (
                             <div className="flex flex-col gap-2 md:w-[636px] w-full">
