@@ -943,7 +943,14 @@ export default function Welcome({ auth }) {
                             </motion.div>
                         )}
                         {activeCategoryFaq === "Klinik PKM" && (
-                            <div className="flex flex-col gap-2 md:w-[636px] w-full">
+                            <motion.div 
+                                className="flex flex-col gap-2 md:w-[636px] w-full"
+                                whileInView="visible"
+                                variants={variantZoom}
+                                initial="hidden"
+                                animate={controls}
+                            >
+                                
                                 <Accordion
                                     heading="Apa itu Klinik PKM dan bagaimana cara mengikutinya?"
                                     description=""
@@ -969,7 +976,7 @@ export default function Welcome({ auth }) {
                                     onClick={() => handleAccordionClick(3)}
                                 />
 
-                            </div>
+                            </motion.div>
                         )}
                     </div>
                 </section>
