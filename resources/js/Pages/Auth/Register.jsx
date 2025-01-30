@@ -2,10 +2,12 @@ import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/solid";
 import { Head, Link, useForm } from "@inertiajs/react";
 import { useEffect, useState } from "react";
 import ToastError from "../../Components/ToastError"
+import { motion, useAnimation } from "framer-motion";
 
 export default function Register() {
+    const controls = useAnimation();
     const [step, setStep] = useState(1);
-    const [toastMessage, setToastMessage] = useState("");
+    const [toastMessages, setToastMessages] = useState([]);
     const { data, setData, post, processing, errors, reset } = useForm({
         name: "",
         email: "",
@@ -15,6 +17,11 @@ export default function Register() {
         password: "",
         password_confirmation: "",
     });
+
+    const variantZoom = {
+        visible: { opacity: 1, scale: 1, transition: { duration: 0.8 } },
+        hidden: { opacity: 0, scale: 0.5, transition: { duration: 0.5 } },
+    };
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -29,21 +36,20 @@ export default function Register() {
     };
 
     useEffect(() => {
-        // Set toast message jika ada error
-        if (errors.name) setToastMessage(errors.name);
-        if (errors.email) setToastMessage(errors.email);
-        if (errors.line_id) setToastMessage(errors.line_id);
-        if (errors.phone) setToastMessage(errors.phone);
-        if (errors.nim) setToastMessage(errors.nim);
-        if (errors.password) setToastMessage(errors.password);
-        if (errors.password_confirmation) setToastMessage(errors.password_confirmation);
+        // Ambil semua pesan error yang ada dan simpan dalam array
+        const newMessages = Object.values(errors).flat();
+        setToastMessages(newMessages);
     }, [errors]);
 
     useEffect(() => {
-        if (toastMessage) {
-            setTimeout(() => setToastMessage(""), 3000); // Toast menghilang setelah 3 detik
+        if (toastMessages.length > 0) {
+            const timeout = setTimeout(() => {
+                setToastMessages((prevMessages) => prevMessages.slice(1));
+            }, 3000);
+            return () => clearTimeout(timeout);
         }
-    }, [toastMessage]);
+    }, [toastMessages]);
+
 
     useEffect(() => {
         return () => {
@@ -61,7 +67,11 @@ export default function Register() {
     return (
         <>
             <Head title="Registrasi" />
-            {toastMessage && <ToastError content={toastMessage} />}
+            <div className="fixed top-5 right-5 flex flex-col gap-2">
+                {toastMessages.map((message, index) => (
+                    <ToastError key={index} content={message} />
+                ))}
+            </div>
             <section className="flex md:flex-row flex-col md:justify-between justify-center items-center md:px-24 px-2 dark:bg-[#1d232a] light:bg-[#F4F4F4] w-full h-[100vh]">
 
                 {status && (
@@ -69,10 +79,23 @@ export default function Register() {
                         {status}
                     </div>
                 )}
-                <div className="md:flex hidden justify-center items-center md:w-7/12 w-full">
+
+                <motion.div
+                    whileInView="visible"
+                    variants={variantZoom}
+                    initial="hidden"
+                    animate={controls}
+                    className="md:flex hidden justify-center items-center md:w-7/12 w-full"
+                >
                     <img src="images/icon-login.png" className="md:w-[504px] w-full md:h-[504.06px] h-auto" alt="icon-login" />
-                </div>
-                <div className="border-[1px] shadow-sm-[#000000] border-slate-300 flex flex-col dark:bg-[#1d232a] light:bg-[#FFFFFF] rounded-[15px] md:p-10 p-5 md:w-5/12 w-full gap-5">
+                </motion.div>
+                <motion.div
+                    whileInView="visible"
+                    variants={variantZoom}
+                    initial="hidden"
+                    animate={controls}
+                    className="border-[1px] shadow-sm-[#000000] border-slate-300 flex flex-col dark:bg-[#1d232a] light:bg-[#FFFFFF] rounded-[15px] md:p-10 p-5 md:w-5/12 w-full gap-5"
+                >
                     <div className="flex justify-center items-center">
                         <Link href={route("welcome")}>
                             <img src="images/Logo-PKM-TI-2025.png" alt="" className="w-[115px] h-[143px] " />
@@ -95,7 +118,7 @@ export default function Register() {
                                                 setData("name", e.target.value)
                                             }
                                             className="input input-bordered"
-                                            required
+
                                         />
                                     </div>
                                     <div className="flex flex-col gap-2">
@@ -111,7 +134,7 @@ export default function Register() {
                                                 setData("line_id", e.target.value)
                                             }
                                             className="input input-bordered"
-                                            required
+
                                         />
                                     </div>
                                 </div>
@@ -132,7 +155,7 @@ export default function Register() {
                                                 setData("email", e.target.value)
                                             }
                                             className="input input-bordered"
-                                            required
+
                                         />
 
 
@@ -150,7 +173,7 @@ export default function Register() {
                                                 setData("phone", e.target.value)
                                             }
                                             className="input input-bordered"
-                                            required
+
                                         />
 
 
@@ -173,7 +196,7 @@ export default function Register() {
                                             isfocused="true"
                                             onChange={(e) => setData("nim", e.target.value)}
                                             className="input input-bordered"
-                                            required
+
                                         />
 
 
@@ -195,7 +218,7 @@ export default function Register() {
                                                 onChange={(e) =>
                                                     setData("password", e.target.value)
                                                 }
-                                                required
+
                                                 className="input input-bordered w-full join-item z-[1]"
                                             />
                                             <label className="btn btn-square join-item swap">
@@ -239,7 +262,7 @@ export default function Register() {
                                                         e.target.value
                                                     )
                                                 }
-                                                required
+
                                                 className="input input-bordered w-full join-item z-[1]"
                                             />
                                             <label className="btn btn-square join-item swap">
@@ -302,7 +325,7 @@ export default function Register() {
                             </p>
                         </form>
                     </div>
-                </div>
+                </motion.div>
             </section>
 
 

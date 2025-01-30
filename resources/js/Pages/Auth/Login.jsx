@@ -1,8 +1,12 @@
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/solid";
 import { Head, Link, useForm } from "@inertiajs/react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import ToastError from "@/Components/ToastError";
+import { motion, useAnimation } from "framer-motion";
 
 export default function Login({ status, canResetPassword }) {
+    const controls = useAnimation();
+    const [toastMessages, setToastMessages] = useState([]);
     const { data, setData, post, processing, errors, reset } = useForm({
         nim: "",
         password: "",
@@ -15,6 +19,27 @@ export default function Login({ status, canResetPassword }) {
         };
     }, []);
 
+    const variantZoom = {
+        visible: { opacity: 1, scale: 1, transition: { duration: 0.8 } },
+        hidden: { opacity: 0, scale: 0.5, transition: { duration: 0.5 } },
+    };
+
+    useEffect(() => {
+        // Ambil semua pesan error yang ada dan simpan dalam array
+        const newMessages = Object.values(errors).flat();
+        setToastMessages(newMessages);
+    }, [errors]);
+
+    useEffect(() => {
+        if (toastMessages.length > 0) {
+            const timeout = setTimeout(() => {
+                setToastMessages((prevMessages) => prevMessages.slice(1));
+            }, 3000);
+            return () => clearTimeout(timeout);
+        }
+    }, [toastMessages]);
+
+
     const submit = (e) => {
         e.preventDefault();
 
@@ -24,25 +49,39 @@ export default function Login({ status, canResetPassword }) {
     return (
         <>
             <Head title="Masuk" />
-
-            {/* Start Login */}
+            {toastMessages.map((message, index) => (
+                <ToastError key={index} content={message} />
+            ))}
             <section className="flex md:flex-row flex-col md:justify-between justify-center items-center md:px-24 px-2 dark:bg-[#1d232a] light:bg-[#F4F4F4] w-full h-[100vh]">
                 {status && (
                     <div className="mb-4 font-medium text-sm text-green-600">
                         {status}
                     </div>
                 )}
-                <div className="md:flex hidden justify-center items-center md:w-7/12 w-full">
+                {/* Start Login */}
+                <motion.div
+                    whileInView="visible"
+                    variants={variantZoom}
+                    initial="hidden"
+                    animate={controls}
+                    className="md:flex hidden justify-center items-center md:w-7/12 w-full"
+                >
                     <img src="images/icon-login.png" className="md:w-[504px] w-full md:h-[504.06px] h-auto" alt="icon-login" />
-                </div>
-                <div className="border-[1px] shadow-sm-[#000000] border-slate-300 flex flex-col dark:bg-[#1d232a] light:bg-[#FFFFFF] rounded-[15px] md:p-10 p-5 md:w-5/12 w-full gap-5">
+                </motion.div>
+                <motion.div
+                    whileInView="visible"
+                    variants={variantZoom}
+                    initial="hidden"
+                    animate={controls}
+                    className="border-[1px] shadow-sm-[#000000] border-slate-300 flex flex-col dark:bg-[#1d232a] light:bg-[#FFFFFF] rounded-[15px] md:p-10 p-5 md:w-5/12 w-full gap-5"
+                >
                     <div className="flex justify-center items-center">
                         <Link href={route("welcome")}>
                             <img src="images/Logo-PKM-TI-2025.png" alt="" className="w-[115px] h-[143px] " />
                         </Link>
                     </div>
                     <div className="flex flex-col gap-2">
-                        <form onSubmit={submit}>
+                        <form onSubmit={submit} className="flex flex-col gap-2">
                             <div className="flex flex-col gap-2">
                                 <label htmlFor="nim" className="text-[18px] font-semibold">NIM</label>
                                 <input
@@ -56,7 +95,7 @@ export default function Login({ status, canResetPassword }) {
                                     className="input input-bordered"
                                 />
 
-                                <p className="mt-2 text-error">{errors.nim}</p>
+                                {/* <p className="mt-2 text-error">{errors.nim}</p> */}
                             </div>
                             <div className="flex flex-col gap-2">
                                 <label htmlFor="password" className="text-[18px] font-semibold">Password</label>
@@ -90,7 +129,7 @@ export default function Login({ status, canResetPassword }) {
                                     </label>
                                 </div>
 
-                                <p className="mt-2 text-error">{errors.password}</p>
+                                {/* <p className="mt-2 text-error">{errors.password}</p> */}
                             </div>
                             {/* start remember in reset password */}
                             <div className="flex flex-row justify-between items-center">
@@ -139,7 +178,7 @@ export default function Login({ status, canResetPassword }) {
                             </p>
                         </form>
                     </div>
-                </div>
+                </motion.div>
             </section>
 
 
