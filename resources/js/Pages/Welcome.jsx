@@ -815,7 +815,7 @@ export default function Welcome({ auth }) {
 
 
                 {/* Start FAQ */}
-                <section className="flex flex-col gap-5 justify-center items-center w-full mb-20" id="FaQ">
+                <section className="flex flex-col gap-7 justify-center items-center w-full mb-20" id="FaQ">
                     <motion.div
                         whileInView="visible"
                         variants={variantZoom}
@@ -824,10 +824,10 @@ export default function Welcome({ auth }) {
                         className="flex flex-col gap-2 justify-center items-center text-center"
                     >
                         <p className="font-bold text-[20px] tracking-[0.01em] text-[#42A1A4]">
-                            FAQ
+                            Pertanyaan Umum
                         </p>
                         <h1 className="font-bold text-[50px] leading-[50px] text-[#285B70]">
-                            Pertanyaan Umum yang Sering Ditanyakan
+                            Hal Yang Sering Ditanyakan
                         </h1>
                         <p className="font-normal text-[16px] tracking-[0.01em] text-slate-500">
                             Pertanyaan umum yang sering ditanyakan terkait PKM TI 2025. Jika masih ada yang ingin ditanyakan lebih lanjut, kalian bisa hubungi narahubung dibawah ini.
