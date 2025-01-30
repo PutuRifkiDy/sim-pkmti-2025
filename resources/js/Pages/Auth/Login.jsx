@@ -66,7 +66,7 @@ export default function Login({ status, canResetPassword }) {
                     animate={controls}
                     className="md:flex hidden justify-center items-center md:w-7/12 w-full"
                 >
-                    <img src="images/icon-login.png" className="md:w-[504px] w-full md:h-[504.06px] h-auto" alt="icon-login" />
+                    <img src="images/icon-login.png" className="md:w-[504px] w-full md:h-[504.06px] h-auto animate-bounce-custom" alt="icon-login" />
                 </motion.div>
                 <motion.div
                     whileInView="visible"
