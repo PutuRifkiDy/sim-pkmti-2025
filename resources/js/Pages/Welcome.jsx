@@ -881,28 +881,28 @@ export default function Welcome({ auth }) {
                                 className="flex flex-col gap-2 md:w-[636px] w-full"
                             >
                                 <Accordion
-                                    heading="Apakah mahasiswa program studi Teknologi Informasi Universitas Udayana wajib mengikuti Pelatihan PKM TI 2024?"
-                                    description="Mahasiswa yang belum mengikuti Pelatihan PKM TI periode sebelumnya atau belum lulus pada pelatihan sebelumnya wajib untuk mengikuti Pelatihan PKM TI 2024. Dan bagi mahasiswa yang sudah mengikuti Pelatihan PKM TI periode sebelumnya juga boleh mengikuti Pelatihan PKM TI 2024."
+                                    heading="Apa itu guidebook pelatihan PKM?"
+                                    description=""
                                     isOpen={openIndex === 0}
                                     onClick={() => handleAccordionClick(0)}
                                 />
                                 <Accordion
-                                    heading="Apa yang akan dilakukan mahasiswa selama Pelatihan PKM TI 2024?"
-                                    description="Selama Pelatihan PKM TI 2024, mahasiswa akan dibimbing dalam merancang Program Kreativitas Mahasiswa (PKM) yang inovatif dan kreatif di bidang Teknologi Informasi."
+                                    heading="Di mana saya bisa mendapatkan guidebook pelatihan PKM ini?"
+                                    description=""
                                     isOpen={openIndex === 1}
                                     onClick={() => handleAccordionClick(1)}
                                 />
                                 <Accordion
-                                    heading="Apa yang diharapkan mahasiswa peroleh setelah mengikuti Pelatihan PKM TI 2024?"
-                                    description="Setelah mengikuti Pelatihan PKM TI 2024, diharapkan mahasiswa akan memperoleh pemahaman mendalam mengenai pengembangan judul, penyesuaian format berdasarkan pedoman, teknik penelitian, serta keterampilan teknis yang diperlukan untuk mengimplementasikan ide-ide tersebut."
-                                    isOpen={openIndex === 3}
-                                    onClick={() => handleAccordionClick(3)}
+                                    heading="Apakah guidebook ini wajib dibaca sebelum mengikuti pelatihan?"
+                                    description=""
+                                    isOpen={openIndex === 2}
+                                    onClick={() => handleAccordionClick(2)}
                                 />
                                 <Accordion
-                                    heading="Apa luaran yang dihasilkan oleh mahasiswa setelah mengikuti Pelatihan PKM TI 2024?"
-                                    description="Luaran dari kegiatan ini berupa proposal PKM yang memiliki potensi memberikan manfaat signifikan dalam konteks Teknologi Informasi dan dapat diajukan untuk mendapatkan dukungan dan pendanaan pada tahun 2025."
-                                    isOpen={openIndex === 4}
-                                    onClick={() => handleAccordionClick(4)}
+                                    heading="Bagaimana jika ada bagian dari guidebook yang kurang saya pahami?"
+                                    description=""
+                                    isOpen={openIndex === 3}
+                                    onClick={() => handleAccordionClick(3)}
                                 />
 
                             </motion.div>
@@ -916,58 +916,58 @@ export default function Welcome({ auth }) {
                                 className="flex flex-col gap-2 md:w-[636px] w-full"
                             >
                                 <Accordion
-                                    heading="Apakah mahasiswa program studi Teknologi Informasi Universitas Udayana wajib mengikuti Pelatihan PKM TI 2024?"
-                                    description="Mahasiswa yang belum mengikuti Pelatihan PKM TI periode sebelumnya atau belum lulus pada pelatihan sebelumnya wajib untuk mengikuti Pelatihan PKM TI 2024. Dan bagi mahasiswa yang sudah mengikuti Pelatihan PKM TI periode sebelumnya juga boleh mengikuti Pelatihan PKM TI 2024."
+                                    heading="Apakah ada pembimbing yang akan memberikan masukan terhadap ide dan judul yang diajukan?"
+                                    description=""
                                     isOpen={openIndex === 0}
                                     onClick={() => handleAccordionClick(0)}
                                 />
                                 <Accordion
-                                    heading="Apa yang akan dilakukan mahasiswa selama Pelatihan PKM TI 2024?"
-                                    description="Selama Pelatihan PKM TI 2024, mahasiswa akan dibimbing dalam merancang Program Kreativitas Mahasiswa (PKM) yang inovatif dan kreatif di bidang Teknologi Informasi."
+                                    heading="Bagaimana cara mendaftarkan ide atau judul untuk sesi bedah ide?"
+                                    description=""
                                     isOpen={openIndex === 1}
                                     onClick={() => handleAccordionClick(1)}
                                 />
                                 <Accordion
-                                    heading="Apa yang diharapkan mahasiswa peroleh setelah mengikuti Pelatihan PKM TI 2024?"
-                                    description="Setelah mengikuti Pelatihan PKM TI 2024, diharapkan mahasiswa akan memperoleh pemahaman mendalam mengenai pengembangan judul, penyesuaian format berdasarkan pedoman, teknik penelitian, serta keterampilan teknis yang diperlukan untuk mengimplementasikan ide-ide tersebut."
-                                    isOpen={openIndex === 3}
-                                    onClick={() => handleAccordionClick(3)}
+                                    heading="Kapan dan di mana pelatihan PKM akan dilaksanakan?"
+                                    description=""
+                                    isOpen={openIndex === 2}
+                                    onClick={() => handleAccordionClick(2)}
                                 />
                                 <Accordion
-                                    heading="Apa luaran yang dihasilkan oleh mahasiswa setelah mengikuti Pelatihan PKM TI 2024?"
-                                    description="Luaran dari kegiatan ini berupa proposal PKM yang memiliki potensi memberikan manfaat signifikan dalam konteks Teknologi Informasi dan dapat diajukan untuk mendapatkan dukungan dan pendanaan pada tahun 2025."
-                                    isOpen={openIndex === 4}
-                                    onClick={() => handleAccordionClick(4)}
+                                    heading="Apa saja yang akan dibahas dalam pelatihan PKM ini?"
+                                    description=""
+                                    isOpen={openIndex === 3}
+                                    onClick={() => handleAccordionClick(3)}
                                 />
 
                             </motion.div>
                         )}
                         {activeCategoryFaq === "Klinik PKM" && (
                             <div className="flex flex-col gap-2 md:w-[636px] w-full">
-                                {/* <Accordion
-                                    heading="Apakah mahasiswa program studi Teknologi Informasi Universitas Udayana wajib mengikuti Pelatihan PKM TI 2024?"
-                                    description="Mahasiswa yang belum mengikuti Pelatihan PKM TI periode sebelumnya atau belum lulus pada pelatihan sebelumnya wajib untuk mengikuti Pelatihan PKM TI 2024. Dan bagi mahasiswa yang sudah mengikuti Pelatihan PKM TI periode sebelumnya juga boleh mengikuti Pelatihan PKM TI 2024."
+                                <Accordion
+                                    heading="Apa itu Klinik PKM dan bagaimana cara mengikutinya?"
+                                    description=""
                                     isOpen={openIndex === 0}
                                     onClick={() => handleAccordionClick(0)}
                                 />
                                 <Accordion
-                                    heading="Apa yang akan dilakukan mahasiswa selama Pelatihan PKM TI 2024?"
-                                    description="Selama Pelatihan PKM TI 2024, mahasiswa akan dibimbing dalam merancang Program Kreativitas Mahasiswa (PKM) yang inovatif dan kreatif di bidang Teknologi Informasi."
+                                    heading="Apa saja yang bisa saya konsultasikan dalam Klinik PKM?"
+                                    description=""
                                     isOpen={openIndex === 1}
                                     onClick={() => handleAccordionClick(1)}
                                 />
                                 <Accordion
-                                    heading="Apa yang diharapkan mahasiswa peroleh setelah mengikuti Pelatihan PKM TI 2024?"
-                                    description="Setelah mengikuti Pelatihan PKM TI 2024, diharapkan mahasiswa akan memperoleh pemahaman mendalam mengenai pengembangan judul, penyesuaian format berdasarkan pedoman, teknik penelitian, serta keterampilan teknis yang diperlukan untuk mengimplementasikan ide-ide tersebut."
+                                    heading="Apakah Klinik PKM hanya untuk peserta yang sudah memiliki proposal?"
+                                    description=""
+                                    isOpen={openIndex === 2}
+                                    onClick={() => handleAccordionClick(2)}
+                                />
+                                <Accordion
+                                    heading="Siapa saja yang akan membimbing peserta dalam Klinik PKM?"
+                                    description=""
                                     isOpen={openIndex === 3}
                                     onClick={() => handleAccordionClick(3)}
                                 />
-                                <Accordion
-                                    heading="Apa luaran yang dihasilkan oleh mahasiswa setelah mengikuti Pelatihan PKM TI 2024?"
-                                    description="Luaran dari kegiatan ini berupa proposal PKM yang memiliki potensi memberikan manfaat signifikan dalam konteks Teknologi Informasi dan dapat diajukan untuk mendapatkan dukungan dan pendanaan pada tahun 2025."
-                                    isOpen={openIndex === 4}
-                                    onClick={() => handleAccordionClick(4)}
-                                /> */}
 
                             </div>
                         )}
