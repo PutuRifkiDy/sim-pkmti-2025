@@ -103,9 +103,6 @@ export default function Dashboard({ auth, infos, flash }) {
                 />
             )}
             <div className="flex flex-col w-full items-start">
-                <h1 className="text-4xl font-black mb-8">
-                    Halo, {user.name.split(" ")[0]}!
-                </h1>
                 {Object.keys(infos).map((key, i) => {
                     const text =
                         displayedInfos[key][infos[key].toString()].text;

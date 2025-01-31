@@ -1,3 +1,4 @@
+import { IconBerandaSideBar, IconGabungTim, IconProfileSideBar } from "@/Components/iconAdmin";
 import Sidebar from "@/Components/Sidebar";
 import { useParam } from "@/utils";
 import {
@@ -11,14 +12,19 @@ import { Head } from "@inertiajs/react";
 export default function ParticipantLayout({ user, title, children }) {
     const navigations = [
         {
-            icon: <HomeIcon className="h-6 w-6" />,
+            icon: <IconBerandaSideBar />,
             text: "Beranda",
-            link: route("dashboard"),
+            link: "dashboard",
         },
         {
-            icon: <UserGroupIcon className="h-6 w-6" />,
+            icon: <IconGabungTim />,
             text: "Gabung Tim",
-            link: route("teams.not-teamed"),
+            link: "teams.not-teamed",
+        },
+        {
+            icon: <IconProfileSideBar />,
+            text: "Profile",
+            link: "profile.edit",
         },
     ];
 
