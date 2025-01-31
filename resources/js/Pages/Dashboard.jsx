@@ -73,21 +73,21 @@ export default function Dashboard({ auth, infos, flash }) {
 
     const InfoElement = ({ text, mode }) => {
         const icon = {
-            success: <CheckCircleIcon className="h-6 w-6" />,
-            error: <ExclamationTriangleIcon className="h-6 w-6" />,
-            warning: <ExclamationCircleIcon className="h-6 w-6" />,
+            success: <CheckCircleIcon className="h-6 w-6 fill-[#4DE45C]" />,
+            error: <ExclamationTriangleIcon className="h-6 w-6 fill-[#FA3434]" />,
+            warning: <ExclamationCircleIcon className="h-6 w-6 fill-[#CFD249]" />,
         };
 
         return (
-            <div className={`alert alert-${mode} mb-2`} role="alert">
+            <div className={`w-full px-5 py-3.5 flex flex-row gap-5 items-center ${mode === "error" ? "bg-[#FA3434]/10 border-l-4 rounded-l-[4px] border-[#FA3434]" : " "} ${mode === "warning" ? "bg-[#CFD249]/10 border-l-4 rounded-l-[4px] border-[#CFD249]" : " "} ${mode === "success" ? "bg-[#4DE45C]/10 border-l-4 rounded-l-[4px] border-[#4DE45C]" : " "} mb-2`}>
                 {icon[mode]}
                 <div>
-                    <h3 className="font-bold">
+                    {/* <h3 className={`font-bold text-[18px] ${mode === "error" ? "text-[#FA3434]" : " "} ${mode === "warning" ? "text-[#CFD249]" : " "} ${mode === "success" ? "text-[#4DE45C]" : " "}`}>
                         {mode === "success" && "Selesai"}
                         {mode === "warning" && "Peringatan"}
                         {mode === "error" && "Bahaya"}
-                    </h3>
-                    <div className="text-xs">{text}</div>
+                    </h3> */}
+                    <div className={`font-bold text-[14px] leading-[16px] ${mode === "error" ? "text-[#FA3434]" : " "} ${mode === "warning" ? "text-[#CFD249]" : " "} ${mode === "success" ? "text-[#4DE45C]" : " "}`} >{text}</div>
                 </div>
             </div>
         );
@@ -102,7 +102,7 @@ export default function Dashboard({ auth, infos, flash }) {
                     id="team_information"
                 />
             )}
-            <div className="flex flex-col w-full items-start">
+            <div className="flex flex-col gap-3 w-full items-start">
                 {Object.keys(infos).map((key, i) => {
                     const text =
                         displayedInfos[key][infos[key].toString()].text;

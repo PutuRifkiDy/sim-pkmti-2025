@@ -22,7 +22,7 @@ export default function Sidebar({ user, navigations, children }) {
         <>
             <div className="flex flex-row justify-between">
                 {/* Sidebar */}
-                <aside className={`flex flex-col gap-6 justify-start items-center transition-all duration-500 ease-in-out border-r-2 border-slate-200 ${isSidebarOpen ? "w-[242px]" : "w-16"} min-h-screen fixed`}>
+                <aside className={`flex flex-col gap-6 justify-start items-center transition-all duration-200 ease-in-out border-r-2 border-slate-200 ${isSidebarOpen ? "w-[242px]" : "w-16"} min-h-screen fixed`}>
                     <div className="py-6 w-full flex flex-row gap-1 justify-center items-center font-semibold text-[24px] text-[#285B70] border-b-2 border-slate-200">
                         PKM<span className={`${isSidebarOpen ? "flex flex-row text-[#42A1A4]" : "hidden"}`}>TI 2025</span>
                     </div>
@@ -114,7 +114,7 @@ export default function Sidebar({ user, navigations, children }) {
                             <DarkMode />
                         </div>
                     </header>
-                    <div className="p-6">
+                    <div className="flex flex-col gap-3 p-5 bg-[#F5F6FA] min-h-screen">
                         {navigations.map((navigation, i) => (
                             <h1
                                 key={i}
@@ -123,7 +123,8 @@ export default function Sidebar({ user, navigations, children }) {
                                 {currentRoute.startsWith(navigation.link) && navigation.text}
                             </h1>
                         ))}
-                        {children}
+
+                            {children}
                     </div>
                 </div>
             </div>
