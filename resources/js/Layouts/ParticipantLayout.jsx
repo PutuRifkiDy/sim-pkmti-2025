@@ -1,4 +1,4 @@
-import { IconBerandaSideBar, IconGabungTim, IconProfileSideBar } from "@/Components/iconAdmin";
+import { IconBerandaSideBar, IconBuktiProposal, IconGabungTim, IconProfileSideBar, IconProposal } from "@/Components/iconAdmin";
 import Sidebar from "@/Components/Sidebar";
 import { useParam } from "@/utils";
 import {
@@ -16,11 +16,12 @@ export default function ParticipantLayout({ user, title, children }) {
             text: "Beranda",
             link: route("dashboard"),
         },
-        {
+
+        ...(!user.team_id ? [{
             icon: <IconGabungTim />,
             text: "Gabung Tim",
             link: route("teams.join_or_create"),
-        },
+        }] : []),
         {
             icon: <IconProfileSideBar />,
             text: "Profile",
@@ -29,21 +30,20 @@ export default function ParticipantLayout({ user, title, children }) {
     ];
 
     if (user.team_id) {
-        navigations.pop();
         navigations.push(
             {
-                icon: <UserGroupIcon className="h-6 w-6" />,
+                icon: <IconGabungTim />,
                 text: "Tim Saya",
                 link: route("teams.show", user.team_id),
             },
             {
-                icon: <DocumentTextIcon className="h-6 w-6" />,
+                icon: <IconProposal />,
                 text: "Proposal PKM",
                 link: route("proposals.show", user.team_id),
             },
             {
-                icon: <CameraIcon className="h-6 w-6" />,
-                text: "Bukti Asistensi",
+                icon: <IconBuktiProposal/>,
+                text: "Asistensi",
                 link: route("assistance-proofs.show", user.team_id),
             }
         );
