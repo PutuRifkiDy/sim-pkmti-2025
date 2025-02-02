@@ -7,6 +7,7 @@ import {
     CodeBracketSquareIcon,
 } from "@heroicons/react/24/solid";
 import { Link } from "@inertiajs/react";
+import { IconGabungTim } from "@/Components/IconAdmin";
 
 function KickMember({ memberId }) {
     return (
@@ -14,7 +15,7 @@ function KickMember({ memberId }) {
             <Link
                 as="button"
                 method="delete"
-                className="btn btn-square btn-error btn-sm"
+                className="font-bold bg-[#E82323] px-3 py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#E82323]/70 dark:text-gray-400 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#E82323]"
                 href={route("teams.kick", [useParam(1), memberId])}
             >
                 <UserMinusIcon className="h-5 w-5" />
@@ -29,7 +30,7 @@ function ChangeLeader({ memberId }) {
             <Link
                 as="button"
                 method="patch"
-                className="btn btn-square btn-warning btn-sm"
+                className="font-bold bg-[#f5bc42] px-3 py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#f5bc42]/70 dark:text-gray-400 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#f5bc42]"
                 href={route("teams.changeLeader", [useParam(1), memberId])}
             >
                 <ArrowsRightLeftIcon className="h-5 w-5" />
@@ -45,16 +46,15 @@ export default function TeamMembers({ user, team }) {
 
     return (
         <>
-            <div>
-                <h3 className="font-bold text-xs mb-4">ANGGOTA TIM</h3>
-                <div className="flex gap-2 mb-4">
-                    <UserIcon className="h-6 w-6" />
+            <div className="flex flex-col">
+                <div className="flex flex-row items-center gap-4 mt-4 mb-4">
+                    <IconGabungTim />
                     <span className="font-bold">{team.members.length} / 5</span>
                 </div>
-                <div className="overflow-x-auto max-w-96">
-                    <table className="table table-zebra mb-4 whitespace-nowrap">
+                <div className="overflow-x-auto">
+                    <table className="table table-zebra mb-4">
                         <thead>
-                            <tr>
+                            <tr className="font-medium text-[16px]">
                                 <th></th>
                                 <th>NIM</th>
                                 <th>Nama</th>
@@ -69,7 +69,7 @@ export default function TeamMembers({ user, team }) {
                         <tbody>
                             {team.members.map((member, i) => {
                                 return (
-                                    <tr key={member.id}>
+                                    <tr key={member.id} className="text-[14.22px]">
                                         <th>{i + 1}</th>
                                         <td>{member.nim}</td>
                                         <td>{member.name}</td>
@@ -104,7 +104,7 @@ export default function TeamMembers({ user, team }) {
                                             {user.id !== member.id &&
                                                 (user.role === "admin" ||
                                                     user.id ===
-                                                        team.leader_id) && (
+                                                    team.leader_id) && (
                                                     <>
                                                         <KickMember
                                                             memberId={member.id}

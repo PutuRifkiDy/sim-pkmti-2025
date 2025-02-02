@@ -128,7 +128,7 @@ export default function Sidebar({ user, navigations, children }) {
                             const routeName = navigation.link.startsWith("http")
                                 ? new URL(navigation.link).pathname
                                 : navigation.link;
-                                
+
                             let displayText = routeName === routePath ? navigation.text : " ";
                             if (displayText === "Asistensi") {
                                 displayText = "Bukti Asistensi";
