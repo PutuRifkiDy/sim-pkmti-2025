@@ -122,7 +122,7 @@ export default function TeamInformation({ user, team, lecturers }) {
 
                     {(user.id === team.leader_id || user.role === "admin") && (
                         <>
-                        <div className="grid grid-cols-2 gap-2 mt-5">
+                        <div className="grid grid-cols-2 w-1/2 gap-2 mt-5">
                             <button
                                 className="w-full mb-2 flex flex-row justify-center items-center gap-2 font-bold bg-[#42A1A4] px-10 py-3 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#59DFD1] dark:text-gray-400 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#42A1A4]"
                                 disabled={processing}
@@ -146,11 +146,11 @@ export default function TeamInformation({ user, team, lecturers }) {
                         </>
                     )}
                 </form>
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-2 gap-2 w-1/2">
                     <Link
                         as="button"
                         method="delete"
-                        className="w-full mb-2 flex flex-row justify-center items-center gap-2 font-bold bg-[#E82323] px-10 py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#E82323]/70 dark:text-gray-400 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#E82323]"
+                        className="w-full mb-2 flex flex-row justify-center items-center gap-2 font-bold bg-[#E82323] py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#E82323]/70 dark:text-gray-400 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#E82323]"
                         href={route("teams.leave", useParam(1))}
                     >
                         <ArrowLeftEndOnRectangleIcon className="h-6 w-6" /> Keluar
@@ -161,7 +161,7 @@ export default function TeamInformation({ user, team, lecturers }) {
                         <Link
                             as="button"
                             method="delete"
-                            className="w-full mb-2 flex flex-row justify-center items-center gap-2 font-bold bg-[#E82323] px-10 py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#E82323]/70 dark:text-gray-400 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#E82323]"
+                            className="w-full mb-2 flex flex-row justify-center items-center gap-2 font-bold bg-[#E82323] py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#E82323]/70 dark:text-gray-400 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#E82323]"
                             href={route("teams.destroy", useParam(1))}
                         >
                             <PowerIcon className="h-6 w-6" /> Bubarkan Tim
