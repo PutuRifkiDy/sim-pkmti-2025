@@ -92,7 +92,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::middleware('has.no-team')->group(function () {
-        Route::get('/teams', fn () => Inertia::render('Teams/NotTeamed'))->name('teams.not-teamed');
+        Route::get('/teams', fn () => Inertia::render('Teams/JoinOrCreate'))->name('teams.join_or_create');
+        Route::get('/teams/join-tim', fn () => Inertia::render('Teams/JoinTeam'))->name('teams.join_tim');
+        Route::get('/teams/create-tim', fn () => Inertia::render('Teams/CreateTeam'))->name('teams.create_tim');
+        // Route::get('/teams', fn () => Inertia::render('Teams/NotTeamed'))->name('teams.not-teamed');
         Route::post('/teams', [TeamController::class, 'create'])->name('teams.create');
         Route::get('/teams/{token}/join', [TeamController::class, 'join'])->name('teams.join');
     });

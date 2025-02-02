@@ -14,17 +14,17 @@ export default function ParticipantLayout({ user, title, children }) {
         {
             icon: <IconBerandaSideBar />,
             text: "Beranda",
-            link: "dashboard",
+            link: route("dashboard"),
         },
         {
             icon: <IconGabungTim />,
             text: "Gabung Tim",
-            link: "teams.not-teamed",
+            link: route("teams.join_or_create"),
         },
         {
             icon: <IconProfileSideBar />,
             text: "Profile",
-            link: "profile.edit",
+            link: route("profile.edit"),
         },
     ];
 

@@ -15,13 +15,13 @@ class TeamController extends Controller
     const MAX_PARTICIPANTS = 5;
 
     public function show($teamId)
-    {   
+    {
         if (!Auth::getUser()->team_id && Auth::getUser()->role != 'admin') {
-            return to_route('teams.not-teamed');
+            return to_route('teams.join_or_create');
         }
 
         $team = Team::with('leader', 'members', 'proposal')->find($teamId);
-        
+
         if (!$team) abort(404);
 
         $lecturers = Lecturer::all();
@@ -57,7 +57,7 @@ class TeamController extends Controller
     }
 
     public function join($token)
-    { 
+    {
         $team = Team::where('token', $token)->first();
         if (!$team) return back()->with('msg', 'Tim tidak ditemukan.');
 
@@ -86,7 +86,7 @@ class TeamController extends Controller
         } else if ($pastTeam->leader_id == $user->id) {
             $pastTeam->update(['leader_id' =>  User::where('team_id', $teamId)->first()->id]);
         }
-            
+
         return to_route('dashboard')->with('msg', 'Kamu berhasil keluar dari tim');
     }
 

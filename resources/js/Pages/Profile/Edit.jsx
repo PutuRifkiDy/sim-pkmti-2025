@@ -6,10 +6,32 @@ export default function EditProfile({ auth }) {
     const user = auth.user;
     return (
         <ParticipantLayout user={user} title="Beranda">
-            <div className="lg:flex lg:gap-10">
-                <UpdateProfileForm user={user} />
+            <div className="bg-white flex gap-5 flex-col px-16 py-10 rounded-[14px]">
+                <div role="tablist" className="tabs tabs-bordered">
+                    <input
+                        type="radio"
+                        name="my_tabs_1"
+                        role="tab"
+                        className="tab leading-[28px] tracking-[0.03em] "
+                        aria-label="Ubah Profile"
+                        defaultChecked
+                    />
+                    <div role="tabpanel" className="tab-content py-5">
+                        <UpdateProfileForm user={user} />
+                    </div>
+
+                    <input
+                        type="radio"
+                        name="my_tabs_1"
+                        role="tab"
+                        className="tab leading-[28px] tracking-[0.03em] "
+                        aria-label="Ubah Password"
+                    />
+                    <div role="tabpanel" className="tab-content py-5">
+                        <UpdatePasswordForm />
+                    </div>
+                </div>
                 <div className="mb-12 lg:hidden"></div>
-                <UpdatePasswordForm />
             </div>
         </ParticipantLayout>
     );

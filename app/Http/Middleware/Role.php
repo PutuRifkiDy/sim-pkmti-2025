@@ -22,7 +22,7 @@ class Role
         foreach ($roles as $role) {
             switch ($role) {
                 case 'admin':
-                    if ($user->role == $role) 
+                    if ($user->role == $role)
                         return $next($request);
                     break;
                 case 'lecturer':
@@ -39,11 +39,11 @@ class Role
                     }
                     break;
                 case 'leader':
-                    if ($user->team_id && 
-                        $user->id == Team::find($user->team_id)->leader_id) 
+                    if ($user->team_id &&
+                        $user->id == Team::find($user->team_id)->leader_id)
                             return $next($request);
                     break;
-                case 'not-teamed':
+                case 'join_or_create':
                     if (!$user->team_id) return $next($request);
                     else return to_route('teams.show', $user->team_id);
                     break;

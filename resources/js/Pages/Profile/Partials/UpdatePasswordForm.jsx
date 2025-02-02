@@ -61,129 +61,131 @@ export default function UpdatePasswordForm() {
 
             <form onSubmit={updatePassword}>
                 {/* Input current password */}
-                <div className="form-control my-2">
-                    <label
-                        htmlFor="current_password"
-                        className="font-bold mb-2"
-                    >
-                        Password Lama
-                    </label>
-                    <div className="join">
-                        <input
-                            id="current_password"
-                            type="password"
-                            name="current_password"
-                            value={data.current_password}
-                            onChange={(e) =>
-                                setData("current_password", e.target.value)
-                            }
-                            className="input input-bordered w-full join-item z-[1]"
-                        />
-                        <label className="btn btn-square join-item swap">
+                <div className="grid grid-cols-2 gap-2">
+                    <div className="form-control my-2">
+                        <label
+                            htmlFor="current_password"
+                            className="font-bold mb-2"
+                        >
+                            Password Lama
+                        </label>
+                        <div className="join">
                             <input
-                                type="checkbox"
-                                onClick={() => {
-                                    let x =
-                                        document.getElementById(
-                                            "current_password"
+                                id="current_password"
+                                type="password"
+                                name="current_password"
+                                value={data.current_password}
+                                onChange={(e) =>
+                                    setData("current_password", e.target.value)
+                                }
+                                className="input input-bordered w-full join-item z-[1]"
+                            />
+                            <label className="btn btn-square join-item swap">
+                                <input
+                                    type="checkbox"
+                                    onClick={() => {
+                                        let x =
+                                            document.getElementById(
+                                                "current_password"
+                                            );
+                                        x.type =
+                                            x.type === "password"
+                                                ? "text"
+                                                : "password";
+                                    }}
+                                />
+                                <EyeSlashIcon className="h-6 w-6 swap-on" />
+                                <EyeIcon className="h-6 w-6 swap-off" />
+                            </label>
+                        </div>
+
+                        <p className="mt-2 text-error">{errors.current_password}</p>
+                    </div>
+
+                    {/* Input password */}
+                    <div className="form-control my-2">
+                        <label htmlFor="password" className="font-bold mb-2">
+                            Password Baru
+                        </label>
+                        <div className="join">
+                            <input
+                                id="password"
+                                type="password"
+                                name="password"
+                                value={data.password}
+                                onChange={(e) =>
+                                    setData("password", e.target.value)
+                                }
+                                className="input input-bordered w-full join-item z-[1]"
+                            />
+                            <label className="btn btn-square join-item swap">
+                                <input
+                                    type="checkbox"
+                                    onClick={() => {
+                                        let x = document.getElementById("password");
+                                        x.type =
+                                            x.type === "password"
+                                                ? "text"
+                                                : "password";
+                                    }}
+                                />
+                                <EyeSlashIcon className="h-6 w-6 swap-on" />
+                                <EyeIcon className="h-6 w-6 swap-off" />
+                            </label>
+                        </div>
+
+                        <p className="mt-2 text-error">{errors.password}</p>
+                    </div>
+
+                    {/* Input confirmation password */}
+                    <div className="form-control my-2">
+                        <label
+                            htmlFor="password_confirmation"
+                            className="font-bold mb-2"
+                        >
+                            Konfirmasi Password
+                        </label>
+                        <div className="join">
+                            <input
+                                id="password_confirmation"
+                                type="password"
+                                name="password_confirmation"
+                                value={data.password_confirmation}
+                                onChange={(e) =>
+                                    setData("password_confirmation", e.target.value)
+                                }
+                                className="input input-bordered w-full join-item z-[1]"
+                            />
+                            <label className="btn btn-square join-item swap">
+                                <input
+                                    type="checkbox"
+                                    onClick={() => {
+                                        let x = document.getElementById(
+                                            "password_confirmation"
                                         );
-                                    x.type =
-                                        x.type === "password"
-                                            ? "text"
-                                            : "password";
-                                }}
-                            />
-                            <EyeSlashIcon className="h-6 w-6 swap-on" />
-                            <EyeIcon className="h-6 w-6 swap-off" />
-                        </label>
+                                        x.type =
+                                            x.type === "password"
+                                                ? "text"
+                                                : "password";
+                                    }}
+                                />
+                                <EyeSlashIcon className="h-6 w-6 swap-on" />
+                                <EyeIcon className="h-6 w-6 swap-off" />
+                            </label>
+                        </div>
+
+                        <p className="mt-2 text-error">
+                            {errors.password_confirmation}
+                        </p>
                     </div>
-
-                    <p className="mt-2 text-error">{errors.current_password}</p>
-                </div>
-
-                {/* Input password */}
-                <div className="form-control my-2">
-                    <label htmlFor="password" className="font-bold mb-2">
-                        Password Baru
-                    </label>
-                    <div className="join">
-                        <input
-                            id="password"
-                            type="password"
-                            name="password"
-                            value={data.password}
-                            onChange={(e) =>
-                                setData("password", e.target.value)
-                            }
-                            className="input input-bordered w-full join-item z-[1]"
-                        />
-                        <label className="btn btn-square join-item swap">
-                            <input
-                                type="checkbox"
-                                onClick={() => {
-                                    let x = document.getElementById("password");
-                                    x.type =
-                                        x.type === "password"
-                                            ? "text"
-                                            : "password";
-                                }}
-                            />
-                            <EyeSlashIcon className="h-6 w-6 swap-on" />
-                            <EyeIcon className="h-6 w-6 swap-off" />
-                        </label>
-                    </div>
-
-                    <p className="mt-2 text-error">{errors.password}</p>
-                </div>
-
-                {/* Input confirmation password */}
-                <div className="form-control my-2">
-                    <label
-                        htmlFor="password_confirmation"
-                        className="font-bold mb-2"
-                    >
-                        Konfirmasi Password
-                    </label>
-                    <div className="join">
-                        <input
-                            id="password_confirmation"
-                            type="password"
-                            name="password_confirmation"
-                            value={data.password_confirmation}
-                            onChange={(e) =>
-                                setData("password_confirmation", e.target.value)
-                            }
-                            className="input input-bordered w-full join-item z-[1]"
-                        />
-                        <label className="btn btn-square join-item swap">
-                            <input
-                                type="checkbox"
-                                onClick={() => {
-                                    let x = document.getElementById(
-                                        "password_confirmation"
-                                    );
-                                    x.type =
-                                        x.type === "password"
-                                            ? "text"
-                                            : "password";
-                                }}
-                            />
-                            <EyeSlashIcon className="h-6 w-6 swap-on" />
-                            <EyeIcon className="h-6 w-6 swap-off" />
-                        </label>
-                    </div>
-
-                    <p className="mt-2 text-error">
-                        {errors.password_confirmation}
-                    </p>
                 </div>
 
                 <button
-                    className="btn btn-warning mb-2 w-full"
+                    className="flex flex-row justify-center items-center font-bold bg-[#42A1A4] px-10 py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#59DFD1] dark:text-gray-400 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#42A1A4]"
                     disabled={processing}
                     type="submit"
                 >
-                    <KeyIcon className="h-6 w-6" />
+                    {/* <KeyIcon className="h-6 w-6" /> */}
                     Ganti password
                 </button>
             </form>

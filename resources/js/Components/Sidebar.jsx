@@ -26,25 +26,37 @@ export default function Sidebar({ user, navigations, children }) {
                     <div className="py-6 w-full flex flex-row gap-1 justify-center items-center font-semibold text-[24px] text-[#285B70] border-b-2 border-slate-200">
                         PKM<span className={`${isSidebarOpen ? "flex flex-row text-[#42A1A4]" : "hidden"}`}>TI 2025</span>
                     </div>
-                    <img src="images/Logo-PKM-TI-2025.png" alt="Profile" className={`${isSidebarOpen ? "w-[90px] h-[111px]" : "w-[37px] h-[46px]"}`} />
+                    <img src={`${window.location.origin}/images/Logo-PKM-TI-2025.png`} alt="Profile" className={`${isSidebarOpen ? "w-[90px] h-[111px]" : "w-[37px] h-[46px]"}`} />
                     <nav className={`mt-1 w-full ${isSidebarOpen ? "px-5" : " "}  text-center`}>
 
                         <ul className="font-bold">
-                            {navigations.map((navigation, i) => (
 
-                                <li
-                                    key={i}
-                                    className={`py-4 ${isSidebarOpen ? "px-8 rounded-[6px] relative" : "items-center"} flex flex-col justify-center  ${currentRoute.startsWith(navigation.link) ? "bg-[#42A1A4] text-white stroke-white" : "hover:bg-[#42A1A4]/20 transition-all duration-200 ease-in-out"}`}
-                                >
-                                    {/* Garis warna di samping */}
-                                    {currentRoute.startsWith(navigation.link) && isSidebarOpen && (
-                                        <div className="absolute left-0 top-0 h-full w-[8px] bg-[#285B70] rounded-r-md"></div>
-                                    )}
-                                    <Link href={route(navigation.link)} as="button" className={`font-semibold text-[14px] tracking-[0.3px] flex flex-row gap-5 items-center `}>
-                                        {navigation.icon} {isSidebarOpen && navigation.text}
-                                    </Link>
-                                </li>
-                            ))}
+                            {navigations.map((navigation, i) => {
+                                // Ambil hanya bagian path dari navigation.link
+                                let navigationPath = new URL(navigation.link, window.location.origin).pathname;
+
+                                // Hapus leading slash "/" agar cocok dengan format currentRoute
+                                navigationPath = navigationPath.startsWith("/") ? navigationPath.substring(1) : navigationPath;
+
+                                // Lakukan pengecekan
+                                const isActive = currentRoute.includes(navigationPath);
+                                console.log(navigationPath);
+                                console.log(isActive);
+                                return (
+                                    <li
+                                        key={i}
+                                        className={`py-4 ${isSidebarOpen ? "px-8 rounded-[6px] relative" : "items-center"} flex flex-col justify-center ${isActive ? "bg-[#42A1A4] text-white stroke-white" : "hover:bg-[#42A1A4]/20 transition-all duration-200 ease-in-out"}`}
+                                    >
+                                        {/* Garis warna di samping */}
+                                        {isActive && isSidebarOpen && (
+                                            <div className="absolute left-0 top-0 h-full w-[8px] bg-[#285B70] rounded-r-md"></div>
+                                        )}
+                                        <Link href={navigation.link} as="button" className={`font-semibold text-[14px] tracking-[0.3px] flex flex-row gap-5 items-center`}>
+                                            {navigation.icon} {isSidebarOpen && navigation.text}
+                                        </Link>
+                                    </li>
+                                );
+                            })}
                             <li className={`py-4 ${isSidebarOpen ? "px-8" : "items-center"} flex flex-col justify-center cursor-pointer`}>
                                 <a
                                     onClick={() =>
@@ -71,11 +83,12 @@ export default function Sidebar({ user, navigations, children }) {
                             <IconSideBar />
                         </button>
                         <div className="flex flex-row justify-center items-center gap-5">
+                            <DarkMode />
                             <div className="dropdown">
                                 <div tabIndex={0} role="button" className="flex flex-row gap-5 justify-center items-center cursor-pointer">
                                     <div className="flex flex-row gap-3">
                                         <div className="rounded-full overflow-hidden w-[50px] h-[52px]">
-                                            <img src="images/admin/icon-profile.png" alt="" />
+                                            <img src={`${window.location.origin}/images/admin/icon-profile.png`} alt="" />
                                         </div>
                                         <div className="flex flex-col">
                                             <p className="font-bold text-[16px] text-[#404040]">{user.name}</p>
@@ -86,7 +99,7 @@ export default function Sidebar({ user, navigations, children }) {
                                 </div>
                                 <ul tabIndex={0} className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
                                     <li className="border-b-2 border-slate-200">
-                                        <Link href={route("welcome")} as="button" className="flex flex-row gap-2 justify-start items-center font-medium text-[14px] text-[#404040] tracking-[0.11em]">
+                                        <Link href={route("welcome")} className="flex flex-row gap-2 justify-start items-center font-medium text-[14px] text-[#404040] tracking-[0.11em]">
                                             <IconHome />
                                             Home
                                         </Link>
@@ -108,13 +121,9 @@ export default function Sidebar({ user, navigations, children }) {
                                     </li>
                                 </ul>
                             </div>
-                            <div className="">
-
-                            </div>
-                            <DarkMode />
                         </div>
                     </header>
-                    <div className="flex flex-col gap-3 p-5 bg-[#F5F6FA] min-h-screen">
+                    <div className="flex flex-col gap-2 px-12 py-5 bg-[#F5F6FA] min-h-screen">
                         {navigations.map((navigation, i) => (
                             <h1
                                 key={i}
@@ -124,7 +133,7 @@ export default function Sidebar({ user, navigations, children }) {
                             </h1>
                         ))}
 
-                            {children}
+                        {children}
                     </div>
                 </div>
             </div>
