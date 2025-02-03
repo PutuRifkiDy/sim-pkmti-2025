@@ -45,7 +45,6 @@ export default function Show({ auth, team, lecturers, flash }) {
                         <TeamMembers user={user} team={team} />
                     </div>
                 </div>
-                <div className="my-8 lg:hidden"></div>
             </div>
         </ParticipantLayout>
     );
