@@ -155,11 +155,11 @@ export default function TeamInformation({ user, team, lecturers }) {
                                 onChange={(e) =>
                                     setData("lecturer_id", e.target.value)
                                 }
-                                readOnly
+
                             >
-                                <option value="">Belum ada</option>
+                                <option value="" disabled>Belum ada</option>
                                 {lecturers.map((lecturer, i) => (
-                                    <option key={i} value={lecturer.id}>
+                                    <option key={i} value={lecturer.id} disabled>
                                         {lecturer.name}
                                     </option>
                                 ))}
