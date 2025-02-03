@@ -4,6 +4,7 @@ import {
     CameraIcon,
     InformationCircleIcon,
     PhotoIcon,
+    ExclamationTriangleIcon,
 } from "@heroicons/react/24/solid";
 import AddProofForm from "./Partials/AddProofForm";
 import { useRandomInt } from "@/utils";
@@ -78,7 +79,7 @@ export default function Show({ auth, proofs, flash }) {
                             onChange={() => setActiveTab(1)}
                         />
                         <div role="tabpanel" className="tab-content py-5">
-                            <div className="grid grid-cols-2 gap-10">
+                            <div className="grid md:grid-cols-2 grid-cols-1 gap-10">
                                 {proofs && proofs.length > 0 ?
                                     (proofs.map((proof, i) => {
                                         return (
@@ -88,6 +89,7 @@ export default function Show({ auth, proofs, flash }) {
                                     :
                                     (
                                         <div className={`w-full px-5 py-3.5 flex flex-row gap-5 items-center rounded-l-[4px] bg-[#E82323]/10 border-l-4 border-[#E82323] text-[#E82323]`}>
+                                            <ExclamationTriangleIcon className="h-6 w-6 fill-[#FA3434]" />
                                             <p className="font-bold text-[14px] leading-[16px]">
                                                 Anda Belum Mengisi Bukti Asistensi
                                             </p>

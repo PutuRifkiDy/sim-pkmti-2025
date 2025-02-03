@@ -61,7 +61,7 @@ export default function UpdatePasswordForm() {
 
             <form onSubmit={updatePassword}>
                 {/* Input current password */}
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid md:grid-cols-2 grid-cols-1 gap-2">
                     <div className="form-control my-2">
                         <label
                             htmlFor="current_password"

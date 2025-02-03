@@ -9,20 +9,25 @@ import {
 } from "@heroicons/react/24/solid";
 import { Link } from "@inertiajs/react";
 import { useEffect, useState } from "react";
-import { IconDashboard, IconDropdown, IconHome, IconLogout, IconLogoutSideBar, IconProfile, IconSideBar } from "./IconAdmin";
+import { IconDashboard, IconDropdown, IconHome, IconLogout, IconLogoutSideBar, IconProfile, IconSideBar, IconSilangResponsiveWeb } from "./IconAdmin";
 import DarkMode from "./DarkMode";
 
 export default function Sidebar({ user, navigations, children }) {
-    const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+    const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth >= 768);
 
     const currentRoute = route().current();
     console.log(currentRoute);
 
+    useEffect(() => {
+        if(window.innerWidth < 768){
+            setIsSidebarOpen(false);
+        }
+    }, [currentRoute]);
     return (
         <>
-            <div className="flex flex-row justify-between">
+            <div className="flex md:flex-row flex-col justify-between">
                 {/* Sidebar */}
-                <aside className={`flex flex-col gap-6 justify-start items-center transition-all duration-200 ease-in-out border-r-2 border-slate-200 ${isSidebarOpen ? "w-[242px]" : "w-16"} min-h-screen fixed`}>
+                <aside className={`hidden md:flex flex-col gap-6 justify-start items-center transition-all duration-200 ease-in-out border-r-2 border-slate-200 ${isSidebarOpen ? "md:w-[242px] w-0" : "md:w-16 w-0"} min-h-screen fixed`} >
                     <div className="py-6 w-full flex flex-row gap-1 justify-center items-center font-semibold text-[24px] text-[#285B70] border-b-2 border-slate-200">
                         PKM<span className={`${isSidebarOpen ? "flex flex-row text-[#42A1A4]" : "hidden"}`}>TI 2025</span>
                     </div>
@@ -50,7 +55,7 @@ export default function Sidebar({ user, navigations, children }) {
                                         {isActive && isSidebarOpen && (
                                             <div className="absolute left-0 top-0 h-full w-[8px] bg-[#285B70] rounded-r-md"></div>
                                         )}
-                                        <Link href={navigation.link} as="button" className={`font-semibold text-[14px] tracking-[0.3px] flex flex-row gap-5 items-center`}>
+                                        <Link href={navigation.link} as="button" className={`font-semibold text-[14px] tracking-[0.3px] flex flex-row gap-5 items-center`}  onClick={() => window.innerWidth < 768 && setIsSidebarOpen(false)}>
                                             {navigation.icon} {isSidebarOpen && navigation.text}
                                         </Link>
                                     </li>
@@ -75,16 +80,74 @@ export default function Sidebar({ user, navigations, children }) {
                     </nav>
                 </aside>
 
+                {isSidebarOpen && window.innerWidth < 768 && (
+                    <div className="fixed inset-0 bg-black bg-opacity-50 z-50 md:hidden" onClick={() => setIsSidebarOpen(false)}></div>
+                )}
+                <aside className={`fixed top-0 left-0 h-full w-full bg-white z-50 transition-transform transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} md:hidden`}>
+                    <div className="flex justify-between items-center p-5 border-b">
+                        <span className="font-bold text-xl">PKM <span className="text-[#42A1A4]">TI 2025</span></span>
+                        <button onClick={() => setIsSidebarOpen(false)} className="">
+                            <IconSilangResponsiveWeb width="100" height="12" />
+                        </button>
+                    </div>
+                    <nav className="mt-5 text-center">
+                        <ul className="font-bold">
+                            {navigations.map((navigation, i) => {
+                                // Ambil hanya path dari URL navigation.link
+                                let routePath = window.location.pathname;
+                                const routeName = navigation.link.startsWith("http")
+                                    ? new URL(navigation.link).pathname
+                                    : navigation.link;
+
+                                const isActive = routePath === routeName;
+
+
+                                return (
+                                    <li
+                                        key={i}
+                                        className={`py-4 ${isSidebarOpen ? "px-8 rounded-[6px] relative" : "items-center"} flex flex-col justify-center ${isActive ? "bg-[#42A1A4] text-white stroke-white" : "hover:bg-[#42A1A4]/20 transition-all duration-200 ease-in-out"}`}
+                                    >
+                                        {/* Garis warna di samping */}
+                                        {isActive && isSidebarOpen && (
+                                            <div className="absolute left-0 top-0 h-full w-[8px] bg-[#285B70] rounded-r-md"></div>
+                                        )}
+                                        <Link href={navigation.link} as="button" className={`font-semibold text-[14px] tracking-[0.3px] flex flex-row gap-5 items-center`} onClick={() => setIsSidebarOpen(false)}>
+                                            {navigation.icon} {isSidebarOpen && navigation.text}
+                                        </Link>
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    </nav>
+                </aside>
+
                 {/* Main Content */}
-                <div className={`flex-1 ${isSidebarOpen ? "ml-[242px]" : "ml-16"} transition-all`}>
-                    <header className="py-4 flex items-center justify-between px-5 border-b-2 border-slate-200">
-                        <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="text-xl">
+                <div className={`flex-1 ${isSidebarOpen ? "md:ml-[242px] ml-0" : "md:ml-16 ml-0"} transition-all`}>
+
+                    <header className="py-4 flex items-center md:justify-between justify-center md:px-5 px-0 w-full">
+                        {/* Untuk Tampilan Laptop */}
+                        <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="text-xl md:block hidden">
                             <IconSideBar />
                         </button>
-                        <div className="flex flex-row justify-center items-center gap-5">
-                            <DarkMode />
+
+
+                        <div className="flex md:flex-row flex-col justify-center items-center gap-5">
+
+                            {/* Untuk Tampilan Mobile */}
+                            <div className="md:hidden flex flex-row justify-between md:w-full md:px-0 px-5 w-screen">
+                                <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="text-xl">
+                                    <IconSideBar />
+                                </button>
+                                <DarkMode />
+                            </div>
+
+                            <div className="md:hidden flex divider h-[2px] w-auto md:w-full bg-slate-200"></div>
+
+                            <div className="md:flex hidden">
+                                <DarkMode />
+                            </div>
                             <div className="dropdown">
-                                <div tabIndex={0} role="button" className="flex flex-row gap-5 justify-center items-center cursor-pointer">
+                                <div tabIndex={0} role="button" className="flex flex-row gap-5 md:justify-center justify-between items-center cursor-pointer md:w-full w-screen md:px-0 px-5">
                                     <div className="flex flex-row gap-3">
                                         <div className="rounded-full overflow-hidden w-[50px] h-[52px]">
                                             <img src={`${window.location.origin}/images/admin/icon-profile.png`} alt="" />
@@ -96,7 +159,7 @@ export default function Sidebar({ user, navigations, children }) {
                                     </div>
                                     <IconDropdown className="w-9 h-9" />
                                 </div>
-                                <ul tabIndex={0} className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                                <ul tabIndex={0} className="menu dropdown-content bg-base-100 rounded-box z-[1] md:w-52 w-full md:px-0 px-8 p-2 shadow">
                                     <li className="border-b-2 border-slate-200">
                                         <Link href={route("welcome")} className="flex flex-row gap-2 justify-start items-center font-medium text-[14px] text-[#404040] tracking-[0.11em]">
                                             <IconHome />
@@ -122,7 +185,8 @@ export default function Sidebar({ user, navigations, children }) {
                             </div>
                         </div>
                     </header>
-                    <div className="flex flex-col gap-2 px-12 py-5 bg-[#F5F6FA] min-h-screen">
+
+                    <div className="flex flex-col gap-2 md:px-12 px-4 md:py-5 py-2 bg-[#F5F6FA] min-h-screen">
                         {navigations.map((navigation, i) => {
                             let routePath = window.location.pathname;
                             const routeName = navigation.link.startsWith("http")

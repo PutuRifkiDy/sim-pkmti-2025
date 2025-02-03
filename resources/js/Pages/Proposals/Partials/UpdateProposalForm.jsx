@@ -48,7 +48,7 @@ export default function UpdateProposalForm({ user, proposal }) {
     }
 
     return (
-        <div className="bg-white flex gap-5 flex-col px-10 py-10 rounded-[14px]">
+        <div className="bg-white flex gap-5 flex-col md:px-10 px-3 py-10 rounded-[14px]">
             <ProposalStatus />
 
             <form onSubmit={submit}>
@@ -61,7 +61,7 @@ export default function UpdateProposalForm({ user, proposal }) {
                         </div>
                     </div>
                 )}
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid md:grid-cols-2 grid-cols-1 gap-2">
                     <div className="form-control my-2">
                         <label htmlFor="title" className="font-bold mb-2">
                             Judul
@@ -195,7 +195,7 @@ export default function UpdateProposalForm({ user, proposal }) {
 
                 {/* Input Title */}
 
-                <div className="flex flex-row gap-2 w-1/2">
+                <div className="flex md:flex-row flex-col gap-2 md:w-1/2 w-full">
                     <button
                         className="flex flex-row justify-center items-center font-bold bg-[#42A1A4] w-full py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#59DFD1] dark:text-gray-400 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#42A1A4]"
                         disabled={processing}

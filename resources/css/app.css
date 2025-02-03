@@ -43,3 +43,17 @@ to {
     width: 150px;
 }
 
+@media (max-width: 768px) {
+    /* CSS untuk layar kecil (Tablet & Mobile) */
+    .tabs-bordered input[type="radio"]:checked {
+      width: 140px;
+      font-size: 14px;
+    }
+
+    .tabs-bordered input[type="radio"]:not(:checked){
+        width: 140px;
+        font-size: 14px;
+    }
+
+  }
+

@@ -23,7 +23,7 @@ export default function Proof({ proof, order }) {
             <form onSubmit={submit}>
                 <h3 className="font-bold text-[20px] text-[#5A607F]">Bukti {order}</h3>
                 {/* Input Proof URL */}
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid md:grid-cols-2 grid-cols-1 gap-2">
                     <div className="form-control my-2">
                         <label htmlFor="proof_url" className="font-bold mb-2">
                             Link Bukti Asistensi

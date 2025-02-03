@@ -24,7 +24,7 @@ export default function AddProofForm({onSuccess}) {
     return (
         <form onSubmit={submit}>
             {/* Input Proof URL */}
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid md:grid-cols-2 grid-cols-1 gap-2">
                 <div className="form-control my-2">
                     <label htmlFor="proof_url" className="font-bold mb-2">
                         Link Bukti Asistensi

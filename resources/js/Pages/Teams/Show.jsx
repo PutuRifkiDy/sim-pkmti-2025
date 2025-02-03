@@ -41,7 +41,7 @@ export default function Show({ auth, team, lecturers, flash }) {
                         className="tab leading-[28px] tracking-[0.03em] "
                         aria-label="Anggota Tim"
                     />
-                    <div role="tabpanel" className="tab-content py-5">
+                    <div role="tabpanel" className="tab-content py-5 overflow-x-auto">
                         <TeamMembers user={user} team={team} />
                     </div>
                 </div>

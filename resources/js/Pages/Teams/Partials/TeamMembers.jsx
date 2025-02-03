@@ -51,8 +51,8 @@ export default function TeamMembers({ user, team }) {
                     <IconGabungTim />
                     <span className="font-bold">{team.members.length} / 5</span>
                 </div>
-                <div className="overflow-x-auto">
-                    <table className="table table-zebra mb-4">
+                <div className="overflow-x-auto max-w-full">
+                    <table className="overflow-x-auto table table-zebra">
                         <thead>
                             <tr className="font-medium text-[16px]">
                                 <th></th>
@@ -66,7 +66,7 @@ export default function TeamMembers({ user, team }) {
                                 <th>Aksi</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody className="overflow-x-auto">
                             {team.members.map((member, i) => {
                                 return (
                                     <tr key={member.id} className="text-[14.22px]">

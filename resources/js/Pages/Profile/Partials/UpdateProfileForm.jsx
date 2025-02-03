@@ -31,7 +31,7 @@ export default function UpdateProfileForm({ user }) {
 
             <form onSubmit={updateProfile}>
                 {/* Input name */}
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid md:grid-cols-2 grid-cols-1 gap-2">
                     <div className="form-control my-2">
                         <label htmlFor="name" className="font-bold mb-2">
                             Nama Lengkap

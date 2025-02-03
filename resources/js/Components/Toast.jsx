@@ -39,7 +39,7 @@ export default function Toast({ id, content }) {
     return (
         <div
             id={id}
-            className="toast lg:toast-top lg:toast-end toast-bottom toast-center z-50"
+            className="toast md:toast-top lg:toast-end toast-top toast-center z-50"
         >
             <div role="alert" className="alert alert-success">
                 <InformationCircleIcon className="h-6 w-6 hidden lg:block" />

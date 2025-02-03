@@ -30,7 +30,7 @@ export default function TeamInformation({ user, team, lecturers }) {
                 {/* Team name */}
                 {user.id === team.leader_id || user.role === "admin" ? (
 
-                    <div className="grid grid-cols-2 gap-2">
+                    <div className="grid md:grid-cols-2 grid-cols-1 gap-2">
                         <div className="form-control my-2">
                             <label htmlFor="team_name" className="font-bold mb-2">
                                 Nama Tim
@@ -121,7 +121,7 @@ export default function TeamInformation({ user, team, lecturers }) {
                         </div>
                     </div>
                 ) : (
-                    <div className="grid grid-cols-2 gap-2">
+                    <div className="grid md:grid-cols-2 grid-cols-1 gap-2">
                         <div className="form-control my-2">
                             <label htmlFor="team_name" className="font-bold mb-2">
                                 Nama Tim
@@ -218,9 +218,9 @@ export default function TeamInformation({ user, team, lecturers }) {
 
                 {(user.id === team.leader_id || user.role === "admin") && (
                     <>
-                        <div className="grid grid-cols-2 w-1/2 gap-2 mt-5">
+                        <div className="grid md:grid-cols-2 grid-cols-1 md:w-1/2 w-full gap-2 mt-5">
                             <button
-                                className="w-full mb-2 flex flex-row justify-center items-center gap-2 font-bold bg-[#42A1A4] px-10 py-3 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#59DFD1] dark:text-gray-400 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#42A1A4]"
+                                className="w-full mb-2 flex flex-row justify-center items-center gap-2 font-bold bg-[#42A1A4] px-10 py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#59DFD1] dark:text-gray-400 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#42A1A4]"
                                 disabled={processing}
                                 type="submit"
                             >
@@ -228,7 +228,7 @@ export default function TeamInformation({ user, team, lecturers }) {
                                 Simpan Perubahan
                             </button>
                             <button
-                                className="w-full mb-2 flex flex-row justify-center items-center gap-2 font-bold bg-[#42A1A4] px-10 py-3 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#59DFD1] dark:text-gray-400 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#42A1A4]"
+                                className="w-full mb-2 flex flex-row justify-center items-center gap-2 font-bold bg-[#42A1A4] px-10 py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#59DFD1] dark:text-gray-400 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#42A1A4]"
                                 disabled={processing}
                                 onClick={() =>
                                     setData("token", useRandomString(8))
@@ -242,7 +242,7 @@ export default function TeamInformation({ user, team, lecturers }) {
                     </>
                 )}
             </form>
-            <div className="grid grid-cols-2 gap-2 w-1/2">
+            <div className="grid md:grid-cols-2 grid-cols-1 gap-2 md:w-1/2 w-full">
                 <Link
                     as="button"
                     method="delete"

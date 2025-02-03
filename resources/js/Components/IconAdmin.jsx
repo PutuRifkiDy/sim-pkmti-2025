@@ -144,7 +144,7 @@ export const IconJoinOrCreate = () => {
 
 export const IconProposal = () => {
     return (
-        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="22" height="22" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M22 10V15C22 20 20 22 15 22H9C4 22 2 20 2 15V9C2 4 4 2 9 2H14M22 10H18C15 10 14 9 14 6V2M22 10L14 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
     );
@@ -155,6 +155,15 @@ export const IconBuktiProposal = () => {
         <svg width="22" height="22" viewBox="0 0 48 40" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M46 34C46 35.0609 45.5786 36.0783 44.8284 36.8284C44.0783 37.5786 43.0609 38 42 38H6C4.93913 38 3.92172 37.5786 3.17157 36.8284C2.42143 36.0783 2 35.0609 2 34V12C2 10.9391 2.42143 9.92172 3.17157 9.17157C3.92172 8.42143 4.93913 8 6 8H14L18 2H30L34 8H42C43.0609 8 44.0783 8.42143 44.8284 9.17157C45.5786 9.92172 46 10.9391 46 12V34Z" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
             <path d="M24 30C28.4183 30 32 26.4183 32 22C32 17.5817 28.4183 14 24 14C19.5817 14 16 17.5817 16 22C16 26.4183 19.5817 30 24 30Z" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+
+    );
+}
+
+export const IconSilangResponsiveWeb = () => {
+    return (
+        <svg width="15" height="15" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11.2945 2.29448C11.7339 1.85503 11.7339 1.14136 11.2945 0.701904C10.855 0.262451 10.1413 0.262451 9.70189 0.701904L5.99994 4.40737L2.29447 0.70542C1.85501 0.265967 1.14134 0.265967 0.701889 0.70542C0.262436 1.14487 0.262436 1.85854 0.701889 2.298L4.40736 5.99995L0.705405 9.70542C0.265952 10.1449 0.265952 10.8585 0.705405 11.298C1.14486 11.7375 1.85853 11.7375 2.29798 11.298L5.99994 7.59253L9.70541 11.2945C10.1449 11.7339 10.8585 11.7339 11.298 11.2945C11.7374 10.855 11.7374 10.1414 11.298 9.7019L7.59251 5.99995L11.2945 2.29448Z" fill="black" />
         </svg>
 
     );
