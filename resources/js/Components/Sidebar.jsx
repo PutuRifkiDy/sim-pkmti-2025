@@ -19,7 +19,7 @@ export default function Sidebar({ user, navigations, children }) {
     console.log(currentRoute);
 
     useEffect(() => {
-        if(window.innerWidth < 768){
+        if (window.innerWidth < 768) {
             setIsSidebarOpen(false);
         }
     }, [currentRoute]);
@@ -55,7 +55,7 @@ export default function Sidebar({ user, navigations, children }) {
                                         {isActive && isSidebarOpen && (
                                             <div className="absolute left-0 top-0 h-full w-[8px] bg-[#285B70] rounded-r-md"></div>
                                         )}
-                                        <Link href={navigation.link} as="button" className={`font-semibold text-[14px] tracking-[0.3px] flex flex-row gap-5 items-center`}  onClick={() => window.innerWidth < 768 && setIsSidebarOpen(false)}>
+                                        <Link href={navigation.link} as="button" className={`font-semibold text-[14px] tracking-[0.3px] flex flex-row gap-5 items-center`} onClick={() => window.innerWidth < 768 && setIsSidebarOpen(false)}>
                                             {navigation.icon} {isSidebarOpen && navigation.text}
                                         </Link>
                                     </li>
@@ -117,6 +117,21 @@ export default function Sidebar({ user, navigations, children }) {
                                     </li>
                                 );
                             })}
+                            <li className={`py-4 ${isSidebarOpen ? "px-8" : "items-center"} flex flex-col justify-center cursor-pointer`}>
+                                <a
+                                    onClick={() =>
+                                        document
+                                            .getElementById(
+                                                "logout-confirmation"
+                                            )
+                                            .showModal()
+                                    }
+                                    className="font-semibold text-[14px] tracking-[0.3px] flex flex-row gap-5 items-center text-[#FF0000]"
+                                >
+                                    <IconLogoutSideBar />
+                                    {isSidebarOpen && "Keluar"}
+                                </a>
+                            </li>
                         </ul>
                     </nav>
                 </aside>

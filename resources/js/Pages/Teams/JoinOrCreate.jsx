@@ -21,13 +21,13 @@ export default function JoinOrCreate({ auth, flash }) {
                 <div className="flex flex-col gap-6 justify-center items-center text-center">
                     <div className="flex flex-col gap-2 justify-center items-center">
                         <p className="font-bold text-[20px] leading-[28px] tracking-[0.03em]">Pendaftaran</p>
-                        <p className="font-normal text-[16px] leading-[24px] text-[#5A607F] w-[400px] ">Pilih untuk bergabung dengan tim yang sudah ada atau buat tim baru untuk memulai.</p>
+                        <p className="font-normal text-[16px] leading-[24px] text-[#5A607F] md:w-[400px] md:block hidden">Pilih untuk bergabung dengan tim yang sudah ada atau buat tim baru untuk memulai.</p>
                     </div>
                     <div className="flex flex-col gap-2">
                         <Link
                             as="button"
                             href={route("teams.create_tim")}
-                            className="font-bold bg-[#42A1A4] px-48 py-3 text-[20px] tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#59DFD1] dark:text-gray-400 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#42A1A4]"
+                            className="font-bold bg-[#42A1A4] md:px-48 px-4 py-3 text-[20px] tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#59DFD1] dark:text-gray-400 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#42A1A4]"
                         >
                             Buat Tim
                         </Link>
@@ -36,7 +36,7 @@ export default function JoinOrCreate({ auth, flash }) {
                             <Link
                                 as="button"
                                 href={route("teams.join_tim")}
-                                className="font-bold border-2 border-[#59DFD1] tracking-[0.03em] leading-[26px] text-[20px] px-48 py-2 rounded-md text-[#59DFD1] hover:text-white hover:bg-[#42A1A4] hover:border-[#42A1A4] dark:text-gray-400 dark:hover:text-white transition-all duration-300 flex flex-row gap-2 justify-center items-center hover:shadow-[0_0_10px_#42A1A4]"
+                                className="font-bold border-2 border-[#59DFD1] tracking-[0.03em] leading-[26px] text-[20px] md:px-48 px-4 py-3 rounded-md text-[#59DFD1] hover:text-white hover:bg-[#42A1A4] hover:border-[#42A1A4] dark:text-gray-400 dark:hover:text-white transition-all duration-300 flex flex-row gap-2 justify-center items-center hover:shadow-[0_0_10px_#42A1A4]"
                             >
                                 Gabung Tim
                             </Link>

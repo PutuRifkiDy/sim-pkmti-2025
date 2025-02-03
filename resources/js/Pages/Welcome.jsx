@@ -135,9 +135,9 @@ export default function Welcome({ auth }) {
                                             <h3 className="font-bold text-lg mb-3">Demonstrasi Sistem Informasi PKM TI 2025</h3>
                                             <div className="video-container">
                                             <iframe
-                                                width="100%" 
-                                                height="500" 
-                                                src="https://www.youtube.com/embed/your-video-id" 
+                                                width="100%"
+                                                height="500"
+                                                src="https://www.youtube.com/embed/your-video-id"
                                                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                                 allowFullScreen
                                                 title="Video Demonstrasi"
@@ -166,9 +166,9 @@ export default function Welcome({ auth }) {
                                             <h3 className="font-bold text-lg mb-3">Demonstrasi Sistem Informasi PKM TI 2025</h3>
                                             <div className="video-container">
                                             <iframe
-                                                width="100%" 
-                                                height="500" 
-                                                src="https://www.youtube.com/embed/your-video-id" 
+                                                width="100%"
+                                                height="500"
+                                                src="https://www.youtube.com/embed/your-video-id"
                                                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                                 allowFullScreen
                                                 title="Video Demonstrasi"
@@ -281,7 +281,8 @@ export default function Welcome({ auth }) {
                                 Apa itu PKM TI 2025?
                             </p>
                             <p className="text-[17px] leading-[1.8em] light:text-[#111E41] dark:text-[#42A1A4]">
-                                Pelatihan PKM Teknologi Informasi 2025 oleh HMTI bertujuan memberikan platform bagi mahasiswa untuk memperluas pengetahuan tentang Program Kreativitas Mahasiswa (PKM). Mengusung tema “...” pelatihan ini diharapkan memotivasi mahasiswa Teknologi Informasi untuk mengembangkan kreativitas visioner dan mengikuti tren masa depan. Kegiatan ini juga bertujuan meningkatkan pemahaman mahasiswa terkait pengembangan judul, penyesuaian format pedoman, teknik penelitian, dan keterampilan teknis.
+                                Pelatihan PKM Teknologi Informasi 2025 oleh HMTI bertujuan memberikan platform bagi mahasiswa untuk memperluas pengetahuan tentang Program Kreativitas Mahasiswa (PKM). Mengusung tema “Mengasah Kreativitas Mahasiswa untuk Menghasilkan
+                                Karya Inovatif Melalui PKM” pelatihan ini diharapkan memotivasi mahasiswa Teknologi Informasi untuk mengembangkan kreativitas visioner dan mengikuti tren masa depan. Kegiatan ini juga bertujuan meningkatkan pemahaman mahasiswa terkait pengembangan judul, penyesuaian format pedoman, teknik penelitian, dan keterampilan teknis.
                             </p>
                             <a
                                 href="#pkm-topik"
@@ -962,14 +963,14 @@ export default function Welcome({ auth }) {
                             </motion.div>
                         )}
                         {activeCategoryFaq === "Klinik PKM" && (
-                            <motion.div 
+                            <motion.div
                                 className="flex flex-col gap-2 md:w-[636px] w-full"
                                 whileInView="visible"
                                 variants={variantZoom}
                                 initial="hidden"
                                 animate={controls}
                             >
-                                
+
                                 <Accordion
                                     heading="Apa itu Klinik PKM dan bagaimana cara mengikutinya?"
                                     description=""
