@@ -181,6 +181,30 @@ export default function Sidebar({ user, navigations, children }) {
                                             Home
                                         </Link>
                                     </li>
+                                    {user.role === "admin" &&
+                                        (location.pathname.search(/admin/) === -1 ? (
+                                            <li className="border-b-2 border-slate-200">
+                                                <Link
+                                                    href={route("admin.dashboard")}
+                                                    as="button"
+                                                    className="flex flex-row gap-2 justify-start items-center font-medium text-[14px] text-[#404040] tracking-[0.11em]"
+                                                >
+                                                    <ShieldExclamationIcon className="h-6 w-6" />
+                                                    Mode Admin
+                                                </Link>
+                                            </li>
+                                        ) : (
+                                            <li className="border-b-2 border-slate-200">
+                                                <Link
+                                                    href={route("dashboard")}
+                                                    as="button"
+                                                    className="flex flex-row gap-2 justify-start items-center font-medium text-[14px] text-[#404040] tracking-[0.11em]"
+                                                >
+                                                    <AcademicCapIcon className="h-6 w-6" />
+                                                    Mode Participant
+                                                </Link>
+                                            </li>
+                                        ))}
                                     <li>
                                         <a
                                             onClick={() =>
