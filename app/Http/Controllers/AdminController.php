@@ -13,15 +13,10 @@ class AdminController extends Controller
         $users = User::count();
         $teams = Team::count();
         $proposals = Proposal::count();
-        $get_proposals = Proposal::with("team")->get();
+        $get_teams = Team::with('members', 'leader', 'lecturer')->get();
+        $proposal_ispending = Proposal::where('status', 'pending')->count();
 
-        foreach($get_proposals as $get_proposal){
-            if($get_proposal->status == "pending"){
-                $proposal_ispending = Proposal::count();
-            }
-        }
-
-        return Inertia::render('Admin/Dashboard', compact('users','teams','proposals','proposal_ispending'));
+        return Inertia::render('Admin/Dashboard', compact('users','teams','proposals','proposal_ispending', 'get_teams'));
     }
 
     public function showUsers() {

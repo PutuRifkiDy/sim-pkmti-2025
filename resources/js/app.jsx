@@ -5,6 +5,11 @@ import { createRoot } from "react-dom/client";
 import { createInertiaApp } from "@inertiajs/react";
 import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
 import { PrimeReactProvider } from "primereact/api";
+import Tailwind from "primereact/passthrough/tailwind";
+import 'primereact/resources/themes/lara-light-indigo/theme.css';  // Tema PrimeReact
+import 'primereact/resources/primereact.min.css';  // PrimeReact core styles
+import 'primeicons/primeicons.css';  // Ikon PrimeReact
+import { twMerge } from 'tailwind-merge';
 
 const appName = import.meta.env.VITE_APP_NAME || "Laravel";
 
@@ -19,7 +24,7 @@ createInertiaApp({
         const root = createRoot(el);
 
         root.render(
-            <PrimeReactProvider>
+            <PrimeReactProvider value={{ unstyled: false, pt: {Tailwind}}}>
                 <App {...props} />
             </PrimeReactProvider>
         );

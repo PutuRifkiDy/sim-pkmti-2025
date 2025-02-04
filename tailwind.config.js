@@ -1,14 +1,15 @@
-import defaultTheme from "tailwindcss/defaultTheme";
 
 /** @type {import('tailwindcss').Config} */
+import defaultTheme from "tailwindcss/defaultTheme";
 export default {
-
+    important: true,
     darkMode: ['class', '[data-mode="dark"]'],
     content: [
         "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
         "./storage/framework/views/*.php",
         "./resources/views/**/*.blade.php",
         "./resources/js/**/*.jsx",
+        "./node_modules/primereact/**/*.{js,jsx}",
     ],
     theme: {
         extend: {
@@ -16,12 +17,12 @@ export default {
                 sans: ["Product Sans", ...defaultTheme.fontFamily.sans],
             },
             colors: {
-                'primary' : "#0D79B9",
-                'secondary' : "#1D4489",
-                "linear-blue" : "#121B75",
+                'primary': "#0D79B9",
+                'secondary': "#1D4489",
+                "linear-blue": "#121B75",
                 "blue-lagoon": "#1E96C8",
-                "cloud-blue" : "#96D8E8",
-                "white-blue" : "#D6F0F6",
+                "cloud-blue": "#96D8E8",
+                "white-blue": "#D6F0F6",
             },
             fontSize: {
                 '3xl': '1.953rem',
@@ -43,20 +44,20 @@ export default {
                 '19': '4.2rem',
             },
             backgroundImage: {
-                "gradient-blue" : "linear-gradient(to right, rgba(40, 91, 112, 1) 0%, rgba(40, 91, 112, 0.82) 41%, rgba(40, 91, 112, 0.82) 41%, rgba(40, 91, 112, 0.71) 65%, rgba(40, 91, 112, 0.66) 75%, rgba(40, 91, 112, 0.55) 100%)"
+                "gradient-blue": "linear-gradient(to right, rgba(40, 91, 112, 1) 0%, rgba(40, 91, 112, 0.82) 41%, rgba(40, 91, 112, 0.82) 41%, rgba(40, 91, 112, 0.71) 65%, rgba(40, 91, 112, 0.66) 75%, rgba(40, 91, 112, 0.55) 100%)"
             },
             animation: {
                 "bounce-custom": 'bounce-custom 4s ease-in-out infinite',
                 "bounce-merch": 'bounce-custom 2s ease-in-out infinite',
-              },
-              keyframes: {
+            },
+            keyframes: {
                 "bounce-custom": {
-                  '0%, 100%': { transform: 'translateY(0)' },
-                  '50%': { transform: 'translateY(15px)' },
+                    '0%, 100%': { transform: 'translateY(0)' },
+                    '50%': { transform: 'translateY(15px)' },
                 },
                 "bounce-merch": {
-                  '0%, 100%': { transform: 'translateY(0)' },
-                  '50%': { transform: 'translateY(40px)' },
+                    '0%, 100%': { transform: 'translateY(0)' },
+                    '50%': { transform: 'translateY(40px)' },
                 },
             },
         },

@@ -18,6 +18,7 @@ import SlickCarousel from "@/Components/SlickCarousel";
 import { IconTextHomePage, IconViewDemo, IconTextTopics, IconLine, IconWhatsapp } from "@/Components/IconLanding";
 import { BoardArt } from "@/Components/Boards";
 import { BoardArtDark } from "@/Components/BoardDark";
+
 export default function Welcome({ auth }) {
     const controls = useAnimation();
     const [openIndex, setOpenIndex] = useState(null);

@@ -1,28 +1,35 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@layer tailwind-base, tailwind-components;
 
-
-html, body {
-    scroll-behavior: smooth;
+@layer tailwind-base {
+    @tailwind base;
 }
 
-@layer utilities {
-    .bg-gradient-custom {
-      background-image: linear-gradient(90deg, rgba(40, 91, 112, 1) 0%, rgba(40, 91, 112, 0.7) 100%);
-    }
-    .bg-gradient-custom2 {
-      background-image: linear-gradient(90deg, rgba(40, 91, 112, 1) 0%, rgba(40, 91, 112, 0.8) 100%);
-    }
-  }
+@tailwind utilities;
+@layer tailwind-components {
+    @tailwind components;
+}
+
+html {
+    scroll-behavior: smooth;
+
+}
+
+.bg-gradient-custom {
+    background-image: linear-gradient(90deg, rgba(40, 91, 112, 1) 0%, rgba(40, 91, 112, 0.7) 100%);
+}
+
+.bg-gradient-custom2 {
+    background-image: linear-gradient(90deg, rgba(40, 91, 112, 1) 0%, rgba(40, 91, 112, 0.8) 100%);
+}
 
 @keyframes parallax {
-from {
-    transform: translateY(0px);
-}
-to {
-    transform: translateY(-50px);
-}
+    from {
+        transform: translateY(0px);
+    }
+
+    to {
+        transform: translateY(-50px);
+    }
 }
 
 .animate-parallax {
@@ -44,16 +51,16 @@ to {
 }
 
 @media (max-width: 768px) {
+
     /* CSS untuk layar kecil (Tablet & Mobile) */
     .tabs-bordered input[type="radio"]:checked {
-      width: 140px;
-      font-size: 14px;
-    }
-
-    .tabs-bordered input[type="radio"]:not(:checked){
         width: 140px;
         font-size: 14px;
     }
 
-  }
+    .tabs-bordered input[type="radio"]:not(:checked) {
+        width: 140px;
+        font-size: 14px;
+    }
 
+}
