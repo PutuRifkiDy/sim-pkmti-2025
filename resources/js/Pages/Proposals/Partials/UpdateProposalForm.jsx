@@ -53,11 +53,11 @@ export default function UpdateProposalForm({ user, proposal }) {
 
             <form onSubmit={submit}>
                 {proposal.note && (
-                    <div className="alert alert-info" role="alert">
+                    <div className="bg-[#49B1D2]/10 border-l-4 border-[#49B1D2] text-[#49B1D2] w-full px-5 py-2.5 flex flex-row gap-5 items-center rounded-l-[4px]" role="alert">
                         <InformationCircleIcon className="h-6 w-6" />
                         <div>
-                            <h3 className="font-bold">Catatan</h3>
-                            <div className="text-xs">{proposal.note}</div>
+                            <h3 className="font-bold text-[18px]">Catatan</h3>
+                            <div className="text-[14px]">{proposal.note}</div>
                         </div>
                     </div>
                 )}
