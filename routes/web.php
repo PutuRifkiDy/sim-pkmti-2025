@@ -135,9 +135,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
-    Route::get('/dashboard', function () {
-        return Inertia::render('Admin/Dashboard');
-    })->name('admin.dashboard');
+    Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::get('/users', [AdminController::class, 'showUsers'])->name('admin.users');
     Route::get('/teams', [AdminController::class, 'showTeams'])->name('admin.teams');
     Route::get('/proposals', [AdminController::class, 'showProposals'])->name('admin.proposals');

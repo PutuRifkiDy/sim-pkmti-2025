@@ -6,26 +6,27 @@ import {
     UserIcon,
 } from "@heroicons/react/24/solid";
 import { Head } from "@inertiajs/react";
+import { IconBerandaSideBar, IconProfileSideBar, IconGabungTim, IconProposal } from "@/Components/IconAdmin";
 
 export default function AdminLayout({ user, title, children }) {
     const navigations = [
         {
-            icon: <HomeIcon className="h-6 w-6" />,
+            icon: <IconBerandaSideBar />,
             text: "Beranda",
             link: route("admin.dashboard"),
         },
         {
-            icon: <UserIcon className="h-6 w-6" />,
+            icon: <IconProfileSideBar />,
             text: "Pengguna",
             link: route("admin.users"),
         },
         {
-            icon: <UserGroupIcon className="h-6 w-6" />,
+            icon: <IconGabungTim />,
             text: "Tim",
             link: route("admin.teams"),
         },
         {
-            icon: <DocumentTextIcon className="h-6 w-6" />,
+            icon: <IconProposal />,
             text: "Proposal PKM",
             link: route("admin.proposals"),
         },

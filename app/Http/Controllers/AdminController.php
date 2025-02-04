@@ -9,17 +9,32 @@ use Inertia\Inertia;
 
 class AdminController extends Controller
 {
+    public function index(){
+        $users = User::count();
+        $teams = Team::count();
+        $proposals = Proposal::count();
+        $get_proposals = Proposal::with("team")->get();
+
+        foreach($get_proposals as $get_proposal){
+            if($get_proposal->status == "pending"){
+                $proposal_ispending = Proposal::count();
+            }
+        }
+
+        return Inertia::render('Admin/Dashboard', compact('users','teams','proposals','proposal_ispending'));
+    }
+
     public function showUsers() {
         $users = User::with('team', 'team.proposal', 'team.assistanceProofs')->get();
 
         foreach ($users as $user) {
-            if ($user->team_id && 
+            if ($user->team_id &&
                 $user->team->lecturer_id &&
-                $user->team->proposal && 
+                $user->team->proposal &&
                 $user->team->proposal->final_proposal_url &&
                 $user->team->proposal->status == 'approved' &&
                 $user->team->assistanceProofs->count() >= 3) {
-                    $user["status"] = 'passed'; 
+                    $user["status"] = 'passed';
             } else {
                 $user["status"]  = 'failed';
             }
