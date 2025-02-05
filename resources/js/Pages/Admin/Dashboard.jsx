@@ -8,6 +8,8 @@ import { Button } from "primereact/button";
 import { FilterMatchMode, FilterOperator } from "primereact/api";
 import { IconField } from "primereact/iconfield";
 import { InputIcon } from "primereact/inputicon";
+import { Dropdown } from 'primereact/dropdown';
+import { Tag } from 'primereact/tag';
 import {
     ArrowPathIcon,
     ArrowsRightLeftIcon,
@@ -83,7 +85,7 @@ export default function Dashboard({ auth, proposals, teams, users, proposal_ispe
     const renderHeader = () => {
         return (
             <div className="flex justify-between items-center">
-                {/* <Button type="button" icon="pi pi-filter-slash" label="Clear" outlined onClick={clearFilter} /> */}
+                <Button type="button" icon="pi pi-filter-slash" label="Bersihkan Filter" outlined onClick={clearFilter} />
                 <IconField iconPosition="left">
                     <InputIcon className="pi pi-search" />
                     <InputText
@@ -93,15 +95,6 @@ export default function Dashboard({ auth, proposals, teams, users, proposal_ispe
                         className="p-inputtext-sm"
                     />
                 </IconField>
-                {/* <IconField iconPosition="left">
-                    <InputIcon className="pi pi-search" />
-                    <InputText
-                        onInput={(e) => setFilters({
-                            global: { value: e.target.value, matchMode: FilterMatchMode.CONTAINS }
-                        })}
-                        placeholder="Keyword Search"
-                    />
-                </IconField> */}
                 {/*
                 <div className="flex align-items-center justify-content-end gap-2">
                     <Button type="button" icon="pi pi-file" rounded onClick={() => exportCSV(false)} data-pr-tooltip="CSV" />
@@ -187,6 +180,63 @@ export default function Dashboard({ auth, proposals, teams, users, proposal_ispe
             </>
         );
     };
+    const rowNumberTemplate = (rowData, column) => column.rowIndex + 1;
+    // const DosenFilter = (rowData) => {
+    //     return <Tag value={rowData.lecturer} />;
+    // };
+
+    // const [lectures] = useState(rowData.lecturer)
+    const statusDosenFilterTemplate = (options) => {
+        const lecturers = get_teams.map((team) => ({
+            label: team.lecturer ? team.lecturer.name : "-",
+            value: team.lecturer ? team.lecturer.name : "-"
+        }));
+
+        return (
+            <Dropdown
+                value={options.value}
+                options={lecturers}
+                onChange={(e) => options.filterApplyCallback(e.value)}
+                placeholder="Select Dosen"
+                className="p-column-filter"
+                showClear
+            />
+        );
+    };
+    const NameLeaderFilterTemplate = (options) => {
+        const leaders = get_teams.map((team) => ({
+            label: team.leader ? team.leader.name : "-",
+            value: team.leader ? team.leader.name : "-"
+        }));
+
+        return (
+            <Dropdown
+                value={options.value}
+                options={leaders}
+                onChange={(e) => options.filterApplyCallback(e.value)}
+                placeholder="Select Leader"
+                className="p-column-filter"
+                showClear
+            />
+        );
+    };
+    const NameTeamFilterTemplate = (options) => {
+        const teams = get_teams.map((team) => ({
+            label: team.team_name ? team.team_name : "-",
+            value: team.team_name ? team.team_name : "-"
+        }));
+
+        return (
+            <Dropdown
+                value={options.value}
+                options={teams}
+                onChange={(e) => options.filterApplyCallback(e.value)}
+                placeholder="Select Team"
+                className="p-column-filter"
+                showClear
+            />
+        );
+    };
 
     return (
         <>
@@ -215,7 +265,7 @@ export default function Dashboard({ auth, proposals, teams, users, proposal_ispe
                     </div>
                     <div className="flex flex-row gap-12 bg-white rounded-[14px] p-5 shadow">
                         <div className="flex flex-col gap-1">
-                            <p className="font-medium text-[16px] text-[#202224]/70 tracking-[0.03em]">Total Pending</p>
+                            <p className="font-medium text-[16px] text-[#202224]/70 tracking-[0.03em]">Jumlah Pending</p>
                             <p className="font-bold text-[28px] tracking-[1px]">
                                 {proposal_ispending}
                             </p>
@@ -242,10 +292,12 @@ export default function Dashboard({ auth, proposals, teams, users, proposal_ispe
                         onFilter={(e) => setFilters(e.filters)}
                         tableStyle={{ minWidth: '50rem' }}
                     >
-                        <Column field="team_name" header="Nama Tim" sortable filterPlaceholder="Cari Nama Tim" />
-                        <Column field="leader_name" header="Nama Ketua" sortable filterPlaceholder="Cari Nama Ketua" />
+
+                        <Column field="" header="#" body={rowNumberTemplate} filterPlaceholder="Cari Nama Tim" />
+                        <Column field="team_name" header="Nama Tim" showFilterMenu={true} filterMenuStyle={{ width: '14rem' }} style={{ minWidth: '12rem' }} filter filterElement={NameTeamFilterTemplate} sortable filterPlaceholder="Cari Nama Tim" />
+                        <Column field="leader_name" header="Nama Ketua" showFilterMenu={true} filterMenuStyle={{ width: '14rem' }} style={{ minWidth: '12rem' }} filter filterElement={NameLeaderFilterTemplate} sortable filterPlaceholder="Cari Nama Ketua" />
                         <Column field="leader_nim" header="NIM Ketua" sortable filterPlaceholder="Cari NIM Ketua" />
-                        <Column field="lecturer" header="Dosen Pembimbing" sortable filterPlaceholder="Cari Dosen" />
+                        <Column field="lecturer" showFilterMenu={true} filterMenuStyle={{ width: '14rem' }} style={{ minWidth: '12rem' }} header="Dosen Pembimbing" filter filterElement={statusDosenFilterTemplate} filterPlaceholder="Cari Dosen" />
                         <Column field="token" header="Token Tim" sortable filterPlaceholder="Cari Token" />
                         <Column field="token" header="Anggota" body={membersDetail} sortable filterPlaceholder="Cari Token" />
                     </DataTable>
