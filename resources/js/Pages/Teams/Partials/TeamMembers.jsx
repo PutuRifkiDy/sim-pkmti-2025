@@ -8,6 +8,9 @@ import {
 } from "@heroicons/react/24/solid";
 import { Link } from "@inertiajs/react";
 import { IconGabungTim } from "@/Components/IconAdmin";
+import { DataTable } from "primereact/datatable";
+import { Column } from "primereact/column";
+import { Tag } from "primereact/tag";
 
 function KickMember({ memberId }) {
     return (
@@ -40,88 +43,67 @@ function ChangeLeader({ memberId }) {
 }
 
 export default function TeamMembers({ user, team }) {
-    const leaderFirst = team.members.sort((a) =>
-        a.id === team.leader_id ? -1 : 0
-    );
+    const leaderFirst = team.members.sort((a) => (a.id === team.leader_id ? -1 : 0));
+
+    const teamsData = team.members.map((member, i) => ({
+        number: i + 1,
+        nim: member.nim,
+        name: member.name,
+        angkatan: `20${member.nim.substring(0, 2)}`,
+        role: member.id === user.id ? 'Saya' : 'Anggota',
+        role_is_leader: team.leader_id === member.id ? 'Ketua' : '',
+        email: member.email,
+        phone: member.phone,
+        line_id: member.line_id,
+        id: member.id,
+    }));
 
     return (
         <>
-            <div className="flex flex-col">
-                <div className="flex flex-row items-center gap-4 mt-4 mb-4">
-                    <IconGabungTim />
-                    <span className="font-bold">{team.members.length} / 5</span>
-                </div>
-                <div className="overflow-x-auto max-w-full">
-                    <table className="overflow-x-auto table table-zebra">
-                        <thead>
-                            <tr className="font-medium text-[16px]">
-                                <th></th>
-                                <th>NIM</th>
-                                <th>Nama</th>
-                                <th>Angkatan</th>
-                                <th>Jabatan</th>
-                                <th>Email</th>
-                                <th>Telepon</th>
-                                <th>ID Line</th>
-                                <th>Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody className="overflow-x-auto">
-                            {team.members.map((member, i) => {
-                                return (
-                                    <tr key={member.id} className="text-[14.22px]">
-                                        <th>{i + 1}</th>
-                                        <td>{member.nim}</td>
-                                        <td>{member.name}</td>
-                                        <td>20{member.nim.substring(0, 2)}</td>
-                                        <td className="flex">
-                                            {member.id === user.id && (
-                                                <div
-                                                    className="tooltip"
-                                                    data-tip="Saya"
-                                                >
-                                                    <TagIcon className="h-5 w-5 me-2" />
-                                                </div>
-                                            )}
-                                            {(team.leader_id === member.id && (
-                                                <>
-                                                    <div
-                                                        className="tooltip"
-                                                        data-tip="Ketua"
-                                                    >
-                                                        <CodeBracketSquareIcon className="h-5 w-5 me-2" />
-                                                    </div>
-                                                    Ketua
-                                                </>
-                                            )) ||
-                                                "Anggota"}
-                                        </td>
-                                        <td>{member.email}</td>
-                                        <td>{member.phone}</td>
-                                        <td>{member.line_id}</td>
-                                        <td className="flex gap-1">
-                                            {/* Kick member */}
-                                            {user.id !== member.id &&
-                                                (user.role === "admin" ||
-                                                    user.id ===
-                                                    team.leader_id) && (
-                                                    <>
-                                                        <KickMember
-                                                            memberId={member.id}
-                                                        />
-                                                        <ChangeLeader
-                                                            memberId={member.id}
-                                                        />
-                                                    </>
-                                                )}
-                                        </td>
-                                    </tr>
-                                );
-                            })}
-                        </tbody>
-                    </table>
-                </div>
+            <div className="flex flex-row items-center gap-4 mt-4 mb-4">
+                <IconGabungTim />
+                <span className="font-bold">{team.members.length} / 5</span>
             </div>
+            <div className="card container max-w-full overflow-x-auto">
+                <DataTable value={teamsData} paginator rows={5} scrollable scrollHeight="200px" showGridlines className="p-datatable-striped table-xs p-datatable-gridlines whitespace-nowrap" tableStyle={{ maxWidth: '' }}>
+                    <Column field="nim" header="NIM" sortable />
+                    <Column field="name" header="Nama" sortable />
+                    <Column field="angkatan" header="Angkatan" sortable />
+                    <Column field="role" header="Jabatan" sortable body={(rowData) => (
+                        <>
+                            <div className="flex flex-row">
+                                {rowData.role === 'Saya' && (
+                                    <div className="tooltip tooltip-bottom flex flex-row" data-tip="Saya">
+                                        <TagIcon className="h-5 w-5 me-2" />
+                                    </div>
+                                )}
+                                {rowData.role_is_leader === 'Ketua' && (
+
+                                    <div className="tooltip tooltip-bottom" data-tip="Ketua">
+                                        <CodeBracketSquareIcon className="h-5 w-5 me-2" />
+                                    </div>
+
+                                )}
+                                {rowData.role === 'Anggota' && "Anggota"}
+                            </div>
+                        </>
+                    )} />
+                    <Column field="email" header="Email" sortable />
+                    <Column field="phone" header="Telepon" sortable />
+                    <Column field="line_id" header="ID Line" sortable />
+                    <Column header="Aksi" body={(rowData) => (
+                        <div className="flex gap-1">
+                            {user.id !== rowData.id && (user.role === "admin" || user.id === team.leader_id) && (
+                                <>
+                                    <KickMember memberId={rowData.id} />
+                                    <ChangeLeader memberId={rowData.id} />
+                                </>
+                            )}
+                        </div>
+                    )} />
+                </DataTable>
+            </div>
+            {/* </div> */}
         </>
     );
 }

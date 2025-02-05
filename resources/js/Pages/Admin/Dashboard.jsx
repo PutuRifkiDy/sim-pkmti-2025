@@ -242,7 +242,7 @@ export default function Dashboard({ auth, proposals, teams, users, proposal_ispe
         <>
             <AdminLayout user={auth.user} title="Admin">
                 <div className="flex flex-col md:flex-row justify-between gap-2">
-                    <div className="flex flex-row gap-14 bg-white rounded-[14px] p-5 shadow">
+                    <div className="flex flex-row gap-10 bg-white rounded-[14px] p-5 shadow">
                         <div className="flex flex-col gap-1">
                             <p className="font-medium text-[16px] text-[#202224]/70 tracking-[0.03em]">Jumlah Pengguna</p>
                             <p className="font-bold text-[28px] tracking-[1px]">{users}</p>
@@ -274,7 +274,7 @@ export default function Dashboard({ auth, proposals, teams, users, proposal_ispe
                     </div>
                 </div>
 
-                <div className="bg-white px-8 py-8 rounded-[14px] mt-10">
+                <div className="bg-white px-8 py-8 rounded-[14px] mt-10 card">
                     <DataTable
                         value={teamsData}
                         paginator
@@ -291,6 +291,7 @@ export default function Dashboard({ auth, proposals, teams, users, proposal_ispe
                         emptyMessage="Tidak ada data ditemukan."
                         onFilter={(e) => setFilters(e.filters)}
                         tableStyle={{ minWidth: '50rem' }}
+                        className="table-md"
                     >
 
                         <Column field="" header="#" body={rowNumberTemplate} filterPlaceholder="Cari Nama Tim" />

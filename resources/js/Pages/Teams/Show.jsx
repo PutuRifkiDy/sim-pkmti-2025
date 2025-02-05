@@ -16,7 +16,7 @@ export default function Show({ auth, team, lecturers, flash }) {
                     id="team_information"
                 />
             )}
-            <div className="bg-white flex gap-5 flex-col px-10 py-10 rounded-[14px]">
+            <div className="bg-white flex gap-5 flex-col md:px-10 px-3 py-10 rounded-[14px] overflow-x-auto">
                 <div role="tablist" className="tabs tabs-bordered">
                     <input
                         type="radio"
@@ -41,7 +41,7 @@ export default function Show({ auth, team, lecturers, flash }) {
                         className="tab leading-[28px] tracking-[0.03em] "
                         aria-label="Anggota Tim"
                     />
-                    <div role="tabpanel" className="tab-content py-5 overflow-x-auto">
+                    <div role="tabpanel" className="tab-content py-5">
                         <TeamMembers user={user} team={team} />
                     </div>
                 </div>
