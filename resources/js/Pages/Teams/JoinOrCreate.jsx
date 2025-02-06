@@ -16,12 +16,12 @@ export default function JoinOrCreate({ auth, flash }) {
                     content={flash.msg}
                 />
             )}
-            <div className="bg-white flex gap-5 flex-col justify-center items-center py-10 rounded-[14px]">
+            <div className="border-2 flex gap-5 flex-col justify-center items-center py-10 rounded-[14px] dark:bg-white">
                 <IconJoinOrCreate />
                 <div className="flex flex-col gap-6 justify-center items-center text-center">
                     <div className="flex flex-col gap-2 justify-center items-center">
                         <p className="font-bold text-[20px] leading-[28px] tracking-[0.03em]">Pendaftaran</p>
-                        <p className="font-normal text-[16px] leading-[24px] text-[#5A607F] md:w-[400px] md:block hidden">Pilih untuk bergabung dengan tim yang sudah ada atau buat tim baru untuk memulai.</p>
+                        <p className="font-normal text-[16px] leading-[24px] dark:text-white md:w-[400px] md:block hidden">Pilih untuk bergabung dengan tim yang sudah ada atau buat tim baru untuk memulai.</p>
                     </div>
                     <div className="flex flex-col gap-2">
                         <Link

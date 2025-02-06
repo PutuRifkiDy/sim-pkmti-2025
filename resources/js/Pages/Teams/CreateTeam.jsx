@@ -27,7 +27,7 @@ export default function CreateTeam({ auth }) {
     return (
         <>
             <ParticipantLayout user={user} title="Buat Tim">
-                <div className="bg-white flex gap-5 flex-col justify-center items-center py-10 rounded-[14px]">
+                <div className="border-2 flex gap-5 flex-col justify-center items-center py-10 rounded-[14px]">
                     <form onSubmit={submit}>
                         <div className="flex flex-col gap-2 justify-center items-center">
                             <IconJoinOrCreate />

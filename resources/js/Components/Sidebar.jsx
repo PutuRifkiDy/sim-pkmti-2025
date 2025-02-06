@@ -226,7 +226,7 @@ export default function Sidebar({ user, navigations, children }) {
                         </div>
                     </header>
 
-                    <div className="flex flex-col gap-2 md:px-12 px-4 md:py-5 py-2 light:bg-[#F5F6FA] min-h-screen dark:bg-slate-700">
+                    <div className="flex flex-col gap-2 md:px-12 px-4 md:py-5 py-2 light:bg-[#F5F6FA] min-h-screen dark:bg-slate-600">
                         {navigations.map((navigation, i) => {
                             let routePath = window.location.pathname;
                             const routeName = navigation.link.startsWith("http")
