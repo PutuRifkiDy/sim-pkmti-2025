@@ -23,7 +23,7 @@ import { Link, router } from "@inertiajs/react";
 import Toast from "@/Components/Toast";
 import { useIsObjectEmpty, useRandomInt } from "@/utils";
 
-export default function Users({ auth, users, flash, errors }) {
+export default function Users({ auth, users, flash, errors, akt21, akt22, akt23, akt24 }) {
     const { user } = auth;
     const [visible, setVisible] = useState(false);
     const [userToDelete, setUserToDelete] = useState(null);
@@ -269,7 +269,39 @@ export default function Users({ auth, users, flash, errors }) {
                 />
             )}
             <AdminLayout user={user} title="Admin">
-                <div className="bg-white px-8 py-8 rounded-[14px]">
+            <div className="flex flex-col md:flex-row justify-between gap-2">
+                    <div className="flex flex-row gap-5 bg-white rounded-[14px] p-5 shadow">
+                        <div className="flex flex-col gap-1">
+                            <p className="font-medium text-[16px] text-[#202224]/70 tracking-[0.03em]">Jumlah Angkatan 2021</p>
+                            <p className="font-bold text-[28px] tracking-[1px]">{akt21}</p>
+                        </div>
+                        <img src="/images/admin/icon-jumlah-pengguna.png" className="w-[60px] h-[60px]" alt="" />
+                    </div>
+                    <div className="flex flex-row gap-5 bg-white rounded-[14px] p-5 shadow">
+                        <div className="flex flex-col gap-1">
+                            <p className="font-medium text-[16px] text-[#202224]/70 tracking-[0.03em]">Jumlah Angkatan 2022</p>
+                            <p className="font-bold text-[28px] tracking-[1px]">{akt22}</p>
+                        </div>
+                        <img src="/images/admin/icon-jumlah-tim.png" className="w-[60px] h-[60px]" alt="" />
+                    </div>
+                    <div className="flex flex-row gap-5 bg-white rounded-[14px] p-5 shadow">
+                        <div className="flex flex-col gap-1">
+                            <p className="font-medium text-[16px] text-[#202224]/70 tracking-[0.03em]">Jumlah Angkatan 2023</p>
+                            <p className="font-bold text-[28px] tracking-[1px]">{akt23}</p>
+                        </div>
+                        <img src="/images/admin/icon-jumlah-proposal.png" className="w-[60px] h-[60px]" alt="" />
+                    </div>
+                    <div className="flex flex-row gap-5 bg-white rounded-[14px] p-5 shadow">
+                        <div className="flex flex-col gap-1">
+                            <p className="font-medium text-[16px] text-[#202224]/70 tracking-[0.03em]">Jumlah Angkatan 2024</p>
+                            <p className="font-bold text-[28px] tracking-[1px]">
+                                {akt24}
+                            </p>
+                        </div>
+                        <img src="/images/admin/icon-pending.png" className="w-[60px] h-[60px]" alt="" />
+                    </div>
+                </div>
+                <div className="bg-white px-8 py-8 rounded-[14px] mt-10">
                     {!useIsObjectEmpty(errors) && (
                         <div className="alert alert-error mb-4" role="alert">
                             <ExclamationTriangleIcon className="h-6 w-6" />
