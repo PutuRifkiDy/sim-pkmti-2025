@@ -27,8 +27,9 @@ export default function Sidebar({ user, navigations, children }) {
         <>
             <div className="flex md:flex-row flex-col justify-between">
                 {/* Sidebar */}
-                <aside className={`hidden md:flex flex-col gap-6 justify-start items-center transition-all duration-200 ease-in-out border-r-2 border-slate-200 ${isSidebarOpen ? "md:w-[242px] w-0" : "md:w-16 w-0"} min-h-screen fixed`} >
-                    <div className="py-6 w-full flex flex-row gap-1 justify-center items-center font-semibold text-[24px] text-[#285B70] border-b-2 border-slate-200">
+                <aside className={`hidden md:flex flex-col gap-6 justify-start items-center transition-all duration-200 ease-in-out overflow-hidden border-r-[1px] light:border-r-slate-200 dark:border-r-slate-100 ${isSidebarOpen ? "md:w-[242px] w-16" : "md:w-16 w-0"} min-h-screen fixed`} >
+                    <div className="py-6 w-full flex flex-row gap-1 justify-center items-center font-semibold text-[24px] text-[#285B70]">
+
                         PKM<span className={`${isSidebarOpen ? "flex flex-row text-[#42A1A4]" : "hidden"}`}>TI 2025</span>
                     </div>
                     <img src={`${window.location.origin}/images/Logo-PKM-TI-2025.png`} alt="Profile" className={`${isSidebarOpen ? "w-[90px] h-[111px]" : "w-[37px] h-[46px]"}`} />
@@ -137,9 +138,9 @@ export default function Sidebar({ user, navigations, children }) {
                 </aside>
 
                 {/* Main Content */}
-                <div className={`flex-1 ${isSidebarOpen ? "md:ml-[242px] ml-0" : "md:ml-16 ml-0"} transition-all`}>
+                <div className={`flex-1 ${isSidebarOpen ? "md:ml-[242px] ml-0" : "md:ml-16 ml-0"} transition-all `}>
 
-                    <header className="py-4 flex items-center md:justify-between justify-center md:px-5 px-0 w-full">
+                    <header className="py-4 flex items-center md:justify-between justify-center md:px-5 px-0 w-full border-b-[1px]">
                         {/* Untuk Tampilan Laptop */}
                         <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="text-xl md:block hidden">
                             <IconSideBar />
@@ -168,15 +169,15 @@ export default function Sidebar({ user, navigations, children }) {
                                             <img src={`${window.location.origin}/images/admin/icon-profile.png`} alt="" />
                                         </div>
                                         <div className="flex flex-col">
-                                            <p className="font-bold text-[16px] text-[#404040]">{user.name}</p>
-                                            <p className="font-medium text-[14px] text-[#565656]">{user.role}</p>
+                                            <p className="font-bold text-[16px] light:text-[#404040] dark:text-white">{user.name}</p>
+                                            <p className="font-medium text-[14px] light:text-[#565656] dark:text-white">{user.role}</p>
                                         </div>
                                     </div>
                                     <IconDropdown className="w-9 h-9" />
                                 </div>
                                 <ul tabIndex={0} className="menu dropdown-content bg-base-100 rounded-box z-[1] md:w-52 w-full md:px-0 px-8 p-2 shadow">
                                     <li className="border-b-2 border-slate-200">
-                                        <Link href={route("welcome")} className="flex flex-row gap-2 justify-start items-center font-medium text-[14px] text-[#404040] tracking-[0.11em]">
+                                        <Link href={route("welcome")} className="flex flex-row gap-2 justify-start items-center font-medium text-[14px] light:text-[#404040] dark:text-white tracking-[0.11em]">
                                             <IconHome />
                                             Home
                                         </Link>
@@ -187,7 +188,7 @@ export default function Sidebar({ user, navigations, children }) {
                                                 <Link
                                                     href={route("admin.dashboard")}
                                                     as="button"
-                                                    className="flex flex-row gap-2 justify-start items-center font-medium text-[14px] text-[#404040] tracking-[0.11em]"
+                                                    className="flex flex-row gap-2 justify-start items-center font-medium text-[14px] light:text-[#404040] dark:text-white tracking-[0.11em]"
                                                 >
                                                     <ShieldExclamationIcon className="h-6 w-6" />
                                                     Mode Admin
@@ -198,7 +199,7 @@ export default function Sidebar({ user, navigations, children }) {
                                                 <Link
                                                     href={route("dashboard")}
                                                     as="button"
-                                                    className="flex flex-row gap-2 justify-start items-center font-medium text-[14px] text-[#404040] tracking-[0.11em]"
+                                                    className="flex flex-row gap-2 justify-start items-center font-medium text-[14px] light:text-[#404040] dark:text-white tracking-[0.11em]"
                                                 >
                                                     <AcademicCapIcon className="h-6 w-6" />
                                                     Mode Participant
@@ -214,7 +215,7 @@ export default function Sidebar({ user, navigations, children }) {
                                                     )
                                                     .showModal()
                                             }
-                                            className="flex flex-row gap-2 justify-start items-center font-medium text-[14px] text-[#404040] tracking-[0.11em]"
+                                            className="flex flex-row gap-2 justify-start items-center font-medium text-[14px] light:text-[#404040] dark:text-white tracking-[0.11em]"
                                         >
                                             <IconLogout />
                                             Keluar
@@ -225,7 +226,7 @@ export default function Sidebar({ user, navigations, children }) {
                         </div>
                     </header>
 
-                    <div className="flex flex-col gap-2 md:px-12 px-4 md:py-5 py-2 bg-[#F5F6FA] min-h-screen">
+                    <div className="flex flex-col gap-2 md:px-12 px-4 md:py-5 py-2 light:bg-[#F5F6FA] min-h-screen dark:bg-slate-700">
                         {navigations.map((navigation, i) => {
                             let routePath = window.location.pathname;
                             const routeName = navigation.link.startsWith("http")
