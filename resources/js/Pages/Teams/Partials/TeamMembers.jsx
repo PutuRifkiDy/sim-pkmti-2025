@@ -65,7 +65,7 @@ export default function TeamMembers({ user, team }) {
                 <span className="font-bold">{team.members.length} / 5</span>
             </div>
             <div className="card">
-                <DataTable value={teamsData} paginator rows={5} scrollable showGridlines className="p-datatable-striped table-xs p-datatable-gridlines whitespace-nowrap" tableStyle={{ maxWidth: '50rem' }}>
+                <DataTable value={teamsData} paginator rows={5} scrollable showGridlines className="p-datatable-striped p-datatable-gridlines whitespace-nowrap overflow-x-auto" tableStyle={{ maxWidth: '50rem' }}>
                     <Column field="nim" header="NIM" sortable />
                     <Column field="name" header="Nama" sortable />
                     <Column field="angkatan" header="Angkatan" sortable />

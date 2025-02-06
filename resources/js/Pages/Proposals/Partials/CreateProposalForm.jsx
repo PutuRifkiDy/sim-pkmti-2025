@@ -24,7 +24,7 @@ export default function CreateProposalForm({ user }) {
     const schemes = ["PKM-GFT", "PKM-K", "PKM-KC", "PKM-PI", "PKM-PM"];
 
     return (
-        <div className="border-2 flex gap-5 flex-col md:px-10 px-3 py-10 rounded-[14px]">
+        <div className="border-2 flex gap-5 flex-col md:px-10 px-3 py-10 rounded-[14px] bg-white">
             {/* <DocumentIcon className="h-10 w-10 mb-4" /> */}
             <form onSubmit={submit}>
                 {/* Input Title */}
