@@ -19,6 +19,7 @@ class UserController extends Controller
     {
         $selectedRequest = [
             'name' => $request->input('name'),
+            'role' => $request->input('role'),
             'email' => $request->input('email'),
             'nim' => $request->input('nim'),
             'phone' => $request->input('phone'),
@@ -27,6 +28,7 @@ class UserController extends Controller
 
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
+            'role' => 'required|string',
             'email' => [
                 'required',
                 'email',
@@ -48,7 +50,7 @@ class UserController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         }
-        
+
         User::find($id)->update($selectedRequest);
         return back()->with('msg', 'Pengguna berhasil diperbarui');
     }
@@ -65,17 +67,17 @@ class UserController extends Controller
             $pastTeam = Team::with('members')->find($teamId);
             $teamMembersCount = User::where('team_id', $teamId)->count();
 
-            if ($teamMembersCount == 1) { 
+            if ($teamMembersCount == 1) {
                 // logic if he/she was alone
                 $pastTeam->delete();
-            } else { 
-                // logic if he/she was a leader at the team 
+            } else {
+                // logic if he/she was a leader at the team
                 if ($pastTeam->leader_id == $userId) {
                     $pastTeam->update(['leader_id' =>  $pastTeam->members()->first()->id]);
                 }
             }
         }
-        
+
         $user->delete();
 
         return back()->with('msg', 'Pengguna berhasil dihapus');
