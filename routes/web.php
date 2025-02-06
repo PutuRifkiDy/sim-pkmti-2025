@@ -60,12 +60,13 @@ Route::get('/dashboard', function () {
 
 
     $infos = [
-        "hasTeam" => !is_null($user->team), // Memeriksa apakah user memiliki team
-        "hasEnoughTeamMembers" => $user->team && $user->team->members->count() >= 3, // Memeriksa jumlah anggota tim
-        "hasProposal" => $user->team && !is_null($user->team->proposal), // Memeriksa apakah tim sudah mengajukan proposal
-        "proposalStatus" => $user->team && $user->team->proposal ? $user->team->proposal->status : "unsubmitted", // Status proposal
-        // "note" => $user->team && $user->team->proposal ? $user->team->proposal->note : "", // Catatan proposal
-        "hasEnoughAssistanceProofs" => $user->team && $user->team->assistanceProofs->count() >= 3, // Memeriksa jumlah asistensi
+        "hasTeam" => !is_null($user->team),
+        "hasEnoughTeamMembers" => $user->team && $user->team->members->count() >= 3,
+        "hasProposal" => $user->team && !is_null($user->team->proposal),
+        "proposalStatus" => $user->team && $user->team->proposal ? $user->team->proposal->status : "unsubmitted",
+        // "note" => $user->team && $user->team->proposal ? $user->team->proposal->note : "",
+        "hasEnoughAssistanceProofs" => $user->team && $user->team->assistanceProofs->count() >= 3,
+        "hasUploadFinalProposal" => !is_null($user->team->proposal->final_proposal_url),
     ];
 
 

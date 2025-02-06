@@ -28,7 +28,7 @@ export default function Sidebar({ user, navigations, children }) {
             <div className="flex md:flex-row flex-col justify-between">
                 {/* Sidebar */}
                 <aside className={`hidden md:flex flex-col gap-6 justify-start items-center transition-all duration-200 ease-in-out overflow-hidden border-r-[1px] light:border-r-slate-200 dark:border-r-slate-100 ${isSidebarOpen ? "md:w-[242px] w-16" : "md:w-16 w-0"} min-h-screen fixed`} >
-                    <div className="py-6 w-full flex flex-row gap-1 justify-center items-center font-semibold text-[24px] text-[#285B70]">
+                    <div className="py-6 w-full flex flex-row gap-1 justify-center items-center font-semibold text-[24px] text-[#285B70] border-b-[1px] border-slate-200">
 
                         PKM<span className={`${isSidebarOpen ? "flex flex-row text-[#42A1A4]" : "hidden"}`}>TI 2025</span>
                     </div>
