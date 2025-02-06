@@ -19,6 +19,7 @@ export default function DarkMode({}) {
         const deviceTheme = localStorage.getItem("theme");
 
         document.querySelector("html").setAttribute("data-theme", deviceTheme);
+        document.querySelector("html").setAttribute("class", deviceTheme);
     }, [theme]);
 
     return (

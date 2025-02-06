@@ -16,7 +16,7 @@ export default function Show({ auth, team, lecturers, flash }) {
                     id="team_information"
                 />
             )}
-            <div className="bg-white flex gap-5 flex-col md:px-10 px-3 py-10 rounded-[14px] overflow-x-auto">
+            <div className="border-2 flex gap-5 flex-col md:px-10 px-3 py-10 rounded-[14px] overflow-x-auto">
                 <div role="tablist" className="tabs tabs-bordered">
                     <input
                         type="radio"

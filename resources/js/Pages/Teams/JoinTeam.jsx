@@ -25,7 +25,7 @@ export default function JoinTeam({ auth }) {
     return (
         <>
             <ParticipantLayout user={user} title="Gabung Tim">
-                <div className="bg-white flex gap-5 flex-col justify-center items-center py-10 rounded-[14px]">
+                <div className="border-2 flex gap-5 flex-col justify-center items-center py-10 rounded-[14px]">
                     {isTokenEmpty && (
                         <Toast
                             key={useRandomInt()}

@@ -29,7 +29,7 @@ export default function Show({ auth, proofs, flash }) {
             )}
 
             <ParticipantLayout title="Bukti Asistensi" user={user}>
-                <div className="bg-white flex gap-5 flex-col px-10 py-10 rounded-[14px]">
+                <div className="border-2 flex gap-5 flex-col px-10 py-10 rounded-[14px]">
 
                     <div role="tablist" className="tabs tabs-bordered">
                         <input
