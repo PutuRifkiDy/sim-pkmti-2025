@@ -141,7 +141,7 @@
                   letter-spacing: 4px;
                   line-height: 48px;
                 ">
-              <img src="https://i.ibb.co/d2L1CZb/Logo-PKM-TI.png" width="125" style="display: block; border: 0px" />
+              <img src="https://i.ibb.co.com/xqZJ079b/Logo-PKM-TI-2025.png" width="125" style="display: block; border: 0px" />
             </td>
           </tr>
         </table>
@@ -204,7 +204,7 @@
                   line-height: 25px;
                 ">
               <p style="color: white">
-                PKM TI 2024<br />
+                PKM TI 2025<br />
                 Grow Up The Passion, Change The Vision
               </p>
               <div class="flex flex-row gap-6">
