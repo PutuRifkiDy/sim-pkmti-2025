@@ -204,7 +204,7 @@ export default function ShowTeams({ auth, teams, flash, errors }) {
                             </div>
                         </div>
                     )}
-                    <div className="overflow-x-auto">
+                    <div className="overflow-x-auto border-2 px-8 py-8 rounded-[14px] card">
                         <DataTable
                             value={selectedFields}
                             className="table table-zebra"
