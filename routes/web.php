@@ -66,7 +66,7 @@ Route::get('/dashboard', function () {
         "proposalStatus" => $user->team && $user->team->proposal ? $user->team->proposal->status : "unsubmitted",
         // "note" => $user->team && $user->team->proposal ? $user->team->proposal->note : "",
         "hasEnoughAssistanceProofs" => $user->team && $user->team->assistanceProofs->count() >= 3,
-        "hasUploadFinalProposal" => !is_null($user->team->proposal->final_proposal_url),
+        "hasNotUploadFinalProposal" => $user->team?->proposal?->final_proposal_url === null,
     ];
 
 

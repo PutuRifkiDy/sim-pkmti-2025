@@ -69,12 +69,12 @@ export default function Dashboard({ auth, infos, flash }) {
                 mode: "error",
             },
         },
-        hasUploadFinalProposal: {
-            true: {
+        hasNotUploadFinalProposal: {
+            false: {
                 text: "Anda sudah upload proposal final",
                 mode: "success",
             },
-            false: {
+            true: {
                 text: "Anda belum upload proposal final",
                 mode: "error",
             },
