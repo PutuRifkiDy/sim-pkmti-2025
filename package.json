@@ -30,6 +30,8 @@
         "xlsx": "https://cdn.sheetjs.com/xlsx-0.19.3/xlsx-0.19.3.tgz"
     },
     "dependencies": {
+        "jspdf": "^2.5.2",
+        "jspdf-autotable": "^3.8.4",
         "primeicons": "^7.0.0",
         "tailwind-merge": "^3.0.1",
         "ziggy": "^2.4.0"

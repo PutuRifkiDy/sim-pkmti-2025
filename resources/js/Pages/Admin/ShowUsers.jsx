@@ -155,6 +155,25 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
         });
     };
 
+    const exportPdf = () => {
+        import('jspdf').then((jsPDF) => {
+            import('jspdf-autotable').then(() => {
+                const doc = new jsPDF.default();
+
+                const columns = Object.keys(selectedFields[0]).map(key => ({ title: key, dataKey: key }));
+                const rows = selectedFields.map(item => Object.values(item));
+
+                doc.autoTable({
+                    head: [columns.map(col => col.title)], // Header
+                    body: rows, // Isi tabel
+                });
+
+                doc.save('Peserta_PKM_TI_2025.pdf');
+            });
+        });
+    };
+
+
     const renderHeader = () => {
         return (
             <>
@@ -174,6 +193,7 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                     </div>
 
                     <div className="flex flex-row gap-2">
+                        <Button type="button" icon="pi pi-file-pdf" severity="warning" rounded onClick={exportPdf} data-pr-tooltip="Export Sebagai PDF File" data-pr-position="top" className="export-button" />
                         <Button type="button" className="export-button" icon="pi pi-file" rounded onClick={() => exportCSV(false)} data-pr-tooltip="Export Sebagai CSV File" data-pr-position="top" />
                         <Button type="button" className="export-button" icon="pi pi-file-excel" severity="success" rounded onClick={exportExcel} data-pr-tooltip="Export Sebagai Excel File" data-pr-position="top" />
                     </div>
@@ -269,7 +289,7 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                 />
             )}
             <AdminLayout user={user} title="Admin">
-            <div className="flex flex-col md:flex-row justify-between gap-2">
+                <div className="flex flex-col md:flex-row justify-between gap-2">
                     <div className="flex flex-row gap-5 bg-white rounded-[14px] p-5 shadow">
                         <div className="flex flex-col gap-1">
                             <p className="font-medium text-[16px] text-[#202224]/70 tracking-[0.03em]">Jumlah Angkatan 2021</p>
