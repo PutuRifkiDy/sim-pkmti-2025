@@ -57,29 +57,16 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     $user = User::with('team', 'team.proposal', 'team.members', 'team.assistanceProofs')->find(Auth::id());
 
-    // $infos = [
-    //     "hasTeam" => optional($user->team)->id !== null,
-    //     "hasEnoughTeamMembers" => optional($user->team)->members->count() >= 3,
-    //     "hasProposal" => optional($user->team)->proposal !== null,
-    //     "proposalStatus" => optional($user->team->proposal)->status ?? "unsubmitted",
-    //     "note" => optional($user->team->proposal)->note ?? "",
-    //     "hasEnoughAssistanceProofs" => optional($user->team)->assistanceProofs->count() >= 3,
-    // ];
+
 
     $infos = [
-        "hasTeam" => !is_null($user->team), // Memeriksa apakah user memiliki team
-        "hasEnoughTeamMembers" => $user->team && $user->team->members->count() >= 3, // Memeriksa jumlah anggota tim
-        "hasProposal" => $user->team && !is_null($user->team->proposal), // Memeriksa apakah tim sudah mengajukan proposal
-        "proposalStatus" => $user->team && $user->team->proposal ? $user->team->proposal->status : "unsubmitted", // Status proposal
-        // "note" => $user->team && $user->team->proposal ? $user->team->proposal->note : "", // Catatan proposal
-        "hasEnoughAssistanceProofs" => $user->team && $user->team->assistanceProofs->count() >= 3, // Memeriksa jumlah asistensi
-
-        // "hasTeam" => !is_null($user->team_id),
-        // "hasEnoughTeamMembers" => $user->team->members->count() >= 3,
-        // "hasProposal" => !is_null($user->team->proposal),
-        // "proposalStatus" => $user->team->proposal->status ?? "unsubmitted",
-        // // "note" => $user->team->proposal->note ?? "",
-        // "hasEnoughAssistanceProofs" => $user->team->assistanceProofs->count() >= 3,
+        "hasTeam" => !is_null($user->team),
+        "hasEnoughTeamMembers" => $user->team && $user->team->members->count() >= 3,
+        "hasProposal" => $user->team && !is_null($user->team->proposal),
+        "proposalStatus" => $user->team && $user->team->proposal ? $user->team->proposal->status : "unsubmitted",
+        // "note" => $user->team && $user->team->proposal ? $user->team->proposal->note : "",
+        "hasEnoughAssistanceProofs" => $user->team && $user->team->assistanceProofs->count() >= 3,
+        "hasUploadFinalProposal" => !is_null($user->team->proposal->final_proposal_url),
     ];
 
 

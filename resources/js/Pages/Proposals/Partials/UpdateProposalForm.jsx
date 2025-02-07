@@ -48,7 +48,7 @@ export default function UpdateProposalForm({ user, proposal }) {
     }
 
     return (
-        <div className="border-2 flex gap-5 flex-col md:px-10 px-3 py-10 rounded-[14px]">
+        <div className="border-2 flex gap-5 flex-col md:px-10 px-3 py-10 rounded-[14px] bg-white">
             <ProposalStatus />
 
             <form onSubmit={submit}>

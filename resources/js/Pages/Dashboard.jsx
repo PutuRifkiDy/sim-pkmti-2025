@@ -28,7 +28,7 @@ export default function Dashboard({ auth, infos, flash }) {
             },
             false: {
                 text: "Jumlah tim kurang, segera penuhi kekurangan anggota",
-                mode: "warning",
+                mode: "error",
             },
         },
         hasProposal: {
@@ -38,7 +38,7 @@ export default function Dashboard({ auth, infos, flash }) {
             },
             false: {
                 text: "Mohon segera ajukan proposal",
-                mode: "warning",
+                mode: "error",
             },
         },
         proposalStatus: {
@@ -66,7 +66,17 @@ export default function Dashboard({ auth, infos, flash }) {
             },
             false: {
                 text: "Jumlah asistensi kurang",
-                mode: "warning",
+                mode: "error",
+            },
+        },
+        hasUploadFinalProposal: {
+            true: {
+                text: "Anda sudah upload proposal final",
+                mode: "success",
+            },
+            false: {
+                text: "Anda belum upload proposal final",
+                mode: "error",
             },
         },
     };

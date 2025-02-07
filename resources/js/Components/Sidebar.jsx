@@ -28,7 +28,7 @@ export default function Sidebar({ user, navigations, children }) {
             <div className="flex md:flex-row flex-col justify-between">
                 {/* Sidebar */}
                 <aside className={`hidden md:flex flex-col gap-6 justify-start items-center transition-all duration-200 ease-in-out overflow-hidden border-r-[1px] light:border-r-slate-200 dark:border-r-slate-100 ${isSidebarOpen ? "md:w-[242px] w-16" : "md:w-16 w-0"} min-h-screen fixed`} >
-                    <div className="py-6 w-full flex flex-row gap-1 justify-center items-center font-semibold text-[24px] text-[#285B70]">
+                    <div className="py-6 w-full flex flex-row gap-1 justify-center items-center font-semibold text-[24px] text-[#285B70] border-b-[1px] border-slate-200">
 
                         PKM<span className={`${isSidebarOpen ? "flex flex-row text-[#42A1A4]" : "hidden"}`}>TI 2025</span>
                     </div>
@@ -138,7 +138,7 @@ export default function Sidebar({ user, navigations, children }) {
                 </aside>
 
                 {/* Main Content */}
-                <div className={`flex-1 ${isSidebarOpen ? "md:ml-[242px] ml-0" : "md:ml-16 ml-0"} transition-all `}>
+                <div className={`flex-1 ${isSidebarOpen ? "md:ml-[242px] ml-0 lg:w-[75%] xl:w-[80%] 2xl:w-[85%]" : "md:ml-16 ml-0 lg:w-[75%] xl:w-[80%] 2xl:w-[85%]"}  overflow-x-auto transition-all`}>
 
                     <header className="py-4 flex items-center md:justify-between justify-center md:px-5 px-0 w-full border-b-[1px]">
                         {/* Untuk Tampilan Laptop */}
@@ -226,7 +226,7 @@ export default function Sidebar({ user, navigations, children }) {
                         </div>
                     </header>
 
-                    <div className="flex flex-col gap-2 md:px-12 px-4 md:py-5 py-2 light:bg-[#F5F6FA] min-h-screen dark:bg-slate-600">
+                    <div className="flex flex-col gap-2 md:px-12 px-4 md:py-5 py-2 bg-[#F5F6FA] min-h-screen">
                         {navigations.map((navigation, i) => {
                             let routePath = window.location.pathname;
                             const routeName = navigation.link.startsWith("http")
@@ -279,112 +279,3 @@ export default function Sidebar({ user, navigations, children }) {
         </>
     );
 }
-
-{/* <div className="drawer lg:drawer-open">
-    <input id="sidebar" type="checkbox" className="drawer-toggle" />
-    <div className="drawer-content flex flex-col items-center justify-center">
-        <div className="w-full flex justify-end">
-            <label
-                htmlFor="sidebar"
-                className="btn btn-square m-4 z-50 fixed drawer-button lg:hidden"
-            >
-                <Bars3Icon className="h-6 w-6" />
-            </label>
-        </div>
-        <div className="container flex justify-center p-10">
-            {children}
-        </div>
-    </div>
-    <div className="drawer-side">
-        <label
-            htmlFor="sidebar"
-            aria-label="close sidebar"
-            className="drawer-overlay"
-        ></label>
-        <div className="menu p-4 w-60 min-h-full bg-base-200 text-base-content">
-            <Link href={route("welcome")} as="button">
-                <img
-                    src="/images/logo.png"
-                    className="h-32 w-32 mx-auto my-4"
-                />
-            </Link>
-
-            <ul className="font-bold">
-                {navigations.map((navigation, i) => (
-                    <li key={i} className="my-2">
-                        <Link href={navigation.link} as="button">
-                            {navigation.icon} {navigation.text}
-                        </Link>
-                    </li>
-                ))}
-            </ul>
-
-            <div className="divider"></div>
-
-            <ul className="font-bold">
-                <li className="my-2">
-                    <Link href={route("profile.edit")} as="button">
-                        <UserIcon className="h-6 w-6" />
-                        {user.nim}
-                    </Link>
-                </li>
-
-                <li className="my-2">
-                    <label className="swap swap-rotate justify-start">
-                        <input
-                            type="checkbox"
-                            onChange={handleTheme}
-                            className="hidden"
-                            checked={
-                                theme === "light" ? false : true
-                            }
-                        />
-                        <SunIcon className="swap-on h-6 w-6" />
-                        <MoonIcon className="swap-off h-6 w-6" />
-                        {theme === "light"
-                            ? "Mode Gelap"
-                            : "Mode Terang"}
-                    </label>
-                </li>
-
-                {user.role === "admin" &&
-                    (location.pathname.search(/admin/) === -1 ? (
-                        <li className="my-2">
-                            <Link
-                                href={route("admin.dashboard")}
-                                as="button"
-                            >
-                                <ShieldExclamationIcon className="h-6 w-6" />
-                                Menu Admin
-                            </Link>
-                        </li>
-                    ) : (
-                        <li className="my-2">
-                            <Link
-                                href={route("dashboard")}
-                                as="button"
-                            >
-                                <AcademicCapIcon className="h-6 w-6" />
-                                Menu Utama
-                            </Link>
-                        </li>
-                    ))}
-
-                <li className="my-2">
-                    <a
-                        onClick={() =>
-                            document
-                                .getElementById(
-                                    "logout-confirmation"
-                                )
-                                .showModal()
-                        }
-                    >
-                        <ArrowLeftEndOnRectangleIcon className="h-6 w-6" />
-                        Keluar
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div> */}

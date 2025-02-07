@@ -9,7 +9,7 @@
     @tailwind components;
 }
 
-html {
+html,body {
     scroll-behavior: smooth;
 
 }
@@ -49,6 +49,7 @@ html {
     border-color: transparent !important;
     width: 150px;
 }
+
 
 @media (max-width: 768px) {
 

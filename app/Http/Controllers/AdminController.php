@@ -21,6 +21,10 @@ class AdminController extends Controller
 
     public function showUsers() {
         $users = User::with('team', 'team.proposal', 'team.assistanceProofs')->get();
+        $akt21 = User::where('nim', 'like', '21%')->count();
+        $akt22 = User::where('nim', 'like', '22%')->count();
+        $akt23 = User::where('nim', 'like', '23%')->count();
+        $akt24 = User::where('nim', 'like', '24%')->count();
 
         foreach ($users as $user) {
             if ($user->team_id &&
@@ -28,14 +32,14 @@ class AdminController extends Controller
                 $user->team->proposal &&
                 $user->team->proposal->final_proposal_url &&
                 $user->team->proposal->status == 'approved' &&
-                $user->team->assistanceProofs->count() >= 3) {
+                $user->team->proof_url->count() >= 3) {
                     $user["status"] = 'passed';
             } else {
                 $user["status"]  = 'failed';
             }
         }
 
-        return Inertia::render('Admin/ShowUsers', compact('users'));
+        return Inertia::render('Admin/ShowUsers', compact('users', 'akt21', 'akt22', 'akt23', 'akt24'));
     }
 
     public function showTeams() {

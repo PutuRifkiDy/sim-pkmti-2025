@@ -26,8 +26,6 @@ export default function Dashboard({ auth, proposals, teams, users, proposal_ispe
     const [filters, setFilters] = useState(null);
     const [globalFilterValue, setGlobalFilterValue] = useState("");
 
-
-    // 📌 Inisialisasi filter
     useEffect(() => {
         initFilters();
     }, []);
@@ -84,7 +82,7 @@ export default function Dashboard({ auth, proposals, teams, users, proposal_ispe
 
     const renderHeader = () => {
         return (
-            <div className="flex justify-between items-center">
+            <div className="flex md:flex-row flex-col md:gap-0 gap-10 justify-between items-center">
                 <Button type="button" icon="pi pi-filter-slash" label="Bersihkan Filter" outlined onClick={clearFilter} />
                 <IconField iconPosition="left">
                     <InputIcon className="pi pi-search" />
@@ -221,9 +219,9 @@ export default function Dashboard({ auth, proposals, teams, users, proposal_ispe
         );
     };
     const NameTeamFilterTemplate = (options) => {
-        const teams = get_teams.map((team) => ({
-            label: team.team_name ? team.team_name : "-",
-            value: team.team_name ? team.team_name : "-"
+        const teams = [...new Set(get_teams.map((team) => team.role))].map(team_name => ({
+            label: team_name ? team_name : "-",
+            value: team_name ? team_name : "-"
         }));
 
         return (
@@ -291,15 +289,46 @@ export default function Dashboard({ auth, proposals, teams, users, proposal_ispe
                         emptyMessage="Tidak ada data ditemukan."
                         onFilter={(e) => setFilters(e.filters)}
                         tableStyle={{ minWidth: '50rem' }}
-                        className="table-md"
+                        className=""
                     >
 
                         <Column field="" header="#" body={rowNumberTemplate} filterPlaceholder="Cari Nama Tim" />
                         <Column field="team_name" header="Nama Tim" showFilterMenu={true} filterMenuStyle={{ width: '14rem' }} style={{ minWidth: '12rem' }} filter filterElement={NameTeamFilterTemplate} sortable filterPlaceholder="Cari Nama Tim" />
-                        <Column field="leader_name" header="Nama Ketua" showFilterMenu={true} filterMenuStyle={{ width: '14rem' }} style={{ minWidth: '12rem' }} filter filterElement={NameLeaderFilterTemplate} sortable filterPlaceholder="Cari Nama Ketua" />
-                        <Column field="leader_nim" header="NIM Ketua" sortable filterPlaceholder="Cari NIM Ketua" />
-                        <Column field="lecturer" showFilterMenu={true} filterMenuStyle={{ width: '14rem' }} style={{ minWidth: '12rem' }} header="Dosen Pembimbing" filter filterElement={statusDosenFilterTemplate} filterPlaceholder="Cari Dosen" />
-                        <Column field="token" header="Token Tim" sortable filterPlaceholder="Cari Token" />
+                        <Column
+                            field="leader_name"
+                            header="Nama Ketua"
+                            showFilterMenu={true}
+                            filterMenuStyle={{ width: '14rem' }}
+                            style={{ minWidth: '12rem' }}
+                            filter
+                            filterElement={NameLeaderFilterTemplate}
+                            sortable
+                            filterPlaceholder="Cari Nama Ketua"
+                        />
+                        <Column
+                            field="leader_nim"
+                            header="NIM Ketua"
+                            sortable
+                            filterPlaceholder="Cari NIM Ketua"
+                            style={{ minWidth: '10rem' }}
+                        />
+                        <Column
+                            field="lecturer"
+                            showFilterMenu={true}
+                            filterMenuStyle={{ width: '14rem' }}
+                            style={{ minWidth: '18rem' }}
+                            header="Dosen Pembimbing"
+                            filter
+                            filterElement={statusDosenFilterTemplate}
+                            filterPlaceholder="Cari Dosen"
+                        />
+                        <Column
+                            field="token"
+                            header="Token Tim"
+                            sortable
+                            filterPlaceholder="Cari Token"
+                            style={{ minWidth: '10rem' }}
+                        />
                         <Column field="token" header="Anggota" body={membersDetail} sortable filterPlaceholder="Cari Token" />
                     </DataTable>
                 </div>
