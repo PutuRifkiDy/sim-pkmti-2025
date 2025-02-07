@@ -337,7 +337,7 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                             </div>
                         </div>
                     )}
-                    <div className="">
+                    <div className="overflow-x-auto border-2 px-8 py-8 rounded-[14px] card">
                         <DataTable
                             ref={dt}
                             paginator
