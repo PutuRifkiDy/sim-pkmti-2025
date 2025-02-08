@@ -51,7 +51,11 @@ class AdminController extends Controller
 
     public function showProposals() {
         $proposals = Proposal::with('team', 'team.assistanceProofs', 'team.lecturer')->get();
+        $total_proposal = Proposal::count();
+        $total_pending = Proposal::where('status', 'pending')->count();
+        $total_accept = Proposal::where('status', 'approved')->count();
+        $total_reject = Proposal::where('status', 'reject')->count();
 
-        return Inertia::render('Admin/ShowProposals', compact('proposals'));
+        return Inertia::render('Admin/ShowProposals', compact('proposals', 'total_proposal', 'total_pending', 'total_accept', 'total_reject'));
     }
 }

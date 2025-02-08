@@ -275,7 +275,7 @@ export default function ShowProposals({ auth, proposals, flash, errors }) {
 
             <AdminLayout user={user} title="Admin">
                 <div className="w-full justify-start">
-                    <div className="w-full flex lg:gap-4 flex-col-reverse lg:flex-row justify-end lg:text-right mb-4">
+                    {/* <div className="w-full flex lg:gap-4 flex-col-reverse lg:flex-row justify-end lg:text-right mb-4">
                         <div className="lg:text-right">
                             <input
                                 autoComplete="search"
@@ -294,6 +294,38 @@ export default function ShowProposals({ auth, proposals, flash, errors }) {
                             >
                                 <ArrowPathIcon className="h-6 w-6" />
                             </button>
+                        </div>
+                    </div> */}
+                    <div className="flex flex-col md:flex-row justify-between gap-2">
+                        <div className="flex flex-row gap-10 rounded-[14px] p-5 bg-white shadow">
+                            <div className="flex flex-col gap-1">
+                                <p className="font-medium text-[16px] light:text-[#202224]/70 dark:text-white tracking-[0.03em]">Jumlah Proposal</p>
+                                <p className="font-bold text-[28px] tracking-[1px]">{users}</p>
+                            </div>
+                            <img src="/images/admin/icon-jumlah-pengguna.png" className="w-[60px] h-[60px]" alt="" />
+                        </div>
+                        <div className="flex flex-row gap-12 rounded-[14px] p-5 bg-white shadow">
+                            <div className="flex flex-col gap-1">
+                                <p className="font-medium text-[16px] light:text-[#202224]/70 dark:text-white tracking-[0.03em]">Jumlah Diterima</p>
+                                <p className="font-bold text-[28px] tracking-[1px]">{teams}</p>
+                            </div>
+                            <img src="/images/admin/icon-jumlah-tim.png" className="w-[60px] h-[60px]" alt="" />
+                        </div>
+                        <div className="flex flex-row gap-12 rounded-[14px] p-5 bg-white shadow">
+                            <div className="flex flex-col gap-1">
+                                <p className="font-medium text-[16px] light:text-[#202224]/70 dark:text-white tracking-[0.03em]">Jumlah Diperiksa</p>
+                                <p className="font-bold text-[28px] tracking-[1px]">{proposals}</p>
+                            </div>
+                            <img src="/images/admin/icon-jumlah-proposal.png" className="w-[60px] h-[60px]" alt="" />
+                        </div>
+                        <div className="flex flex-row gap-12 rounded-[14px] p-5 bg-white shadow">
+                            <div className="flex flex-col gap-1">
+                                <p className="font-medium text-[16px] light:text-[#202224]/70 dark:text-white tracking-[0.03em]">Jumlah Ditolak</p>
+                                <p className="font-bold text-[28px] tracking-[1px]">
+                                    {proposal_ispending}
+                                </p>
+                            </div>
+                            <img src="/images/admin/icon-pending.png" className="w-[60px] h-[60px]" alt="" />
                         </div>
                     </div>
                     {!useIsObjectEmpty(errors) && (
