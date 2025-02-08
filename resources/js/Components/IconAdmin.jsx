@@ -168,3 +168,11 @@ export const IconSilangResponsiveWeb = () => {
 
     );
 }
+
+export const IconPencil = () => {
+    return (
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5.3452 16.923L0.000701904 18L1.0792 12.6562L5.3452 16.923ZM2.1397 11.595L6.4057 15.8617L18.0007 4.26675L13.734 0L2.1397 11.595Z" fill="currentColor" />
+        </svg>
+    );
+}

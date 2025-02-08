@@ -239,7 +239,7 @@ export default function Sidebar({ user, navigations, children }) {
 
                                 <h1
                                     key={i}
-                                    className={`text-4xl font-semibold`}
+                                    className={`text-[48px] font-semibold`}
                                 >
                                     {displayText}
                                 </h1>

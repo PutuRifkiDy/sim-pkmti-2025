@@ -402,7 +402,7 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
                             onRowEditComplete={onRowEditComplete}
                             rowEditorInitIcon={
                                 <div className="btn btn-warning btn-square btn-sm mx-1">
-                                    <PencilIcon className="h-4 w-4" />
+                                    <PencilIcon className="h-4 w-4 fill-white" />
                                 </div>
                             }
                             rowEditorSaveIcon={
@@ -506,7 +506,7 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
             <ConfirmDialog
                 visible={visible}
                 onHide={() => setVisible(false)}
-                message="Apakah Anda yakin ingin menghapus pengguna ini?"
+                message="Apakah Anda yakin ingin menghapus tim ini?"
                 header="Konfirmasi Hapus"
                 icon="pi pi-exclamation-triangle"
                 accept={handleDelete}
