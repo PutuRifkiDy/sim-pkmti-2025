@@ -252,7 +252,7 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                 value={props.value}
                 options={user_data}
                 onChange={(e) => props.filterApplyCallback(e.value)}
-                placeholder="Select Role"
+                placeholder="Select Status"
                 className="p-column-filter"
                 showClear
             />
@@ -260,7 +260,6 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
     };
 
 
-    // Fungsi untuk menangani penghapusan
     const handleDelete = () => {
         if (userToDelete) {
             router.delete(route("users.destroy", userToDelete.id), {
@@ -321,7 +320,7 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                         <img src="/images/admin/icon-pending.png" className="w-[60px] h-[60px]" alt="" />
                     </div>
                 </div>
-                <div className="bg-white px-8 py-8 rounded-[14px] mt-10">
+                <div className="bg-white px-8 py-8 rounded-[14px] mt-10 shadow">
                     {!useIsObjectEmpty(errors) && (
                         <div className="alert alert-error mb-4" role="alert">
                             <ExclamationTriangleIcon className="h-6 w-6" />
@@ -337,126 +336,123 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                             </div>
                         </div>
                     )}
-                    <div className="overflow-x-auto border-2 px-8 py-8 rounded-[14px] card">
-                        <DataTable
-                            ref={dt}
-                            paginator
-                            showGridlines
-                            value={selectedFields}
-                            className=""
-                            filters={filters}
-                            header={renderHeader}
-                            editMode="row"
-                            dataKey="id"
-                            rows={10}
-                            rowsPerPageOptions={[10, 25, 50, 100, 200]}
-                            paginatorTemplate="RowsPerPageDropdown FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
-                            currentPageReportTemplate="{first} to {last} of {totalRecords}"
-                            emptyMessage="Tidak ada data ditemukan."
-                            onFilter={(e) => setFilters(e.filters)}
-                            tableStyle={{ minWidth: '50rem' }}
-                            onRowEditComplete={onRowEditComplete}
-                            rowEditorInitIcon={
-                                <div className="btn btn-warning btn-square btn-sm">
-                                    <PencilIcon className="h-4 w-4" />
-                                </div>
-                            }
-                            rowEditorSaveIcon={
-                                <div className="btn btn-warning btn-square btn-sm">
-                                    <CheckIcon className="h-4 w-4" />
-                                </div>
-                            }
-                            rowEditorCancelIcon={
-                                <div className="btn btn-square btn-sm">
-                                    <XMarkIcon className="h-4 w-4" />
-                                </div>
-                            }
-                        >
-                            <Column
-                                key="nomor"
-                                field="nomor"
-                                header="#"
-                                body={rowNumberTemplate}
-                                sortable
-                                style={{ textAlign: 'center' }}
-                            />
-                            <Column
-                                editor={(rowData) => textEditor(rowData)}
-                                key="nim"
-                                field="nim"
-                                header="NIM"
-                                sortable
-                                style={{ textAlign: 'center' }}
-                            />
-                            <Column
-                                editor={(rowData) => textEditor(rowData)}
-                                key="name"
-                                field="name"
-                                header="Nama"
-                                style={{ minWidth: '14rem' }}
-                            />
-                            <Column
-                                editor={(rowData) => selectEditor(rowData)}
-                                key="role"
-                                field="role"
-                                header="Role"
-                                sortable
-                                showFilterMenu={true}
-                                filterMenuStyle={{ width: '14rem' }}
-                                style={{ minWidth: '10rem' }}
-                                filter
-                                filterElement={RoleFilterTemplate}
-                            />
-                            <Column
-                                key="class_of"
-                                field="class_of"
-                                header="Angkatan"
-                                sortable
-                                style={{ textAlign: 'center' }}
-                                filter
-                                filterElement={AngkatanFilterTemplate}
-                            />
-                            <Column
-                                editor={(rowData) => textEditor(rowData)}
-                                key="phone"
-                                field="phone"
-                                header="Telepon"
-                            />
-                            <Column
-                                editor={(rowData) => textEditor(rowData)}
-                                key="email"
-                                field="email"
-                                header="Email"
-                            />
-                            <Column
-                                key="status"
-                                field="status"
-                                body={statusBadge}
-                                header="Status"
-                                style={{ textAlign: 'center' }}
-                                filter
-                                filterElement={StatusFilterTemplate}
-                                sortable
-                            ></Column>
-                            <Column rowEditor={true} header={"Edit"}></Column>
-                            <Column
-                                header={"Hapus"}
-                                style={{ textAlign: 'center' }}
-                                body={(rowData) => {
-                                    return (
-                                        <Button
-                                            unstyled
-                                            className="font-bold bg-[#E82323] px-3 py-3 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#E82323]/70 dark:text-gray-400 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#E82323] text-center"
-                                            onClick={() => {
-                                                setUserToDelete(rowData);
-                                                setVisible(true);
-                                            }}
-                                        ><TrashIcon className="w-4 h-4" /></Button>
-                                    );
-                                }}
-                            ></Column>
-                        </DataTable>
-                    </div>
+                    <DataTable
+                        ref={dt}
+                        paginator
+                        showGridlines
+                        value={selectedFields}
+                        className=""
+                        filters={filters}
+                        header={renderHeader}
+                        editMode="row"
+                        dataKey="id"
+                        rows={10}
+                        rowsPerPageOptions={[10, 25, 50, 100, 200]}
+                        paginatorTemplate="RowsPerPageDropdown FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
+                        currentPageReportTemplate="{first} to {last} of {totalRecords}"
+                        emptyMessage="Tidak ada data ditemukan."
+                        onFilter={(e) => setFilters(e.filters)}
+                        tableStyle={{ minWidth: '50rem' }}
+                        onRowEditComplete={onRowEditComplete}
+                        rowEditorInitIcon={
+                            <div className="btn btn-warning btn-square btn-sm">
+                                <PencilIcon className="h-4 w-4" />
+                            </div>
+                        }
+                        rowEditorSaveIcon={
+                            <div className="btn btn-warning btn-square btn-sm">
+                                <CheckIcon className="h-4 w-4" />
+                            </div>
+                        }
+                        rowEditorCancelIcon={
+                            <div className="btn btn-square btn-sm">
+                                <XMarkIcon className="h-4 w-4" />
+                            </div>
+                        }
+                    >
+                        <Column
+                            key="nomor"
+                            field="nomor"
+                            header="#"
+                            body={rowNumberTemplate}
+                            style={{ textAlign: 'center' }}
+                        />
+                        <Column
+                            editor={(rowData) => textEditor(rowData)}
+                            key="nim"
+                            field="nim"
+                            header="NIM"
+                            sortable
+                            style={{ textAlign: 'center' }}
+                        />
+                        <Column
+                            editor={(rowData) => textEditor(rowData)}
+                            key="name"
+                            field="name"
+                            header="Nama"
+                            style={{ minWidth: '14rem' }}
+                        />
+                        <Column
+                            editor={(rowData) => selectEditor(rowData)}
+                            key="role"
+                            field="role"
+                            header="Role"
+                            sortable
+                            showFilterMenu={true}
+                            filterMenuStyle={{ width: '14rem' }}
+                            style={{ minWidth: '10rem' }}
+                            filter
+                            filterElement={RoleFilterTemplate}
+                        />
+                        <Column
+                            key="class_of"
+                            field="class_of"
+                            header="Angkatan"
+                            sortable
+                            style={{ textAlign: 'center' }}
+                            filter
+                            filterElement={AngkatanFilterTemplate}
+                        />
+                        <Column
+                            editor={(rowData) => textEditor(rowData)}
+                            key="phone"
+                            field="phone"
+                            header="Telepon"
+                        />
+                        <Column
+                            editor={(rowData) => textEditor(rowData)}
+                            key="email"
+                            field="email"
+                            header="Email"
+                        />
+                        <Column
+                            key="status"
+                            field="status"
+                            body={statusBadge}
+                            header="Status"
+                            style={{ textAlign: 'center' }}
+                            filter
+                            filterElement={StatusFilterTemplate}
+                            sortable
+                        ></Column>
+                        <Column rowEditor={true} header={"Edit"}></Column>
+                        <Column
+                            header={"Hapus"}
+                            style={{ textAlign: 'center' }}
+                            body={(rowData) => {
+                                return (
+                                    <Button
+                                        unstyled
+                                        className="font-bold bg-[#E82323] px-3 py-3 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#E82323]/70 dark:text-gray-400 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#E82323] text-center"
+                                        onClick={() => {
+                                            setUserToDelete(rowData);
+                                            setVisible(true);
+                                        }}
+                                    ><TrashIcon className="w-4 h-4" /></Button>
+                                );
+                            }}
+                        ></Column>
+                    </DataTable>
                 </div>
             </AdminLayout>
             <ConfirmDialog

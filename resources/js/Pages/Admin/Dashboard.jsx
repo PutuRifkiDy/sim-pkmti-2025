@@ -26,9 +26,11 @@ export default function Dashboard({ auth, proposals, teams, users, proposal_ispe
     const [filters, setFilters] = useState(null);
     const [globalFilterValue, setGlobalFilterValue] = useState("");
 
+
     useEffect(() => {
         initFilters();
     }, []);
+
 
     const initFilters = () => {
         setFilters({
@@ -42,9 +44,11 @@ export default function Dashboard({ auth, proposals, teams, users, proposal_ispe
         setGlobalFilterValue("");
     };
 
+
     const clearFilter = () => {
         initFilters();
     };
+
 
     const onGlobalFilterChange = (e) => {
         const value = e.target.value;
@@ -54,6 +58,7 @@ export default function Dashboard({ auth, proposals, teams, users, proposal_ispe
         setFilters(_filters);
         setGlobalFilterValue(value);
     };
+
 
     const exportExcel = () => {
         import('xlsx').then((xlsx) => {
@@ -68,6 +73,7 @@ export default function Dashboard({ auth, proposals, teams, users, proposal_ispe
         });
     };
 
+
     const saveAsExcelFile = (buffer, fileName) => {
         import('file-saver').then((module) => {
             if (module && module.default) {
@@ -79,6 +85,7 @@ export default function Dashboard({ auth, proposals, teams, users, proposal_ispe
             }
         });
     };
+
 
     const renderHeader = () => {
         return (
@@ -102,6 +109,7 @@ export default function Dashboard({ auth, proposals, teams, users, proposal_ispe
         );
     };
 
+
     const teamsData = get_teams.map((team) => ({
         id: team.id,
         team_name: team.team_name,
@@ -111,6 +119,7 @@ export default function Dashboard({ auth, proposals, teams, users, proposal_ispe
         token: team.token,
         members: team.members,
     }));
+
 
     const membersDetail = (rowData) => {
         return (
@@ -178,6 +187,8 @@ export default function Dashboard({ auth, proposals, teams, users, proposal_ispe
             </>
         );
     };
+
+
     const rowNumberTemplate = (rowData, column) => column.rowIndex + 1;
     // const DosenFilter = (rowData) => {
     //     return <Tag value={rowData.lecturer} />;
@@ -201,6 +212,8 @@ export default function Dashboard({ auth, proposals, teams, users, proposal_ispe
             />
         );
     };
+
+
     const NameLeaderFilterTemplate = (options) => {
         const leaders = get_teams.map((team) => ({
             label: team.leader ? team.leader.name : "-",
@@ -218,6 +231,8 @@ export default function Dashboard({ auth, proposals, teams, users, proposal_ispe
             />
         );
     };
+
+
     const NameTeamFilterTemplate = (options) => {
         const teams = [...new Set(get_teams.map((team) => team.role))].map(team_name => ({
             label: team_name ? team_name : "-",
@@ -240,28 +255,28 @@ export default function Dashboard({ auth, proposals, teams, users, proposal_ispe
         <>
             <AdminLayout user={auth.user} title="Admin">
                 <div className="flex flex-col md:flex-row justify-between gap-2">
-                    <div className="flex flex-row gap-10 border-2 rounded-[14px] p-5 shadow">
+                    <div className="flex flex-row gap-10 rounded-[14px] p-5 bg-white shadow">
                         <div className="flex flex-col gap-1">
                             <p className="font-medium text-[16px] light:text-[#202224]/70 dark:text-white tracking-[0.03em]">Jumlah Pengguna</p>
                             <p className="font-bold text-[28px] tracking-[1px]">{users}</p>
                         </div>
                         <img src="/images/admin/icon-jumlah-pengguna.png" className="w-[60px] h-[60px]" alt="" />
                     </div>
-                    <div className="flex flex-row gap-12 border-2 rounded-[14px] p-5 shadow">
+                    <div className="flex flex-row gap-12 rounded-[14px] p-5 bg-white shadow">
                         <div className="flex flex-col gap-1">
                             <p className="font-medium text-[16px] light:text-[#202224]/70 dark:text-white tracking-[0.03em]">Jumlah Tim</p>
                             <p className="font-bold text-[28px] tracking-[1px]">{teams}</p>
                         </div>
                         <img src="/images/admin/icon-jumlah-tim.png" className="w-[60px] h-[60px]" alt="" />
                     </div>
-                    <div className="flex flex-row gap-12 border-2 rounded-[14px] p-5 shadow">
+                    <div className="flex flex-row gap-12 rounded-[14px] p-5 bg-white shadow">
                         <div className="flex flex-col gap-1">
                             <p className="font-medium text-[16px] light:text-[#202224]/70 dark:text-white tracking-[0.03em]">Jumlah Proposal</p>
                             <p className="font-bold text-[28px] tracking-[1px]">{proposals}</p>
                         </div>
                         <img src="/images/admin/icon-jumlah-proposal.png" className="w-[60px] h-[60px]" alt="" />
                     </div>
-                    <div className="flex flex-row gap-12 border-2 rounded-[14px] p-5 shadow">
+                    <div className="flex flex-row gap-12 rounded-[14px] p-5 bg-white shadow">
                         <div className="flex flex-col gap-1">
                             <p className="font-medium text-[16px] light:text-[#202224]/70 dark:text-white tracking-[0.03em]">Jumlah Pending</p>
                             <p className="font-bold text-[28px] tracking-[1px]">
@@ -272,7 +287,7 @@ export default function Dashboard({ auth, proposals, teams, users, proposal_ispe
                     </div>
                 </div>
 
-                <div className="border-2 px-8 py-8 rounded-[14px] mt-10 card">
+                <div className="px-8 py-8 rounded-[14px] mt-10 bg-white shadow">
                     <DataTable
                         value={teamsData}
                         paginator

@@ -44,8 +44,9 @@ class AdminController extends Controller
 
     public function showTeams() {
         $teams = Team::with('members', 'leader', 'lecturer')->get();
+        $total_teams = Team::count();
 
-        return Inertia::render('Admin/ShowTeams', compact('teams'));
+        return Inertia::render('Admin/ShowTeams', compact('teams', 'total_teams'));
     }
 
     public function showProposals() {

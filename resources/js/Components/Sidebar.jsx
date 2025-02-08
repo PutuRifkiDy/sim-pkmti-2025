@@ -38,7 +38,6 @@ export default function Sidebar({ user, navigations, children }) {
                         <ul className="font-bold">
 
                             {navigations.map((navigation, i) => {
-                                // Ambil hanya path dari URL navigation.link
                                 let routePath = window.location.pathname;
                                 const routeName = navigation.link.startsWith("http")
                                     ? new URL(navigation.link).pathname
@@ -52,7 +51,6 @@ export default function Sidebar({ user, navigations, children }) {
                                         key={i}
                                         className={`py-4 ${isSidebarOpen ? "px-8 rounded-[6px] relative" : "items-center"} flex flex-col justify-center ${isActive ? "bg-[#42A1A4] text-white stroke-white" : "hover:bg-[#42A1A4]/20 transition-all duration-200 ease-in-out"}`}
                                     >
-                                        {/* Garis warna di samping */}
                                         {isActive && isSidebarOpen && (
                                             <div className="absolute left-0 top-0 h-full w-[8px] bg-[#285B70] rounded-r-md"></div>
                                         )}
