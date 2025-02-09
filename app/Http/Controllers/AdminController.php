@@ -32,7 +32,7 @@ class AdminController extends Controller
                 $user->team->proposal &&
                 $user->team->proposal->final_proposal_url &&
                 $user->team->proposal->status == 'approved' &&
-                $user->team->proof_url->count() >= 3) {
+                $user->team->assistanceProofs->count() >= 3) {
                     $user["status"] = 'passed';
             } else {
                 $user["status"]  = 'failed';

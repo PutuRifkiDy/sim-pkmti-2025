@@ -112,15 +112,21 @@ export default function Dashboard({ auth, infos, flash }) {
                     id="team_information"
                 />
             )}
-            <div className="flex flex-col gap-3 w-full items-start">
-                {Object.keys(infos).map((key, i) => {
-                    const text =
-                        displayedInfos[key][infos[key].toString()].text;
-                    const mode =
-                        displayedInfos[key][infos[key].toString()].mode;
-                    return <InfoElement text={text} mode={mode} key={i} />;
-                })}
-            </div>
+            {user.status === "passed" ?
+            (
+                <div>p</div>
+            ) : (
+
+                <div className="flex flex-col gap-3 w-full items-start">
+                    {Object.keys(infos).map((key, i) => {
+                        const text =
+                            displayedInfos[key][infos[key].toString()].text;
+                        const mode =
+                            displayedInfos[key][infos[key].toString()].mode;
+                        return <InfoElement text={text} mode={mode} key={i} />;
+                    })}
+                </div>
+            )}
         </ParticipantLayout>
     );
 }

@@ -7,14 +7,16 @@ use App\Http\Controllers\ProposalController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserController;
 use App\Jobs\SendEmailJob;
+use App\Models\Proposal;
 use App\Models\User;
+use function Termwind\render;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-use function Termwind\render;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,8 +59,6 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     $user = User::with('team', 'team.proposal', 'team.members', 'team.assistanceProofs')->find(Auth::id());
 
-
-
     $infos = [
         "hasTeam" => !is_null($user->team),
         "hasEnoughTeamMembers" => $user->team && $user->team->members->count() >= 3,
@@ -70,7 +70,7 @@ Route::get('/dashboard', function () {
     ];
 
 
-    return Inertia::render('Dashboard', compact('infos'));
+    return Inertia::render('Dashboard', compact('infos', 'user'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
