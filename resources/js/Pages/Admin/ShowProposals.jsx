@@ -409,10 +409,10 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
 
     const handleDelete = () => {
         if (proposalToDelete) {
-            router.delete(route("proposals.destroy", proposalToDelete.id), {
+            router.delete(route("proposals.destroy", proposalToDelete.team_id), {
                 onSuccess: () => {
                     setSelectedFields((prevData) =>
-                        prevData.filter((user) => user.id !== proposalToDelete.id)
+                        prevData.filter((proposals) => proposals.id !== proposalToDelete.id)
                     );
                 },
                 onError: () => {
