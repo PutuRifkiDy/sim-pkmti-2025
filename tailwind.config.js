@@ -3,7 +3,7 @@
 import defaultTheme from "tailwindcss/defaultTheme";
 export default {
     important: true,
-    darkMode: ['class', '[data-mode="dark"]'],
+    darkMode: 'class',
     content: [
         "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
         "./storage/framework/views/*.php",
@@ -64,20 +64,21 @@ export default {
     },
     plugins: [require("daisyui"), require("@tailwindcss/typography")],
     daisyui: {
-        themes: false,
-        // [
-        //     {
-        //         dark: {
-        //             ...require("daisyui/src/theming/themes")["dark"],
-        //             primary: "#0079B9",
-        //             secondary: "#94D8E9",
-        //         },
-        //         light: {
-        //             ...require("daisyui/src/theming/themes")["light"],
-        //             primary: "#0079B9",
-        //             secondary: "#94D8E9",
-        //         },
-        //     },
-        // ],
+        themes: [
+            {
+                dark: {
+                    ...require("daisyui/src/theming/themes")["dark"],
+                    primary: "#0079B9",
+                    secondary: "#94D8E9",
+                    background: "#1d232a",
+                },
+                light: {
+                    ...require("daisyui/src/theming/themes")["light"],
+                    primary: "#0079B9",
+                    secondary: "#94D8E9",
+                    background: '#FFFFFF',
+                },
+            },
+        ],
     },
 };

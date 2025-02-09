@@ -16,7 +16,7 @@ export default function JoinOrCreate({ auth, flash }) {
                     content={flash.msg}
                 />
             )}
-            <div className="border-2 flex gap-5 flex-col justify-center items-center py-10 rounded-[14px] bg-white">
+            <div className="shadow flex gap-5 flex-col justify-center items-center bg-white py-10 rounded-[14px]">
                 <IconJoinOrCreate />
                 <div className="flex flex-col gap-6 justify-center items-center text-center">
                     <div className="flex flex-col gap-2 justify-center items-center">

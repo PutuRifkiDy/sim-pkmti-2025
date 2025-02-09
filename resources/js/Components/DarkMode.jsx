@@ -33,7 +33,7 @@ export default function DarkMode({}) {
                         checked={theme === "light" ? false : true}
                     />
 
-                    <SunIcon className="swap-on dark:text-yellow-400 text-white fill-current w-5 h-5 " />
+                    <SunIcon className="swap-on dark:text-white text-white fill-current w-5 h-5 " />
 
                     <MoonIcon className="swap-off text-white fill-current w-5 h-5" />
                 </label>
