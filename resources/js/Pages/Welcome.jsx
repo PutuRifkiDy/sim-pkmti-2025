@@ -275,13 +275,13 @@ export default function Welcome({ auth }) {
                             <div className="md:absolute md:block hidden md:left-72 left-12 top-14">
                                 <IconTextHomePage />
                             </div>
-                            <p className="font-bold md:text-[56px] text-[36px] light:text-[#111E41] leading-[1.1em] dark:text-[#42A1A4]">Tentang PKM TI 2025</p>
+                            <p className="font-bold md:text-[56px] text-[36px] text-[#111E41] leading-[1.1em] dark:text-[#42A1A4]">Tentang PKM TI 2025</p>
                         </div>
                         <div className="flex flex-col gap-3 text-center md:text-start">
-                            <p className="text-[24px] leading-[1.8em] light:text-[#111E41] dark:text-[#42A1A4] font-bold">
+                            <p className="text-[24px] leading-[1.8em] text-[#111E41] dark:text-[#42A1A4] font-bold">
                                 Apa itu PKM TI 2025?
                             </p>
-                            <p className="text-[17px] leading-[1.8em] light:text-[#111E41] dark:text-[#42A1A4]">
+                            <p className="text-[17px] leading-[1.8em] text-[#111E41] dark:text-gray-400">
                                 Pelatihan PKM Teknologi Informasi 2025 oleh HMTI bertujuan memberikan platform bagi mahasiswa untuk memperluas pengetahuan tentang Program Kreativitas Mahasiswa (PKM). Mengusung tema “Mengasah Kreativitas Mahasiswa untuk Menghasilkan
                                 Karya Inovatif Melalui PKM” pelatihan ini diharapkan memotivasi mahasiswa Teknologi Informasi untuk mengembangkan kreativitas visioner dan mengikuti tren masa depan. Kegiatan ini juga bertujuan meningkatkan pemahaman mahasiswa terkait pengembangan judul, penyesuaian format pedoman, teknik penelitian, dan keterampilan teknis.
                             </p>
