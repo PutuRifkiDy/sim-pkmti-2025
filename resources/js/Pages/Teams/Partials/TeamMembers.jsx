@@ -76,14 +76,14 @@ export default function TeamMembers({ user, team }) {
                 paginatorClassName="bg-[#42A1A4]/[30%] dark:bg-gray-800/[30%]"
                 >
                 
-                <Column field="nim" header="NIM" sortable headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-black dark:text-white" />
-                <Column field="name" header="Nama" sortable headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-black dark:text-white" />
-                <Column field="angkatan" header="Angkatan" sortable headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-black dark:text-white" />
+                <Column field="nim" header="NIM" sortable headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" />
+                <Column field="name" header="Nama" sortable headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" />
+                <Column field="angkatan" header="Angkatan" sortable headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" />
                 <Column 
                     field="role" 
                     header="Jabatan" 
                     sortable 
-                    headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-black dark:text-white"
+                    headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                     body={(rowData) => (
                         <div className="flex flex-row items-center">
                             {rowData.role === 'Saya' && (
@@ -102,13 +102,13 @@ export default function TeamMembers({ user, team }) {
                         </div>
                     )} 
                 />
-                <Column field="email" header="Email" sortable headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-black dark:text-white" />
-                <Column field="phone" header="Telepon" sortable headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-black dark:text-white" />
-                <Column field="line_id" header="ID Line" sortable headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-black dark:text-white" />
+                <Column field="email" header="Email" sortable headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" />
+                <Column field="phone" header="Telepon" sortable headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" />
+                <Column field="line_id" header="ID Line" sortable headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" />
                 
                 <Column 
                     header="Aksi" 
-                    headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-black dark:text-white"
+                    headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                     body={(rowData) => (
                         <div className="flex gap-1">
                             {(user.id !== rowData.id && (user.role === "admin" || user.id === team.leader_id)) && (
