@@ -357,10 +357,10 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
 
             <AdminLayout user={user} title="Admin">
                 <div className="grid md:grid-cols-4 grid-cols-1 gap-2">
-                    <div className="flex flex-row justify-between bg-white rounded-[14px] p-5 shadow">
+                    <div className="flex flex-row justify-between bg-white dark:bg-[#181d23] rounded-[14px] p-5 shadow">
                         <div className="flex flex-col gap-1">
-                            <p className="font-medium text-[16px] text-[#202224]/70 tracking-[0.03em]">Total Tim PKM</p>
-                            <p className="font-bold text-[28px] tracking-[1px]">{total_teams ? total_teams : 0}</p>
+                            <p className="font-medium text-[16px] text-[#202224]/70 tracking-[0.03em] dark:text-white/70">Total Tim PKM</p>
+                            <p className="font-bold text-[28px] tracking-[1px] dark:text-white">{total_teams ? total_teams : 0}</p>
                         </div>
                         <img src="/images/admin/icon-jumlah-pengguna.png" className="w-[60px] h-[60px]" alt="" />
                     </div>
@@ -381,7 +381,7 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
                             </div>
                         </div>
                     )}
-                    <div className="px-8 py-8 rounded-[14px] card bg-white mt-10 shadow">
+                    <div className="px-8 py-8 rounded-[14px] card bg-white dark:bg-[#181d23] mt-10 shadow">
                         <DataTable
                             paginator
                             showGridlines
@@ -415,8 +415,10 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
                                     <XMarkIcon className="h-4 w-4" />
                                 </div>
                             }
+                            paginatorClassName="bg-[#42A1A4]/15 dark:bg-gray-800"
                         >
                             <Column
+                                headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                                 key="nomor"
                                 field="nomor"
                                 header="#"
@@ -424,6 +426,7 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
                                 body={rowNumberTemplate}
                             />
                             <Column
+                                headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                                 editor={(rowData) => textEditor(rowData)}
                                 key="team_name"
                                 field="team_name"
@@ -434,6 +437,7 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
                                 style={{ minWidth: '13rem' }}
                             />
                             <Column
+                                headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                                 key="leader_nim"
                                 field="leader_nim"
                                 header={<span className="me-2">NIM Ketua</span>}
@@ -441,6 +445,7 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
                                 style={{ minWidth: '12rem' }}
                             />
                             <Column
+                                headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                                 key="leader_name"
                                 field="leader_name"
                                 header={
@@ -452,6 +457,7 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
                                 filterElement={NameLeaderFilterTemplate}
                             />
                             <Column
+                                headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                                 key="lecturer"
                                 field="lecturer"
                                 header={
@@ -465,6 +471,7 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
                                 filterElement={statusDosenFilterTemplate}
                             />
                             <Column
+                                headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                                 key="members"
                                 field="members"
                                 body={membersDetail}
@@ -472,18 +479,21 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
                                 header={<span className="me-2">Anggota</span>}
                             />
                             <Column
+                                headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                                 editor={(rowData) => textEditor(rowData)}
                                 key="token"
                                 field="token"
                                 header={<span className="me-2">Token</span>}
                             />
                             <Column
+                                headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                                 rowEditor={true}
                                 header={"Edit"}
                                 className="whitespace-nowrap"
                                 unstyled
                             />
                             <Column
+                                headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                                 header={"Hapus"}
                                 style={{ textAlign: 'center' }}
                                 body={(rowData) => {
