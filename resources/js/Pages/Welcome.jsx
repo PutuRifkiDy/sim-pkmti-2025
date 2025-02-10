@@ -104,13 +104,13 @@ export default function Welcome({ auth }) {
                         className="flex flex-col gap-7 justify-center items-center"
                     >
                         <div className="relative md:w-[581px] max-w-full md:h-[210px] h-[148px] text-center md:text-start">
-                            <div className="md:absolute md:block hidden md:left-2 left-12 top-14">
-                                <IconTextHomePage />
+                            <div className="md:absolute md:block hidden md:left-2 left-12 top-14 ">
+                                <IconTextHomePage/>
                             </div>
-                            <p className="font-bold md:text-[64px] text-[36px] light:text-[#111E41] leading-[1.1em] dark:text-[#42A1A4]">Sistem Informasi Pelatihan PKM TI Udayana</p>
+                            <p className="font-bold md:text-[64px] text-[36px] text-[#111E41] dark:text-[#42A1A4] leading-[1.1em]">Sistem Informasi Pelatihan PKM TI Udayana</p>
                         </div>
                         <div>
-                            <p className="text-[18px] leading-[1.6em] light:text-[#0F172A] md:w-[581px] max-max-w-full font-normal dark:text-[#42A1A4] text-center md:text-start">
+                            <p className="text-[18px] leading-[1.6em] light:text-[#0F172A] md:w-[581px] max-max-w-full font-normal text-center md:text-start dark:text-gray-400">
                                 Pelatihan PKM TI 2025 merupakan bagian dari program kerja Himpunan Mahasiswa Teknologi Informasi Universitas Udayana periode 2025, yang bertujuan membimbing mahasiswa dalam merancang Program Kreativitas Mahasiswa (PKM) yang inovatif dan kreatif di bidang Teknologi Informasi.
                             </p>
                         </div>
@@ -126,14 +126,14 @@ export default function Welcome({ auth }) {
                                         View Demo
                                     </Link> */}
                                     {/* You can open the modal using document.getElementById('ID').showModal() method */}
-                                    <button className="font-bold border-[1px] border-slate-300 px-6 py-2 rounded-md text-[#59DFD1] hover:text-white hover:bg-[#42A1A4] dark:text-gray-400 dark:hover:text-white transition-all duration-300 flex flex-row gap-2 justify-center items-center hover:shadow-[0_0_10px_#42A1A4]" onClick={() => document.getElementById('my_modal_3').showModal()}>View Demo</button>
+                                    <button className="font-bold border-[1px] border-slate-200 px-6 py-2 rounded-md text-[#59DFD1] hover:text-white hover:bg-[#42A1A4] dark:text-gray-100 dark:hover:text-white transition-all duration-300 flex flex-row gap-2 justify-center items-center hover:shadow-[0_0_10px_#42A1A4]" onClick={() => document.getElementById('my_modal_3').showModal()}>View Demo</button>
                                     <dialog id="my_modal_3" className="modal">
                                         <div className="modal-box w-11/12 max-w-5xl">
                                             <form method="dialog">
                                             {/* if there is a button in form, it will close the modal */}
                                             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                                             </form>
-                                            <h3 className="font-bold text-lg mb-3">Demonstrasi Sistem Informasi PKM TI 2025</h3>
+                                            <h3 className="font-bold text-lg mb-3 dark:text-slate-200">Demonstrasi Sistem Informasi PKM TI 2025</h3>
                                             <div className="video-container">
                                             <iframe
                                                 width="100%"
@@ -164,7 +164,7 @@ export default function Welcome({ auth }) {
                                             {/* if there is a button in form, it will close the modal */}
                                             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                                             </form>
-                                            <h3 className="font-bold text-lg mb-3">Demonstrasi Sistem Informasi PKM TI 2025</h3>
+                                            <h3 className="font-bold text-lg mb-3 dark:text-slate-200">Demonstrasi Sistem Informasi PKM TI 2025</h3>
                                             <div className="video-container">
                                             <iframe
                                                 width="100%"
