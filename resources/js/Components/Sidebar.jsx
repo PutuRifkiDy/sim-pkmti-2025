@@ -27,8 +27,8 @@ export default function Sidebar({ user, navigations, children }) {
         <>
             <div className="flex md:flex-row flex-col justify-between">
                 {/* Sidebar */}
-                <aside className={`hidden md:flex flex-col gap-6 justify-start items-center transition-all duration-200 ease-in-out overflow-hidden border-r-[1px] light:border-r-slate-200 dark:border-r-slate-100 ${isSidebarOpen ? "md:w-[242px] w-16" : "md:w-16 w-0"} min-h-screen fixed`} >
-                    <div className="py-6 w-full flex flex-row gap-1 justify-center items-center font-semibold text-[24px] text-[#285B70] border-b-[1px] border-slate-200">
+                <aside className={`hidden md:flex flex-col gap-6 justify-start items-center transition-all duration-200 ease-in-out overflow-hidden border-r-[1px] border-r-slate-200 dark:border-r-slate-600 ${isSidebarOpen ? "md:w-[242px] w-16" : "md:w-16 w-0"} min-h-screen fixed`} >
+                    <div className="py-6 w-full flex flex-row gap-1 justify-center items-center font-semibold text-[24px] text-[#285B70] border-b-[1px] border-slate-200 dark:border-slate-600">
 
                         PKM<span className={`${isSidebarOpen ? "flex flex-row text-[#42A1A4]" : "hidden"}`}>TI 2025</span>
                     </div>
@@ -138,7 +138,7 @@ export default function Sidebar({ user, navigations, children }) {
                 {/* Main Content */}
                 <div className={`flex-1 ${isSidebarOpen ? "md:ml-[242px] ml-0 lg:w-[75%] xl:w-[80%] 2xl:w-[85%]" : "md:ml-16 ml-0 lg:w-[75%] xl:w-[80%] 2xl:w-[85%]"}  overflow-x-auto transition-all`}>
 
-                    <header className="py-4 flex items-center md:justify-between justify-center md:px-5 px-0 w-full border-b-[1px]">
+                    <header className="py-4 flex items-center md:justify-between justify-center md:px-5 px-0 w-full border-b-[1px] border-b-slate-200 dark:border-b-slate-600">
                         {/* Untuk Tampilan Laptop */}
                         <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="text-xl md:block hidden">
                             <IconSideBar />
@@ -155,7 +155,7 @@ export default function Sidebar({ user, navigations, children }) {
                                 <DarkMode />
                             </div>
 
-                            <div className="md:hidden flex divider h-[2px] w-auto md:w-full bg-slate-200"></div>
+                            <div className="md:hidden flex divider h-[2px] w-auto md:w-full bg-slate-200 dark:bg-slate-600"></div>
 
                             <div className="md:flex hidden">
                                 <DarkMode />
@@ -174,7 +174,7 @@ export default function Sidebar({ user, navigations, children }) {
                                     <IconDropdown className="w-9 h-9" />
                                 </div>
                                 <ul tabIndex={0} className="menu dropdown-content bg-base-100 rounded-box z-[1] md:w-52 w-full md:px-0 px-8 p-2 shadow">
-                                    <li className="border-b-2 border-slate-200">
+                                    <li className="border-b-2 border-slate-200 dark:border-slate-600">
                                         <Link href={route("welcome")} className="flex flex-row gap-2 justify-start items-center font-medium text-[14px] light:text-[#404040] dark:text-white tracking-[0.11em]">
                                             <IconHome />
                                             Home
@@ -182,7 +182,7 @@ export default function Sidebar({ user, navigations, children }) {
                                     </li>
                                     {user.role === "admin" &&
                                         (location.pathname.search(/admin/) === -1 ? (
-                                            <li className="border-b-2 border-slate-200">
+                                            <li className="border-b-2 border-slate-200 dark:border-slate-600">
                                                 <Link
                                                     href={route("admin.dashboard")}
                                                     as="button"
@@ -193,7 +193,7 @@ export default function Sidebar({ user, navigations, children }) {
                                                 </Link>
                                             </li>
                                         ) : (
-                                            <li className="border-b-2 border-slate-200">
+                                            <li className="border-b-2 border-slate-200 dark:border-slate-600">
                                                 <Link
                                                     href={route("dashboard")}
                                                     as="button"

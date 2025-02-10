@@ -24,7 +24,7 @@ export default function CreateProposalForm({ user }) {
     const schemes = ["PKM-GFT", "PKM-K", "PKM-KC", "PKM-PI", "PKM-PM"];
 
     return (
-        <div className="border-2 flex gap-5 flex-col md:px-10 px-3 py-10 rounded-[14px] bg-white">
+        <div className="flex gap-5 flex-col md:px-10 px-3 py-10 rounded-[14px] bg-white dark:bg-[#181d23]">
             {/* <DocumentIcon className="h-10 w-10 mb-4" /> */}
             <form onSubmit={submit}>
                 {/* Input Title */}
@@ -49,7 +49,7 @@ export default function CreateProposalForm({ user }) {
                             value={data.scheme}
                             onChange={(e) => setData("scheme", e.target.value)}
                         >
-                            <option value="" disabled>
+                            <option value="" disabled c>
                                 Pilih skema PKM
                             </option>
                             {schemes.map((scheme, i) => (
@@ -81,7 +81,7 @@ export default function CreateProposalForm({ user }) {
                     </div>
                 </div>
                     <button
-                        className="flex flex-row justify-center items-center font-bold bg-[#42A1A4] px-10 py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#59DFD1] dark:text-gray-400 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#42A1A4]"
+                        className="flex flex-row justify-center items-center font-bold bg-[#42A1A4] px-10 py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#59DFD1] dark:text-gray-200 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#42A1A4]"
                         disabled={processing}
                         type="submit"
                     >
