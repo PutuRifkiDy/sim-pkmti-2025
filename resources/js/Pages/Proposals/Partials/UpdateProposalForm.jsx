@@ -48,8 +48,8 @@ export default function UpdateProposalForm({ user, proposal }) {
     }
 
     return (
-        <div className="border-2 flex gap-5 flex-col md:px-10 px-3 py-10 rounded-[14px] bg-white">
-            <ProposalStatus />
+        <div className="flex gap-5 flex-col md:px-10 px-3 py-10 rounded-[14px] bg-white dark:bg-[#181d23]">
+            <ProposalStatus />  
 
             <form onSubmit={submit}>
                 {proposal.note && (
@@ -197,7 +197,7 @@ export default function UpdateProposalForm({ user, proposal }) {
 
                 <div className="flex md:flex-row flex-col gap-2 md:w-1/2 w-full">
                     <button
-                        className="flex flex-row justify-center items-center font-bold bg-[#42A1A4] w-full py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#59DFD1] dark:text-gray-400 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#42A1A4]"
+                        className="flex flex-row justify-center items-center font-bold bg-[#42A1A4] w-full py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#59DFD1] dark:text-gray-200 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#42A1A4]"
                         disabled={processing}
                         type="submit"
                     >

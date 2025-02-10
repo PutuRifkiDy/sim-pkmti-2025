@@ -18,7 +18,7 @@ function KickMember({ memberId }) {
             <Link
                 as="button"
                 method="delete"
-                className="font-bold bg-[#E82323] px-3 py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#E82323]/70 dark:text-gray-400 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#E82323]"
+                className="font-bold bg-[#E82323] px-3 py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#E82323]/70 dark:text-gray-200 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#E82323]"
                 href={route("teams.kick", [useParam(1), memberId])}
             >
                 <UserMinusIcon className="h-5 w-5" />
@@ -33,7 +33,7 @@ function ChangeLeader({ memberId }) {
             <Link
                 as="button"
                 method="patch"
-                className="font-bold bg-[#f5bc42] px-3 py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#f5bc42]/70 dark:text-gray-400 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#f5bc42]"
+                className="font-bold bg-[#f5bc42] px-3 py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#f5bc42]/70 dark:text-gray-200 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#f5bc42]"
                 href={route("teams.changeLeader", [useParam(1), memberId])}
             >
                 <ArrowsRightLeftIcon className="h-5 w-5" />
@@ -65,44 +65,63 @@ export default function TeamMembers({ user, team }) {
                 <span className="font-bold">{team.members.length} / 5</span>
             </div>
             <div className="card">
-                <DataTable value={teamsData} paginator rows={5} scrollable showGridlines className="p-datatable-striped p-datatable-gridlines whitespace-nowrap overflow-x-auto" tableStyle={{ maxWidth: '50rem' }}>
-                    <Column field="nim" header="NIM" sortable />
-                    <Column field="name" header="Nama" sortable />
-                    <Column field="angkatan" header="Angkatan" sortable />
-                    <Column field="role" header="Jabatan" sortable body={(rowData) => (
-                        <>
-                            <div className="flex flex-row">
-                                {rowData.role === 'Saya' && (
-                                    <div className="tooltip tooltip-bottom flex flex-row" data-tip="Saya">
-                                        <TagIcon className="h-5 w-5 me-2" />
-                                    </div>
-                                )}
-                                {rowData.role_is_leader === 'Ketua' && (
-
-                                    <div className="tooltip tooltip-bottom" data-tip="Ketua">
-                                        <CodeBracketSquareIcon className="h-5 w-5 me-2" />
-                                    </div>
-
-                                )}
-                                {rowData.role === 'Anggota' && "Anggota"}
-                            </div>
-                        </>
-                    )} />
-                    <Column field="email" header="Email" sortable />
-                    <Column field="phone" header="Telepon" sortable />
-                    <Column field="line_id" header="ID Line" sortable />
-                    <Column header="Aksi" body={(rowData) => (
+            <DataTable 
+                value={teamsData} 
+                paginator 
+                rows={5} 
+                scrollable 
+                rowClassName={(rowData) => rowData.role_is_leader === 'Ketua' ? 'bg-blue-100' : rowData.role === 'Saya' ? 'bg-green-100' : ''} 
+                className="p-datatable-striped whitespace-nowrap overflow-x-auto border-none"
+                tableStyle={{ maxWidth: '50rem' }}
+                paginatorClassName="bg-[#42A1A4]/[30%] dark:bg-gray-800/[30%]"
+                >
+                
+                <Column field="nim" header="NIM" sortable headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-black dark:text-white" />
+                <Column field="name" header="Nama" sortable headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-black dark:text-white" />
+                <Column field="angkatan" header="Angkatan" sortable headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-black dark:text-white" />
+                <Column 
+                    field="role" 
+                    header="Jabatan" 
+                    sortable 
+                    headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-black dark:text-white"
+                    body={(rowData) => (
+                        <div className="flex flex-row items-center">
+                            {rowData.role === 'Saya' && (
+                                <div className="tooltip tooltip-bottom flex flex-row" data-tip="Saya">
+                                    <TagIcon className="h-5 w-5 text-green-500 me-2" />
+                                </div>
+                            )}
+                            {rowData.role === 'Saya' && rowData.role_is_leader !== 'Ketua' && "Anggota"}
+                            {rowData.role_is_leader === 'Ketua' && (
+                                <div className="tooltip tooltip-bottom flex" data-tip="Ketua">
+                                    <CodeBracketSquareIcon className="h-5 w-5 text-blue-500 me-2" />
+                                    <p>Ketua</p>
+                                </div>
+                            )}
+                            {rowData.role === "Anggota" && rowData.role_is_leader !== 'Ketua' && "Anggota"}
+                        </div>
+                    )} 
+                />
+                <Column field="email" header="Email" sortable headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-black dark:text-white" />
+                <Column field="phone" header="Telepon" sortable headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-black dark:text-white" />
+                <Column field="line_id" header="ID Line" sortable headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-black dark:text-white" />
+                
+                <Column 
+                    header="Aksi" 
+                    headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-black dark:text-white"
+                    body={(rowData) => (
                         <div className="flex gap-1">
-                            {user.id !== rowData.id && (user.role === "admin" || user.id === team.leader_id) && (
+                            {(user.id !== rowData.id && (user.role === "admin" || user.id === team.leader_id)) && (
                                 <>
                                     <KickMember memberId={rowData.id} />
                                     <ChangeLeader memberId={rowData.id} />
                                 </>
                             )}
                         </div>
-                    )} />
-                </DataTable>
-            </div>
+                    )} 
+                />
+            </DataTable>
+        </div>
             {/* </div> */}
         </>
     );

@@ -6,7 +6,7 @@ export default function EditProfile({ auth }) {
     const user = auth.user;
     return (
         <ParticipantLayout user={user} title="Beranda">
-            <div className="shadow flex md:justify-start justify-center gap-5 flex-col px-10 py-10 rounded-[14px] bg-white">
+            <div className="shadow flex md:justify-start justify-center gap-5 flex-col px-10 py-10 rounded-[14px] bg-white dark:bg-[#181d23]">
                 <div role="tablist" className="tabs tabs-bordered">
                     <input
                         type="radio"
