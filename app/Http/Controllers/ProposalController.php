@@ -13,7 +13,7 @@ use Inertia\Inertia;
 class ProposalController extends Controller
 {
     public const MAX_GFT_TEAMS = 5;
-    
+
     public function show($teamId)
     {
         $proposal = Proposal::with('team')->where('team_id', $teamId)->first();
@@ -53,7 +53,7 @@ class ProposalController extends Controller
 
         // allow submit when team member count if more than 3
         $teamMembersCount = User::where('team_id', $teamId)->count();
-        
+
         if ($teamMembersCount < 3) {
             return back()->with('msg', 'Tim terdiri dari minimal 3 orang untuk mengajukan proposal');
         }
@@ -82,7 +82,7 @@ class ProposalController extends Controller
             'scheme.required' => 'Mohon pilih bidang PKM',
             'title.required' => 'Mohon masukkan judul proposal',
         ]);
-        
+
         // validate quota for PKM-GFT
         if ($request->scheme == 'PKM-GFT') {
             $gftTeamsCount = Proposal::where('scheme', 'PKM-GFT')->count();
@@ -120,7 +120,7 @@ class ProposalController extends Controller
         // ];
         // dispatch(new SendEmailJob($emailArgs));
 
-        return back()->with('msg', 'Proposal telah disetujui');
+        return to_route('admin.users')->with('msg', 'Proposal telah disetujui');
     }
 
     public function reject($proposalId, Request $request)
@@ -153,7 +153,7 @@ class ProposalController extends Controller
         // ];
         // dispatch(new SendEmailJob($emailArgs));
 
-        return back()->with('msg', 'Proposal telah ditolak');
+        return to_route('admin.users')->with('msg', 'Proposal telah ditolak');
     }
 
     public function destroy($teamId)

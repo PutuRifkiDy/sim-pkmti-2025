@@ -33,10 +33,12 @@ class AdminController extends Controller
                 $user->team->proposal->final_proposal_url &&
                 $user->team->proposal->status == 'approved' &&
                 $user->team->assistanceProofs->count() >= 3) {
-                    $user["status"] = 'passed';
+                    $user['status'] = 'passed';
             } else {
-                $user["status"]  = 'failed';
+                $user['status']  = 'failed';
             }
+
+            $user->save();
         }
 
         return Inertia::render('Admin/ShowUsers', compact('users', 'akt21', 'akt22', 'akt23', 'akt24'));

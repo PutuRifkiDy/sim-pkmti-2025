@@ -10,6 +10,8 @@ import {
 export default function Dashboard({ auth, infos, flash }) {
     const { user } = auth;
 
+    console.log("User status:", user.status);
+
     const displayedInfos = {
         hasTeam: {
             true: {
@@ -112,21 +114,22 @@ export default function Dashboard({ auth, infos, flash }) {
                     id="team_information"
                 />
             )}
-            {user.status === "passed" ?
-            (
-                <div>p</div>
-            ) : (
+            {
+                user.status === "passed" ? (
+                    <div>p</div>
+                ) : user.status === "failed" || user.status === null || user.status === "" ? (
 
-                <div className="flex flex-col gap-3 w-full items-start">
-                    {Object.keys(infos).map((key, i) => {
-                        const text =
-                            displayedInfos[key][infos[key].toString()].text;
-                        const mode =
-                            displayedInfos[key][infos[key].toString()].mode;
-                        return <InfoElement text={text} mode={mode} key={i} />;
-                    })}
-                </div>
-            )}
+                    <div className="flex flex-col gap-3 w-full items-start">
+                        {Object.keys(infos).map((key, i) => {
+                            const text =
+                                displayedInfos[key][infos[key].toString()].text;
+                            const mode =
+                                displayedInfos[key][infos[key].toString()].mode;
+                            return <InfoElement text={text} mode={mode} key={i} />;
+                        })}
+                    </div>
+                ) : null
+            }
         </ParticipantLayout>
     );
 }
