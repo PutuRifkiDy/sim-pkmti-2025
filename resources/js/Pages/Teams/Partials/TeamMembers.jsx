@@ -73,7 +73,7 @@ export default function TeamMembers({ user, team }) {
                 rowClassName={(rowData) => rowData.role_is_leader === 'Ketua' ? 'bg-blue-100' : rowData.role === 'Saya' ? 'bg-green-100' : ''} 
                 className="p-datatable-striped whitespace-nowrap overflow-x-auto border-none"
                 tableStyle={{ maxWidth: '50rem' }}
-                paginatorClassName="bg-[#42A1A4]/[30%] dark:bg-gray-800/[30%]"
+                paginatorClassName="bg-[#42A1A4]/[15%] dark:bg-gray-800/[30%]"
                 >
                 
                 <Column field="nim" header="NIM" sortable headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" />
