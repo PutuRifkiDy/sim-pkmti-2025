@@ -255,31 +255,31 @@ export default function Dashboard({ auth, proposals, teams, users, proposal_ispe
         <>
             <AdminLayout user={auth.user} title="Admin">
                 <div className="flex flex-col md:flex-row justify-between gap-2">
-                    <div className="flex flex-row gap-10 rounded-[14px] p-5 bg-white shadow">
+                    <div className="flex flex-row gap-10 rounded-[14px] p-5 bg-white dark:bg-[#181d23] shadow">
                         <div className="flex flex-col gap-1">
-                            <p className="font-medium text-[16px] light:text-[#202224]/70 dark:text-white tracking-[0.03em]">Jumlah Pengguna</p>
-                            <p className="font-bold text-[28px] tracking-[1px]">{users}</p>
+                            <p className="font-medium text-[16px] text-[#202224]/70 dark:text-white/70 tracking-[0.03em]">Jumlah Pengguna</p>
+                            <p className="font-bold text-[28px] tracking-[1px] dark:text-white">{users}</p>
                         </div>
                         <img src="/images/admin/icon-jumlah-pengguna.png" className="w-[60px] h-[60px]" alt="" />
                     </div>
-                    <div className="flex flex-row gap-12 rounded-[14px] p-5 bg-white shadow">
+                    <div className="flex flex-row gap-12 rounded-[14px] p-5 bg-white dark:bg-[#181d23] shadow">
                         <div className="flex flex-col gap-1">
-                            <p className="font-medium text-[16px] light:text-[#202224]/70 dark:text-white tracking-[0.03em]">Jumlah Tim</p>
-                            <p className="font-bold text-[28px] tracking-[1px]">{teams}</p>
+                            <p className="font-medium text-[16px] text-[#202224]/70 dark:text-white/70 tracking-[0.03em]">Jumlah Tim</p>
+                            <p className="font-bold text-[28px] tracking-[1px] dark:text-white">{teams}</p>
                         </div>
                         <img src="/images/admin/icon-jumlah-tim.png" className="w-[60px] h-[60px]" alt="" />
                     </div>
-                    <div className="flex flex-row gap-12 rounded-[14px] p-5 bg-white shadow">
+                    <div className="flex flex-row gap-12 rounded-[14px] p-5 bg-white dark:bg-[#181d23] shadow">
                         <div className="flex flex-col gap-1">
-                            <p className="font-medium text-[16px] light:text-[#202224]/70 dark:text-white tracking-[0.03em]">Jumlah Proposal</p>
-                            <p className="font-bold text-[28px] tracking-[1px]">{proposals}</p>
+                            <p className="font-medium text-[16px] text-[#202224]/70 dark:text-white/70 tracking-[0.03em]">Jumlah Proposal</p>
+                            <p className="font-bold text-[28px] tracking-[1px] dark:text-white">{proposals}</p>
                         </div>
                         <img src="/images/admin/icon-jumlah-proposal.png" className="w-[60px] h-[60px]" alt="" />
                     </div>
-                    <div className="flex flex-row gap-12 rounded-[14px] p-5 bg-white shadow">
+                    <div className="flex flex-row gap-12 rounded-[14px] p-5 bg-white dark:bg-[#181d23] shadow">
                         <div className="flex flex-col gap-1">
-                            <p className="font-medium text-[16px] light:text-[#202224]/70 dark:text-white tracking-[0.03em]">Jumlah Pending</p>
-                            <p className="font-bold text-[28px] tracking-[1px]">
+                            <p className="font-medium text-[16px] text-[#202224]/70 dark:text-white/70 tracking-[0.03em]">Jumlah Pending</p>
+                            <p className="font-bold text-[28px] tracking-[1px] dark:text-white">
                                 {proposal_ispending}
                             </p>
                         </div>
@@ -287,11 +287,10 @@ export default function Dashboard({ auth, proposals, teams, users, proposal_ispe
                     </div>
                 </div>
 
-                <div className="px-8 py-8 rounded-[14px] mt-10 bg-white shadow">
+                <div className="px-8 py-8 rounded-[14px] mt-10 bg-white dark:bg-[#181d23] shadow">
                     <DataTable
                         value={teamsData}
                         paginator
-                        showGridlines
                         selectionMode="single"
                         dataKey="id"
                         rows={10}
@@ -305,6 +304,7 @@ export default function Dashboard({ auth, proposals, teams, users, proposal_ispe
                         onFilter={(e) => setFilters(e.filters)}
                         tableStyle={{ minWidth: '50rem' }}
                         className=""
+                        paginatorClassName="bg-[#42A1A4]/15 dark:bg-gray-800"
                     >
 
                         <Column field="" header="#" body={rowNumberTemplate} filterPlaceholder="Cari Nama Tim" />
