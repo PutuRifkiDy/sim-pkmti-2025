@@ -17,7 +17,7 @@ return new class extends Migration
                 $table->string('phone');
                 $table->string('line_id');
                 $table->enum('role', ['admin', 'participant', 'lecturer'])->default('participant');
-                $table->enum('status', ['pending', 'approved', 'rejected'])->nullable();
+                $table->enum('status', ['passed', 'failed'])->nullable();
             });
         });
     }
