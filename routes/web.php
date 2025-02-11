@@ -58,6 +58,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     $user = User::with('team', 'team.proposal', 'team.members', 'team.assistanceProofs')->find(Auth::id());
+    $get_user = User::select('name', 'nim', 'status')->where('status', 'passed')->find(Auth::id());
 
     $infos = [
         "hasTeam" => !is_null($user->team),
@@ -70,7 +71,7 @@ Route::get('/dashboard', function () {
     ];
 
 
-    return Inertia::render('Dashboard', compact('infos', 'user'));
+    return Inertia::render('Dashboard', compact('infos', 'user', 'get_user'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
