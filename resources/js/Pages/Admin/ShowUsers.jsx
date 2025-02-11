@@ -289,38 +289,38 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
             )}
             <AdminLayout user={user} title="Admin">
                 <div className="flex flex-col md:flex-row justify-between gap-2">
-                    <div className="flex flex-row gap-5 bg-white rounded-[14px] p-5 shadow">
+                    <div className="flex flex-row gap-5 bg-white dark:bg-[#181d23] rounded-[14px] p-5 shadow">
                         <div className="flex flex-col gap-1">
-                            <p className="font-medium text-[16px] text-[#202224]/70 tracking-[0.03em]">Jumlah Angkatan 2021</p>
-                            <p className="font-bold text-[28px] tracking-[1px]">{akt21}</p>
+                            <p className="font-medium text-[16px] text-[#202224]/70 dark:text-white/70 tracking-[0.03em]">Jumlah Angkatan 2021</p>
+                            <p className="font-bold text-[28px] tracking-[1px] dark:text-white">{akt21}</p>
                         </div>
                         <img src="/images/admin/icon-jumlah-pengguna.png" className="w-[60px] h-[60px]" alt="" />
                     </div>
-                    <div className="flex flex-row gap-5 bg-white rounded-[14px] p-5 shadow">
+                    <div className="flex flex-row gap-5 bg-white dark:bg-[#181d23] rounded-[14px] p-5 shadow">
                         <div className="flex flex-col gap-1">
-                            <p className="font-medium text-[16px] text-[#202224]/70 tracking-[0.03em]">Jumlah Angkatan 2022</p>
-                            <p className="font-bold text-[28px] tracking-[1px]">{akt22}</p>
+                            <p className="font-medium text-[16px] text-[#202224]/70 tracking-[0.03em] dark:text-white/70">Jumlah Angkatan 2022</p>
+                            <p className="dark:text-white font-bold text-[28px] tracking-[1px]">{akt22}</p>
                         </div>
-                        <img src="/images/admin/icon-jumlah-tim.png" className="w-[60px] h-[60px]" alt="" />
+                        <img src="/images/admin/icon-jumlah-pengguna.png" className="w-[60px] h-[60px]" alt="" />
                     </div>
-                    <div className="flex flex-row gap-5 bg-white rounded-[14px] p-5 shadow">
+                    <div className="flex flex-row gap-5 bg-white dark:bg-[#181d23] rounded-[14px] p-5 shadow">
                         <div className="flex flex-col gap-1">
-                            <p className="font-medium text-[16px] text-[#202224]/70 tracking-[0.03em]">Jumlah Angkatan 2023</p>
-                            <p className="font-bold text-[28px] tracking-[1px]">{akt23}</p>
+                            <p className="font-medium text-[16px] text-[#202224]/70 tracking-[0.03em] dark:text-white/70">Jumlah Angkatan 2023</p>
+                            <p className=" dark:text-whitefont-bold text-[28px] tracking-[1px]">{akt23}</p>
                         </div>
-                        <img src="/images/admin/icon-jumlah-proposal.png" className="w-[60px] h-[60px]" alt="" />
+                        <img src="/images/admin/icon-jumlah-pengguna.png" className="w-[60px] h-[60px]" alt="" />
                     </div>
-                    <div className="flex flex-row gap-5 bg-white rounded-[14px] p-5 shadow">
+                    <div className="flex flex-row gap-5 bg-white dark:bg-[#181d23] rounded-[14px] p-5 shadow">
                         <div className="flex flex-col gap-1">
-                            <p className="font-medium text-[16px] text-[#202224]/70 tracking-[0.03em]">Jumlah Angkatan 2024</p>
-                            <p className="font-bold text-[28px] tracking-[1px]">
+                            <p className="dark:text-white/70 font-medium text-[16px] text-[#202224]/70 tracking-[0.03em]">Jumlah Angkatan 2024</p>
+                            <p className="dark:text-white font-bold text-[28px] tracking-[1px]">
                                 {akt24}
                             </p>
                         </div>
-                        <img src="/images/admin/icon-pending.png" className="w-[60px] h-[60px]" alt="" />
+                        <img src="/images/admin/icon-jumlah-pengguna.png" className="w-[60px] h-[60px]" alt="" />
                     </div>
                 </div>
-                <div className="bg-white px-8 py-8 rounded-[14px] mt-10 shadow">
+                <div className="bg-white dark:bg-[#181d23] px-8 py-8 rounded-[14px] mt-10 shadow">
                     {!useIsObjectEmpty(errors) && (
                         <div className="alert alert-error mb-4" role="alert">
                             <ExclamationTriangleIcon className="h-6 w-6" />
@@ -369,8 +369,10 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                                 <XMarkIcon className="h-4 w-4" />
                             </div>
                         }
+                        paginatorClassName="bg-[#42A1A4]/15 dark:bg-gray-800"
                     >
                         <Column
+                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" 
                             key="nomor"
                             field="nomor"
                             header="#"
@@ -378,6 +380,7 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                             style={{ textAlign: 'center' }}
                         />
                         <Column
+                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" 
                             editor={(rowData) => textEditor(rowData)}
                             key="nim"
                             field="nim"
@@ -386,6 +389,7 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                             style={{ textAlign: 'center' }}
                         />
                         <Column
+                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" 
                             editor={(rowData) => textEditor(rowData)}
                             key="name"
                             field="name"
@@ -393,6 +397,7 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                             style={{ minWidth: '14rem' }}
                         />
                         <Column
+                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" 
                             editor={(rowData) => selectEditor(rowData)}
                             key="role"
                             field="role"
@@ -405,6 +410,7 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                             filterElement={RoleFilterTemplate}
                         />
                         <Column
+                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" 
                             key="class_of"
                             field="class_of"
                             header="Angkatan"
@@ -414,18 +420,21 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                             filterElement={AngkatanFilterTemplate}
                         />
                         <Column
+                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" 
                             editor={(rowData) => textEditor(rowData)}
                             key="phone"
                             field="phone"
                             header="Telepon"
                         />
                         <Column
+                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" 
                             editor={(rowData) => textEditor(rowData)}
                             key="email"
                             field="email"
                             header="Email"
                         />
                         <Column
+                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" 
                             key="status"
                             field="status"
                             body={statusBadge}
@@ -435,8 +444,9 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                             filterElement={StatusFilterTemplate}
                             sortable
                         ></Column>
-                        <Column rowEditor={true} header={"Edit"}></Column>
+                        <Column headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" rowEditor={true} header={"Edit"}></Column>
                         <Column
+                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" 
                             header={"Hapus"}
                             style={{ textAlign: 'center' }}
                             body={(rowData) => {

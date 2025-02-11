@@ -435,31 +435,31 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
 
             <AdminLayout user={user} title="Admin">
                 <div className="flex flex-col md:flex-row justify-between gap-2 mt-5">
-                    <div className="flex flex-row gap-10 rounded-[14px] p-5 bg-white shadow">
+                    <div className="flex flex-row gap-10 rounded-[14px] p-5 bg-white dark:bg-[#181d23] shadow">
                         <div className="flex flex-col gap-1">
-                            <p className="font-medium text-[16px] light:text-[#202224]/70 dark:text-white tracking-[0.03em]">Jumlah Proposal</p>
-                            <p className="font-bold text-[28px] tracking-[1px]">{total_proposal}</p>
+                            <p className="font-medium text-[16px] light:text-[#202224]/70 dark:text-white/70 tracking-[0.03em]">Jumlah Proposal</p>
+                            <p className="dark:text-white font-bold text-[28px] tracking-[1px]">{total_proposal}</p>
                         </div>
                         <img src="/images/admin/icon-jumlah-pengguna.png" className="w-[60px] h-[60px]" alt="" />
                     </div>
-                    <div className="flex flex-row gap-12 rounded-[14px] p-5 bg-white shadow">
+                    <div className="flex flex-row gap-12 rounded-[14px] p-5 bg-white dark:bg-[#181d23] shadow">
                         <div className="flex flex-col gap-1">
-                            <p className="font-medium text-[16px] light:text-[#202224]/70 dark:text-white tracking-[0.03em]">Jumlah Diterima</p>
-                            <p className="font-bold text-[28px] tracking-[1px]">{total_accept}</p>
+                            <p className="font-medium text-[16px] light:text-[#202224]/70 dark:text-white/70 tracking-[0.03em]">Jumlah Diterima</p>
+                            <p className="dark:text-white font-bold text-[28px] tracking-[1px]">{total_accept}</p>
                         </div>
                         <img src="/images/admin/icon-jumlah-tim.png" className="w-[60px] h-[60px]" alt="" />
                     </div>
-                    <div className="flex flex-row gap-12 rounded-[14px] p-5 bg-white shadow">
+                    <div className="flex flex-row gap-12 rounded-[14px] p-5 bg-white dark:bg-[#181d23] shadow">
                         <div className="flex flex-col gap-1">
-                            <p className="font-medium text-[16px] light:text-[#202224]/70 dark:text-white tracking-[0.03em]">Jumlah Diperiksa</p>
-                            <p className="font-bold text-[28px] tracking-[1px]">{total_pending}</p>
+                            <p className="font-medium text-[16px] light:text-[#202224]/70 dark:text-white/70 tracking-[0.03em]">Jumlah Diperiksa</p>
+                            <p className="dark:text-white font-bold text-[28px] tracking-[1px]">{total_pending}</p>
                         </div>
                         <img src="/images/admin/icon-jumlah-proposal.png" className="w-[60px] h-[60px]" alt="" />
                     </div>
-                    <div className="flex flex-row gap-12 rounded-[14px] p-5 bg-white shadow">
+                    <div className="flex flex-row gap-12 rounded-[14px] p-5 bg-white dark:bg-[#181d23] shadow">
                         <div className="flex flex-col gap-1">
-                            <p className="font-medium text-[16px] light:text-[#202224]/70 dark:text-white tracking-[0.03em]">Jumlah Ditolak</p>
-                            <p className="font-bold text-[28px] tracking-[1px]">
+                            <p className="font-medium text-[16px] light:text-[#202224]/70 dark:text-white/70 tracking-[0.03em]">Jumlah Ditolak</p>
+                            <p className="font-bold text-[28px] tracking-[1px] dark:text-white">
                                 {total_reject}
                             </p>
                         </div>
@@ -481,7 +481,7 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
                         </div>
                     </div>
                 )}
-                <div className="px-8 py-8 rounded-[14px] bg-white mt-10 shadow">
+                <div className="px-8 py-8 rounded-[14px] bg-white dark:bg-[#181d23] mt-10 shadow">
                     <DataTable
                         paginator
                         showGridlines
@@ -515,8 +515,10 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
                                 <XMarkIcon className="h-4 w-4" />
                             </div>
                         }
+                        paginatorClassName="bg-[#42A1A4]/15 dark:bg-gray-800"
                     >
                         <Column
+                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                             key="nomor"
                             field="nomor"
                             className="text-center"
@@ -524,6 +526,7 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
                             header={<span className="me-2">#</span>}
                         />
                         <Column
+                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                             editor={(rowData) => textEditor(rowData)}
                             key="title"
                             field="title"
@@ -532,6 +535,7 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
                             sortable
                         />
                         <Column
+                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                             editor={(rowData) => textEditor(rowData)}
                             key="description"
                             field="description"
@@ -545,6 +549,7 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
                             }
                         />
                         <Column
+                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                             key="lecturer"
                             field="lecturer"
                             className="min-w-64"
@@ -555,6 +560,7 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
                             }
                         />
                         <Column
+                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                             key="team_name"
                             field="team_name"
                             className="min-w-48"
@@ -562,6 +568,7 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
                             sortable
                         />
                         <Column
+                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                             editor={(rowData) => textEditor(rowData)}
                             key="scheme"
                             field="scheme"
@@ -572,6 +579,7 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
                             filterElement={SkemaPKMFilterTemplate}
                         />
                         <Column
+                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                             editor={(rowData) => textEditor(rowData)}
                             key="draft_proposal_url"
                             field="draft_proposal_url"
@@ -593,6 +601,7 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
                             }}
                         />
                         <Column
+                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                             editor={(rowData) => textEditor(rowData)}
                             key="final_proposal_url"
                             field="final_proposal_url"
@@ -614,6 +623,7 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
                             }}
                         />
                         <Column
+                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                             editor={(rowData) => textEditor(rowData)}
                             key="note"
                             field="note"
@@ -621,6 +631,7 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
                             className="min-w-96 text-justify"
                         />
                         <Column
+                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                             key="assistance_proofs"
                             field="assistance_proofs"
                             body={displayAssistanceProofs}
@@ -628,6 +639,7 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
                             className="text-center min-w-44"
                         />
                         <Column
+                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                             body={statusBadge}
                             key="status"
                             field="status"
@@ -638,6 +650,7 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
                             filterElement={StatusFilterTemplate}
                         />
                         <Column
+                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                             header={"Setuju"}
                             key="accept"
                             body={(rowData) => {
@@ -657,17 +670,20 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
                             }}
                         />
                         <Column
+                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                             key="reject"
                             header={"Tolak"}
                             body={rejectAction}
                         />
                         <Column
+                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                             rowEditor={true}
                             header={"Edit"}
                             className="text-center"
                             unstyled
                         />
                         <Column
+                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                             header={"Hapus"}
                             style={{ textAlign: 'center' }}
                             body={(rowData) => {

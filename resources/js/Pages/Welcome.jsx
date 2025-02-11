@@ -104,13 +104,13 @@ export default function Welcome({ auth }) {
                         className="flex flex-col gap-7 justify-center items-center"
                     >
                         <div className="relative md:w-[581px] max-w-full md:h-[210px] h-[148px] text-center md:text-start">
-                            <div className="md:absolute md:block hidden md:left-2 left-12 top-14">
-                                <IconTextHomePage />
+                            <div className="md:absolute md:block hidden md:left-2 left-12 top-14 ">
+                                <IconTextHomePage/>
                             </div>
-                            <p className="font-bold md:text-[64px] text-[36px] light:text-[#111E41] leading-[1.1em] dark:text-[#42A1A4]">Sistem Informasi Pelatihan PKM TI Udayana</p>
+                            <p className="font-bold md:text-[64px] text-[36px] text-[#111E41] dark:text-[#42A1A4] leading-[1.1em]">Sistem Informasi Pelatihan PKM TI Udayana</p>
                         </div>
                         <div>
-                            <p className="text-[18px] leading-[1.6em] light:text-[#0F172A] md:w-[581px] max-max-w-full font-normal dark:text-[#42A1A4] text-center md:text-start">
+                            <p className="text-[18px] leading-[1.6em] light:text-[#0F172A] md:w-[581px] max-max-w-full font-normal text-center md:text-start dark:text-gray-400">
                                 Pelatihan PKM TI 2025 merupakan bagian dari program kerja Himpunan Mahasiswa Teknologi Informasi Universitas Udayana periode 2025, yang bertujuan membimbing mahasiswa dalam merancang Program Kreativitas Mahasiswa (PKM) yang inovatif dan kreatif di bidang Teknologi Informasi.
                             </p>
                         </div>
@@ -126,14 +126,14 @@ export default function Welcome({ auth }) {
                                         View Demo
                                     </Link> */}
                                     {/* You can open the modal using document.getElementById('ID').showModal() method */}
-                                    <button className="font-bold border-[1px] border-slate-300 px-6 py-2 rounded-md text-[#59DFD1] hover:text-white hover:bg-[#42A1A4] dark:text-gray-400 dark:hover:text-white transition-all duration-300 flex flex-row gap-2 justify-center items-center hover:shadow-[0_0_10px_#42A1A4]" onClick={() => document.getElementById('my_modal_3').showModal()}>View Demo</button>
+                                    <button className="font-bold border-[1px] border-slate-200 px-6 py-2 rounded-md text-[#59DFD1] hover:text-white hover:bg-[#42A1A4] dark:text-gray-100 dark:hover:text-white transition-all duration-300 flex flex-row gap-2 justify-center items-center hover:shadow-[0_0_10px_#42A1A4]" onClick={() => document.getElementById('my_modal_3').showModal()}>View Demo</button>
                                     <dialog id="my_modal_3" className="modal">
                                         <div className="modal-box w-11/12 max-w-5xl">
                                             <form method="dialog">
                                             {/* if there is a button in form, it will close the modal */}
                                             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                                             </form>
-                                            <h3 className="font-bold text-lg mb-3">Demonstrasi Sistem Informasi PKM TI 2025</h3>
+                                            <h3 className="font-bold text-lg mb-3 dark:text-slate-200">Demonstrasi Sistem Informasi PKM TI 2025</h3>
                                             <div className="video-container">
                                             <iframe
                                                 width="100%"
@@ -164,7 +164,7 @@ export default function Welcome({ auth }) {
                                             {/* if there is a button in form, it will close the modal */}
                                             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                                             </form>
-                                            <h3 className="font-bold text-lg mb-3">Demonstrasi Sistem Informasi PKM TI 2025</h3>
+                                            <h3 className="font-bold text-lg mb-3 dark:text-slate-200">Demonstrasi Sistem Informasi PKM TI 2025</h3>
                                             <div className="video-container">
                                             <iframe
                                                 width="100%"
@@ -275,13 +275,13 @@ export default function Welcome({ auth }) {
                             <div className="md:absolute md:block hidden md:left-72 left-12 top-14">
                                 <IconTextHomePage />
                             </div>
-                            <p className="font-bold md:text-[56px] text-[36px] light:text-[#111E41] leading-[1.1em] dark:text-[#42A1A4]">Tentang PKM TI 2025</p>
+                            <p className="font-bold md:text-[56px] text-[36px] text-[#111E41] leading-[1.1em] dark:text-[#42A1A4]">Tentang PKM TI 2025</p>
                         </div>
                         <div className="flex flex-col gap-3 text-center md:text-start">
-                            <p className="text-[24px] leading-[1.8em] light:text-[#111E41] dark:text-[#42A1A4] font-bold">
+                            <p className="text-[24px] leading-[1.8em] text-[#111E41] dark:text-[#42A1A4] font-bold">
                                 Apa itu PKM TI 2025?
                             </p>
-                            <p className="text-[17px] leading-[1.8em] light:text-[#111E41] dark:text-[#42A1A4]">
+                            <p className="text-[17px] leading-[1.8em] text-[#111E41] dark:text-gray-400">
                                 Pelatihan PKM Teknologi Informasi 2025 oleh HMTI bertujuan memberikan platform bagi mahasiswa untuk memperluas pengetahuan tentang Program Kreativitas Mahasiswa (PKM). Mengusung tema “Mengasah Kreativitas Mahasiswa untuk Menghasilkan
                                 Karya Inovatif Melalui PKM” pelatihan ini diharapkan memotivasi mahasiswa Teknologi Informasi untuk mengembangkan kreativitas visioner dan mengikuti tren masa depan. Kegiatan ini juga bertujuan meningkatkan pemahaman mahasiswa terkait pengembangan judul, penyesuaian format pedoman, teknik penelitian, dan keterampilan teknis.
                             </p>
@@ -1031,33 +1031,33 @@ export default function Welcome({ auth }) {
                             <h1 className="font-bold text-xl">Tiksna Apsari</h1>
                             <div className="flex flex-row justify-start gap-4">
                                 <IconLine />
-                                <a href="https://line.me/R/ti/p/~tiksnaapsr." className="text-base light:text-[#2A3374] dark:text-white">tiksnaapsr.</a>
+                                <a href="https://line.me/R/ti/p/~tiksnaapsr." className="text-base text-[#2A3374] dark:text-white">tiksnaapsr.</a>
                             </div>
                             <div className="flex flex-row justify-start gap-4">
                                 <IconWhatsapp />
-                                <a href="wa.me/6285739490558" className="text-base light:text-[#2A3374] dark:text-white">+62 857-3949-0558</a>
+                                <a href="wa.me/6285739490558" className="text-base text-[#2A3374] dark:text-white">+62 857-3949-0558</a>
                             </div>
                         </div>
                         <div className="flex flex-col gap-2 bg-[#42A1A4] py-4 pl-4 pr-24 rounded-b-2xl border-t-2 border-[#42A1A4] bg-opacity-20">
                             <h1 className="font-bold text-xl">Dewa Ayu</h1>
                             <div className="flex flex-row justify-start gap-4">
                                 <IconLine />
-                                <a href="https://line.me/R/ti/p/~dewayu1275" className="text-base light:text-[#2A3374] dark:text-white">dewayu1275</a>
+                                <a href="https://line.me/R/ti/p/~dewayu1275" className="text-base text-[#2A3374] dark:text-white">dewayu1275</a>
                             </div>
                             <div className="flex flex-row justify-start gap-4">
                                 <IconWhatsapp />
-                                <a href="wa.me/6285940899163" className="text-base light:text-[#2A3374] dark:text-white">+62 859-4089-9163</a>
+                                <a href="wa.me/6285940899163" className="text-base text-[#2A3374] dark:text-white">+62 859-4089-9163</a>
                             </div>
                         </div>
                         <div className="flex flex-col gap-2 bg-[#285B70] py-4 pl-4 pr-24 rounded-b-2xl border-t-2 border-[#285B70] bg-opacity-20">
                             <h1 className="font-bold text-xl">Putu Rifki</h1>
                             <div className="flex flex-row justify-start gap-4">
                                 <IconLine />
-                                <a href="https://line.me/R/ti/p/~puturifki56" className="text-base light:text-[#2A3374] dark:text-white">puturifki56</a>
+                                <a href="https://line.me/R/ti/p/~puturifki56" className="text-base text-[#2A3374] dark:text-white">puturifki56</a>
                             </div>
                             <div className="flex flex-row justify-start gap-4">
                                 <IconWhatsapp />
-                                <a href="wa.me/62881038194017" className="text-base light:text-[#2A3374] dark:text-white">+62 881-0381-94017</a>
+                                <a href="wa.me/62881038194017" className="text-base text-[#2A3374] dark:text-white">+62 881-0381-94017</a>
                             </div>
                         </div>
                     </motion.div>
