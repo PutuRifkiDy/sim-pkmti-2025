@@ -369,18 +369,15 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                                 <XMarkIcon className="h-4 w-4" />
                             </div>
                         }
-                        paginatorClassName="bg-[#42A1A4]/15 dark:bg-gray-800"
                     >
-                        <Column
-                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" 
+                        <Column 
                             key="nomor"
                             field="nomor"
                             header="#"
                             body={rowNumberTemplate}
                             style={{ textAlign: 'center' }}
                         />
-                        <Column
-                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" 
+                        <Column 
                             editor={(rowData) => textEditor(rowData)}
                             key="nim"
                             field="nim"
@@ -388,16 +385,14 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                             sortable
                             style={{ textAlign: 'center' }}
                         />
-                        <Column
-                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" 
+                        <Column 
                             editor={(rowData) => textEditor(rowData)}
                             key="name"
                             field="name"
                             header="Nama"
                             style={{ minWidth: '14rem' }}
                         />
-                        <Column
-                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" 
+                        <Column 
                             editor={(rowData) => selectEditor(rowData)}
                             key="role"
                             field="role"
@@ -409,8 +404,7 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                             filter
                             filterElement={RoleFilterTemplate}
                         />
-                        <Column
-                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" 
+                        <Column 
                             key="class_of"
                             field="class_of"
                             header="Angkatan"
@@ -419,22 +413,19 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                             filter
                             filterElement={AngkatanFilterTemplate}
                         />
-                        <Column
-                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" 
+                        <Column 
                             editor={(rowData) => textEditor(rowData)}
                             key="phone"
                             field="phone"
                             header="Telepon"
                         />
-                        <Column
-                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" 
+                        <Column 
                             editor={(rowData) => textEditor(rowData)}
                             key="email"
                             field="email"
                             header="Email"
                         />
-                        <Column
-                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" 
+                        <Column 
                             key="status"
                             field="status"
                             body={statusBadge}
@@ -444,9 +435,8 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                             filterElement={StatusFilterTemplate}
                             sortable
                         ></Column>
-                        <Column headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" rowEditor={true} header={"Edit"}></Column>
-                        <Column
-                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" 
+                        <Column rowEditor={true} header={"Edit"}></Column>
+                        <Column 
                             header={"Hapus"}
                             style={{ textAlign: 'center' }}
                             body={(rowData) => {

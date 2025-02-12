@@ -135,8 +135,8 @@ export default function Dashboard({ auth, infos, flash, get_user }) {
 
 
 
-                        <div className="flex flex-col bg-white rounded-[12px] shadow-xl p-10 gap-10 md:w-1/2 w-full">
-                            <p className="font-bold text-[36px] leading-[24px] text-[#131523]/80 tracking-[0.03em]">Identitas</p>
+                        <div className="flex flex-col bg-white dark:bg-[#181d23] rounded-[12px] shadow-xl p-10 gap-10 md:w-1/2 w-full">
+                            <p className="font-bold text-[36px] leading-[24px] text-[#131523]/80 tracking-[0.03em] dark:text-white/60">Identitas</p>
                             <div className="flex flex-col gap-5 w-full">
                                 <div className="flex flex-col gap-1">
                                     <label className="relative  flex items-center gap-2 font-normal leading-[20px] text-[#5A607F]">

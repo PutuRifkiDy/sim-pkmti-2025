@@ -415,10 +415,8 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
                                     <XMarkIcon className="h-4 w-4" />
                                 </div>
                             }
-                            paginatorClassName="bg-[#42A1A4]/15 dark:bg-gray-800"
                         >
                             <Column
-                                headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                                 key="nomor"
                                 field="nomor"
                                 header="#"
@@ -426,7 +424,6 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
                                 body={rowNumberTemplate}
                             />
                             <Column
-                                headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                                 editor={(rowData) => textEditor(rowData)}
                                 key="team_name"
                                 field="team_name"
@@ -437,7 +434,6 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
                                 style={{ minWidth: '13rem' }}
                             />
                             <Column
-                                headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                                 key="leader_nim"
                                 field="leader_nim"
                                 header={<span className="me-2">NIM Ketua</span>}
@@ -445,7 +441,6 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
                                 style={{ minWidth: '12rem' }}
                             />
                             <Column
-                                headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                                 key="leader_name"
                                 field="leader_name"
                                 header={
@@ -457,7 +452,6 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
                                 filterElement={NameLeaderFilterTemplate}
                             />
                             <Column
-                                headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                                 key="lecturer"
                                 field="lecturer"
                                 header={
@@ -471,7 +465,6 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
                                 filterElement={statusDosenFilterTemplate}
                             />
                             <Column
-                                headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                                 key="members"
                                 field="members"
                                 body={membersDetail}
@@ -479,21 +472,18 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
                                 header={<span className="me-2">Anggota</span>}
                             />
                             <Column
-                                headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                                 editor={(rowData) => textEditor(rowData)}
                                 key="token"
                                 field="token"
                                 header={<span className="me-2">Token</span>}
                             />
                             <Column
-                                headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                                 rowEditor={true}
                                 header={"Edit"}
                                 className="whitespace-nowrap"
                                 unstyled
                             />
                             <Column
-                                headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                                 header={"Hapus"}
                                 style={{ textAlign: 'center' }}
                                 body={(rowData) => {
