@@ -10,11 +10,19 @@ import { IconPassed, IconUnduh } from "@/Components/IconAdmin";
 import { Link } from "@inertiajs/react";
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
+import { useState, useEffect } from "react";
+import jsPDF from "jspdf";
 
-export default function Dashboard({ auth, infos, flash, get_user }) {
+export default function Dashboard({ auth, infos, flash, get_user, certificate }) {
     const { user } = auth;
+    const [certPath, setCertPath] = useState(null);
 
-    console.log("User status:", user.status);
+    useEffect(() => {
+        if (certificate) {
+            setCertPath(certificate);
+        }
+    }, [certificate]);
+
 
     const displayedInfos = {
         hasTeam: {
@@ -104,6 +112,23 @@ export default function Dashboard({ auth, infos, flash, get_user }) {
         );
     };
 
+    console.log(`${window.location.origin}/${user.certificate_path}`);
+    const downloadCertificate = () => {
+        if (user.certificate_path) {
+            const doc = new jsPDF({
+                orientation: "landscape",
+                unit: "mm",
+                format: "a4"
+            });
+            const pageWidth = doc.internal.pageSize.getWidth();
+            const pageHeight = doc.internal.pageSize.getHeight();
+            doc.addImage(`${window.location.origin}/${user.certificate_path}`, "PNG", 10, 10, pageWidth - 20, pageHeight - 20);
+            doc.autoPrint();
+            doc.save("Sertifikat.pdf");
+        } else {
+            alert('Sertifikat tidak ditemukan');
+        }
+    };
 
     return (
         <ParticipantLayout user={user} title="Beranda">
@@ -126,13 +151,12 @@ export default function Dashboard({ auth, infos, flash, get_user }) {
                             </div>
                             <div className="flex flex-col gap-8 justify-center items-center">
                                 <img src="images/passed-icon.png" alt="" className="w-[290px] h-[290px]" />
-                                <Link className="flex flex-row justify-center items-center font-bold bg-[#42A1A4] px-8 py-3 text-[18px tracking-[0.03em] gap-5 leading-[26px] rounded-[12px] text-white hover:text-white hover:bg-[#59DFD1] dark:text-gray-200 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#42A1A4]">
+                                <Link onClick={downloadCertificate} className="flex flex-row justify-center items-center font-bold bg-[#42A1A4] px-8 py-3 text-[18px tracking-[0.03em] gap-5 leading-[26px] rounded-[12px] text-white hover:text-white hover:bg-[#59DFD1] dark:text-gray-200 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#42A1A4]">
                                     <IconUnduh />
                                     Unduh Sertifikat
                                 </Link>
                             </div>
                         </div>
-
 
 
                         <div className="flex flex-col bg-white rounded-[12px] shadow-xl p-10 gap-10 md:w-1/2 w-full">

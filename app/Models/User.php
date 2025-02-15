@@ -27,7 +27,8 @@ class User extends Authenticatable
         'password',
         'role',
         'team_id',
-        'status'
+        'status',
+        'certificate_path',
     ];
 
     /**

@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
+use Inertia\Inertia;
 
 class UserController extends Controller
 {
@@ -24,6 +25,8 @@ class UserController extends Controller
             'nim' => $request->input('nim'),
             'phone' => $request->input('phone'),
             'line_id' => $request->input('line_id'),
+            'status' => $request->input('status'),
+            'certificate_path' => $request->input('certificate_path'),
         ];
 
         $validator = Validator::make($request->all(), [
@@ -43,6 +46,8 @@ class UserController extends Controller
             ],
             'phone' => 'required|regex:/^08[0-9]+$/',
             'line_id' => 'required|string',
+            'status' => 'nullable|string',
+            'certificate_path' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
         if ($validator->fails()) {
@@ -51,7 +56,18 @@ class UserController extends Controller
                 ->withInput();
         }
 
+
+        if ($request->hasFile('certificate_path') && $request->file('certificate_path')->isValid()) {
+            $image = $request->file('certificate_path');
+
+            $imageName = time() . '_' . $image->getClientOriginalName();
+            $image->move(public_path('uploads'), $imageName);
+
+            $selectedRequest['certificate_path'] = 'uploads/' . $imageName;
+        }
+
         User::find($id)->update($selectedRequest);
+
         return back()->with('msg', 'Pengguna berhasil diperbarui');
     }
 

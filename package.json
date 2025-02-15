@@ -30,6 +30,7 @@
         "xlsx": "https://cdn.sheetjs.com/xlsx-0.19.3/xlsx-0.19.3.tgz"
     },
     "dependencies": {
+        "@inertiajs/inertia-react": "^0.8.1",
         "jspdf": "^2.5.2",
         "jspdf-autotable": "^3.8.4",
         "primeicons": "^7.0.0",

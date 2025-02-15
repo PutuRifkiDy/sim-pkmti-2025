@@ -11,6 +11,7 @@ import { InputIcon } from "primereact/inputicon";
 import { Dropdown } from 'primereact/dropdown';
 import { Tooltip } from 'primereact/tooltip';
 import { ConfirmDialog } from "primereact/confirmdialog";
+import { FileUpload } from "primereact/fileupload";
 import {
     ArrowPathIcon,
     CheckIcon,
@@ -20,6 +21,7 @@ import {
     XMarkIcon,
 } from "@heroicons/react/24/solid";
 import { Link, router } from "@inertiajs/react";
+import { Inertia } from '@inertiajs/inertia';
 import Toast from "@/Components/Toast";
 import { useIsObjectEmpty, useRandomInt } from "@/utils";
 
@@ -40,6 +42,7 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                 line_id: user.line_id,
                 email: user.email,
                 status: user.status,
+                certificate_path: user.certificate_path,
             };
         })
     );
@@ -63,9 +66,11 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
         setGlobalFilterValue("");
     };
 
+
     const clearFilter = () => {
         initFilters();
     };
+
 
     const onGlobalFilterChange = (e) => {
         const value = e.target.value;
@@ -78,15 +83,41 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
 
 
     // Edit
-    const onRowEditComplete = (e) => {
+    const onRowEditComplete = async (e) => {
         let _selectedFields = [...selectedFields];
         let { newData, index } = e;
 
-        _selectedFields[index] = newData;
-        router.patch(route("users.update", e.data.id), newData);
+        const {
+            nim,
+            name,
+            role,
+            phone,
+            email,
+            line_id,
+            certificate_path,
+        } = newData;
+
+        let formData = new FormData();
+        formData.append("nim", nim);
+        formData.append("name", name);
+        formData.append("role", role);
+        formData.append("phone", phone);
+        formData.append("email", email);
+        formData.append("line_id", line_id);
+
+        if (certificate_path instanceof File) {
+            formData.append("certificate_path", certificate_path);
+        }
+
+        await router.post(route("users.update", e.data.id), formData, {
+            headers: {
+                "Content-Type": "multipart/form-data",
+            },
+        });
 
         setSelectedFields(_selectedFields);
     };
+
 
     const textEditor = (rowData) => {
         return (
@@ -108,6 +139,28 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
             </select>
         );
     }
+
+    const fileEditor = (rowData) => {
+        return (
+            <input
+                type="file"
+                accept="image/*"
+                onChange={(e) => handleFileChange(e, rowData)}
+            />
+        );
+    };
+
+    
+    const handleFileChange = (e, rowData) => {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                rowData.editorCallback(file);
+            };
+            reader.readAsDataURL(file);
+        }
+    };
 
     // status badge
     const statusBadge = (rowData) => {
@@ -172,7 +225,6 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
             });
         });
     };
-
 
     const renderHeader = () => {
         return (
@@ -239,7 +291,6 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
         );
     };
 
-
     const StatusFilterTemplate = (props) => {
         const user_data = [...new Set(users.map((user) => user.status))].map(status => ({
             label: status ? status : "-",
@@ -256,6 +307,38 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                 className="p-column-filter"
                 showClear
             />
+        );
+    };
+
+    const CertificateModal = ({ imageUrl, modalId }) => {
+        return (
+            <>
+                <button
+                    className="btn btn-sm text-blue-600"
+                    onClick={() => document.getElementById(modalId).showModal()}
+                >
+                    Lihat Sertifikat
+                </button>
+
+                <dialog id={modalId} className="modal">
+                    <div className="modal-box">
+                        <form method="dialog">
+                            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+                                ✕
+                            </button>
+                        </form>
+
+                        <h3 className="font-bold text-lg">Sertifikat</h3>
+                        <div className="flex justify-center py-4">
+                            <img
+                                src={imageUrl}
+                                alt="certificate"
+                                className="w-full h-auto max-w-xl object-contain rounded-lg"
+                            />
+                        </div>
+                    </div>
+                </dialog>
+            </>
         );
     };
 
@@ -372,7 +455,7 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                         paginatorClassName="bg-[#42A1A4]/15 dark:bg-gray-800"
                     >
                         <Column
-                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" 
+                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                             key="nomor"
                             field="nomor"
                             header="#"
@@ -380,7 +463,7 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                             style={{ textAlign: 'center' }}
                         />
                         <Column
-                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" 
+                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                             editor={(rowData) => textEditor(rowData)}
                             key="nim"
                             field="nim"
@@ -389,7 +472,7 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                             style={{ textAlign: 'center' }}
                         />
                         <Column
-                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" 
+                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                             editor={(rowData) => textEditor(rowData)}
                             key="name"
                             field="name"
@@ -397,7 +480,7 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                             style={{ minWidth: '14rem' }}
                         />
                         <Column
-                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" 
+                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                             editor={(rowData) => selectEditor(rowData)}
                             key="role"
                             field="role"
@@ -410,7 +493,7 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                             filterElement={RoleFilterTemplate}
                         />
                         <Column
-                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" 
+                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                             key="class_of"
                             field="class_of"
                             header="Angkatan"
@@ -420,21 +503,28 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                             filterElement={AngkatanFilterTemplate}
                         />
                         <Column
-                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" 
+                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                             editor={(rowData) => textEditor(rowData)}
                             key="phone"
                             field="phone"
                             header="Telepon"
                         />
                         <Column
-                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" 
+                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                             editor={(rowData) => textEditor(rowData)}
                             key="email"
                             field="email"
                             header="Email"
                         />
                         <Column
-                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" 
+                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
+                            editor={(rowData) => textEditor(rowData)}
+                            key="line_id"
+                            field="line_id"
+                            header="ID Line"
+                        />
+                        <Column
+                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                             key="status"
                             field="status"
                             body={statusBadge}
@@ -444,9 +534,27 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                             filterElement={StatusFilterTemplate}
                             sortable
                         ></Column>
+                        <Column
+                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white text-center"
+                            className="min-w-48"
+                            editor={(rowData) => fileEditor(rowData)}
+                            key="certificate_path"
+                            field="certificate_path"
+                            header="Sertifikat"
+                            body={(rowData) =>
+                                rowData.certificate_path ? (
+                                    <CertificateModal
+                                        imageUrl={`${window.location.origin}/${rowData.certificate_path}`}
+                                        modalId={`modal_${rowData.id}`}
+                                    />
+                                ) : (
+                                    "Belum ada sertifikat"
+                                )
+                            }
+                        />
                         <Column headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" rowEditor={true} header={"Edit"}></Column>
                         <Column
-                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" 
+                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                             header={"Hapus"}
                             style={{ textAlign: 'center' }}
                             body={(rowData) => {

@@ -120,6 +120,7 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::middleware(['role:admin'])->resource('users', UserController::class);
+    Route::middleware(['role:admin'])->post('users/{user}', [UserController::class, 'update'])->name('users.update');
 });
 
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
