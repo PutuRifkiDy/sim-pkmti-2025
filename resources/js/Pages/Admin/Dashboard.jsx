@@ -307,7 +307,7 @@ export default function Dashboard({ auth, proposals, teams, users, proposal_ispe
                     >
 
                         <Column field="" header="#" body={rowNumberTemplate} filterPlaceholder="Cari Nama Tim" />
-                        <Column field="team_name" header="Nama Tim" showFilterMenu={true} filterMenuStyle={{ width: '14rem' }} style={{ minWidth: '12rem' }} filter filterElement={NameTeamFilterTemplate} sortable filterPlaceholder="Cari Nama Tim" />
+                        <Column field="team_name" header="Nama Tim" showFilterMenu={true} filterMenuStyle={{ width: '14rem' }} style={{ minWidth: '15rem' }} filter filterElement={NameTeamFilterTemplate} sortable filterPlaceholder="Cari Nama Tim" />
                         <Column
                             field="leader_name"
                             header="Nama Ketua"
@@ -330,7 +330,7 @@ export default function Dashboard({ auth, proposals, teams, users, proposal_ispe
                             field="lecturer"
                             showFilterMenu={true}
                             filterMenuStyle={{ width: '14rem' }}
-                            style={{ minWidth: '18rem' }}
+                            style={{ minWidth: '30rem' }}
                             header="Dosen Pembimbing"
                             filter
                             filterElement={statusDosenFilterTemplate}

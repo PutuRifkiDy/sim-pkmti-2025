@@ -452,10 +452,8 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                                 <XMarkIcon className="h-4 w-4" />
                             </div>
                         }
-                        paginatorClassName="bg-[#42A1A4]/15 dark:bg-gray-800"
                     >
                         <Column
-                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                             key="nomor"
                             field="nomor"
                             header="#"
@@ -463,7 +461,6 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                             style={{ textAlign: 'center' }}
                         />
                         <Column
-                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                             editor={(rowData) => textEditor(rowData)}
                             key="nim"
                             field="nim"
@@ -472,7 +469,6 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                             style={{ textAlign: 'center' }}
                         />
                         <Column
-                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                             editor={(rowData) => textEditor(rowData)}
                             key="name"
                             field="name"
@@ -480,7 +476,6 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                             style={{ minWidth: '14rem' }}
                         />
                         <Column
-                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                             editor={(rowData) => selectEditor(rowData)}
                             key="role"
                             field="role"
@@ -493,7 +488,6 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                             filterElement={RoleFilterTemplate}
                         />
                         <Column
-                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                             key="class_of"
                             field="class_of"
                             header="Angkatan"
@@ -503,28 +497,24 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                             filterElement={AngkatanFilterTemplate}
                         />
                         <Column
-                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                             editor={(rowData) => textEditor(rowData)}
                             key="phone"
                             field="phone"
                             header="Telepon"
                         />
                         <Column
-                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                             editor={(rowData) => textEditor(rowData)}
                             key="email"
                             field="email"
                             header="Email"
                         />
                         <Column
-                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                             editor={(rowData) => textEditor(rowData)}
                             key="line_id"
                             field="line_id"
                             header="ID Line"
                         />
                         <Column
-                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                             key="status"
                             field="status"
                             body={statusBadge}
@@ -535,8 +525,7 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                             sortable
                         ></Column>
                         <Column
-                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white text-center"
-                            className="min-w-48"
+                            className="min-w-48 text-center"
                             editor={(rowData) => fileEditor(rowData)}
                             key="certificate_path"
                             field="certificate_path"
@@ -552,9 +541,8 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                                 )
                             }
                         />
-                        <Column headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" rowEditor={true} header={"Edit"}></Column>
+                        <Column rowEditor={true} header={"Edit"}></Column>
                         <Column
-                            headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                             header={"Hapus"}
                             style={{ textAlign: 'center' }}
                             body={(rowData) => {
