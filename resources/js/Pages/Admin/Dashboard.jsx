@@ -304,12 +304,11 @@ export default function Dashboard({ auth, proposals, teams, users, proposal_ispe
                         onFilter={(e) => setFilters(e.filters)}
                         tableStyle={{ minWidth: '50rem' }}
                         className="bg-[#42A1A4]/15 dark:bg-gray-800"
-                        paginatorClassName="bg-[#42A1A4]/15 dark:bg-gray-800"
                     >
 
-                        <Column headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" field="" header="#" body={rowNumberTemplate} filterPlaceholder="Cari Nama Tim" />
-                        <Column headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" field="team_name" header="Nama Tim" showFilterMenu={true} filterMenuStyle={{ width: '14rem' }} style={{ minWidth: '12rem' }} filter filterElement={NameTeamFilterTemplate} sortable filterPlaceholder="Cari Nama Tim" />
-                        <Column headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
+                        <Column field="" header="#" body={rowNumberTemplate} filterPlaceholder="Cari Nama Tim" />
+                        <Column field="team_name" header="Nama Tim" showFilterMenu={true} filterMenuStyle={{ width: '14rem' }} style={{ minWidth: '12rem' }} filter filterElement={NameTeamFilterTemplate} sortable filterPlaceholder="Cari Nama Tim" />
+                        <Column
                             field="leader_name"
                             header="Nama Ketua"
                             showFilterMenu={true}
@@ -320,14 +319,14 @@ export default function Dashboard({ auth, proposals, teams, users, proposal_ispe
                             sortable
                             filterPlaceholder="Cari Nama Ketua"
                         />
-                        <Column headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
+                        <Column
                             field="leader_nim"
                             header="NIM Ketua"
                             sortable
                             filterPlaceholder="Cari NIM Ketua"
                             style={{ minWidth: '10rem' }}
                         />
-                        <Column headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
+                        <Column
                             field="lecturer"
                             showFilterMenu={true}
                             filterMenuStyle={{ width: '14rem' }}
@@ -337,14 +336,14 @@ export default function Dashboard({ auth, proposals, teams, users, proposal_ispe
                             filterElement={statusDosenFilterTemplate}
                             filterPlaceholder="Cari Dosen"
                         />
-                        <Column headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
+                        <Column
                             field="token"
                             header="Token Tim"
                             sortable
                             filterPlaceholder="Cari Token"
                             style={{ minWidth: '10rem' }}
                         />
-                        <Column headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" field="token" header="Anggota" body={membersDetail} sortable filterPlaceholder="Cari Token" />
+                        <Column field="token" header="Anggota" body={membersDetail} sortable filterPlaceholder="Cari Token" />
                     </DataTable>
                 </div>
             </AdminLayout>

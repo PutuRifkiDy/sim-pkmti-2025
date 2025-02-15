@@ -150,7 +150,7 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
         );
     };
 
-    
+
     const handleFileChange = (e, rowData) => {
         const file = e.target.files[0];
         if (file) {

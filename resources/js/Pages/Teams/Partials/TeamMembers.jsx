@@ -68,22 +68,20 @@ export default function TeamMembers({ user, team }) {
             <DataTable 
                 value={teamsData} 
                 paginator 
+                showGridlines
                 rows={5} 
                 scrollable 
-                rowClassName={(rowData) => rowData.role_is_leader === 'Ketua' ? 'bg-blue-100' : rowData.role === 'Saya' ? 'bg-green-100' : ''} 
-                className="p-datatable-striped whitespace-nowrap overflow-x-auto border-none"
+                className="p-datatable-striped whitespace-nowrap overflow-x-auto "
                 tableStyle={{ maxWidth: '50rem' }}
-                paginatorClassName="bg-[#42A1A4]/[15%] dark:bg-gray-800/[30%]"
                 >
                 
-                <Column field="nim" header="NIM" sortable headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" />
-                <Column field="name" header="Nama" sortable headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" />
-                <Column field="angkatan" header="Angkatan" sortable headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" />
+                <Column field="nim" header="NIM" sortable />
+                <Column field="name" header="Nama" sortable />
+                <Column field="angkatan" header="Angkatan" sortable />
                 <Column 
                     field="role" 
                     header="Jabatan" 
                     sortable 
-                    headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                     body={(rowData) => (
                         <div className="flex flex-row items-center">
                             {rowData.role === 'Saya' && (
@@ -102,13 +100,12 @@ export default function TeamMembers({ user, team }) {
                         </div>
                     )} 
                 />
-                <Column field="email" header="Email" sortable headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" />
-                <Column field="phone" header="Telepon" sortable headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" />
-                <Column field="line_id" header="ID Line" sortable headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white" />
+                <Column field="email" header="Email" sortable />
+                <Column field="phone" header="Telepon" sortable />
+                <Column field="line_id" header="ID Line" sortable />
                 
                 <Column 
                     header="Aksi" 
-                    headerClassName="bg-[#42A1A4] dark:bg-gray-800 text-white"
                     body={(rowData) => (
                         <div className="flex gap-1">
                             {(user.id !== rowData.id && (user.role === "admin" || user.id === team.leader_id)) && (
