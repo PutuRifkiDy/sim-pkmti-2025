@@ -149,12 +149,8 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                                     Selamat Anda Telah Lulus Dari PKM TI 2025
                                 </p>
                             </div>
-                            <div className="flex flex-col gap-8 justify-center items-center">
+                            <div className="flex flex-col mt-8 justify-center items-center">
                                 <img src="images/passed-icon.png" alt="" className="w-[290px] h-[290px]" />
-                                <Link onClick={downloadCertificate} className="flex flex-row justify-center items-center font-bold bg-[#42A1A4] px-8 py-3 text-[18px tracking-[0.03em] gap-5 leading-[26px] rounded-[12px] text-white hover:text-white hover:bg-[#59DFD1] transition-all duration-300 shadow-[0_0_10px_#42A1A4]">
-                                    <IconUnduh />
-                                    Unduh Sertifikat
-                                </Link>
                             </div>
                         </div>
 
