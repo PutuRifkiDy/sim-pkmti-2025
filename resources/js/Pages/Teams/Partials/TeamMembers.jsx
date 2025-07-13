@@ -65,47 +65,47 @@ export default function TeamMembers({ user, team }) {
                 <span className="font-bold">{team.members.length} / 5</span>
             </div>
             <div className="card">
-            <DataTable 
-                value={teamsData} 
-                paginator 
+            <DataTable
+                value={teamsData}
+                paginator
                 showGridlines
-                rows={5} 
-                scrollable 
+                rows={5}
+                scrollable
                 className="p-datatable-striped whitespace-nowrap overflow-x-auto "
                 tableStyle={{ maxWidth: '50rem' }}
                 >
-                
+
                 <Column field="nim" header="NIM" sortable />
                 <Column field="name" header="Nama" sortable />
                 <Column field="angkatan" header="Angkatan" sortable />
-                <Column 
-                    field="role" 
-                    header="Jabatan" 
-                    sortable 
+                <Column
+                    field="role"
+                    header="Jabatan"
+                    sortable
                     body={(rowData) => (
                         <div className="flex flex-row items-center">
-                            {rowData.role === 'Saya' && (
+                            {rowData.role == 'Saya' && (
                                 <div className="tooltip tooltip-bottom flex flex-row" data-tip="Saya">
                                     <TagIcon className="h-5 w-5 text-green-500 me-2" />
                                 </div>
                             )}
-                            {rowData.role === 'Saya' && rowData.role_is_leader !== 'Ketua' && "Anggota"}
-                            {rowData.role_is_leader === 'Ketua' && (
+                            {rowData.role == 'Saya' && rowData.role_is_leader != 'Ketua' && "Anggota"}
+                            {rowData.role_is_leader == 'Ketua' && (
                                 <div className="tooltip tooltip-bottom flex" data-tip="Ketua">
                                     <CodeBracketSquareIcon className="h-5 w-5 text-blue-500 me-2" />
                                     <p>Ketua</p>
                                 </div>
                             )}
-                            {rowData.role === "Anggota" && rowData.role_is_leader !== 'Ketua' && "Anggota"}
+                            {rowData.role == "Anggota" && rowData.role_is_leader != 'Ketua' && "Anggota"}
                         </div>
-                    )} 
+                    )}
                 />
                 <Column field="email" header="Email" sortable />
                 <Column field="phone" header="Telepon" sortable />
                 <Column field="line_id" header="ID Line" sortable />
-                
-                <Column 
-                    header="Aksi" 
+
+                <Column
+                    header="Aksi"
                     body={(rowData) => (
                         <div className="flex gap-1">
                             {(user.id !== rowData.id && (user.role === "admin" || user.id === team.leader_id)) && (
@@ -115,7 +115,7 @@ export default function TeamMembers({ user, team }) {
                                 </>
                             )}
                         </div>
-                    )} 
+                    )}
                 />
             </DataTable>
         </div>

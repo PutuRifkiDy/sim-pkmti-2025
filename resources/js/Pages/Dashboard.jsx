@@ -140,7 +140,7 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                 />
             )}
             {
-                user.status === "passed" ? (
+                user.status == "passed" ? (
                     <div className="flex md:flex-row flex-col justify-between md:gap-16 gap-8">
                         <div className="flex flex-col gap-5 md:w-1/2 w-full">
                             <div className="bg-[#4DE45C]/10 border-l-4 border-[#4DE45C] text-[#4DE45C] w-full px-5 py-3 flex flex-row gap-5 items-center rounded-l-[4px]">
@@ -188,7 +188,7 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                         </div>
 
                     </div>
-                ) : user.status === "failed" || user.status === null || user.status === "" ? (
+                ) : user.status == "failed" || user.status == null || user.status == "" ? (
 
                     <div className="flex flex-col gap-3 w-full items-start">
                         {Object.keys(infos).map((key, i) => {

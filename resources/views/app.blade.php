@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title inertia>{{ config('app.name', 'PKM TI') }}</title>
+        <link rel="icon" type="image/png" href="{{ asset('images/Logo-PKM-TI-2025.svg') }}" />
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,7 +17,7 @@
         @viteReactRefresh
         @vite(['resources/js/app.jsx', "resources/js/Pages/{$page['component']}.jsx"])
         @inertiaHead
-        
+
     </head>
     <body class="font-sans antialiased">
         @inertia
