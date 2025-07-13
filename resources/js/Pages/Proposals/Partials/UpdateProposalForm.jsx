@@ -197,7 +197,7 @@ export default function UpdateProposalForm({ user, proposal }) {
 
                 <div className="flex md:flex-row flex-col gap-2 md:w-1/2 w-full">
                     <button
-                        className="flex flex-row justify-center items-center font-bold bg-[#42A1A4] w-full py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#59DFD1] dark:text-gray-200 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#42A1A4]"
+                        className="flex flex-row justify-center items-center font-bold bg-[#42A1A4] w-full py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#59DFD1]  transition-all duration-300 shadow-[0_0_10px_#42A1A4]"
                         disabled={processing}
                         type="submit"
                     >

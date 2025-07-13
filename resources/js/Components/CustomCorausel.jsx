@@ -40,14 +40,14 @@ function CustomCarousel({ children }) {
 
             <div className="flex flex-row gap-4 flex-shrink-0 mt-5 items-center justify-center">
                 <button
-                    className="btn btn-sm shadow-2xl rounded-lg"
+                    className="btn btn-sm shadow-2xl rounded-lg dark:bg-gray-400"
                     onClick={handlePrevClick}
                     disabled={selectedIndex === 0}
                 >
                     <ArrowLongLeftIcon className="w-6 h-6 font-black" />
                 </button>
                 <button
-                    className="btn btn-sm shadow-2xl rounded-lg"
+                    className="btn btn-sm shadow-2xl rounded-lg dark:bg-gray-400"
                     onClick={handleNextClick}
                     disabled={selectedIndex === totalItems - 1}
                 >

@@ -25,7 +25,7 @@ export default function JoinTeam({ auth, flash }) {
     return (
         <>
             <ParticipantLayout user={user} title="Gabung Tim">
-                <div className="bg-white dark:bg-[#181d23] flex gap-5 flex-col justify-center items-center py-10 rounded-[14px]">
+                <div className="bg-white flex gap-5 flex-col justify-center items-center py-10 rounded-[14px]">
                     {isTokenEmpty && (
                         <Toast
                             key={useRandomInt()}
@@ -70,12 +70,12 @@ export default function JoinTeam({ auth, flash }) {
                                 <Link
                                     as="button"
                                     href={route("teams.join_or_create")}
-                                    className="font-bold border-2 border-[#59DFD1] tracking-[0.03em] leading-[26px] text-[20px] w-[250px] py-2 rounded-md text-[#59DFD1] hover:text-white hover:bg-[#42A1A4] hover:border-[#42A1A4] dark:text-gray-100 dark:hover:text-white transition-all duration-300 flex flex-row justify-center items-center hover:shadow-[0_0_10px_#42A1A4]"
+                                    className="font-bold border-2 border-[#59DFD1] tracking-[0.03em] leading-[26px] text-[20px] w-[250px] py-2 rounded-md text-[#59DFD1] hover:text-white hover:bg-[#42A1A4] hover:border-[#42A1A4] transition-all duration-300 flex flex-row justify-center items-center hover:shadow-[0_0_10px_#42A1A4]"
                                 >
                                     Kembali
                                 </Link>
                                 <button
-                                    className="font-bold bg-[#42A1A4] w-[250px] py-2 text-[20px] tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#59DFD1] dark:text-gray-100 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#42A1A4]"
+                                    className="font-bold bg-[#42A1A4] w-[250px] py-2 text-[20px] tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#59DFD1] transition-all duration-300 shadow-[0_0_10px_#42A1A4]"
                                     disabled={processing}
                                 >
                                     Gabung Tim
