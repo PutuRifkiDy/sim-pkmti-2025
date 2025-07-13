@@ -39,6 +39,7 @@ export default function AddProofForm({onSuccess}) {
                         onChange={(e) => setData("proof_url", e.target.value)}
                         className="input input-bordered z-[1] w-full"
                     />
+                    <p className="text-xs mt-1 ">*Pastikan link google drive / terabox dikirim dengan akses publik</p>
 
                     <p className="mt-2 text-error">{errors.proof_url}</p>
                 </div>
