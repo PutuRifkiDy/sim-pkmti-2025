@@ -401,18 +401,18 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
                             editMode="row"
                             onRowEditComplete={onRowEditComplete}
                             rowEditorInitIcon={
-                                <div className="btn btn-warning btn-square btn-sm mx-1">
+                                <div className=" bg-yellow-400 btn-sm text-center flex justify-center items-center mx-1">
                                     <PencilIcon className="h-4 w-4 fill-white" />
                                 </div>
                             }
                             rowEditorSaveIcon={
-                                <div className="btn btn-warning btn-square btn-sm mx-1">
-                                    <CheckIcon className="h-4 w-4" />
+                                <div className="bg-green-400 btn-sm text-center flex justify-center items-center mx-1">
+                                    <CheckIcon className="h-4 w-4 fill-white" />
                                 </div>
                             }
                             rowEditorCancelIcon={
-                                <div className="btn btn-square btn-sm mx-1">
-                                    <XMarkIcon className="h-4 w-4" />
+                                <div className="bg-red-600 btn-sm text-center flex justify-center items-center mx-1">
+                                    <XMarkIcon className="h-4 w-4 fill-white" />
                                 </div>
                             }
                         >

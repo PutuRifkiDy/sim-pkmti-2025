@@ -43,6 +43,7 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                 email: user.email,
                 status: user.status,
                 certificate_path: user.certificate_path,
+                have_team: user.team_id == null ? 'Belum Punya Tim' : 'Punya Tim',
             };
         })
     );
@@ -62,6 +63,7 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
             role: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
             status: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
             class_of: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
+            have_team: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }] },
         });
         setGlobalFilterValue("");
     };
@@ -310,6 +312,33 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
         );
     };
 
+    const TeamFilterTemplate = (props) => {
+        const options = [
+            { label: 'Punya Tim', value: 'Punya Tim' },
+            { label: 'Belum Punya Tim', value: 'Belum Punya Tim' },
+        ];
+
+        return (
+            <Dropdown
+                value={props.value}
+                options={options}
+                onChange={(e) => props.filterApplyCallback(e.value)}
+                placeholder="Filter Tim"
+                className="p-column-filter"
+                showClear
+            />
+        );
+    };
+
+
+    const HaveTeamTemplate = (rowData) => {
+        if (rowData.have_team == "Belum Punya Tim") {
+            return <span className="text-red-500">Belum Punya Tim</span>;
+        } else {
+            return <span className="text-green-500">Punya Tim</span>;
+        }
+    }
+
     const CertificateModal = ({ imageUrl, modalId }) => {
         return (
             <>
@@ -438,18 +467,18 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                         tableStyle={{ minWidth: '50rem' }}
                         onRowEditComplete={onRowEditComplete}
                         rowEditorInitIcon={
-                            <div className="btn btn-warning btn-square btn-sm">
-                                <PencilIcon className="h-4 w-4" />
+                            <div className=" bg-yellow-400 btn-sm text-center flex justify-center items-center mx-1">
+                                <PencilIcon className="h-4 w-4 fill-white" />
                             </div>
                         }
                         rowEditorSaveIcon={
-                            <div className="btn btn-warning btn-square btn-sm">
-                                <CheckIcon className="h-4 w-4" />
+                            <div className="bg-green-400 btn-sm text-center flex justify-center items-center mx-1">
+                                <CheckIcon className="h-4 w-4 fill-white" />
                             </div>
                         }
                         rowEditorCancelIcon={
-                            <div className="btn btn-square btn-sm">
-                                <XMarkIcon className="h-4 w-4" />
+                            <div className="bg-red-600 btn-sm text-center flex justify-center items-center mx-1">
+                                <XMarkIcon className="h-4 w-4 fill-white" />
                             </div>
                         }
                     >
@@ -474,6 +503,16 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                             field="name"
                             header="Nama"
                             style={{ minWidth: '14rem' }}
+                        />
+                        <Column
+                            key="have_team"
+                            field="have_team"
+                            header="Status Tim"
+                            filter
+                            filterElement={TeamFilterTemplate}
+                            sortable
+                            body={HaveTeamTemplate}
+                            style={{ minWidth: '12rem' }}
                         />
                         <Column
                             editor={(rowData) => selectEditor(rowData)}
