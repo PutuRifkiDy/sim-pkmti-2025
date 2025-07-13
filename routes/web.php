@@ -1,21 +1,23 @@
 <?php
 
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\AssistanceProofController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\ProposalController;
+use App\Models\User;
+use Inertia\Inertia;
+use App\Models\Lecturer;
+use App\Models\Proposal;
+use App\Jobs\SendEmailJob;
+use function Termwind\render;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Application;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserController;
-use App\Jobs\SendEmailJob;
-use App\Models\Proposal;
-use App\Models\User;
-use function Termwind\render;
-use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ProfileController;
 
-use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
+use App\Http\Controllers\LecturerController;
+use App\Http\Controllers\ProposalController;
+use App\Http\Controllers\AssistanceProofController;
 
 
 /*
@@ -123,12 +125,12 @@ Route::middleware('auth')->group(function () {
     Route::middleware(['role:admin'])->post('users/{user}', [UserController::class, 'update'])->name('users.update');
 });
 
-Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
-    Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
-    Route::get('/users', [AdminController::class, 'showUsers'])->name('admin.users');
-    Route::get('/teams', [AdminController::class, 'showTeams'])->name('admin.teams');
-    Route::get('/proposals', [AdminController::class, 'showProposals'])->name('admin.proposals');
-    Route::get('/assistance-proofs', [AdminController::class, 'showAssistanceProofs'])->name('admin.assistance-proofs');
+Route::middleware('auth')->prefix('admin')->group(function () {
+    Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard')->middleware('role:admin,lecturer');
+    Route::get('/users', [AdminController::class, 'showUsers'])->name('admin.users')->middleware('role:admin'); 
+    Route::get('/teams', [AdminController::class, 'showTeams'])->name('admin.teams')->middleware('role:admin');
+    Route::get('/proposals', [AdminController::class, 'showProposals'])->name('admin.proposals')->middleware( 'role:lecturer,admin');
+    Route::get('/assistance-proofs', [AdminController::class, 'showAssistanceProofs'])->name('admin.assistance-proofs')->middleware('role:admin');
 });
 
 require __DIR__ . '/auth.php';

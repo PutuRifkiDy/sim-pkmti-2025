@@ -26,6 +26,8 @@ class Role
                         return $next($request);
                     break;
                 case 'lecturer':
+                    if ($user->role == $role)
+                        return $next($request);
                     break;
                 case 'participant':
                     break;

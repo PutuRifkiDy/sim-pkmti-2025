@@ -152,14 +152,10 @@ export default function Sidebar({ user, navigations, children }) {
                                 <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="text-xl">
                                     <IconSideBar />
                                 </button>
-                                <DarkMode />
                             </div>
 
                             <div className="md:hidden flex divider h-[2px] w-auto md:w-full bg-slate-200 dark:bg-slate-600"></div>
 
-                            <div className="md:flex hidden">
-                                <DarkMode />
-                            </div>
                             <div className="dropdown">
                                 <div tabIndex={0} role="button" className="flex flex-row gap-5 md:justify-center justify-between items-center cursor-pointer md:w-full w-screen md:px-0 px-5">
                                     <div className="flex flex-row gap-3">
@@ -204,6 +200,30 @@ export default function Sidebar({ user, navigations, children }) {
                                                 </Link>
                                             </li>
                                         ))}
+                                        {user.role === "lecturer" &&
+                                            (location.pathname.search(/admin/) === -1 ? (
+                                                <li className="border-b-2 border-slate-200 dark:border-slate-600">
+                                                    <Link
+                                                        href={route("admin.proposals")} // Assuming a lecture dashboard route
+                                                        as="button" 
+                                                        className="flex flex-row gap-2 justify-start items-center font-medium text-[14px] light:text-[#404040] dark:text-white tracking-[0.11em]"
+                                                    >
+                                                        <AcademicCapIcon className="h-6 w-6" /> {/* You might want a different icon */}
+                                                        Mode Lecture
+                                                    </Link>
+                                                </li>
+                                            ) : (
+                                                <li className="border-b-2 border-slate-200 dark:border-slate-600">
+                                                    <Link
+                                                        href={route("dashboard")}
+                                                        as="button"
+                                                        className="flex flex-row gap-2 justify-start items-center font-medium text-[14px] light:text-[#404040] dark:text-white tracking-[0.11em]"
+                                                    >
+                                                        <AcademicCapIcon className="h-6 w-6" />
+                                                        Mode Participant
+                                                    </Link>
+                                                </li>
+                                            ))}
                                     <li>
                                         <a
                                             onClick={() =>

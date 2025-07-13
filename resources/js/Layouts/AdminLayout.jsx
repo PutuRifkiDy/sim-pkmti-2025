@@ -9,7 +9,9 @@ import { Head } from "@inertiajs/react";
 import { IconBerandaSideBar, IconProfileSideBar, IconGabungTim, IconProposal } from "@/Components/IconAdmin";
 
 export default function AdminLayout({ user, title, children }) {
-    const navigations = [
+    const navigations = [];
+    if(user.role == "admin") {
+        navigations.push(
         {
             icon: <IconBerandaSideBar />,
             text: "Beranda",
@@ -29,8 +31,20 @@ export default function AdminLayout({ user, title, children }) {
             icon: <IconProposal />,
             text: "Proposal PKM",
             link: route("admin.proposals"),
-        },
-    ];
+        })
+    }else if(user.role == "lecturer") {
+        navigations.push(
+        {
+            icon: <IconBerandaSideBar />,
+            text: "Beranda",
+            link: route("admin.dashboard"),
+        }, 
+        {
+            icon: <IconProposal />,
+            text: "Proposal PKM",
+            link: route("admin.proposals"),
+        })
+    }
 
     return (
         <>
