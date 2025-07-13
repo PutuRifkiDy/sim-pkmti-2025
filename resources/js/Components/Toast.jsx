@@ -41,14 +41,14 @@ export default function Toast({ id, content }) {
             id={id}
             className="toast md:toast-top lg:toast-end toast-top toast-center z-50"
         >
-            <div role="alert" className="alert alert-success">
+            <div role="alert" className="alert bg-green-400">
                 <InformationCircleIcon className="h-6 w-6 hidden lg:block" />
 
                 <div className="me-10">
                     <h3 className="font-bold text-left">Informasi</h3>
                     <div className="text-[16px] text-left">{content}</div>
                     <progress
-                        className="progress w-56 progress-danger"
+                        className="progress w-56 bg-green-100"
                         value={progress}
                         max="100"
                     ></progress>
