@@ -28,7 +28,7 @@ export default function TeamInformation({ user, team, lecturers }) {
         <>
             <form onSubmit={updateTeam}>
                 {/* Team name */}
-                {user.id === team.leader_id || user.role === "admin" ? (
+                {user.id == team.leader_id || user.role == "admin" ? (
 
                     <div className="grid md:grid-cols-2 grid-cols-1 gap-2">
                         <div className="form-control my-2">
@@ -216,7 +216,7 @@ export default function TeamInformation({ user, team, lecturers }) {
 
                 )}
 
-                {(user.id === team.leader_id || user.role === "admin") && (
+                {(user.id == team.leader_id || user.role == "admin") && (
                     <>
                         <div className="grid md:grid-cols-2 grid-cols-1 md:w-1/2 w-full gap-2 mt-5">
                             <button
@@ -253,7 +253,7 @@ export default function TeamInformation({ user, team, lecturers }) {
                     Tim
                 </Link>
 
-                {(user.id === team.leader_id || user.role === "admin") && (
+                {(user.id == team.leader_id || user.role == "admin") && (
                     <Link
                         as="button"
                         method="delete"
