@@ -9,7 +9,7 @@ import {
 import { Link, useForm } from "@inertiajs/react";
 
 export default function UpdateProposalForm({ user, proposal }) {
-    const validSchemes = ["PKM-GFT", "PKM-K", "PKM-KC", "PKM-PI", "PKM-PM"];
+    const validSchemes = ["PKM-GFT", "PKM-K", "PKM-KC", "PKM-PI", "PKM-PM", "PKM-VGK"];
 
     const { data, setData, patch, processing, errors } = useForm({
         title: proposal.title,

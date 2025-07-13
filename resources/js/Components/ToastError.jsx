@@ -31,14 +31,14 @@ export default function ToastError({ content }) {
     const progress = ((time - remainingTime) / time) * 100;
 
     return (
-        <div className="toast lg:toast-top lg:toast-end toast-bottom toast-center z-50">
-            <div role="alert" className="alert alert-error">
+        <div className="toast lg:toast-top lg:toast-end toast-bottom toast-center z-50 ">
+            <div role="alert" className="alert alert-error bg-red-400">
                 <InformationCircleIcon className="h-6 w-6 hidden lg:block" />
 
                 <div className="me-10">
                     <div className="text-[14px] text-left">{content}</div>
                     <progress
-                        className="progress w-56 progress-secondary"
+                        className="progress w-56 bg-red-100"
                         value={progress}
                         max="100"
                     ></progress>

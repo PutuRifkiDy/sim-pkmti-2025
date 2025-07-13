@@ -21,7 +21,7 @@ export default function CreateProposalForm({ user }) {
         post(route("proposals.create", useParam(1)));
     };
 
-    const schemes = ["PKM-GFT", "PKM-K", "PKM-KC", "PKM-PI", "PKM-PM"];
+    const schemes = ["PKM-GFT", "PKM-K", "PKM-KC", "PKM-PI", "PKM-PM", "PKM-VGK"];
 
     return (
         <div className="flex gap-5 flex-col md:px-10 px-3 py-10 rounded-[14px] bg-white dark:bg-[#181d23]">

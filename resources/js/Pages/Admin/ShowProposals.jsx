@@ -151,7 +151,7 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
         const status = rowData.status;
         const statuses = {
             approved: { style: "font-bold bg-[#4DE45C] px-3 py-1 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white  transition-all duration-300 shadow-[0_0_10px_#4DE45C]", content: "Diterima" },
-            rejected: { style: "font-bold bg-[#F93C65] px-3 py-1 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white  transition-all duration-300 shadow-[0_0_10px_#F93C65]", content: "Ditolak" },
+            rejected: { style: "font-bold bg-[#FA3434] px-3 py-1 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white  transition-all duration-300 shadow-[0_0_10px_#FA3434]", content: "Ditolak" },
             pending: { style: "font-bold bg-[#CFD249] px-3 py-1 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white  transition-all duration-300 shadow-[0_0_10px_#CFD249]", content: "Diperiksa" },
         };
 
@@ -191,7 +191,7 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
                             )
                             .showModal()
                     }
-                    className="font-bold bg-[#E82323] px-3 py-3 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white  transition-all duration-300 shadow-[0_0_10px_#E82323]"
+                    className="font-bold bg-[#FA3434] px-3 py-3 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white  transition-all duration-300 shadow-[0_0_10px_#FA3434]"
                 >
                     <XMarkIcon className="h-4 w-4" />
                 </button>
@@ -714,7 +714,7 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
                                 return (
                                     <Button
                                         unstyled
-                                        className="font-bold bg-[#E82323] px-3 py-3 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#E82323]/70  transition-all duration-300 shadow-[0_0_10px_#E82323] text-center"
+                                        className="font-bold bg-[#FA3434] px-3 py-3 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#FA3434]/70  transition-all duration-300 shadow-[0_0_10px_#FA3434] text-center"
                                         onClick={() => {
                                             setProposalToDelete(rowData);
                                             setVisible(true);
