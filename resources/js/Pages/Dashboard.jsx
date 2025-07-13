@@ -191,6 +191,7 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                 ) : user.status == "failed" || user.status == null || user.status == "" ? (
 
                     <div className="flex flex-col gap-3 w-full items-start">
+                        
                         {Object.keys(infos).map((key, i) => {
                             const text =
                                 displayedInfos[key][infos[key].toString()].text;

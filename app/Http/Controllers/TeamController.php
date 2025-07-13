@@ -12,7 +12,8 @@ use Illuminate\Support\Str;
 
 class TeamController extends Controller
 {
-    const MAX_PARTICIPANTS = 5;
+    const MAX_PARTICIPANTS_NON_24 = 5;
+    const MAX_PARTICIPANTS_24 = 3;
 
     public function show($teamId)
     {
@@ -58,14 +59,24 @@ class TeamController extends Controller
 
     public function join($token)
     {
+        $user_login = Auth::user();
+        // dd($user_login);
         $team = Team::where('token', $token)->first();
         if (!$team) return back()->with('msg', 'Tim tidak ditemukan.');
 
         $teamId = $team->id;
         $teamMembersCount = User::where('team_id', $teamId)->count();
 
-        if ($teamMembersCount == self::MAX_PARTICIPANTS) {
-            return back()->with('msg', 'Tim sudah penuh!');
+
+        // cek non 24
+        if (str_contains($user_login->nim, '24')) {
+            if ($teamMembersCount == self::MAX_PARTICIPANTS_24) {
+                return back()->with('msg', 'Tim sudah penuh!');
+            }
+        } else {
+            if ($teamMembersCount == self::MAX_PARTICIPANTS_NON_24) {
+                return back()->with('msg', 'Tim sudah penuh!');
+            }
         }
 
         User::find(Auth::id())->update(['team_id' => $teamId]);
