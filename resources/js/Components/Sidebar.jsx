@@ -167,7 +167,7 @@ export default function Sidebar({ user, navigations, children }) {
                                     </div>
                                     <IconDropdown className="w-9 h-9" />
                                 </div>
-                                <ul tabIndex={0} className="menu dropdown-content bg-base-100 rounded-box z-[1] md:w-52 w-full md:px-0 px-8 p-2 shadow">
+                                <ul tabIndex={0} className="menu dropdown-content rounded-box z-[1] md:w-52 w-full md:px-0 px-8 p-2 shadow bg-white">
                                     <li className="border-b-2 border-slate-200 ">
                                         <Link href={route("welcome")} className="flex flex-row gap-2 justify-start items-center font-medium text-[14px] light:text-[#404040] tracking-[0.11em]">
                                             <IconHome />
