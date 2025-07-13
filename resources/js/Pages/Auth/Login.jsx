@@ -151,13 +151,14 @@ export default function Login({ status, canResetPassword }) {
                                     </label>
                                 </div>
                                 {canResetPassword && (
-                                    <Link
-                                        href={route("password.request")}
-                                        className="link link-hover flex justify-center text-[16px]"
-                                        as="span"
-                                    >
-                                        Lupa password?
-                                    </Link>
+                                    <div className="text-sm text-end mt-3">
+                                        <Link
+                                            href={route('password.request')}
+                                            className="font-regular text-[#4880FF] hover:text-[#4880FF]/80 underline hover:no-underline transition-all duration-400 ease-in-out"
+                                        >
+                                            Forgot your password?
+                                        </Link>
+                                    </div>
                                 )}
                             </div>
                             <button

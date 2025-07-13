@@ -68,9 +68,9 @@ export default {
             {
                 dark: {
                     // ...require("daisyui/src/theming/themes")["dark"],
-                    // // primary: "#0079B9",
-                    // // secondary: "#94D8E9",
-                    // // background: "#1d232a",
+                    // primary: "#0079B9",
+                    // secondary: "#94D8E9",
+                    // background: "#1d232a",
                 },
                 light: {
                     ...require("daisyui/src/theming/themes")["light"],
