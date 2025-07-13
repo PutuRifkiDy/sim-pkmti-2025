@@ -22,12 +22,13 @@ import {
     TrashIcon,
     XMarkIcon,
 } from "@heroicons/react/24/solid";
-import { Link, router, useForm } from "@inertiajs/react";
+import { Link, router, useForm, usePage } from "@inertiajs/react";
 import Toast from "@/Components/Toast";
 import { useIsObjectEmpty, useRandomInt, useTruncatedString } from "@/utils";
 
 export default function ShowProposals({ auth, proposals, flash, errors, total_proposal, total_pending, total_accept, total_reject }) {
     const { user } = auth;
+    const { props } = usePage();
     const [filters, setFilters] = useState(null);
     const [globalFilterValue, setGlobalFilterValue] = useState("");
     const [visible, setVisible] = useState(false);
@@ -54,6 +55,30 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
             };
         })
     );
+
+    useEffect(() => {
+        setSelectedFields(
+            props.proposals.map((proposal) => {
+                return {
+                    id: proposal.id,
+                    title: proposal.title,
+                    description: proposal.description,
+                    team_id: proposal.team.id,
+                    team_name: proposal.team.team_name,
+                    lecturer: proposal.team.lecturer
+                        ? proposal.team.lecturer.name
+                        : "",
+                    scheme: proposal.scheme,
+                    draft_proposal_url: proposal.draft_proposal_url,
+                    final_proposal_url: proposal.final_proposal_url,
+                    note: proposal.note,
+                    assistance_proofs: proposal.team.assistance_proofs,
+                    status: proposal.status,
+                };
+            })
+        );
+        initFilters(); // Inisialisasi filter saat data berubah
+    }, [props.proposals]);
 
     useEffect(() => {
         initFilters();
@@ -145,7 +170,12 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
         const submit = (e) => {
             e.preventDefault();
 
-            patch(route("proposals.reject", rowData.id));
+            patch(route("proposals.reject", rowData.id), {
+                onSuccess: () => {
+                    // Ini akan memicu useEffect yang memperbarui selectedFields
+                    // karena props.proposals akan direfresh oleh Inertia.
+                }
+            });
             document
                 .getElementById("reject_proposal_modal" + rowData.id)
                 .close();
@@ -650,6 +680,16 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
                                             rowData.id
                                         )}
                                         className="font-bold bg-[#4DE45C] px-3 py-3 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white dark:text-gray-400 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#4DE45C]"
+                                        onSuccess={() => {
+                                            // Saat permintaan berhasil, perbarui status di state lokal
+                                            setSelectedFields((prevFields) =>
+                                                prevFields.map((proposal) =>
+                                                    proposal.id === rowData.id
+                                                        ? { ...proposal, status: 'approved' }
+                                                        : proposal
+                                                )
+                                            );
+                                        }}
                                     >
                                         <CheckIcon className="h-4 w-4" />
                                     </Link>

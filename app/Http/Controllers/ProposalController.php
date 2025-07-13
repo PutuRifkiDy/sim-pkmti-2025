@@ -102,7 +102,11 @@ class ProposalController extends Controller
 
     public function accept($proposalId)
     {
-        Proposal::find($proposalId)->update(['status' => 'approved']);
+        $proposal = Proposal::find($proposalId);
+        if ($proposal) {
+            $proposal->update(['status' => 'approved']);
+            return back()->with('msg', 'Proposal telah disetujui')->with(['inertia_reload' => true]);
+        }
 
         // send email to team leader
         // $proposalTitle = Proposal::find($proposalId)->title;
@@ -120,7 +124,7 @@ class ProposalController extends Controller
         // ];
         // dispatch(new SendEmailJob($emailArgs));
 
-        return to_route('admin.users')->with('msg', 'Proposal telah disetujui');
+        return back()->with('msg', 'Proposal tidak ditemukan')->with(['inertia_reload' => true]);
     }
 
     public function reject($proposalId, Request $request)
@@ -153,7 +157,7 @@ class ProposalController extends Controller
         // ];
         // dispatch(new SendEmailJob($emailArgs));
 
-        return to_route('admin.users')->with('msg', 'Proposal telah ditolak');
+        return back()->with('msg', 'Proposal telah ditolak')->with(['inertia_reload' => true]);
     }
 
     public function destroy($teamId)
