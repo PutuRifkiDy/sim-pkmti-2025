@@ -181,7 +181,7 @@ export default function UpdatePasswordForm() {
                 </div>
 
                 <button
-                    className="flex flex-row justify-center items-center font-bold bg-[#42A1A4] px-10 py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#59DFD1] dark:text-gray-200 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#42A1A4]"
+                    className="flex flex-row justify-center items-center font-bold bg-[#42A1A4] px-10 py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#59DFD1]  transition-all duration-300 shadow-[0_0_10px_#42A1A4]"
                     disabled={processing}
                     type="submit"
                 >

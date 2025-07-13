@@ -24,7 +24,7 @@ export default function NavBar({ auth }) {
 
     return (
         <nav
-            className={`navbar bg-base-100 p-0 lg:px-12 z-10 fixed top-0 flex-col items-start lg:items-center lg:flex-row ${
+            className={`navbar bg-white dark:bg-[#1d232a] p-0  lg:px-12 z-10 fixed top-0 flex-col items-start lg:items-center lg:flex-row ${
                 scrolled ? "shadow-md" : "shadow-none"
             } duration-300 z-20`}
         >
@@ -51,7 +51,7 @@ export default function NavBar({ auth }) {
                 } z-[-5] absolute left-0 bg-base-100 w-full flex-col items-start pt-6 pb-10 shadow-md lg:bg-transparent lg:relative lg:translate-y-0 lg:px-0 lg:shadow-none lg:py-0 lg:flex lg:flex-row lg:justify-between lg:items-center ease-out duration-500`}
             >
                 <div className="lg:navbar-center flex-col lg:flex">
-                    <ul className="menu menu-vertical lg:menu-horizontal gap-5">
+                    <ul className="menu menu-vertical lg:menu-horizontal gap-5 dark:text-gray-400">
                         <li>
                             <a href="#" className="hover:text-[#42A1A4] text-[18px]">Beranda</a>
                         </li>

@@ -154,7 +154,7 @@ export default function Dashboard({ auth, proposals, teams, users, proposal_ispe
                                 <div className="flex gap-2">
                                     <Link
                                         as="button"
-                                        className="font-bold bg-[#E82323] px-3 py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#E82323]/70 dark:text-gray-400 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#E82323] tooltip"
+                                        className="font-bold bg-[#E82323] px-3 py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#E82323]/70 transition-all duration-300 shadow-[0_0_10px_#E82323] tooltip"
                                         method="delete"
                                         href={route("teams.kick", [rowData.id, member.id])}
                                         data-tip="Keluarkan Anggota Ini"
@@ -165,7 +165,7 @@ export default function Dashboard({ auth, proposals, teams, users, proposal_ispe
                                     {member.nim !== rowData.leader_nim && (
                                         <Link
                                             as="button"
-                                            className="font-bold bg-[#f5bc42] px-3 py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#f5bc42]/70 dark:text-gray-400 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#f5bc42] tooltip"
+                                            className="font-bold bg-[#f5bc42] px-3 py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#f5bc42]/70 transition-all duration-300 shadow-[0_0_10px_#f5bc42] tooltip"
                                             method="patch"
                                             href={route("teams.changeLeader", [rowData.id, member.id])}
                                             data-tip="Ganti Menjadi Ketua Tim"
@@ -255,31 +255,31 @@ export default function Dashboard({ auth, proposals, teams, users, proposal_ispe
         <>
             <AdminLayout user={auth.user} title="Admin">
                 <div className="flex flex-col md:flex-row justify-between gap-2">
-                    <div className="flex flex-row gap-10 rounded-[14px] p-5 bg-white dark:bg-[#181d23] shadow">
+                    <div className="flex flex-row gap-10 rounded-[14px] p-5 bg-white  shadow">
                         <div className="flex flex-col gap-1">
-                            <p className="font-medium text-[16px] text-[#202224]/70 dark:text-white/70 tracking-[0.03em]">Jumlah Pengguna</p>
-                            <p className="font-bold text-[28px] tracking-[1px] dark:text-white">{users}</p>
+                            <p className="font-medium text-[16px] text-[#202224]/70  tracking-[0.03em]">Jumlah Pengguna</p>
+                            <p className="font-bold text-[28px] tracking-[1px] ">{users}</p>
                         </div>
                         <img src="/images/admin/icon-jumlah-pengguna.png" className="w-[60px] h-[60px]" alt="" />
                     </div>
-                    <div className="flex flex-row gap-12 rounded-[14px] p-5 bg-white dark:bg-[#181d23] shadow">
+                    <div className="flex flex-row gap-12 rounded-[14px] p-5 bg-white  shadow">
                         <div className="flex flex-col gap-1">
-                            <p className="font-medium text-[16px] text-[#202224]/70 dark:text-white/70 tracking-[0.03em]">Jumlah Tim</p>
-                            <p className="font-bold text-[28px] tracking-[1px] dark:text-white">{teams}</p>
+                            <p className="font-medium text-[16px] text-[#202224]/70  tracking-[0.03em]">Jumlah Tim</p>
+                            <p className="font-bold text-[28px] tracking-[1px] ">{teams}</p>
                         </div>
                         <img src="/images/admin/icon-jumlah-tim.png" className="w-[60px] h-[60px]" alt="" />
                     </div>
-                    <div className="flex flex-row gap-12 rounded-[14px] p-5 bg-white dark:bg-[#181d23] shadow">
+                    <div className="flex flex-row gap-12 rounded-[14px] p-5 bg-white  shadow">
                         <div className="flex flex-col gap-1">
-                            <p className="font-medium text-[16px] text-[#202224]/70 dark:text-white/70 tracking-[0.03em]">Jumlah Proposal</p>
-                            <p className="font-bold text-[28px] tracking-[1px] dark:text-white">{proposals}</p>
+                            <p className="font-medium text-[16px] text-[#202224]/70  tracking-[0.03em]">Jumlah Proposal</p>
+                            <p className="font-bold text-[28px] tracking-[1px] ">{proposals}</p>
                         </div>
                         <img src="/images/admin/icon-jumlah-proposal.png" className="w-[60px] h-[60px]" alt="" />
                     </div>
-                    <div className="flex flex-row gap-12 rounded-[14px] p-5 bg-white dark:bg-[#181d23] shadow">
+                    <div className="flex flex-row gap-12 rounded-[14px] p-5 bg-white  shadow">
                         <div className="flex flex-col gap-1">
-                            <p className="font-medium text-[16px] text-[#202224]/70 dark:text-white/70 tracking-[0.03em]">Jumlah Pending</p>
-                            <p className="font-bold text-[28px] tracking-[1px] dark:text-white">
+                            <p className="font-medium text-[16px] text-[#202224]/70  tracking-[0.03em]">Jumlah Pending</p>
+                            <p className="font-bold text-[28px] tracking-[1px] ">
                                 {proposal_ispending}
                             </p>
                         </div>
@@ -287,7 +287,7 @@ export default function Dashboard({ auth, proposals, teams, users, proposal_ispe
                     </div>
                 </div>
 
-                <div className="px-8 py-8 rounded-[14px] mt-10 bg-white dark:bg-[#181d23] shadow">
+                <div className="px-8 py-8 rounded-[14px] mt-10 bg-white  shadow">
                     <DataTable
                         value={teamsData}
                         paginator
@@ -303,7 +303,7 @@ export default function Dashboard({ auth, proposals, teams, users, proposal_ispe
                         emptyMessage="Tidak ada data ditemukan."
                         onFilter={(e) => setFilters(e.filters)}
                         tableStyle={{ minWidth: '50rem' }}
-                        className="bg-[#42A1A4]/15 dark:bg-gray-800"
+                        className="bg-[#42A1A4]/15"
                     >
 
                         <Column field="" header="#" body={rowNumberTemplate} filterPlaceholder="Cari Nama Tim" />

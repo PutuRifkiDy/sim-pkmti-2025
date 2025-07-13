@@ -150,9 +150,9 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
     const statusBadge = (rowData) => {
         const status = rowData.status;
         const statuses = {
-            approved: { style: "font-bold bg-[#4DE45C] px-3 py-1 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white dark:text-gray-400 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#4DE45C]", content: "Diterima" },
-            rejected: { style: "font-bold bg-[#F93C65] px-3 py-1 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white dark:text-gray-400 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#F93C65]", content: "Ditolak" },
-            pending: { style: "font-bold bg-[#CFD249] px-3 py-1 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white dark:text-gray-400 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#CFD249]", content: "Diperiksa" },
+            approved: { style: "font-bold bg-[#4DE45C] px-3 py-1 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white  transition-all duration-300 shadow-[0_0_10px_#4DE45C]", content: "Diterima" },
+            rejected: { style: "font-bold bg-[#F93C65] px-3 py-1 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white  transition-all duration-300 shadow-[0_0_10px_#F93C65]", content: "Ditolak" },
+            pending: { style: "font-bold bg-[#CFD249] px-3 py-1 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white  transition-all duration-300 shadow-[0_0_10px_#CFD249]", content: "Diperiksa" },
         };
 
         return (
@@ -191,7 +191,7 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
                             )
                             .showModal()
                     }
-                    className="font-bold bg-[#E82323] px-3 py-3 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white dark:text-gray-400 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#E82323]"
+                    className="font-bold bg-[#E82323] px-3 py-3 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white  transition-all duration-300 shadow-[0_0_10px_#E82323]"
                 >
                     <XMarkIcon className="h-4 w-4" />
                 </button>
@@ -465,31 +465,31 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
 
             <AdminLayout user={user} title="Admin">
                 <div className="flex flex-col md:flex-row justify-between gap-2 mt-5">
-                    <div className="flex flex-row gap-10 rounded-[14px] p-5 bg-white dark:bg-[#181d23] shadow">
+                    <div className="flex flex-row gap-10 rounded-[14px] p-5 bg-white  shadow">
                         <div className="flex flex-col gap-1">
-                            <p className="font-medium text-[16px] light:text-[#202224]/70 dark:text-white/70 tracking-[0.03em]">Jumlah Proposal</p>
-                            <p className="dark:text-white font-bold text-[28px] tracking-[1px]">{total_proposal}</p>
+                            <p className="font-medium text-[16px] light:text-[#202224]/70  tracking-[0.03em]">Jumlah Proposal</p>
+                            <p className=" font-bold text-[28px] tracking-[1px]">{total_proposal}</p>
                         </div>
                         <img src="/images/admin/icon-jumlah-pengguna.png" className="w-[60px] h-[60px]" alt="" />
                     </div>
-                    <div className="flex flex-row gap-12 rounded-[14px] p-5 bg-white dark:bg-[#181d23] shadow">
+                    <div className="flex flex-row gap-12 rounded-[14px] p-5 bg-white  shadow">
                         <div className="flex flex-col gap-1">
-                            <p className="font-medium text-[16px] light:text-[#202224]/70 dark:text-white/70 tracking-[0.03em]">Jumlah Diterima</p>
-                            <p className="dark:text-white font-bold text-[28px] tracking-[1px]">{total_accept}</p>
+                            <p className="font-medium text-[16px] light:text-[#202224]/70  tracking-[0.03em]">Jumlah Diterima</p>
+                            <p className=" font-bold text-[28px] tracking-[1px]">{total_accept}</p>
                         </div>
                         <img src="/images/admin/icon-jumlah-tim.png" className="w-[60px] h-[60px]" alt="" />
                     </div>
-                    <div className="flex flex-row gap-12 rounded-[14px] p-5 bg-white dark:bg-[#181d23] shadow">
+                    <div className="flex flex-row gap-12 rounded-[14px] p-5 bg-white  shadow">
                         <div className="flex flex-col gap-1">
-                            <p className="font-medium text-[16px] light:text-[#202224]/70 dark:text-white/70 tracking-[0.03em]">Jumlah Diperiksa</p>
-                            <p className="dark:text-white font-bold text-[28px] tracking-[1px]">{total_pending}</p>
+                            <p className="font-medium text-[16px] light:text-[#202224]/70  tracking-[0.03em]">Jumlah Diperiksa</p>
+                            <p className=" font-bold text-[28px] tracking-[1px]">{total_pending}</p>
                         </div>
                         <img src="/images/admin/icon-jumlah-proposal.png" className="w-[60px] h-[60px]" alt="" />
                     </div>
-                    <div className="flex flex-row gap-12 rounded-[14px] p-5 bg-white dark:bg-[#181d23] shadow">
+                    <div className="flex flex-row gap-12 rounded-[14px] p-5 bg-white  shadow">
                         <div className="flex flex-col gap-1">
-                            <p className="font-medium text-[16px] light:text-[#202224]/70 dark:text-white/70 tracking-[0.03em]">Jumlah Ditolak</p>
-                            <p className="font-bold text-[28px] tracking-[1px] dark:text-white">
+                            <p className="font-medium text-[16px] light:text-[#202224]/70  tracking-[0.03em]">Jumlah Ditolak</p>
+                            <p className="font-bold text-[28px] tracking-[1px] ">
                                 {total_reject}
                             </p>
                         </div>
@@ -511,7 +511,7 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
                         </div>
                     </div>
                 )}
-                <div className="px-8 py-8 rounded-[14px] bg-white dark:bg-[#181d23] mt-10 shadow">
+                <div className="px-8 py-8 rounded-[14px] bg-white  mt-10 shadow">
                     <DataTable
                         paginator
                         showGridlines
@@ -679,7 +679,7 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
                                             "proposals.accept",
                                             rowData.id
                                         )}
-                                        className="font-bold bg-[#4DE45C] px-3 py-3 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white dark:text-gray-400 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#4DE45C]"
+                                        className="font-bold bg-[#4DE45C] px-3 py-3 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white  transition-all duration-300 shadow-[0_0_10px_#4DE45C]"
                                         onSuccess={() => {
                                             // Saat permintaan berhasil, perbarui status di state lokal
                                             setSelectedFields((prevFields) =>
@@ -714,7 +714,7 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
                                 return (
                                     <Button
                                         unstyled
-                                        className="font-bold bg-[#E82323] px-3 py-3 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#E82323]/70 dark:text-gray-400 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#E82323] text-center"
+                                        className="font-bold bg-[#E82323] px-3 py-3 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#E82323]/70  transition-all duration-300 shadow-[0_0_10px_#E82323] text-center"
                                         onClick={() => {
                                             setProposalToDelete(rowData);
                                             setVisible(true);

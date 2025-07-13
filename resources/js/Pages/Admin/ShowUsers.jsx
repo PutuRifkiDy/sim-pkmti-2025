@@ -166,8 +166,8 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
     const statusBadge = (rowData) => {
         const status = rowData.status;
         const statuses = {
-            passed: { style: "font-bold bg-[#00B69B] px-3 py-1 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white dark:text-gray-400 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#00B69B]", content: "Lulus" },
-            failed: { style: "font-bold bg-[#F93C65] px-3 py-1 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white dark:text-gray-400 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#F93C65]", content: "Gagal" },
+            passed: { style: "font-bold bg-[#00B69B] px-3 py-1 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white   transition-all duration-300 shadow-[0_0_10px_#00B69B]", content: "Lulus" },
+            failed: { style: "font-bold bg-[#F93C65] px-3 py-1 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white   transition-all duration-300 shadow-[0_0_10px_#F93C65]", content: "Gagal" },
         };
 
         return (
@@ -372,38 +372,38 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
             )}
             <AdminLayout user={user} title="Admin">
                 <div className="flex flex-col md:flex-row justify-between gap-2">
-                    <div className="flex flex-row gap-5 bg-white dark:bg-[#181d23] rounded-[14px] p-5 shadow">
+                    <div className="flex flex-row gap-5 bg-white rounded-[14px] p-5 shadow">
                         <div className="flex flex-col gap-1">
-                            <p className="font-medium text-[16px] text-[#202224]/70 dark:text-white/70 tracking-[0.03em]">Jumlah Angkatan 2021</p>
-                            <p className="font-bold text-[28px] tracking-[1px] dark:text-white">{akt21}</p>
+                            <p className="font-medium text-[16px] text-[#202224]/70  tracking-[0.03em]">Jumlah Angkatan 2021</p>
+                            <p className="font-bold text-[28px] tracking-[1px] ">{akt21}</p>
                         </div>
                         <img src="/images/admin/icon-jumlah-pengguna.png" className="w-[60px] h-[60px]" alt="" />
                     </div>
-                    <div className="flex flex-row gap-5 bg-white dark:bg-[#181d23] rounded-[14px] p-5 shadow">
+                    <div className="flex flex-row gap-5 bg-white rounded-[14px] p-5 shadow">
                         <div className="flex flex-col gap-1">
-                            <p className="font-medium text-[16px] text-[#202224]/70 tracking-[0.03em] dark:text-white/70">Jumlah Angkatan 2022</p>
-                            <p className="dark:text-white font-bold text-[28px] tracking-[1px]">{akt22}</p>
+                            <p className="font-medium text-[16px] text-[#202224]/70 tracking-[0.03em] ">Jumlah Angkatan 2022</p>
+                            <p className=" font-bold text-[28px] tracking-[1px]">{akt22}</p>
                         </div>
                         <img src="/images/admin/icon-jumlah-pengguna.png" className="w-[60px] h-[60px]" alt="" />
                     </div>
-                    <div className="flex flex-row gap-5 bg-white dark:bg-[#181d23] rounded-[14px] p-5 shadow">
+                    <div className="flex flex-row gap-5 bg-white rounded-[14px] p-5 shadow">
                         <div className="flex flex-col gap-1">
-                            <p className="font-medium text-[16px] text-[#202224]/70 tracking-[0.03em] dark:text-white/70">Jumlah Angkatan 2023</p>
-                            <p className=" dark:text-whitefont-bold text-[28px] tracking-[1px]">{akt23}</p>
+                            <p className="font-medium text-[16px] text-[#202224]/70 tracking-[0.03em] ">Jumlah Angkatan 2023</p>
+                            <p className=" font-bold text-[28px] tracking-[1px]">{akt23}</p>
                         </div>
                         <img src="/images/admin/icon-jumlah-pengguna.png" className="w-[60px] h-[60px]" alt="" />
                     </div>
-                    <div className="flex flex-row gap-5 bg-white dark:bg-[#181d23] rounded-[14px] p-5 shadow">
+                    <div className="flex flex-row gap-5 bg-white rounded-[14px] p-5 shadow">
                         <div className="flex flex-col gap-1">
-                            <p className="dark:text-white/70 font-medium text-[16px] text-[#202224]/70 tracking-[0.03em]">Jumlah Angkatan 2024</p>
-                            <p className="dark:text-white font-bold text-[28px] tracking-[1px]">
+                            <p className=" font-medium text-[16px] text-[#202224]/70 tracking-[0.03em]">Jumlah Angkatan 2024</p>
+                            <p className=" font-bold text-[28px] tracking-[1px]">
                                 {akt24}
                             </p>
                         </div>
                         <img src="/images/admin/icon-jumlah-pengguna.png" className="w-[60px] h-[60px]" alt="" />
                     </div>
                 </div>
-                <div className="bg-white dark:bg-[#181d23] px-8 py-8 rounded-[14px] mt-10 shadow">
+                <div className="bg-white px-8 py-8 rounded-[14px] mt-10 shadow">
                     {!useIsObjectEmpty(errors) && (
                         <div className="alert alert-error mb-4" role="alert">
                             <ExclamationTriangleIcon className="h-6 w-6" />
@@ -549,7 +549,7 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                                 return (
                                     <Button
                                         unstyled
-                                        className="font-bold bg-[#E82323] px-3 py-3 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#E82323]/70 dark:text-gray-400 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#E82323] text-center"
+                                        className="font-bold bg-[#E82323] px-3 py-3 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#E82323]/70   transition-all duration-300 shadow-[0_0_10px_#E82323] text-center"
                                         onClick={() => {
                                             setUserToDelete(rowData);
                                             setVisible(true);

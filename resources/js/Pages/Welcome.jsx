@@ -92,7 +92,7 @@ export default function Welcome({ auth }) {
             <NavBar auth={auth} />
             {/* End Navbar */}
 
-            <main className="md:px-12 px-2 pt-24 light:bg-[#F7F7F7] overflow-x-hidden">
+            <main className="md:px-12 px-2 pt-24 light:bg-[#F7F7F7] overflow-x-hidden dark:bg-[#1d232a]">
                 {/* Start HomePage */}
                 <section className="flex md:flex-row flex-col-reverse max-w-full justify-between pb-20">
                     {/* Home Page Bagian Kiri */}
@@ -157,7 +157,7 @@ export default function Welcome({ auth }) {
                                         Sign Up Now
                                     </Link>
                                     {/* You can open the modal using document.getElementById('ID').showModal() method */}
-                                    <button className="font-bold border-[1px] border-slate-300 px-6 py-2 rounded-md text-[#59DFD1] hover:text-white hover:bg-[#42A1A4] dark:text-gray-400 dark:hover:text-white transition-all duration-300 flex flex-row gap-2 justify-center items-center hover:shadow-[0_0_10px_#42A1A4]" onClick={() => document.getElementById('my_modal_3').showModal()}>View Demo</button>
+                                    <button className="font-bold border-[1px] border-slate-300 px-6 py-2 rounded-md text-[#59DFD1] hover:text-white hover:bg-[#42A1A4] dark:text-gray-400 dark:hover:text-white transition-all duration-300 flex flex-row gap-2 justify-center items-center hover:shadow-[0_0_10px_#42A1A4] " onClick={() => document.getElementById('my_modal_3').showModal()}>View Demo</button>
                                     <dialog id="my_modal_3" className="modal">
                                         <div className="modal-box w-11/12 max-w-5xl">
                                             <form method="dialog">
@@ -203,47 +203,47 @@ export default function Welcome({ auth }) {
                         variants={variantFade(0, 100)}
                         initial="hidden"
                         animate={controls}
-                        className="flex md:flex-row flex-col justify-between gap-5 px-12 py-10 max-w-full shadow-xl border border-base-300 rounded-2xl"
+                        className="flex md:flex-row flex-col justify-between gap-5 px-12 py-10 max-w-full shadow-xl border border-base-300 rounded-2xl dark:border-gray-400"
                     >
                         <div className="flex flex-row gap-4 sm:pr-10">
-                            <BookmarkSquareIcon className="w-6 h-6 font-extrabold" />
+                            <BookmarkSquareIcon className="w-6 h-6 font-extrabold dark:text-gray-400 text-black" />
                             <div className="block">
-                                <span className="capitalize text-gray-400 font-normal text-sm md:text-base">
+                                <span className="capitalize text-black dark:text-gray-400 font-normal text-sm md:text-base">
                                     Agenda Acara
                                 </span>
 
-                                <p className="text-base md:text-sm font-light">
+                                <p className="text-base md:text-sm font-light dark:text-gray-400">
                                     Pembukaan PKM-TI 2024
                                 </p>
                             </div>
                         </div>
 
-                        <div className="divider divider-horizontal before:bg-black after:bg-black"></div>
+                        <div className="divider divider-horizontal before:bg-black after:bg-black dark:before:bg-gray-400 dark:after:bg-gray-400"></div>
 
                         <div className="flex flex-row gap-4">
-                            <CalendarDaysIcon className="w-6 h-6 font-extrabold" />
+                            <CalendarDaysIcon className="w-6 h-6 font-extrabold dark:text-gray-400" />
                             <div className="block">
-                                <span className="capitalize text-gray-400 font-normal text-sm md:text-base">
+                                <span className="capitalize text-black dark:text-gray-400 font-normal text-sm md:text-base">
                                     Date
                                 </span>
 
-                                <p className="text-base md:text-sm font-light">
+                                <p className="text-base md:text-sm font-light dark:text-gray-400">
                                     Minggu, 4 Februari 2024
                                 </p>
                             </div>
                         </div>
 
-                        <div className="divider divider-horizontal before:bg-black after:bg-black"></div>
+                        <div className="divider divider-horizontal before:bg-black after:bg-black dark:before:bg-gray-400 dark:after:bg-gray-400"></div>
 
                         <div className="flex flex-row gap-4">
-                            <MapPinIcon className="w-6 h-6 font-extrabold" />
+                            <MapPinIcon className="w-6 h-6 font-extrabold dark:text-gray-400"  />
 
                             <div className="block">
-                                <span className="capitalize text-gray-400 font-normal text-sm md:text-base">
+                                <span className="capitalize text-dark dark:text-gray-400 font-normal text-sm md:text-base">
                                     Lokasi Acara
                                 </span>
 
-                                <p className="text-base md:text-sm font-light ">
+                                <p className="text-base md:text-sm font-light dark:text-gray-400">
                                     Gedung Teknologi Informasi Fakultas
                                     Teknik Universitas Udayana
                                 </p>
@@ -506,7 +506,7 @@ export default function Welcome({ auth }) {
                         <h3 className="capitalize text-3xl md:text-[48px] lg:text-5xl font-bold text-[#285B70] leading-12 md:leading-16">
                             Bertemu dengan mereka yang sudah profesional
                         </h3>
-                        <p className="text-[18px] leading-[1.5em] font-normal light:text-[#111E41] mt-3">
+                        <p className="text-[18px] leading-[1.5em] font-normal light:text-[#111E41] mt-3 dark:text-gray-400">
                             Selamatkan tempat di barisan terdepan karena
                             kami mempersembahkan Narasumber yang luar biasa
                             di acara spesial PKM kami! Bersiaplah untuk
@@ -585,9 +585,9 @@ export default function Welcome({ auth }) {
                         variants={variantFade(-100, 0)}
                         initial="hidden"
                         animate={controls}
-                        className="font-sans my-3 md:my-5 flex w-full justify-end z-10 md:pl-20"
+                        className="font-sans my-3 md:my-5 flex w-full justify-end z-10 md:pl-20 "
                     >
-                        <div className="w-full md:w-[466px] ml-5 md:ml-0 mr-0 md:mr-18 p-4 border shadow-lg rounded-md ">
+                        <div className="w-full md:w-[466px] ml-5 md:ml-0 mr-0 md:mr-18 p-4 border shadow-lg rounded-md dark:text-gray-400">
                             <h3 className="text-[16px] md:text-[20px] font-bold">Pendaftaran dan Pengumpulan Judul</h3>
                             <p className="text-[14px] md:text-[16px] font-medium mb-1">⌛ 8 - 14 Maret 2024
                             </p>
@@ -601,7 +601,7 @@ export default function Welcome({ auth }) {
                         animate={controls}
                         className="font-sans my-3 md:my-12 flex w-full justify-end md:justify-start z-10 pr-0 md:pr-24"
                     >
-                        <div className="w-full md:w-[466px] ml-5 md:ml-18 p-4 border shadow-lg rounded-md">
+                        <div className="w-full md:w-[466px] ml-5 md:ml-18 p-4 border shadow-lg rounded-md dark:text-gray-400">
                             <h3 className="text-[16px] md:text-[20px] font-bold">Seleksi Judul</h3>
                             <p className="text-[14px] md:text-[16px] font-medium mb-1">⌛
                                 8 - 21 Maret 2024
@@ -616,7 +616,7 @@ export default function Welcome({ auth }) {
                         animate={controls}
                         className="font-sans my-10 md:my-5 flex w-full justify-end z-10 pl-0 md:pl-20"
                     >
-                        <div className="w-full md:w-[466px] ml-5 md:ml-0 mr-0 md:mr-18 p-4 border shadow-lg rounded-md">
+                        <div className="w-full md:w-[466px] ml-5 md:ml-0 mr-0 md:mr-18 p-4 border shadow-lg rounded-md dark:text-gray-400">
                             <h3 className="text-[16px] md:text-[20px] font-bold">Pengumuman Tim Terdaftar</h3>
                             <p className="text-[14px] md:text-[16px] font-medium mb-1">⌛
                                 22 Maret 2024
@@ -631,7 +631,7 @@ export default function Welcome({ auth }) {
                         animate={controls}
                         className="font-sans my-3 md:my-16 flex w-full justify-end md:justify-start z-10 pr-0 md:pr-24"
                     >
-                        <div className="w-full md:w-[466px] ml-5 md:ml-18 p-4 border shadow-lg rounded-md">
+                        <div className="w-full md:w-[466px] ml-5 md:ml-18 p-4 border shadow-lg rounded-md dark:text-gray-400">
                             <h3 className="text-[16px] md:text-[20px] font-bold">Technical Meeting Peserta</h3>
                             <p className="text-[14px] md:text-[16px] font-medium mb-1">⌛
                                 23 Maret 2024
@@ -652,7 +652,7 @@ export default function Welcome({ auth }) {
                         animate={controls}
                         className="font-sans my-3 md:my-5 flex w-full justify-end z-10 pl-0 md:pl-20"
                     >
-                        <div className="w-full md:w-[466px] ml-5 md:ml-0 mr-0 md:mr-18 p-4 border shadow-lg rounded-md">
+                        <div className="w-full md:w-[466px] ml-5 md:ml-0 mr-0 md:mr-18 p-4 border shadow-lg rounded-md dark:text-gray-400">
                             <h3 className="text-[16px] md:text-[20px] font-bold">Pelatihan PKM TI 2024</h3>
                             <p className="text-[14px] md:text-[16px] font-medium mb-1">⌛
                                 30 Maret 2024
@@ -667,7 +667,7 @@ export default function Welcome({ auth }) {
                         animate={controls}
                         className="font-sans my-3 md:my-12 flex w-full justify-end md:justify-start z-10 pr-0 md:pr-24"
                     >
-                        <div className="w-full md:w-[466px] ml-5 md:ml-18 p-4 border shadow-lg rounded-md">
+                        <div className="w-full md:w-[466px] ml-5 md:ml-18 p-4 border shadow-lg rounded-md dark:text-gray-400">
                             <h3 className="text-[16px] md:text-[20px] font-bold">Masa Asistensi Draf Proposal PKM TI</h3>
                             <p className="text-[14px] md:text-[16px] font-medium mb-1">⌛
                                 30 Maret - 17 Mei 2024
@@ -682,7 +682,7 @@ export default function Welcome({ auth }) {
                         animate={controls}
                         className="font-sans my-10 md:my-5 flex w-full justify-end z-10 pl-0 md:pl-20"
                     >
-                        <div className="w-full md:w-[466px] ml-5 md:ml-0 mr-0 md:mr-18 p-4 border shadow-lg rounded-md">
+                        <div className="w-full md:w-[466px] ml-5 md:ml-0 mr-0 md:mr-18 p-4 border shadow-lg rounded-md dark:text-gray-400">
                             <h3 className="text-[16px] md:text-[20px] font-bold">Pengumpulan Bukti Asistensi</h3>
                             <p className="text-[14px] md:text-[16px] font-medium mb-1">⌛
                                 31 Maret - 16 Mei 2024
@@ -698,7 +698,7 @@ export default function Welcome({ auth }) {
                         animate={controls}
                         className="font-sans my-3 md:my-14 flex w-full justify-end md:justify-start z-10 pr-0 md:pr-24"
                     >
-                        <div className="w-full md:w-[466px] ml-5 md:ml-18 p-4 border shadow-lg rounded-md">
+                        <div className="w-full md:w-[466px] ml-5 md:ml-18 p-4 border shadow-lg rounded-md dark:text-gray-400">
                             <h3 className="text-[16px] md:text-[20px] font-bold">Pengumpulan Draf Proposal</h3>
                             <p className="text-[14px] md:text-[16px] font-medium mb-1">⌛
                                 11 - 17 Mei 2024
@@ -713,7 +713,7 @@ export default function Welcome({ auth }) {
                         animate={controls}
                         className="font-sans my-3 md:my-5 flex w-full justify-end z-10 pl-0 md:pl-20"
                     >
-                        <div className="w-full md:w-[466px] ml-5 md:ml-0 mr-0 md:mr-18 p-4 border shadow-lg rounded-md">
+                        <div className="w-full md:w-[466px] ml-5 md:ml-0 mr-0 md:mr-18 p-4 border shadow-lg rounded-md dark:text-gray-400">
                             <h3 className="text-[16px] md:text-[20px] font-bold">Klinik PKM TI 2024</h3>
                             <p className="text-[14px] md:text-[16px] font-medium mb-1">⌛
                                 8 Juni 2024
@@ -728,7 +728,7 @@ export default function Welcome({ auth }) {
                         animate={controls}
                         className="font-sans my-3 md:my-5 flex w-full justify-end md:justify-start z-10 pr-0 md:pr-24"
                     >
-                        <div className="w-full md:w-[466px] ml-5 md:ml-18 p-4 border shadow-lg rounded-md">
+                        <div className="w-full md:w-[466px] ml-5 md:ml-18 p-4 border shadow-lg rounded-md dark:text-gray-400">
                             <h3 className="text-[16px] md:text-[20px] font-bold">Pengumpulan Proposal Final</h3>
                             <p className="text-[14px] md:text-[16px] font-medium mb-1">⌛
                                 12 - 15 Juni 2024
@@ -743,7 +743,7 @@ export default function Welcome({ auth }) {
                         animate={controls}
                         className="font-sans my-3 md:my-16 flex w-full justify-end z-10 pl-0 md:pl-20"
                     >
-                        <div className="w-full md:w-[466px] ml-5 md:ml-0 mr-0 md:mr-18 p-4 border shadow-lg rounded-md">
+                        <div className="w-full md:w-[466px] ml-5 md:ml-0 mr-0 md:mr-18 p-4 border shadow-lg rounded-m dark:text-gray-400">
                             <h3 className="text-[16px] md:text-[20px] font-bold">Pengumuman Kelulusan Pelatihan PKM TI 2024</h3>
                             <p className="text-[14px] md:text-[16px] font-medium mb-1">⌛
                                 22 Juni 2024
@@ -899,7 +899,7 @@ export default function Welcome({ auth }) {
                                 variants={variantZoom}
                                 initial="hidden"
                                 animate={controls}
-                                className="flex flex-col gap-2 md:w-[636px] w-full"
+                                className="flex flex-col gap-2 md:w-[636px] w-full dark:text-gray-400"
                             >
                                 <Accordion
                                     heading="Apa itu guidebook pelatihan PKM?"
@@ -934,7 +934,7 @@ export default function Welcome({ auth }) {
                                 variants={variantZoom}
                                 initial="hidden"
                                 animate={controls}
-                                className="flex flex-col gap-2 md:w-[636px] w-full"
+                                className="flex flex-col gap-2 md:w-[636px] w-full dark:text-gray-400"
                             >
                                 <Accordion
                                     heading="Apakah ada pembimbing yang akan memberikan masukan terhadap ide dan judul yang diajukan?"
@@ -965,7 +965,7 @@ export default function Welcome({ auth }) {
                         )}
                         {activeCategoryFaq === "Klinik PKM" && (
                             <motion.div
-                                className="flex flex-col gap-2 md:w-[636px] w-full"
+                                className="flex flex-col gap-2 md:w-[636px] w-full dark:text-gray-400"
                                 whileInView="visible"
                                 variants={variantZoom}
                                 initial="hidden"
@@ -1016,7 +1016,7 @@ export default function Welcome({ auth }) {
                         <h1 className="font-bold text-[48px] text-[#285B70]">
                             Kontak Kami
                         </h1>
-                        <p className="w-4/5 text-base text-center">
+                        <p className="w-4/5 text-base text-center dark:text-gray-400">
                             Jika Anda memiliki pertanyaan lebih lanjut, jangan ragu untuk menghubungi narahubung yang tertera di bawah ini.
                         </p>
                     </motion.div>
@@ -1027,7 +1027,7 @@ export default function Welcome({ auth }) {
                         animate={controls}
                         className="grid grid-cols-1 md:grid-cols-3 justify-between my-8 gap-16"
                     >
-                        <div className="flex flex-col gap-2 bg-[#285B70] py-4 pl-4 pr-24 rounded-b-2xl border-t-2 border-[#285B70] bg-opacity-20">
+                        <div className="flex flex-col gap-2 bg-[#285B70] py-4 pl-4 pr-24 rounded-b-2xl border-t-2 border-[#285B70] bg-opacity-20 dark:text-gray-400">
                             <h1 className="font-bold text-xl">Tiksna Apsari</h1>
                             <div className="flex flex-row justify-start gap-4">
                                 <IconLine />
@@ -1038,7 +1038,7 @@ export default function Welcome({ auth }) {
                                 <a href="wa.me/6285739490558" className="text-base text-[#2A3374] dark:text-white">+62 857-3949-0558</a>
                             </div>
                         </div>
-                        <div className="flex flex-col gap-2 bg-[#42A1A4] py-4 pl-4 pr-24 rounded-b-2xl border-t-2 border-[#42A1A4] bg-opacity-20">
+                        <div className="flex flex-col gap-2 bg-[#42A1A4] py-4 pl-4 pr-24 rounded-b-2xl border-t-2 border-[#42A1A4] bg-opacity-20 dark:text-gray-400">
                             <h1 className="font-bold text-xl">Dewa Ayu</h1>
                             <div className="flex flex-row justify-start gap-4">
                                 <IconLine />
@@ -1049,7 +1049,7 @@ export default function Welcome({ auth }) {
                                 <a href="wa.me/6285940899163" className="text-base text-[#2A3374] dark:text-white">+62 859-4089-9163</a>
                             </div>
                         </div>
-                        <div className="flex flex-col gap-2 bg-[#285B70] py-4 pl-4 pr-24 rounded-b-2xl border-t-2 border-[#285B70] bg-opacity-20">
+                        <div className="flex flex-col gap-2 bg-[#285B70] py-4 pl-4 pr-24 rounded-b-2xl border-t-2 border-[#285B70] bg-opacity-20 dark:text-gray-400">
                             <h1 className="font-bold text-xl">Putu Rifki</h1>
                             <div className="flex flex-row justify-start gap-4">
                                 <IconLine />
@@ -1075,7 +1075,7 @@ export default function Welcome({ auth }) {
             </main>
 
             {/* Start Footer */}
-            <footer className="footer p-12 bg-base-200 text-base-content grid-flow-row sm:grid-cols-2 md:grid-cols-6 gap-x-20">
+            <footer className="footer p-12 bg-base-200 text-base-content grid-flow-row sm:grid-cols-2 md:grid-cols-6 gap-x-20 dark:bg-[#191e24]">
                 <aside className="col-span-2 w-4/5 md:max-w-full">
                     <img
                         src="images/Logo-PKM-TI-2025.png"
@@ -1111,7 +1111,7 @@ export default function Welcome({ auth }) {
                     <a className="link link-hover mb-2">SMFT Udayana</a>
                 </nav>
             </footer>
-            <footer className="py-5 px-12 bg-base-300 text-slate-600">
+            <footer className="py-5 px-12 bg-base-300 text-slate-600 dark:bg-[#15191e] dark:text-gray-400 text-center">
                 <p>© 2025 PKM TI Udayana </p>
             </footer>
             {/* End Footer */}

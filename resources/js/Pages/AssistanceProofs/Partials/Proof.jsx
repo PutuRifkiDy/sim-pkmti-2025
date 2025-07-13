@@ -78,7 +78,7 @@ export default function Proof({ proof, order }) {
                 </div>
 
                 <div className="grid grid-cols-2 gap-2">
-                    <button className="w-full mb-2 flex flex-row justify-center items-center gap-2 font-bold bg-[#42A1A4] px-10 py-3 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#59DFD1] dark:text-gray-200 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#42A1A4]">
+                    <button className="w-full mb-2 flex flex-row justify-center items-center gap-2 font-bold bg-[#42A1A4] px-10 py-3 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#59DFD1]  transition-all duration-300 shadow-[0_0_10px_#42A1A4]">
                         <PencilIcon
                             className="h-6 w-6"
                             disabled={processing}
@@ -93,7 +93,7 @@ export default function Proof({ proof, order }) {
                             proof.id,
                         ])}
                         method="delete"
-                        className="w-full mb-2 flex flex-row justify-center items-center gap-2 font-bold bg-[#E82323] py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#E82323]/70 dark:text-gray-200 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#E82323]"
+                        className="w-full mb-2 flex flex-row justify-center items-center gap-2 font-bold bg-[#E82323] py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#E82323]/70 transition-all duration-300 shadow-[0_0_10px_#E82323]"
                     >
                         <TrashIcon className="h-6 w-6" />
                         Hapus

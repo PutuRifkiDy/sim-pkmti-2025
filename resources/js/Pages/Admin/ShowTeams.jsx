@@ -153,7 +153,7 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
                                 <div className="flex gap-2">
                                     <Link
                                         as="button"
-                                        className="font-bold bg-[#E82323] px-3 py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#E82323]/70 dark:text-gray-400 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#E82323] tooltip"
+                                        className="font-bold bg-[#E82323] px-3 py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#E82323]/70  transition-all duration-300 shadow-[0_0_10px_#E82323] tooltip"
                                         method="delete"
                                         href={route("teams.kick", [rowData.id, member.id])}
                                         data-tip="Keluarkan Anggota Ini"
@@ -164,7 +164,7 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
                                     {member.nim !== rowData.leader_nim && (
                                         <Link
                                             as="button"
-                                            className="font-bold bg-[#f5bc42] px-3 py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#f5bc42]/70 dark:text-gray-400 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#f5bc42] tooltip"
+                                            className="font-bold bg-[#f5bc42] px-3 py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#f5bc42]/70  transition-all duration-300 shadow-[0_0_10px_#f5bc42] tooltip"
                                             method="patch"
                                             href={route("teams.changeLeader", [rowData.id, member.id])}
                                             data-tip="Ganti Menjadi Ketua Tim"
@@ -357,10 +357,10 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
 
             <AdminLayout user={user} title="Admin">
                 <div className="grid md:grid-cols-4 grid-cols-1 gap-2">
-                    <div className="flex flex-row justify-between bg-white dark:bg-[#181d23] rounded-[14px] p-5 shadow">
+                    <div className="flex flex-row justify-between bg-white rounded-[14px] p-5 shadow">
                         <div className="flex flex-col gap-1">
-                            <p className="font-medium text-[16px] text-[#202224]/70 tracking-[0.03em] dark:text-white/70">Total Tim PKM</p>
-                            <p className="font-bold text-[28px] tracking-[1px] dark:text-white">{total_teams ? total_teams : 0}</p>
+                            <p className="font-medium text-[16px] text-[#202224]/70 tracking-[0.03em] ">Total Tim PKM</p>
+                            <p className="font-bold text-[28px] tracking-[1px] ">{total_teams ? total_teams : 0}</p>
                         </div>
                         <img src="/images/admin/icon-jumlah-pengguna.png" className="w-[60px] h-[60px]" alt="" />
                     </div>
@@ -381,7 +381,7 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
                             </div>
                         </div>
                     )}
-                    <div className="px-8 py-8 rounded-[14px] card bg-white dark:bg-[#181d23] mt-10 shadow">
+                    <div className="px-8 py-8 rounded-[14px] card bg-white mt-10 shadow">
                         <DataTable
                             paginator
                             showGridlines
@@ -490,7 +490,7 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
                                     return (
                                         <Button
                                             unstyled
-                                            className="font-bold bg-[#E82323] px-3 py-3 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#E82323]/70 dark:text-gray-400 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#E82323] text-center"
+                                            className="font-bold bg-[#E82323] px-3 py-3 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#E82323]/70  transition-all duration-300 shadow-[0_0_10px_#E82323] text-center"
                                             onClick={() => {
                                                 setTeamToDelete(rowData);
                                                 setVisible(true);

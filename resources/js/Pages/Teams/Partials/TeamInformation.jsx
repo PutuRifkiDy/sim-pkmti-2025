@@ -220,7 +220,7 @@ export default function TeamInformation({ user, team, lecturers }) {
                     <>
                         <div className="grid md:grid-cols-2 grid-cols-1 md:w-1/2 w-full gap-2 mt-5">
                             <button
-                                className="w-full mb-2 flex flex-row justify-center items-center gap-2 font-bold bg-[#42A1A4] px-10 py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#59DFD1] dark:text-gray-100 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#42A1A4]"
+                                className="w-full mb-2 flex flex-row justify-center items-center gap-2 font-bold bg-[#42A1A4] px-10 py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#59DFD1]   transition-all duration-300 shadow-[0_0_10px_#42A1A4]"
                                 disabled={processing}
                                 type="submit"
                             >
@@ -228,7 +228,7 @@ export default function TeamInformation({ user, team, lecturers }) {
                                 Simpan Perubahan
                             </button>
                             <button
-                                className="w-full mb-2 flex flex-row justify-center items-center gap-2 font-bold bg-[#42A1A4] px-10 py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#59DFD1] dark:text-gray-100 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#42A1A4]"
+                                className="w-full mb-2 flex flex-row justify-center items-center gap-2 font-bold bg-[#42A1A4] px-10 py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#59DFD1]   transition-all duration-300 shadow-[0_0_10px_#42A1A4]"
                                 disabled={processing}
                                 onClick={() =>
                                     setData("token", useRandomString(8))
@@ -246,7 +246,7 @@ export default function TeamInformation({ user, team, lecturers }) {
                 <Link
                     as="button"
                     method="delete"
-                    className="w-full mb-2 flex flex-row justify-center items-center gap-2 font-bold bg-[#E82323] py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#E82323]/70 dark:text-gray-100 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#E82323]"
+                    className="w-full mb-2 flex flex-row justify-center items-center gap-2 font-bold bg-[#E82323] py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#E82323]/70   transition-all duration-300 shadow-[0_0_10px_#E82323]"
                     href={route("teams.leave", useParam(1))}
                 >
                     <ArrowLeftEndOnRectangleIcon className="h-6 w-6" /> Keluar
@@ -257,7 +257,7 @@ export default function TeamInformation({ user, team, lecturers }) {
                     <Link
                         as="button"
                         method="delete"
-                        className="w-full mb-2 flex flex-row justify-center items-center gap-2 font-bold bg-[#E82323] py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#E82323]/70 dark:text-gray-100 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#E82323]"
+                        className="w-full mb-2 flex flex-row justify-center items-center gap-2 font-bold bg-[#E82323] py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#E82323]/70   transition-all duration-300 shadow-[0_0_10px_#E82323]"
                         href={route("teams.destroy", useParam(1))}
                     >
                         <PowerIcon className="h-6 w-6" /> Bubarkan Tim

@@ -18,7 +18,7 @@ function KickMember({ memberId }) {
             <Link
                 as="button"
                 method="delete"
-                className="font-bold bg-[#E82323] px-3 py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#E82323]/70 dark:text-gray-200 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#E82323]"
+                className="font-bold bg-[#E82323] px-3 py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#E82323]/70  transition-all duration-300 shadow-[0_0_10px_#E82323]"
                 href={route("teams.kick", [useParam(1), memberId])}
             >
                 <UserMinusIcon className="h-5 w-5" />
@@ -33,7 +33,7 @@ function ChangeLeader({ memberId }) {
             <Link
                 as="button"
                 method="patch"
-                className="font-bold bg-[#f5bc42] px-3 py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#f5bc42]/70 dark:text-gray-200 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#f5bc42]"
+                className="font-bold bg-[#f5bc42] px-3 py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#f5bc42]/70  transition-all duration-300 shadow-[0_0_10px_#f5bc42]"
                 href={route("teams.changeLeader", [useParam(1), memberId])}
             >
                 <ArrowsRightLeftIcon className="h-5 w-5" />
