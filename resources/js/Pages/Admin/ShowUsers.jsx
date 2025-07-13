@@ -507,7 +507,7 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                         <Column
                             key="have_team"
                             field="have_team"
-                            header="Tim"
+                            header="Status Tim"
                             filter
                             filterElement={TeamFilterTemplate}
                             sortable
