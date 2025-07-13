@@ -86,7 +86,7 @@ export default function Welcome({ auth }) {
 
     return (
         <>
-            <Head title="PKM TI" />
+            <Head title="Welcome" />
 
             {/* Start Navbar */}
             <NavBar auth={auth} />

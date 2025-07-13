@@ -6,7 +6,7 @@ import { useState } from "react";
 import ParticipantLayout from "@/Layouts/ParticipantLayout";
 import { IconJoinOrCreate } from "@/Components/IconAdmin";
 
-export default function JoinTeam({ auth }) {
+export default function JoinTeam({ auth, flash }) {
     const { user } = auth;
 
     const [isTokenEmpty, setIsTokenEmpty] = useState(false);
@@ -31,6 +31,14 @@ export default function JoinTeam({ auth }) {
                             key={useRandomInt()}
                             id="input-token-information"
                             content="Mohon masukkan token."
+                        />
+                    )}
+
+                    {flash.msg && (
+                        <Toast
+                            key={useRandomInt()}
+                            id="join_team_information"
+                            content={flash.msg}
                         />
                     )}
 
