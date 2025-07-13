@@ -152,14 +152,10 @@ export default function Sidebar({ user, navigations, children }) {
                                 <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="text-xl">
                                     <IconSideBar />
                                 </button>
-                                <DarkMode />
                             </div>
 
                             <div className="md:hidden flex divider h-[2px] w-auto md:w-full bg-slate-200 dark:bg-slate-600"></div>
 
-                            <div className="md:flex hidden">
-                                <DarkMode />
-                            </div>
                             <div className="dropdown">
                                 <div tabIndex={0} role="button" className="flex flex-row gap-5 md:justify-center justify-between items-center cursor-pointer md:w-full w-screen md:px-0 px-5">
                                     <div className="flex flex-row gap-3">
