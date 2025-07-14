@@ -92,9 +92,9 @@ export default function Welcome({ auth }) {
             <NavBar auth={auth} />
             {/* End Navbar */}
 
-            <main className="md:px-12 px-2 pt-24 light:bg-[#F7F7F7] overflow-x-hidden dark:bg-[#1d232a]">
+            <main className="md:px-12 px-2 pt-36 light:bg-[#F7F7F7] overflow-x-hidden dark:bg-[#1d232a]">
                 {/* Start HomePage */}
-                <section className="flex md:flex-row flex-col-reverse max-w-full justify-between pb-20">
+                <section className="flex md:flex-row flex-col-reverse max-w-full justify-between mb-36">
                     {/* Home Page Bagian Kiri */}
                     <motion.div
                         whileInView="visible"
@@ -105,7 +105,7 @@ export default function Welcome({ auth }) {
                     >
                         <div className="relative md:w-[581px] max-w-full md:h-[210px] h-[148px] text-center md:text-start">
                             <div className="md:absolute md:block hidden md:left-2 left-12 top-14 ">
-                                <IconTextHomePage/>
+                                <IconTextHomePage />
                             </div>
                             <p className="font-bold md:text-[64px] text-[36px] text-[#111E41] dark:text-[#42A1A4] leading-[1.1em]">Sistem Informasi Pelatihan PKM TI Udayana</p>
                         </div>
@@ -130,19 +130,19 @@ export default function Welcome({ auth }) {
                                     <dialog id="my_modal_3" className="modal">
                                         <div className="modal-box w-11/12 max-w-5xl">
                                             <form method="dialog">
-                                            {/* if there is a button in form, it will close the modal */}
-                                            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                                                {/* if there is a button in form, it will close the modal */}
+                                                <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                                             </form>
                                             <h3 className="font-bold text-lg mb-3 dark:text-slate-200">Demonstrasi Sistem Informasi PKM TI 2025</h3>
                                             <div className="video-container">
-                                            <iframe
-                                                width="100%"
-                                                height="500"
-                                                src="https://www.youtube.com/embed/your-video-id"
-                                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                                allowFullScreen
-                                                title="Video Demonstrasi"
-                                            ></iframe>
+                                                <iframe
+                                                    width="100%"
+                                                    height="500"
+                                                    src="https://www.youtube.com/embed/your-video-id"
+                                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                                    allowFullScreen
+                                                    title="Video Demonstrasi"
+                                                ></iframe>
                                             </div>
                                         </div>
                                     </dialog>
@@ -161,19 +161,19 @@ export default function Welcome({ auth }) {
                                     <dialog id="my_modal_3" className="modal">
                                         <div className="modal-box w-11/12 max-w-5xl">
                                             <form method="dialog">
-                                            {/* if there is a button in form, it will close the modal */}
-                                            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                                                {/* if there is a button in form, it will close the modal */}
+                                                <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                                             </form>
                                             <h3 className="font-bold text-lg mb-3 dark:text-slate-200">Demonstrasi Sistem Informasi PKM TI 2025</h3>
                                             <div className="video-container">
-                                            <iframe
-                                                width="100%"
-                                                height="500"
-                                                src="https://www.youtube.com/embed/your-video-id"
-                                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                                allowFullScreen
-                                                title="Video Demonstrasi"
-                                            ></iframe>
+                                                <iframe
+                                                    width="100%"
+                                                    height="500"
+                                                    src="https://www.youtube.com/embed/your-video-id"
+                                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                                    allowFullScreen
+                                                    title="Video Demonstrasi"
+                                                ></iframe>
                                             </div>
                                         </div>
                                     </dialog>
@@ -182,16 +182,16 @@ export default function Welcome({ auth }) {
                             )}
                         </div>
                     </motion.div>
-                    <motion.div
-                        whileInView="visible"
-                        variants={variantFade(100, 0)}
-                        initial="hidden"
-                        animate={controls}
-                        className="flex justify-center items-center pt-2"
-                    >
+
+                    <div className="relative w-full">
                         {/* Home Page Bagian Kanan */}
-                        <img src="/images/image-homepage.png" alt="" className="md:w-[672.34px] max-w-full md:h-[552px] h-auto animate-bounce-custom" />
-                    </motion.div>
+                        <img src="/images/elements/element_home_section_1.png" alt="" className="md:w-[270px] md:h-[340px] absolute right-0 top-0"/>
+                        <img src="/images/elements/element_home_section_2.png" className="md:w-[270px] md:h-[340px] absolute left-64 -bottom-12" alt="" />
+                        <img src="/images/elements/element_home_section_3.png" className="md:w-[247.18px] md:h-[178.26px] absolute top-12 left-60" alt="" />
+                        <img src="/images/elements/element_home_section_4.png" className="md:w-[393px] md:h-[284px] absolute right-0 top-12 z-20" alt="" />
+                        <img src="/images/elements/element_home_section_5.png" className="md:w-[393px] md:h-[284px] absolute left-48 -bottom-12 z-0" alt="" />
+                        <img src="/images/elements/element_home_section_6.png" className="md:w-[247.18px] md:h-[178.26px]  absolute right-12 -bottom-12" alt="" />
+                    </div>
                 </section>
 
                 {/* End HomePage */}
@@ -236,7 +236,7 @@ export default function Welcome({ auth }) {
                         <div className="divider divider-horizontal before:bg-black after:bg-black dark:before:bg-gray-400 dark:after:bg-gray-400"></div>
 
                         <div className="flex flex-row gap-4">
-                            <MapPinIcon className="w-6 h-6 font-extrabold dark:text-gray-400"  />
+                            <MapPinIcon className="w-6 h-6 font-extrabold dark:text-gray-400" />
 
                             <div className="block">
                                 <span className="capitalize text-dark dark:text-gray-400 font-normal text-sm md:text-base">
