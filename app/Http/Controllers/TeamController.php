@@ -79,6 +79,16 @@ class TeamController extends Controller
             }
         }
 
+        // ensure nim yang isi 24 tidak ada di tim yang nim nya ga isi 24
+        $teamMembers = User::where('team_id', $teamId)->get();
+        foreach ($teamMembers as $member) {
+            if (str_contains($user_login->nim, '24') && !str_contains($member->nim, '24')) {
+                return back()->with('msg', 'Kamu tidak bisa bergabung dengan tim yang anggotanya bukan angkatan 24!');
+            } elseif (!str_contains($user_login->nim, '24') && str_contains($member->nim, '24')) {
+                return back()->with('msg', 'Kamu tidak bisa bergabung dengan tim yang anggotanya angkatan 24!');
+            }
+        }
+
         User::find(Auth::id())->update(['team_id' => $teamId]);
 
         return to_route('teams.show', $teamId)->with('msg', 'Selamat bergabung!');

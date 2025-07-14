@@ -41,6 +41,9 @@ export default function Sidebar({ user, navigations, children }) {
                                     ? new URL(navigation.link).pathname
                                     : navigation.link;
 
+                                console.log("ini adalah route path", routePath);
+                                console.log("ini adalah route name", routeName);
+
                                 const isActive = routePath === routeName;
 
 
@@ -203,7 +206,7 @@ export default function Sidebar({ user, navigations, children }) {
                                                 <li className="border-b-2 border-slate-200 ">
                                                     <Link
                                                         href={route("admin.proposals")} // Assuming a lecture dashboard route
-                                                        as="button" 
+                                                        as="button"
                                                         className="flex flex-row gap-2 justify-start items-center font-medium text-[14px] light:text-[#404040]  tracking-[0.11em]"
                                                     >
                                                         <AcademicCapIcon className="h-6 w-6" /> {/* You might want a different icon */}

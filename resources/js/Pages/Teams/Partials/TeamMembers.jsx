@@ -108,7 +108,7 @@ export default function TeamMembers({ user, team }) {
                     header="Aksi"
                     body={(rowData) => (
                         <div className="flex gap-1">
-                            {(user.id != rowData.id && (user.role == "admin" || user.id == team.leader_id)) && (
+                            {(user.id != rowData.id && user.id == team.leader_id) && (
                                 <>
                                     <KickMember memberId={rowData.id} />
                                     <ChangeLeader memberId={rowData.id} />
