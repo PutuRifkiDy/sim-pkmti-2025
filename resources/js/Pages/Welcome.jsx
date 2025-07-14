@@ -891,7 +891,7 @@ export default function Welcome({ auth }) {
                             initial="hidden"
                             animate={controls}
                         >
-                            <img src="images/faq.png" alt="" key={activeCategoryFaq} className="w-full md:w-[481px] md:h-[483px] h-auto animate-bounce-custom" />
+                            <img src="images/faqs-amicos.png" alt="" key={activeCategoryFaq} className="w-full md:w-[481px] md:h-[483px] h-auto animate-bounce-custom" />
                         </motion.div>
                         {activeCategoryFaq === "Guidebook" && (
                             <motion.div
@@ -1067,7 +1067,7 @@ export default function Welcome({ auth }) {
                         initial="hidden"
                         animate={controls}
                     >
-                        <img src="images/kontak-kami.png" alt="KONTAK-KAMI" className="md:w-[584px] w-full md:h-[540px] h-auto my-2 animate-bounce-custom" />
+                        <img src="images/contact-amicos.png" alt="KONTAK-KAMI" className="md:w-[584px] w-full md:h-[540px] h-auto my-2 animate-bounce-custom" />
                     </motion.div>
                 </section>
                 {/* End Kontak Kami */}
