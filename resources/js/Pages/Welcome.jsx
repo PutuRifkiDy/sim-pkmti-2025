@@ -103,7 +103,7 @@ export default function Welcome({ auth }) {
                 className="absolute z-0 w-screen object-center rounded-none h-[800px] object-cover hidden md:block top-0 dark:hidden opacity-50"
             />
             {/* Start HomePage */}
-            <section className="md:px-12 px-2 light:bg-[#F7F7F7] dark:bg-[#1d232a] flex md:flex-row flex-col-reverse max-w-full justify-between pb-36 pt-36">
+            <section className="md:px-12 px-2 light:bg-[#F7F7F7] dark:bg-[#1d232a] flex md:flex-row flex-col-reverse max-w-full justify-between md:pb-60 pb-24 pt-36">
                 {/* Home Page Bagian Kiri */}
                 <div
                     className="flex flex-col gap-7 justify-center items-start w-full"
@@ -157,7 +157,7 @@ export default function Welcome({ auth }) {
                                 <Link
                                     as="button"
                                     href={route("register")}
-                                    className="font-bold bg-[#42A1A4] px-12 py-3 rounded-md text-white hover:text-white hover:bg-[#59DFD1] dark:text-gray-400 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#42A1A4] z-50"
+                                    className="font-bold bg-[#42A1A4] px-12 py-3 rounded-md text-white hover:text-white hover:bg-[#59DFD1] dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#42A1A4] z-50"
                                 >
                                     Sign Up Now
                                 </Link>
@@ -219,7 +219,7 @@ export default function Welcome({ auth }) {
             {/* End HomePage */}
 
             {/* Agenda Acara*/}
-            <section className="dark:bg-[#1d232a] pb-36 flex justify-center items-center md:px-36 mx-0 " data-aos="fade-up" data-aos-delay="100">
+            <section className="dark:bg-[#1d232a] pb-36 flex justify-center items-center md:px-36 mx-0">
                 <div className="flex md:flex-row flex-col justify-between gap-5 px-12 py-10 max-w-full shadow-xl border border-base-300 rounded-2xl bg-white dark:bg-[#1d232a] dark:border-gray-400 z-50"
                 >
                     <div className="flex flex-row gap-4 sm:pr-10">
@@ -272,8 +272,8 @@ export default function Welcome({ auth }) {
 
             {/* Start Tentang PKM-TI */}
             <section className="light:bg-[#F7F7F7] dark:bg-[#1d232a] flex md:flex-row flex-col max-w-full justify-around relative overflow-hidden" id="about-us">
-                <img src="images/elements/element_about_section_2.png" alt="" className="absolute bottom-0 left-0 md:w-[468px] md:h-[470px] z-10" />
-                <img src="images/elements/element_about_section_1.png" alt="" className="absolute top-0 right-0 md:w-[468px] md:h-[470px] z-10" />
+                <img src="images/elements/element_about_section_2.png" alt="" className="absolute bottom-0 left-0 md:w-[468px] w-[250px] h-auto md:h-[470px] z-10" />
+                <img src="images/elements/element_about_section_1.png" alt="" className="absolute top-0 right-0 md:w-[468px] md:h-[470px] w-[250px] h-auto z-10" />
                 <img src="images/elements/element_about_section_8.png" alt="" className="absolute object-cover opacity-40 z-0 md:block hidden dark:hidden" />
                 <div className="relative md:w-[521px] md:h-[541px]">
                     {/* Tentang PKM Bagian kiri */}
@@ -284,6 +284,9 @@ export default function Welcome({ auth }) {
                     <img src="images/elements/element_about_section_7.png" alt="" className="absolute md:w-[277px] md:h-[286px] bottom-48 left-0 z-20" data-aos="fade-up" data-aos-delay="300" />
                     <img src="images/elements/element_about_section_6.png" alt="" className="absolute md:w-[186px] md:h-[158px] bottom-[13rem] right-20 z-20" data-aos="fade-up" data-aos-delay="300" />
                 </div>
+                <div className=" flex flex-row justify-center items-center mb-5 mt-5">
+                    <img src="images/Logo-PKM-TI-2025.svg" alt="" className="md:hidden w-[120px] h-auto top-0 z-20" data-aos="fade-up" data-aos-delay="300" />
+                </div>
                 <div
                     className="flex flex-col justify-center md:w-[687px] max-w-full gap-10"
                 >
@@ -291,19 +294,19 @@ export default function Welcome({ auth }) {
                         <div className="md:absolute md:block hidden md:left-72 left-12 top-14">
                             <IconTextHomePage />
                         </div>
-                        <p className="font-bold md:text-[56px] text-[36px] text-[#111E41] leading-[1.1em] dark:text-[#42A1A4]" data-aos="fade-up" data-aos-delay="100">Tentang PKM TI 2025</p>
+                        <p className="font-bold md:text-[56px] text-[36px] text-[#111E41] leading-[1.1em] dark:text-[#42A1A4] z-40 md:px-0 px-5" data-aos="fade-up" data-aos-delay="100">Tentang PKM TI 2025</p>
                     </div>
-                    <div className="flex flex-col gap-3 text-center md:text-start">
+                    <div className="flex flex-col gap-3 text-justify md:text-start md:px-0 px-5">
                         <p className="text-[24px] leading-[1.8em] text-[#111E41] dark:text-[#42A1A4] font-bold" data-aos="fade-up" data-aos-delay="200">
                             Apa itu PKM TI 2025?
                         </p>
-                        <p className="text-[17px] leading-[1.8em] text-[#111E41] dark:text-gray-400" data-aos="fade-up" data-aos-delay="300">
+                        <p className="text-[17px] leading-[1.8em] text-[#111E41] dark:text-gray-400 z-50" data-aos="fade-up" data-aos-delay="300">
                             Pelatihan PKM Teknologi Informasi 2025 oleh HMTI bertujuan memberikan platform bagi mahasiswa untuk memperluas pengetahuan tentang Program Kreativitas Mahasiswa (PKM). Mengusung tema “Mengasah Kreativitas Mahasiswa untuk Menghasilkan
                             Karya Inovatif Melalui PKM” pelatihan ini diharapkan memotivasi mahasiswa Teknologi Informasi untuk mengembangkan kreativitas visioner dan mengikuti tren masa depan. Kegiatan ini juga bertujuan meningkatkan pemahaman mahasiswa terkait pengembangan judul, penyesuaian format pedoman, teknik penelitian, dan keterampilan teknis.
                         </p>
                         <a
                             href="#pkm-topik"
-                            className="flex mt-4 text-[17px] text-slate-500 cursor-pointer" data-aos="fade-up" data-aos-delay="400"
+                            className="flex mt-4 text-[17px] text-slate-500 cursor-pointer md:mb-0 mb-24" data-aos="fade-up" data-aos-delay="400"
                         >
                             <ArrowLongDownIcon className="w-6 h-6 mr-3 animate-bounce" />
                             Jelajahi Bidang PKM TI 2025
@@ -521,7 +524,7 @@ export default function Welcome({ auth }) {
             {/* End Pembicara */}
 
 
-            <section className="md:px-12 px-2 light:bg-[#F7F7F7] dark:bg-[#1d232a] relative mx-auto pt-20 w-full flex-shrink-0 sm:px-8 md:pb-36">
+            <section className="md:px-12 px-2 light:bg-[#F7F7F7] dark:bg-[#1d232a] relative mx-auto pt-20 w-full flex-shrink-0 sm:px-8 pb-36">
                 <div className="absolute left-0 sm:block hidden">
                     <img src="images/asset25.png" alt="bwabwa" />
                 </div>
@@ -839,7 +842,7 @@ export default function Welcome({ auth }) {
                             </svg>
                         </div>
                         <div className="absolute -top-7 left-0 bg-[#285B70] sm:-left-[6px] h-[250px] sm:h-[250px] w-[5px] rounded-full z-0"></div>
-                        <div className="absolute -right-80 -bottom-[160px] sm:block hidden">
+                        <div className="absolute -right-60 -bottom-[160px] sm:block hidden">
                             <img src="images/asset25.png" alt="bwabwa" />
                         </div>
                     </div>
@@ -964,11 +967,11 @@ export default function Welcome({ auth }) {
                         Klinik PKM
                     </div>
                 </div>
-                <div className="flex md:flex-row flex-col justify-evenly items-center w-full">
+                <div className="flex md:flex-row flex-col-reverse justify-evenly items-center w-full">
                     <div
                     >
-                        <div className="w-full md:w-[481px] md:h-[483px] h-auto" data-aos="zoom-in" data-aos-delay="300">
-                            <IconFaq/>
+                        <div className="w-full" data-aos="zoom-in" data-aos-delay="300">
+                            <IconFaq />
                         </div>
                     </div>
                     {activeCategoryFaq === "Guidebook" && (
@@ -1078,11 +1081,11 @@ export default function Welcome({ auth }) {
                     className="flex flex-col justify-center items-center"
                 >
                     <h1 className="font-bold text-[48px] text-[#285B70]"
-                    data-aos="fade-up" data-aos-delay="100">
+                        data-aos="fade-up" data-aos-delay="100">
                         Kontak Kami
                     </h1>
                     <p className="w-4/5 text-base text-center dark:text-gray-400"
-                    data-aos="fade-up" data-aos-delay="200">
+                        data-aos="fade-up" data-aos-delay="200">
                         Jika Anda memiliki pertanyaan lebih lanjut, jangan ragu untuk menghubungi narahubung yang tertera di bawah ini.
                     </p>
                 </div>
@@ -1101,7 +1104,7 @@ export default function Welcome({ auth }) {
                         </div>
                     </div>
                     <div className="flex flex-col gap-2 bg-[#42A1A4] py-4 pl-4 pr-24 rounded-b-2xl border-t-2 border-[#42A1A4] bg-opacity-20 dark:text-gray-400"
-                    data-aos="fade-up" data-aos-delay="200">
+                        data-aos="fade-up" data-aos-delay="200">
                         <h1 className="font-bold text-xl">Dewa Ayu</h1>
                         <div className="flex flex-row justify-start gap-4">
                             <IconLine />
@@ -1113,7 +1116,7 @@ export default function Welcome({ auth }) {
                         </div>
                     </div>
                     <div className="flex flex-col gap-2 bg-[#285B70] py-4 pl-4 pr-24 rounded-b-2xl border-t-2 border-[#285B70] bg-opacity-20 dark:text-gray-400"
-                    data-aos="fade-up" data-aos-delay="300">
+                        data-aos="fade-up" data-aos-delay="300">
                         <h1 className="font-bold text-xl">Putu Rifki</h1>
                         <div className="flex flex-row justify-start gap-4">
                             <IconLine />
@@ -1127,7 +1130,7 @@ export default function Welcome({ auth }) {
                 </div>
                 <div
                 >
-                    <div className="md:w-[584px] w-full md:h-[540px] h-auto my-2" data-aos="zoom-in" data-aos-delay="300">
+                    <div className=" my-2" data-aos="zoom-in" data-aos-delay="300">
                         <IconContact />
                     </div>
                 </div>
@@ -1143,33 +1146,33 @@ export default function Welcome({ auth }) {
                         className="w-32"
                         alt="PKM TI Logo"
                     />
-                    <p className="capitalize text-lg font-semibold">
+                    <p className="capitalize text-lg font-semibold dark:text-gray-400">
                         program studi sarjana teknologi informasi fakultas
                         teknik universitas udayana
                     </p>
                 </aside>
                 <nav className="col-span-1 md:col-span-2">
-                    <h6 className="footer-title mb-0">Alamat</h6>
-                    <a className="link link-hover mb-4" href="https://maps.app.goo.gl/BxpnRYfHvLDrVYmZ8" target="_blank" rel="noopener noreferrer">
+                    <h6 className="footer-title mb-0 dark:text-gray-100">Alamat</h6>
+                    <a className="link link-hover mb-4 dark:text-gray-400" href="https://maps.app.goo.gl/BxpnRYfHvLDrVYmZ8" target="_blank" rel="noopener noreferrer">
                         Jl. Kampus Udayana Bukit Jimbaran, Jimbaran, Kuta
                         Selatan, Kabupaten Badung, Bali 80361
                     </a>
 
-                    <h6 className="footer-title mb-0">Telepon</h6>
-                    <a className="link link-hover mb-4" href="tel:0361701806">(0361) 701806</a>
+                    <h6 className="footer-title mb-0 dark:text-gray-100">Telepon</h6>
+                    <a className="link link-hover mb-4 dark:text-gray-400" href="tel:0361701806">(0361) 701806</a>
 
-                    <h6 className="footer-title mb-0">Email</h6>
-                    <a className="link link-hover mb-4" href="mailto:hmti@unud.ac.id">hmti@unud.ac.id</a>
+                    <h6 className="footer-title mb-0 dark:text-gray-100">Email</h6>
+                    <a className="link link-hover mb-4 dark:text-gray-400" href="mailto:hmti@unud.ac.id">hmti@unud.ac.id</a>
                 </nav>
                 <nav className="col-span-1 md:col-span-2">
-                    <h6 className="footer-title mb-0">Terkait</h6>
-                    <a className="link link-hover mb-2">
+                    <h6 className="footer-title mb-0 dark:text-gray-100">Terkait</h6>
+                    <a className="link link-hover mb-2 dark:text-gray-400">
                         UNUD | Teknologi Informasi
                     </a>
 
-                    <a className="link link-hover mb-2">BEM PM Udayna</a>
+                    <a className="link link-hover mb-2 dark:text-gray-400">BEM PM Udayna</a>
 
-                    <a className="link link-hover mb-2">SMFT Udayana</a>
+                    <a className="link link-hover mb-2 dark:text-gray-400">SMFT Udayana</a>
                 </nav>
             </footer>
             <footer className="py-5 px-12 bg-base-300 text-slate-600 dark:bg-[#15191e] dark:text-gray-400 text-center">
