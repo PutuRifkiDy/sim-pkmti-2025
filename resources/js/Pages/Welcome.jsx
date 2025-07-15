@@ -15,7 +15,7 @@ import CustomCarousel from "@/Components/CustomCorausel";
 import NavBar from "@/Components/NavBar";
 import ScrollToTop from "@/Components/ScrollTop";
 import SlickCarousel from "@/Components/SlickCarousel";
-import { IconTextHomePage, IconViewDemo, IconTextTopics, IconLine, IconWhatsapp } from "@/Components/IconLanding";
+import { IconTextHomePage, IconViewDemo, IconTextTopics, IconLine, IconWhatsapp, IconFaq, IconContact } from "@/Components/IconLanding";
 import { BoardArt } from "@/Components/Boards";
 import { BoardArtDark } from "@/Components/BoardDark";
 
@@ -1215,7 +1215,9 @@ export default function Welcome({ auth }) {
                             initial="hidden"
                             animate={controls}
                         >
-                            <img src="images/faqs-amicos.png" alt="" key={activeCategoryFaq} className="w-full md:w-[481px] md:h-[483px] h-auto animate-bounce-custom" />
+                            <div className="w-full md:w-[481px] md:h-[483px] h-auto animate-bounce-custom">
+                                <IconFaq/>
+                            </div>
                         </motion.div>
                         {activeCategoryFaq === "Guidebook" && (
                             <motion.div
@@ -1391,7 +1393,9 @@ export default function Welcome({ auth }) {
                         initial="hidden"
                         animate={controls}
                     >
-                        <img src="images/contact-amicos.png" alt="KONTAK-KAMI" className="md:w-[584px] w-full md:h-[540px] h-auto my-2 animate-bounce-custom" />
+                        <div className="w-full md:w-[481px] md:h-[483px] h-auto animate-bounce-custom">
+                            <IconContact />
+                        </div>
                     </motion.div>
                 </section>
                 {/* End Kontak Kami */}
