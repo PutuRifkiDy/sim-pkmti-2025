@@ -1,5 +1,4 @@
 import { Head, Link } from "@inertiajs/react";
-import { motion, useAnimation } from "framer-motion";
 import { BookOpenIcon } from "@heroicons/react/24/outline";
 import {
     MapPinIcon,
@@ -16,11 +15,10 @@ import NavBar from "@/Components/NavBar";
 import ScrollToTop from "@/Components/ScrollTop";
 import SlickCarousel from "@/Components/SlickCarousel";
 import { IconTextHomePage, IconViewDemo, IconTextTopics, IconLine, IconWhatsapp } from "@/Components/IconLanding";
-import { BoardArt } from "@/Components/Boards";
-import { BoardArtDark } from "@/Components/BoardDark";
+import * as AOS from 'aos';
+import 'aos/dist/aos.css';
 
 export default function Welcome({ auth }) {
-    const controls = useAnimation();
     const [openIndex, setOpenIndex] = useState(null);
     const [activeCategoryFaq, setActiveCategoryFaq] = useState("Guidebook");
     const [offsetY, setOffsetY] = useState(0);
@@ -37,17 +35,18 @@ export default function Welcome({ auth }) {
     const handleAccordionClick = (index) => {
         setOpenIndex(openIndex === index ? null : index);
     };
-    const variantFade = (x, y) => {
-        return {
-            visible: { opacity: 1, x: 0, y: 0, transition: { duration: 0.8 } },
-            hidden: { opacity: 0, x: x, y: y, transition: { duration: 0.5 } },
-        };
-    };
 
-    const variantZoom = {
-        visible: { opacity: 1, scale: 1, transition: { duration: 0.8 } },
-        hidden: { opacity: 0, scale: 0.5, transition: { duration: 0.5 } },
-    };
+    useEffect(() => {
+        AOS.init({
+            duration: 800,
+            once: false,
+            easing: 'ease-out-cubic',
+            offset: 100,
+            delay: 0,
+            mirror: false,
+            anchorPlacement: 'top-bottom',
+        });
+    }, []);
 
 
 
@@ -91,30 +90,30 @@ export default function Welcome({ auth }) {
             {/* Start Navbar */}
             <NavBar auth={auth} />
             {/* End Navbar */}
-
+            <img
+                src="images/elements/element_banner_home_section.png"
+                alt="banner"
+                className="absolute z-0 w-screen object-center rounded-none h-[800px] object-cover hidden md:block top-0 dark:hidden opacity-40"
+            />
             <main className="md:px-12 px-2 pt-36 light:bg-[#F7F7F7] overflow-x-hidden dark:bg-[#1d232a]">
                 {/* Start HomePage */}
                 <section className="flex md:flex-row flex-col-reverse max-w-full justify-between mb-36">
                     {/* Home Page Bagian Kiri */}
-                    <motion.div
-                        whileInView="visible"
-                        variants={variantFade(-100, 0)}
-                        initial="hidden"
-                        animate={controls}
+                    <div
                         className="flex flex-col gap-7 justify-center items-start w-full"
                     >
-                        <div className="relative md:w-[581px] max-w-full md:h-[210px] h-[148px] text-center md:text-start">
-                            <div className="md:absolute md:block hidden md:left-2 left-12 top-14 ">
+                        <div className="relative md:w-[581px] max-w-full md:h-[210px] h-auto text-center md:text-start" data-aos="fade-up" data-aos-delay="100">
+                            <div className="md:absolute md:block hidden md:left-2 left-12 top-14">
                                 <IconTextHomePage />
                             </div>
-                            <p className="font-bold md:text-[64px] text-[36px] text-[#111E41] dark:text-[#42A1A4] leading-[1.1em]">Sistem Informasi Pelatihan PKM TI Udayana</p>
+                            <p className="font-bold md:text-[64px] text-[36px] text-[#111E41] dark:text-[#42A1A4] leading-[1.1em] z-20">Sistem Informasi Pelatihan PKM TI Udayana</p>
                         </div>
                         <div>
-                            <p className="text-[18px] leading-[1.6em] light:text-[#0F172A] md:w-[581px] max-max-w-full font-normal text-center md:text-start dark:text-gray-400">
+                            <p className="text-[18px] leading-[1.6em] light:text-[#0F172A] md:w-[581px] max-w-full font-normal text-center md:text-start dark:text-gray-400 z-50" data-aos="fade-up" data-aos-delay="200">
                                 Pelatihan PKM TI 2025 merupakan bagian dari program kerja Himpunan Mahasiswa Teknologi Informasi Universitas Udayana periode 2025, yang bertujuan membimbing mahasiswa dalam merancang Program Kreativitas Mahasiswa (PKM) yang inovatif dan kreatif di bidang Teknologi Informasi.
                             </p>
                         </div>
-                        <div className="flex md:flex-row flex-col md:gap-5 gap-1 md:justify-start justify-center md:w-[581px] w-full">
+                        <div className="flex md:flex-row flex-col md:gap-5 gap-1 md:justify-start justify-center md:w-[581px] w-full" data-aos="fade-up" data-aos-delay="400">
                             {auth.user ? (
                                 <>
                                     {/* <Link
@@ -126,7 +125,7 @@ export default function Welcome({ auth }) {
                                         View Demo
                                     </Link> */}
                                     {/* You can open the modal using document.getElementById('ID').showModal() method */}
-                                    <button className="font-bold border-[1px] border-slate-200 px-6 py-2 rounded-md text-[#59DFD1] hover:text-white hover:bg-[#42A1A4] dark:text-gray-100 dark:hover:text-white transition-all duration-300 flex flex-row gap-2 justify-center items-center hover:shadow-[0_0_10px_#42A1A4]" onClick={() => document.getElementById('my_modal_3').showModal()}>View Demo</button>
+                                    <button className="font-bold border-[1px] border-slate-200 px-6 py-2 rounded-md text-[#59DFD1] hover:text-white hover:bg-[#42A1A4] dark:text-gray-100 dark:hover:text-white transition-all duration-300 flex flex-row gap-2 justify-center items-center hover:shadow-[0_0_10px_#42A1A4] z-50" onClick={() => document.getElementById('my_modal_3').showModal()} >View Demo</button>
                                     <dialog id="my_modal_3" className="modal">
                                         <div className="modal-box w-11/12 max-w-5xl">
                                             <form method="dialog">
@@ -152,12 +151,12 @@ export default function Welcome({ auth }) {
                                     <Link
                                         as="button"
                                         href={route("register")}
-                                        className="font-bold bg-[#42A1A4] px-12 py-3 rounded-md text-white hover:text-white hover:bg-[#59DFD1] dark:text-gray-400 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#42A1A4]"
+                                        className="font-bold bg-[#42A1A4] px-12 py-3 rounded-md text-white hover:text-white hover:bg-[#59DFD1] dark:text-gray-400 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#42A1A4] z-50"
                                     >
                                         Sign Up Now
                                     </Link>
                                     {/* You can open the modal using document.getElementById('ID').showModal() method */}
-                                    <button className="font-bold border-[1px] border-slate-300 px-6 py-2 rounded-md text-[#59DFD1] hover:text-white hover:bg-[#42A1A4] dark:text-gray-400 dark:hover:text-white transition-all duration-300 flex flex-row gap-2 justify-center items-center hover:shadow-[0_0_10px_#42A1A4] " onClick={() => document.getElementById('my_modal_3').showModal()}>View Demo</button>
+                                    <button className="font-bold border-[1px] border-slate-300 px-6 py-2 rounded-md text-[#59DFD1] hover:text-white hover:bg-[#42A1A4] dark:text-gray-400 dark:hover:text-white transition-all duration-300 flex flex-row gap-2 justify-center items-center hover:shadow-[0_0_10px_#42A1A4] z-50" onClick={() => document.getElementById('my_modal_3').showModal()}>View Demo</button>
                                     <dialog id="my_modal_3" className="modal">
                                         <div className="modal-box w-11/12 max-w-5xl">
                                             <form method="dialog">
@@ -181,30 +180,30 @@ export default function Welcome({ auth }) {
                                 </>
                             )}
                         </div>
-                    </motion.div>
+                    </div>
 
-                    <div className="w-full flex justify-center">
+                    <div className="w-full flex justify-center md:mb-0 mb-64">
                         <div className="relative">
                             {/* Home Page Bagian Kanan */}
-                            <div className="md:w-[270px] md:h-[340px] absolute -right-80 top-0">
+                            <div className="md:w-[270px] w-[200px] md:h-[340px] h-auto absolute md:-right-80 top-0 ">
                                 <img src="/images/elements/element_home_section_1.png" alt="" className=" " />
                             </div>
-                            <div className="md:w-[270px] md:h-[340px] absolute -left-52  -bottom-12">
+                            <div className="md:w-[270px] w-[200px] md:h-[340px] h-auto absolute md:-left-52 -left-44 md:-bottom-12">
                                 <img src="/images/elements/element_home_section_2.png" className="" alt="" />
                             </div>
 
-                            <div className="md:w-[247.18px] md:h-[178.26px] absolute top-8 -left-56">
+                            <div className="md:w-[247.18px] w-[150px] md:h-[178.26px] h-auto absolute md:top-8 top-0 md:-left-56 -left-40"  data-aos="fade-up" data-aos-delay="100">
                                 <img src="/images/elements/element_home_section_3.png" className="" alt="" />
                             </div>
 
-                            <div className="md:w-[332.31px] md:h-[239.94px] absolute left-0 top-8 z-20">
+                            <div className="md:w-[332.31px] w-[200px] md:h-[239.94px] h-auto absolute md:left-0 -left-5 md:top-8 top-0 z-20"  data-aos="zoom-in" data-aos-delay="300">
                                 <img src="/images/elements/element_home_section_4.png" className="" alt="" />
                             </div>
 
-                            <div className="md:w-[332.31px] md:h-[239.94px] absolute -right-24 top-48 z-0">
+                            <div className="md:w-[332.31px] w-[200px] md:h-[239.94px] h-auto absolute md:-right-24 -right-8 md:top-48 top-24 z-0"  data-aos="zoom-in" data-aos-delay="300">
                                 <img src="/images/elements/element_home_section_5.png" className="" alt="" />
                             </div>
-                            <div className="md:w-[247.18px] md:h-[178.26px]  absolute -right-80 -bottom-4">
+                            <div className="md:w-[247.18px] w-[150px] md:h-[178.26px] h-auto absolute md:-right-80 -right-40 md:-bottom-4 top-36 md:top-64"  data-aos="fade-up" data-aos-delay="200">
                                 <img src="/images/elements/element_home_section_6.png" className="" alt="" />
                             </div>
                         </div>
@@ -215,12 +214,8 @@ export default function Welcome({ auth }) {
 
                 {/* Agenda Acara*/}
                 <section className="mb-20 flex justify-center items-center md:mx-36 mx-0">
-                    <motion.div
-                        whileInView="visible"
-                        variants={variantFade(0, 100)}
-                        initial="hidden"
-                        animate={controls}
-                        className="flex md:flex-row flex-col justify-between gap-5 px-12 py-10 max-w-full shadow-xl border border-base-300 rounded-2xl dark:border-gray-400"
+                    <div
+                        className="flex md:flex-row flex-col justify-between gap-5 px-12 py-10 max-w-full shadow-xl border border-base-300 rounded-2xl bg-white dark:bg-[#1d232a] dark:border-gray-400 z-50"
                     >
                         <div className="flex flex-row gap-4 sm:pr-10">
                             <BookmarkSquareIcon className="w-6 h-6 font-extrabold dark:text-gray-400 text-black" />
@@ -266,26 +261,18 @@ export default function Welcome({ auth }) {
                                 </p>
                             </div>
                         </div>
-                    </motion.div>
+                    </div>
                 </section>
                 {/* End Agenda Acara */}
 
                 {/* Start Tentang PKM-TI */}
                 <section className="flex md:flex-row flex-col max-w-full justify-around mb-20" id="about-us">
-                    <motion.div
-                        whileInView="visible"
-                        variants={variantFade(-100, 0)}
-                        initial="hidden"
-                        animate={controls}
+                    <div
                     >
                         {/* Tentang PKM Bagian kiri */}
                         <img src="images/image-tentangpkmti2025.png" alt="" className="md:w-[521px] max-w-full md:h-[479px] h-auto animate-bounce-custom" />
-                    </motion.div>
-                    <motion.div
-                        whileInView="visible"
-                        variants={variantFade(100, 0)}
-                        initial="hidden"
-                        animate={controls}
+                    </div>
+                    <div
                         className="flex flex-col justify-center md:w-[687px] max-w-full gap-10"
                     >
                         <div className="relative text-center md:text-start">
@@ -310,18 +297,14 @@ export default function Welcome({ auth }) {
                                 Jelajahi Bidang PKM TI 2025
                             </a>
                         </div>
-                    </motion.div>
+                    </div>
 
                 </section>
                 {/* End Tentang PKM-TI */}
 
 
                 {/* Start Ekspolari PKM-TI */}
-                <motion.div
-                    whileInView="visible"
-                    variants={variantFade(0, 100)}
-                    initial="hidden"
-                    animate={controls}
+                <div
                     className="flex flex-col mb-20 justify-center items-center text-white"
                     id="pkm-topik"
                 >
@@ -331,11 +314,7 @@ export default function Welcome({ auth }) {
                         <div className="md:w-3 md:h-3 w-2 h-2 bg-[#22C55E] rounded-full"></div>
                     </div>
                     <div className="flex flex-col bg-gradient-custom max-w-full h-auto rounded-b-2xl shadow-2xl">
-                        <motion.div
-                            whileInView="visible"
-                            variants={variantZoom}
-                            initial="hidden"
-                            animate={controls}
+                        <div
                             className="flex flex-col relative items-center text-center m-8 md:m-16 md:gap-2 gap-1"
                         >
                             <h2 className="md:text-xl text-lg font-bold uppercase">Eksplorasi Topik PKM</h2>
@@ -346,14 +325,10 @@ export default function Welcome({ auth }) {
                             <p className="text-[16px] leading-[1.5em] font-normal md:mx-[70px] mt-2 md:mt-6">
                                 Jelajahi kategori-kategori sub topik PKM kami dan temukan passion yang menggetarkan hati Anda. Mulai dari keberlanjutan hingga teknologi, kesehatan hingga seni, kami mengundang Anda untuk meresapi setiap sub topik dengan penuh antusiasme. Temukan tempat Anda di dunia PKM, di mana setiap kategori adalah panggung bagi idealisasi dan perubahan.
                             </p>
-                        </motion.div>
+                        </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-2 mx-8 mb-12">
                             {topics.map((topic, index) => (
-                                <motion.div
-                                    whileInView="visible"
-                                    variants={variantZoom}
-                                    initial="hidden"
-                                    animate={controls}
+                                <div
                                     key={index} className="flex flex-col justify-center items-center bg-white text-black m-2 px-4 py-6 rounded-lg text-center gap-2 hover:shadow-[0_0_10px_#285B70]"
                                     id="pkm-topik"
                                 >
@@ -362,11 +337,11 @@ export default function Welcome({ auth }) {
                                     <Link href={topic.links} className="border-[2px] w-full border-[#285B70] p-2 rounded-lg mt-1 text-[#285B70] text-[17px] leading-[24px] tracking-[0.5px] hover:bg-[#285B70] hover:text-white hover:shadow-[0_0_10px_#285B70] transition-all duration-500 ease-in-250">
                                         Selengkapnya
                                     </Link>
-                                </motion.div>
+                                </div>
                             ))}
                         </div>
                     </div>
-                </motion.div>
+                </div>
                 {/* End Ekspolari PKM-TI */}
 
 
@@ -510,11 +485,7 @@ export default function Welcome({ auth }) {
                         </div>
                     </SlickCarousel>
 
-                    <motion.div
-                        whileInView="visible"
-                        variants={variantFade(100, 0)}
-                        initial="hidden"
-                        animate={controls}
+                    <div
                         className="flex flex-col max-w-full lg:w-1/2"
                     >
                         <span className="uppercase text-[20px] font-semibold sm:text-base text-[#42A1A4] mb-1">
@@ -532,249 +503,13 @@ export default function Welcome({ auth }) {
                             semangat. Tunggu apa lagi? Bergabunglah dengan
                             kami untuk pengalaman yang mengesankan! 🚀
                         </p>
-                    </motion.div>
+                    </div>
                 </section>
                 {/* End Pembicara */}
 
-                {/* Start Timeline */}
-{/*
-                <section className="relative px-6 md:px-24 mt-36 mb-16 " id="Timeline">
-                    <div
-                        className="absolute right-0 left-0 top-[400px] md:flex hidden justify-center items-center -z-10"
-                        style={{ transform: `translateY(${offsetY}px)`, transition: "transform 0.1s ease-out" }}
-                    >
-                        <img src="images/Logo-PKM-TI-2025.png" alt="Background Icon" className="w-[400px] opacity-30 animate-bounce-custom" />
-                    </div>
-                    <div
-                        className="absolute right-0 left-0 bottom-[1800px] md:flex hidden justify-center items-center -z-10"
-                        style={{ transform: `translateY(${offsetY}px)`, transition: "transform 0.1s ease-out" }}
-                    >
-                        <img src="images/Logo-PKM-TI-2025.png" alt="Background Icon" className="w-[400px] opacity-30 animate-bounce-custom" />
-                    </div>
-                    <div className="flex flex-col justify-center items-center z-10 mb-20">
-                        <h1 className="text-center text-[#42A1A4] text-[14px] md:text-[20px] font-bold" data-aos="fade-left">
-                            TIMELINE PKM TI 2025
-                        </h1>
-                        <h1 className="text-center text-[24px] md:text-[48px] font-bold w-full tracking-[0.2px] z-10 text-[#285B70]" data-aos="fade-right">
-                            Jangan Lewatkan Kesempatan Ini
-                        </h1>
-                        <p className="font-normal text-[16px] tracking-[0.01em] text-slate-500 text-center">
-                            Setiap detik adalah kesempatan untuk belajar, berbagi, dan terhubung dengan komunitas kreatif. Catat tanggalnya dan pastikan Anda tidak melewatkan momen magis di PKM Wonderland. Ayo, mari jadwalkan momen berharga kita bersama!
-                        </p>
-                    </div>
-                    <div className="flex flex-col gap-[130px] left-4 items-center pt-12 absolute w-1 bg-[#285B70] h-max md:left-1/2 transform md:-translate-x-1/2 z-10">
-                        <div className="w-5 h-5 md:w-9 md:h-9 bg-[#285B70] rounded-full relative z-20">
-                            <div className="items-center w-full h-full bg-[#285B70] rounded-full animate-ping"></div>
-                        </div>
-                        <div className="w-5 h-5 md:w-9 md:h-9 bg-[#285B70] rounded-full relative z-20">
-                            <div className="items-center w-full h-full bg-[#285B70] rounded-full animate-ping"></div>
-                        </div>
-                        <div className="w-5 h-5 md:w-9 md:h-9 bg-[#285B70] rounded-full relative z-20">
-                            <div className="items-center w-full h-full bg-[#285B70] rounded-full animate-ping"></div>
-                        </div>
-                        <div className="w-5 h-5 md:w-9 md:h-9 bg-[#285B70] rounded-full relative z-20">
-                            <div className="items-center w-full h-full bg-[#285B70] rounded-full animate-ping"></div>
-                        </div>
-                        <div className="w-5 h-5 md:w-9 md:h-9 bg-[#285B70] rounded-full relative z-20">
-                            <div className="items-center w-full h-full bg-[#285B70] rounded-full animate-ping"></div>
-                        </div>
-                        <div className="w-5 h-5 md:w-9 md:h-9 bg-[#285B70] rounded-full relative z-20">
-                            <div className="items-center w-full h-full bg-[#285B70] rounded-full animate-ping"></div>
-                        </div>
-                        <div className="w-5 h-5 md:w-9 md:h-9 bg-[#285B70] rounded-full relative z-20">
-                            <div className="items-center w-full h-full bg-[#285B70] rounded-full animate-ping"></div>
-                        </div>
-                        <div className="w-5 h-5 md:w-9 md:h-9 bg-[#285B70] rounded-full relative z-20">
-                            <div className="items-center w-full h-full bg-[#285B70] rounded-full animate-ping"></div>
-                        </div>
-                        <div className="w-5 h-5 md:w-9 md:h-9 bg-[#285B70] rounded-full relative z-20">
-                            <div className="items-center w-full h-full bg-[#285B70] rounded-full animate-ping"></div>
-                        </div>
-                        <div className="w-5 h-5 md:w-9 md:h-9 bg-[#285B70] rounded-full relative z-20">
-                            <div className="items-center w-full h-full bg-[#285B70] rounded-full animate-ping"></div>
-                        </div>
-                        <div className="w-5 h-5 md:w-9 md:h-9 bg-[#285B70] rounded-full relative z-20">
-                            <div className="items-center w-full h-full bg-[#285B70] rounded-full animate-ping"></div>
-                        </div>
-                    </div>
-                    <motion.div
-                        whileInView="visible"
-                        variants={variantFade(-100, 0)}
-                        initial="hidden"
-                        animate={controls}
-                        className="font-sans my-3 md:my-5 flex w-full justify-end z-10 md:pl-20 "
-                    >
-                        <div className="w-full md:w-[466px] ml-5 md:ml-0 mr-0 md:mr-18 p-4 border shadow-lg rounded-md dark:text-gray-400">
-                            <h3 className="text-[16px] md:text-[20px] font-bold">Pendaftaran dan Pengumpulan Judul</h3>
-                            <p className="text-[14px] md:text-[16px] font-medium mb-1">⌛ 8 - 14 Maret 2024
-                            </p>
-                            <p className="text-[14px] md:text-[16px]">📍 Melalui website resmi PKM TI https://pkm.hmtiudayana.id/</p>
-                        </div>
-                    </motion.div>
-                    <motion.div
-                        whileInView="visible"
-                        variants={variantFade(100, 0)}
-                        initial="hidden"
-                        animate={controls}
-                        className="font-sans my-3 md:my-12 flex w-full justify-end md:justify-start z-10 pr-0 md:pr-24"
-                    >
-                        <div className="w-full md:w-[466px] ml-5 md:ml-18 p-4 border shadow-lg rounded-md dark:text-gray-400">
-                            <h3 className="text-[16px] md:text-[20px] font-bold">Seleksi Judul</h3>
-                            <p className="text-[14px] md:text-[16px] font-medium mb-1">⌛
-                                8 - 21 Maret 2024
-                            </p>
-                            <p className="text-[16px]">📍 Online</p>
-                        </div>
-                    </motion.div>
-                    <motion.div
-                        whileInView="visible"
-                        variants={variantFade(-100, 0)}
-                        initial="hidden"
-                        animate={controls}
-                        className="font-sans my-10 md:my-5 flex w-full justify-end z-10 pl-0 md:pl-20"
-                    >
-                        <div className="w-full md:w-[466px] ml-5 md:ml-0 mr-0 md:mr-18 p-4 border shadow-lg rounded-md dark:text-gray-400">
-                            <h3 className="text-[16px] md:text-[20px] font-bold">Pengumuman Tim Terdaftar</h3>
-                            <p className="text-[14px] md:text-[16px] font-medium mb-1">⌛
-                                22 Maret 2024
-                            </p>
-                            <p className="text-[16px]">📍 Online</p>
-                        </div>
-                    </motion.div>
-                    <motion.div
-                        whileInView="visible"
-                        variants={variantFade(100, 0)}
-                        initial="hidden"
-                        animate={controls}
-                        className="font-sans my-3 md:my-16 flex w-full justify-end md:justify-start z-10 pr-0 md:pr-24"
-                    >
-                        <div className="w-full md:w-[466px] ml-5 md:ml-18 p-4 border shadow-lg rounded-md dark:text-gray-400">
-                            <h3 className="text-[16px] md:text-[20px] font-bold">Technical Meeting Peserta</h3>
-                            <p className="text-[14px] md:text-[16px] font-medium mb-1">⌛
-                                23 Maret 2024
-                            </p>
-                            <p className="text-[16px]">📍 Online</p>
-                        </div>
-                    </motion.div>
-                    <div
-                        alt="gambar"
-                        className="max-w-[570px] h-[445px] absolute right-0 top-[6000px] md:top-[3200px] animate-bounce-custom"
-                    
-                    >
-                    </div>
-                    <motion.div
-                        whileInView="visible"
-                        variants={variantFade(-100, 0)}
-                        initial="hidden"
-                        animate={controls}
-                        className="font-sans my-3 md:my-5 flex w-full justify-end z-10 pl-0 md:pl-20"
-                    >
-                        <div className="w-full md:w-[466px] ml-5 md:ml-0 mr-0 md:mr-18 p-4 border shadow-lg rounded-md dark:text-gray-400">
-                            <h3 className="text-[16px] md:text-[20px] font-bold">Pelatihan PKM TI 2024</h3>
-                            <p className="text-[14px] md:text-[16px] font-medium mb-1">⌛
-                                30 Maret 2024
-                            </p>
-                            <p className="text-[16px]">📍 Aula Suastika, Gedung TI, Fakultas Teknik, Jimbaran</p>
-                        </div>
-                    </motion.div>
-                    <motion.div
-                        whileInView="visible"
-                        variants={variantFade(100, 0)}
-                        initial="hidden"
-                        animate={controls}
-                        className="font-sans my-3 md:my-12 flex w-full justify-end md:justify-start z-10 pr-0 md:pr-24"
-                    >
-                        <div className="w-full md:w-[466px] ml-5 md:ml-18 p-4 border shadow-lg rounded-md dark:text-gray-400">
-                            <h3 className="text-[16px] md:text-[20px] font-bold">Masa Asistensi Draf Proposal PKM TI</h3>
-                            <p className="text-[14px] md:text-[16px] font-medium mb-1">⌛
-                                30 Maret - 17 Mei 2024
-                            </p>
-                            <p className="text-[16px]">📍 Hybird</p>
-                        </div>
-                    </motion.div>
-                    <motion.div
-                        whileInView="visible"
-                        variants={variantFade(-100, 0)}
-                        initial="hidden"
-                        animate={controls}
-                        className="font-sans my-10 md:my-5 flex w-full justify-end z-10 pl-0 md:pl-20"
-                    >
-                        <div className="w-full md:w-[466px] ml-5 md:ml-0 mr-0 md:mr-18 p-4 border shadow-lg rounded-md dark:text-gray-400">
-                            <h3 className="text-[16px] md:text-[20px] font-bold">Pengumpulan Bukti Asistensi</h3>
-                            <p className="text-[14px] md:text-[16px] font-medium mb-1">⌛
-                                31 Maret - 16 Mei 2024
-                            </p>
-                            <p className="text-[14px] md:text-[16px]">📍 Melalui website resmi PKM TI https://pkm.hmtiudayana.id/</p>
-                            
-                        </div>
-                    </motion.div>
-                    <motion.div
-                        whileInView="visible"
-                        variants={variantFade(100, 0)}
-                        initial="hidden"
-                        animate={controls}
-                        className="font-sans my-3 md:my-14 flex w-full justify-end md:justify-start z-10 pr-0 md:pr-24"
-                    >
-                        <div className="w-full md:w-[466px] ml-5 md:ml-18 p-4 border shadow-lg rounded-md dark:text-gray-400">
-                            <h3 className="text-[16px] md:text-[20px] font-bold">Pengumpulan Draf Proposal</h3>
-                            <p className="text-[14px] md:text-[16px] font-medium mb-1">⌛
-                                11 - 17 Mei 2024
-                            </p>
-                            <p className="text-[16px]">📍 Melalui website resmi PKM TI https://pkm.hmtiudayana.id/</p>
-                        </div>
-                    </motion.div>
-                    <motion.div
-                        whileInView="visible"
-                        variants={variantFade(-100, 0)}
-                        initial="hidden"
-                        animate={controls}
-                        className="font-sans my-3 md:my-5 flex w-full justify-end z-10 pl-0 md:pl-20"
-                    >
-                        <div className="w-full md:w-[466px] ml-5 md:ml-0 mr-0 md:mr-18 p-4 border shadow-lg rounded-md dark:text-gray-400">
-                            <h3 className="text-[16px] md:text-[20px] font-bold">Klinik PKM TI 2024</h3>
-                            <p className="text-[14px] md:text-[16px] font-medium mb-1">⌛
-                                8 Juni 2024
-                            </p>
-                            <p className="text-[16px]">📍 Online</p>
-                        </div>
-                    </motion.div>
-                    <motion.div
-                        whileInView="visible"
-                        variants={variantFade(100, 0)}
-                        initial="hidden"
-                        animate={controls}
-                        className="font-sans my-3 md:my-5 flex w-full justify-end md:justify-start z-10 pr-0 md:pr-24"
-                    >
-                        <div className="w-full md:w-[466px] ml-5 md:ml-18 p-4 border shadow-lg rounded-md dark:text-gray-400">
-                            <h3 className="text-[16px] md:text-[20px] font-bold">Pengumpulan Proposal Final</h3>
-                            <p className="text-[14px] md:text-[16px] font-medium mb-1">⌛
-                                12 - 15 Juni 2024
-                            </p>
-                            <p className="text-[16px]">📍 Melalui website resmi PKM TI https://pkm.hmtiudayana.id/</p>
-                        </div>
-                    </motion.div>
-                    <motion.div
-                        whileInView="visible"
-                        variants={variantFade(-100, 0)}
-                        initial="hidden"
-                        animate={controls}
-                        className="font-sans my-3 md:my-16 flex w-full justify-end z-10 pl-0 md:pl-20"
-                    >
-                        <div className="w-full md:w-[466px] ml-5 md:ml-0 mr-0 md:mr-18 p-4 border shadow-lg rounded-m dark:text-gray-400">
-                            <h3 className="text-[16px] md:text-[20px] font-bold">Pengumuman Kelulusan Pelatihan PKM TI 2024</h3>
-                            <p className="text-[14px] md:text-[16px] font-medium mb-1">⌛
-                                22 Juni 2024
-                            </p>
-                            <p className="text-[14px] md:text-[16px]">📍 Melalui website resmi PKM TI https://pkm.hmtiudayana.id/</p>
-                        </div>
-                    </motion.div>
-                </section>
-
-                */}
-                {/* End Timeline */}
 
                 <div className="absolute left-2 sm:block hidden">
-                    <img src="images/asset25.png" alt="bwabwa"/>
+                    <img src="images/asset25.png" alt="bwabwa" />
                 </div>
                 <section className="mx-auto mt-20 w-full max-w-[1200px] flex-shrink-0 px-4 sm:px-8 md:mt-36">
                     <h1
@@ -786,13 +521,13 @@ export default function Welcome({ auth }) {
                     <p
                         className="font-sans mx-auto max-w-[653px] text-center font-bold text-2xl dark:text-gray-500 text-[#285B70]"
                     >
-                        Jangan Lewatkan Kesempatan Ini 
+                        Jangan Lewatkan Kesempatan Ini
                     </p>
                     <div className="h-16" />
                     <div className="relative mt-12 flex min-h-fit flex-col items-center" style={{ gap: '96px' }}>
-                    <div className="absolute -left-24 -top-16 sm:block hidden">
-                        <img src="images/asset25.png" alt="bwabwa"/>
-                    </div>
+                        <div className="absolute -left-24 -top-16 sm:block hidden">
+                            <img src="images/asset25.png" alt="bwabwa" />
+                        </div>
                         {/* Timeline items */}
                         <div
                             className="relative z-10 flex w-full max-w-[900px] items-center "
@@ -815,7 +550,7 @@ export default function Welcome({ auth }) {
                                 {/* Date */}
                                 <div className="flex items-center px-6 pt-2 sm:pl-16">
                                     <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.75 1C7.43506 1 7.13301 1.15145 6.91031 1.42103C6.68761 1.69062 6.5625 2.05625 6.5625 2.4375V3.875H5.375C4.74511 3.875 4.14102 4.1779 3.69562 4.71707C3.25022 5.25624 3 5.9875 3 6.75V21.125C3 21.8875 3.25022 22.6188 3.69562 23.1579C4.14102 23.6971 4.74511 24 5.375 24H19.625C20.2549 24 20.859 23.6971 21.3044 23.1579C21.7498 22.6188 22 21.8875 22 21.125V6.75C22 5.9875 21.7498 5.25624 21.3044 4.71707C20.859 4.1779 20.2549 3.875 19.625 3.875H18.4375V2.4375C18.4375 2.05625 18.3124 1.69062 18.0897 1.42103C17.867 1.15145 17.5649 1 17.25 1C16.9351 1 16.633 1.15145 16.4103 1.42103C16.1876 1.69062 16.0625 2.05625 16.0625 2.4375V3.875H8.9375V2.4375C8.9375 2.05625 8.81239 1.69062 8.58969 1.42103C8.36699 1.15145 8.06494 1 7.75 1ZM7.75 8.1875C7.43506 8.1875 7.13301 8.33895 6.91031 8.60853C6.68761 8.87812 6.5625 9.24375 6.5625 9.625C6.5625 10.0062 6.68761 10.3719 6.91031 10.6415C7.13301 10.911 7.43506 11.0625 7.75 11.0625H17.25C17.5649 11.0625 17.867 10.911 18.0897 10.6415C18.3124 10.3719 18.4375 10.0062 18.4375 9.625C18.4375 9.24375 18.3124 8.87812 18.0897 8.60853C17.867 8.33895 17.5649 8.1875 17.25 8.1875H7.75Z" fill="#979797"/>
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.75 1C7.43506 1 7.13301 1.15145 6.91031 1.42103C6.68761 1.69062 6.5625 2.05625 6.5625 2.4375V3.875H5.375C4.74511 3.875 4.14102 4.1779 3.69562 4.71707C3.25022 5.25624 3 5.9875 3 6.75V21.125C3 21.8875 3.25022 22.6188 3.69562 23.1579C4.14102 23.6971 4.74511 24 5.375 24H19.625C20.2549 24 20.859 23.6971 21.3044 23.1579C21.7498 22.6188 22 21.8875 22 21.125V6.75C22 5.9875 21.7498 5.25624 21.3044 4.71707C20.859 4.1779 20.2549 3.875 19.625 3.875H18.4375V2.4375C18.4375 2.05625 18.3124 1.69062 18.0897 1.42103C17.867 1.15145 17.5649 1 17.25 1C16.9351 1 16.633 1.15145 16.4103 1.42103C16.1876 1.69062 16.0625 2.05625 16.0625 2.4375V3.875H8.9375V2.4375C8.9375 2.05625 8.81239 1.69062 8.58969 1.42103C8.36699 1.15145 8.06494 1 7.75 1ZM7.75 8.1875C7.43506 8.1875 7.13301 8.33895 6.91031 8.60853C6.68761 8.87812 6.5625 9.24375 6.5625 9.625C6.5625 10.0062 6.68761 10.3719 6.91031 10.6415C7.13301 10.911 7.43506 11.0625 7.75 11.0625H17.25C17.5649 11.0625 17.867 10.911 18.0897 10.6415C18.3124 10.3719 18.4375 10.0062 18.4375 9.625C18.4375 9.24375 18.3124 8.87812 18.0897 8.60853C17.867 8.33895 17.5649 8.1875 17.25 8.1875H7.75Z" fill="#979797" />
                                     </svg>
                                     <p className="text-[16px] leading-[24px] font-normal text-[#979797] px-2">
                                         23 Agustus 2025
@@ -823,13 +558,13 @@ export default function Welcome({ auth }) {
                                 </div>
                                 <div className="flex items-center px-6 pt-2 sm:pl-16">
                                     <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 sm:w-6 sm:h-6">
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M5.78266 3.91169C7.56423 2.04737 9.98057 1 12.5001 1C15.0196 1 17.436 2.04737 19.2175 3.91169C20.9991 5.77601 22 8.30457 22 10.9411C22 13.5777 20.9991 16.1062 19.2175 17.9706L12.5001 25L5.78266 17.9706C4.90045 17.0475 4.20064 15.9516 3.72319 14.7455C3.24574 13.5394 3 12.2466 3 10.9411C3 9.63562 3.24574 8.3429 3.72319 7.13678C4.20064 5.93066 4.90045 4.83477 5.78266 3.91169ZM12.5001 13.7813C13.2199 13.7813 13.9103 13.4821 14.4193 12.9494C14.9283 12.4168 15.2142 11.6944 15.2142 10.9411C15.2142 10.1879 14.9283 9.46545 14.4193 8.93282C13.9103 8.40018 13.2199 8.10095 12.5001 8.10095C11.7803 8.10095 11.0899 8.40018 10.5809 8.93282C10.0719 9.46545 9.78598 10.1879 9.78598 10.9411C9.78598 11.6944 10.0719 12.4168 10.5809 12.9494C11.0899 13.4821 11.7803 13.7813 12.5001 13.7813Z" fill="#979797"/>
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M5.78266 3.91169C7.56423 2.04737 9.98057 1 12.5001 1C15.0196 1 17.436 2.04737 19.2175 3.91169C20.9991 5.77601 22 8.30457 22 10.9411C22 13.5777 20.9991 16.1062 19.2175 17.9706L12.5001 25L5.78266 17.9706C4.90045 17.0475 4.20064 15.9516 3.72319 14.7455C3.24574 13.5394 3 12.2466 3 10.9411C3 9.63562 3.24574 8.3429 3.72319 7.13678C4.20064 5.93066 4.90045 4.83477 5.78266 3.91169ZM12.5001 13.7813C13.2199 13.7813 13.9103 13.4821 14.4193 12.9494C14.9283 12.4168 15.2142 11.6944 15.2142 10.9411C15.2142 10.1879 14.9283 9.46545 14.4193 8.93282C13.9103 8.40018 13.2199 8.10095 12.5001 8.10095C11.7803 8.10095 11.0899 8.40018 10.5809 8.93282C10.0719 9.46545 9.78598 10.1879 9.78598 10.9411C9.78598 11.6944 10.0719 12.4168 10.5809 12.9494C11.0899 13.4821 11.7803 13.7813 12.5001 13.7813Z" fill="#979797" />
                                     </svg>
                                     <p className="text-[16px] font-normal text-[#979797] px-2">
                                         Gedung Teknologi Informasi Fakultas Teknik Universitas Udayana
                                     </p>
                                 </div>
-                                    
+
                             </div>
 
                             {/* Icon lingkaran */}
@@ -873,7 +608,7 @@ export default function Welcome({ auth }) {
                                 {/* Date */}
                                 <div className="flex items-center px-6 pt-2 sm:pl-16">
                                     <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.75 1C7.43506 1 7.13301 1.15145 6.91031 1.42103C6.68761 1.69062 6.5625 2.05625 6.5625 2.4375V3.875H5.375C4.74511 3.875 4.14102 4.1779 3.69562 4.71707C3.25022 5.25624 3 5.9875 3 6.75V21.125C3 21.8875 3.25022 22.6188 3.69562 23.1579C4.14102 23.6971 4.74511 24 5.375 24H19.625C20.2549 24 20.859 23.6971 21.3044 23.1579C21.7498 22.6188 22 21.8875 22 21.125V6.75C22 5.9875 21.7498 5.25624 21.3044 4.71707C20.859 4.1779 20.2549 3.875 19.625 3.875H18.4375V2.4375C18.4375 2.05625 18.3124 1.69062 18.0897 1.42103C17.867 1.15145 17.5649 1 17.25 1C16.9351 1 16.633 1.15145 16.4103 1.42103C16.1876 1.69062 16.0625 2.05625 16.0625 2.4375V3.875H8.9375V2.4375C8.9375 2.05625 8.81239 1.69062 8.58969 1.42103C8.36699 1.15145 8.06494 1 7.75 1ZM7.75 8.1875C7.43506 8.1875 7.13301 8.33895 6.91031 8.60853C6.68761 8.87812 6.5625 9.24375 6.5625 9.625C6.5625 10.0062 6.68761 10.3719 6.91031 10.6415C7.13301 10.911 7.43506 11.0625 7.75 11.0625H17.25C17.5649 11.0625 17.867 10.911 18.0897 10.6415C18.3124 10.3719 18.4375 10.0062 18.4375 9.625C18.4375 9.24375 18.3124 8.87812 18.0897 8.60853C17.867 8.33895 17.5649 8.1875 17.25 8.1875H7.75Z" fill="#979797"/>
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.75 1C7.43506 1 7.13301 1.15145 6.91031 1.42103C6.68761 1.69062 6.5625 2.05625 6.5625 2.4375V3.875H5.375C4.74511 3.875 4.14102 4.1779 3.69562 4.71707C3.25022 5.25624 3 5.9875 3 6.75V21.125C3 21.8875 3.25022 22.6188 3.69562 23.1579C4.14102 23.6971 4.74511 24 5.375 24H19.625C20.2549 24 20.859 23.6971 21.3044 23.1579C21.7498 22.6188 22 21.8875 22 21.125V6.75C22 5.9875 21.7498 5.25624 21.3044 4.71707C20.859 4.1779 20.2549 3.875 19.625 3.875H18.4375V2.4375C18.4375 2.05625 18.3124 1.69062 18.0897 1.42103C17.867 1.15145 17.5649 1 17.25 1C16.9351 1 16.633 1.15145 16.4103 1.42103C16.1876 1.69062 16.0625 2.05625 16.0625 2.4375V3.875H8.9375V2.4375C8.9375 2.05625 8.81239 1.69062 8.58969 1.42103C8.36699 1.15145 8.06494 1 7.75 1ZM7.75 8.1875C7.43506 8.1875 7.13301 8.33895 6.91031 8.60853C6.68761 8.87812 6.5625 9.24375 6.5625 9.625C6.5625 10.0062 6.68761 10.3719 6.91031 10.6415C7.13301 10.911 7.43506 11.0625 7.75 11.0625H17.25C17.5649 11.0625 17.867 10.911 18.0897 10.6415C18.3124 10.3719 18.4375 10.0062 18.4375 9.625C18.4375 9.24375 18.3124 8.87812 18.0897 8.60853C17.867 8.33895 17.5649 8.1875 17.25 8.1875H7.75Z" fill="#979797" />
                                     </svg>
                                     <p className="text-[16px] leading-[24px] font-normal text-[#979797] px-2">
                                         23 Agustus 2025
@@ -881,13 +616,13 @@ export default function Welcome({ auth }) {
                                 </div>
                                 <div className="flex items-center px-6 pt-2 sm:pl-16">
                                     <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 sm:w-6 sm:h-6">
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M5.78266 3.91169C7.56423 2.04737 9.98057 1 12.5001 1C15.0196 1 17.436 2.04737 19.2175 3.91169C20.9991 5.77601 22 8.30457 22 10.9411C22 13.5777 20.9991 16.1062 19.2175 17.9706L12.5001 25L5.78266 17.9706C4.90045 17.0475 4.20064 15.9516 3.72319 14.7455C3.24574 13.5394 3 12.2466 3 10.9411C3 9.63562 3.24574 8.3429 3.72319 7.13678C4.20064 5.93066 4.90045 4.83477 5.78266 3.91169ZM12.5001 13.7813C13.2199 13.7813 13.9103 13.4821 14.4193 12.9494C14.9283 12.4168 15.2142 11.6944 15.2142 10.9411C15.2142 10.1879 14.9283 9.46545 14.4193 8.93282C13.9103 8.40018 13.2199 8.10095 12.5001 8.10095C11.7803 8.10095 11.0899 8.40018 10.5809 8.93282C10.0719 9.46545 9.78598 10.1879 9.78598 10.9411C9.78598 11.6944 10.0719 12.4168 10.5809 12.9494C11.0899 13.4821 11.7803 13.7813 12.5001 13.7813Z" fill="#979797"/>
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M5.78266 3.91169C7.56423 2.04737 9.98057 1 12.5001 1C15.0196 1 17.436 2.04737 19.2175 3.91169C20.9991 5.77601 22 8.30457 22 10.9411C22 13.5777 20.9991 16.1062 19.2175 17.9706L12.5001 25L5.78266 17.9706C4.90045 17.0475 4.20064 15.9516 3.72319 14.7455C3.24574 13.5394 3 12.2466 3 10.9411C3 9.63562 3.24574 8.3429 3.72319 7.13678C4.20064 5.93066 4.90045 4.83477 5.78266 3.91169ZM12.5001 13.7813C13.2199 13.7813 13.9103 13.4821 14.4193 12.9494C14.9283 12.4168 15.2142 11.6944 15.2142 10.9411C15.2142 10.1879 14.9283 9.46545 14.4193 8.93282C13.9103 8.40018 13.2199 8.10095 12.5001 8.10095C11.7803 8.10095 11.0899 8.40018 10.5809 8.93282C10.0719 9.46545 9.78598 10.1879 9.78598 10.9411C9.78598 11.6944 10.0719 12.4168 10.5809 12.9494C11.0899 13.4821 11.7803 13.7813 12.5001 13.7813Z" fill="#979797" />
                                     </svg>
                                     <p className="text-[16px] font-normal text-[#979797] px-2">
                                         Gedung Teknologi Informasi Fakultas Teknik Universitas Udayana
                                     </p>
                                 </div>
-                                    
+
                             </div>
 
                             {/* Icon lingkaran */}
@@ -934,7 +669,7 @@ export default function Welcome({ auth }) {
                                 {/* Date */}
                                 <div className="flex items-center px-6 pt-2 sm:pl-16">
                                     <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.75 1C7.43506 1 7.13301 1.15145 6.91031 1.42103C6.68761 1.69062 6.5625 2.05625 6.5625 2.4375V3.875H5.375C4.74511 3.875 4.14102 4.1779 3.69562 4.71707C3.25022 5.25624 3 5.9875 3 6.75V21.125C3 21.8875 3.25022 22.6188 3.69562 23.1579C4.14102 23.6971 4.74511 24 5.375 24H19.625C20.2549 24 20.859 23.6971 21.3044 23.1579C21.7498 22.6188 22 21.8875 22 21.125V6.75C22 5.9875 21.7498 5.25624 21.3044 4.71707C20.859 4.1779 20.2549 3.875 19.625 3.875H18.4375V2.4375C18.4375 2.05625 18.3124 1.69062 18.0897 1.42103C17.867 1.15145 17.5649 1 17.25 1C16.9351 1 16.633 1.15145 16.4103 1.42103C16.1876 1.69062 16.0625 2.05625 16.0625 2.4375V3.875H8.9375V2.4375C8.9375 2.05625 8.81239 1.69062 8.58969 1.42103C8.36699 1.15145 8.06494 1 7.75 1ZM7.75 8.1875C7.43506 8.1875 7.13301 8.33895 6.91031 8.60853C6.68761 8.87812 6.5625 9.24375 6.5625 9.625C6.5625 10.0062 6.68761 10.3719 6.91031 10.6415C7.13301 10.911 7.43506 11.0625 7.75 11.0625H17.25C17.5649 11.0625 17.867 10.911 18.0897 10.6415C18.3124 10.3719 18.4375 10.0062 18.4375 9.625C18.4375 9.24375 18.3124 8.87812 18.0897 8.60853C17.867 8.33895 17.5649 8.1875 17.25 8.1875H7.75Z" fill="#979797"/>
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.75 1C7.43506 1 7.13301 1.15145 6.91031 1.42103C6.68761 1.69062 6.5625 2.05625 6.5625 2.4375V3.875H5.375C4.74511 3.875 4.14102 4.1779 3.69562 4.71707C3.25022 5.25624 3 5.9875 3 6.75V21.125C3 21.8875 3.25022 22.6188 3.69562 23.1579C4.14102 23.6971 4.74511 24 5.375 24H19.625C20.2549 24 20.859 23.6971 21.3044 23.1579C21.7498 22.6188 22 21.8875 22 21.125V6.75C22 5.9875 21.7498 5.25624 21.3044 4.71707C20.859 4.1779 20.2549 3.875 19.625 3.875H18.4375V2.4375C18.4375 2.05625 18.3124 1.69062 18.0897 1.42103C17.867 1.15145 17.5649 1 17.25 1C16.9351 1 16.633 1.15145 16.4103 1.42103C16.1876 1.69062 16.0625 2.05625 16.0625 2.4375V3.875H8.9375V2.4375C8.9375 2.05625 8.81239 1.69062 8.58969 1.42103C8.36699 1.15145 8.06494 1 7.75 1ZM7.75 8.1875C7.43506 8.1875 7.13301 8.33895 6.91031 8.60853C6.68761 8.87812 6.5625 9.24375 6.5625 9.625C6.5625 10.0062 6.68761 10.3719 6.91031 10.6415C7.13301 10.911 7.43506 11.0625 7.75 11.0625H17.25C17.5649 11.0625 17.867 10.911 18.0897 10.6415C18.3124 10.3719 18.4375 10.0062 18.4375 9.625C18.4375 9.24375 18.3124 8.87812 18.0897 8.60853C17.867 8.33895 17.5649 8.1875 17.25 8.1875H7.75Z" fill="#979797" />
                                     </svg>
                                     <p className="text-[16px] leading-[24px] font-normal text-[#979797] px-2">
                                         23 Agustus 2025
@@ -942,13 +677,13 @@ export default function Welcome({ auth }) {
                                 </div>
                                 <div className="flex items-center px-6 pt-2 sm:pl-16">
                                     <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 sm:w-6 sm:h-6">
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M5.78266 3.91169C7.56423 2.04737 9.98057 1 12.5001 1C15.0196 1 17.436 2.04737 19.2175 3.91169C20.9991 5.77601 22 8.30457 22 10.9411C22 13.5777 20.9991 16.1062 19.2175 17.9706L12.5001 25L5.78266 17.9706C4.90045 17.0475 4.20064 15.9516 3.72319 14.7455C3.24574 13.5394 3 12.2466 3 10.9411C3 9.63562 3.24574 8.3429 3.72319 7.13678C4.20064 5.93066 4.90045 4.83477 5.78266 3.91169ZM12.5001 13.7813C13.2199 13.7813 13.9103 13.4821 14.4193 12.9494C14.9283 12.4168 15.2142 11.6944 15.2142 10.9411C15.2142 10.1879 14.9283 9.46545 14.4193 8.93282C13.9103 8.40018 13.2199 8.10095 12.5001 8.10095C11.7803 8.10095 11.0899 8.40018 10.5809 8.93282C10.0719 9.46545 9.78598 10.1879 9.78598 10.9411C9.78598 11.6944 10.0719 12.4168 10.5809 12.9494C11.0899 13.4821 11.7803 13.7813 12.5001 13.7813Z" fill="#979797"/>
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M5.78266 3.91169C7.56423 2.04737 9.98057 1 12.5001 1C15.0196 1 17.436 2.04737 19.2175 3.91169C20.9991 5.77601 22 8.30457 22 10.9411C22 13.5777 20.9991 16.1062 19.2175 17.9706L12.5001 25L5.78266 17.9706C4.90045 17.0475 4.20064 15.9516 3.72319 14.7455C3.24574 13.5394 3 12.2466 3 10.9411C3 9.63562 3.24574 8.3429 3.72319 7.13678C4.20064 5.93066 4.90045 4.83477 5.78266 3.91169ZM12.5001 13.7813C13.2199 13.7813 13.9103 13.4821 14.4193 12.9494C14.9283 12.4168 15.2142 11.6944 15.2142 10.9411C15.2142 10.1879 14.9283 9.46545 14.4193 8.93282C13.9103 8.40018 13.2199 8.10095 12.5001 8.10095C11.7803 8.10095 11.0899 8.40018 10.5809 8.93282C10.0719 9.46545 9.78598 10.1879 9.78598 10.9411C9.78598 11.6944 10.0719 12.4168 10.5809 12.9494C11.0899 13.4821 11.7803 13.7813 12.5001 13.7813Z" fill="#979797" />
                                     </svg>
                                     <p className="text-[16px] font-normal text-[#979797] px-2">
                                         Gedung Teknologi Informasi Fakultas Teknik Universitas Udayana
                                     </p>
                                 </div>
-                                    
+
                             </div>
 
                             {/* Icon lingkaran */}
@@ -971,8 +706,8 @@ export default function Welcome({ auth }) {
                             </div>
                             <div className="absolute -top-7 left-0 bg-[#285B70] sm:-left-[6px] h-[290px] sm:h-[300px] w-[5px] rounded-full z-0"></div>
                         </div>
-                         <div className="absolute -right-[200px] bottom-16 sm:block hidden">
-                            <img src="images/asset25.png" alt="bwabwa"/>
+                        <div className="absolute -right-[200px] bottom-16 sm:block hidden">
+                            <img src="images/asset25.png" alt="bwabwa" />
                         </div>
                         <div
                             className="relative z-10 flex w-full max-w-[900px] items-center "
@@ -995,7 +730,7 @@ export default function Welcome({ auth }) {
                                 {/* Date */}
                                 <div className="flex items-center px-6 pt-2 sm:pl-16">
                                     <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.75 1C7.43506 1 7.13301 1.15145 6.91031 1.42103C6.68761 1.69062 6.5625 2.05625 6.5625 2.4375V3.875H5.375C4.74511 3.875 4.14102 4.1779 3.69562 4.71707C3.25022 5.25624 3 5.9875 3 6.75V21.125C3 21.8875 3.25022 22.6188 3.69562 23.1579C4.14102 23.6971 4.74511 24 5.375 24H19.625C20.2549 24 20.859 23.6971 21.3044 23.1579C21.7498 22.6188 22 21.8875 22 21.125V6.75C22 5.9875 21.7498 5.25624 21.3044 4.71707C20.859 4.1779 20.2549 3.875 19.625 3.875H18.4375V2.4375C18.4375 2.05625 18.3124 1.69062 18.0897 1.42103C17.867 1.15145 17.5649 1 17.25 1C16.9351 1 16.633 1.15145 16.4103 1.42103C16.1876 1.69062 16.0625 2.05625 16.0625 2.4375V3.875H8.9375V2.4375C8.9375 2.05625 8.81239 1.69062 8.58969 1.42103C8.36699 1.15145 8.06494 1 7.75 1ZM7.75 8.1875C7.43506 8.1875 7.13301 8.33895 6.91031 8.60853C6.68761 8.87812 6.5625 9.24375 6.5625 9.625C6.5625 10.0062 6.68761 10.3719 6.91031 10.6415C7.13301 10.911 7.43506 11.0625 7.75 11.0625H17.25C17.5649 11.0625 17.867 10.911 18.0897 10.6415C18.3124 10.3719 18.4375 10.0062 18.4375 9.625C18.4375 9.24375 18.3124 8.87812 18.0897 8.60853C17.867 8.33895 17.5649 8.1875 17.25 8.1875H7.75Z" fill="#979797"/>
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.75 1C7.43506 1 7.13301 1.15145 6.91031 1.42103C6.68761 1.69062 6.5625 2.05625 6.5625 2.4375V3.875H5.375C4.74511 3.875 4.14102 4.1779 3.69562 4.71707C3.25022 5.25624 3 5.9875 3 6.75V21.125C3 21.8875 3.25022 22.6188 3.69562 23.1579C4.14102 23.6971 4.74511 24 5.375 24H19.625C20.2549 24 20.859 23.6971 21.3044 23.1579C21.7498 22.6188 22 21.8875 22 21.125V6.75C22 5.9875 21.7498 5.25624 21.3044 4.71707C20.859 4.1779 20.2549 3.875 19.625 3.875H18.4375V2.4375C18.4375 2.05625 18.3124 1.69062 18.0897 1.42103C17.867 1.15145 17.5649 1 17.25 1C16.9351 1 16.633 1.15145 16.4103 1.42103C16.1876 1.69062 16.0625 2.05625 16.0625 2.4375V3.875H8.9375V2.4375C8.9375 2.05625 8.81239 1.69062 8.58969 1.42103C8.36699 1.15145 8.06494 1 7.75 1ZM7.75 8.1875C7.43506 8.1875 7.13301 8.33895 6.91031 8.60853C6.68761 8.87812 6.5625 9.24375 6.5625 9.625C6.5625 10.0062 6.68761 10.3719 6.91031 10.6415C7.13301 10.911 7.43506 11.0625 7.75 11.0625H17.25C17.5649 11.0625 17.867 10.911 18.0897 10.6415C18.3124 10.3719 18.4375 10.0062 18.4375 9.625C18.4375 9.24375 18.3124 8.87812 18.0897 8.60853C17.867 8.33895 17.5649 8.1875 17.25 8.1875H7.75Z" fill="#979797" />
                                     </svg>
                                     <p className="text-[16px] leading-[24px] font-normal text-[#979797] px-2">
                                         23 Agustus 2025
@@ -1003,13 +738,13 @@ export default function Welcome({ auth }) {
                                 </div>
                                 <div className="flex items-center px-6 pt-2 sm:pl-16">
                                     <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 sm:w-6 sm:h-6">
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M5.78266 3.91169C7.56423 2.04737 9.98057 1 12.5001 1C15.0196 1 17.436 2.04737 19.2175 3.91169C20.9991 5.77601 22 8.30457 22 10.9411C22 13.5777 20.9991 16.1062 19.2175 17.9706L12.5001 25L5.78266 17.9706C4.90045 17.0475 4.20064 15.9516 3.72319 14.7455C3.24574 13.5394 3 12.2466 3 10.9411C3 9.63562 3.24574 8.3429 3.72319 7.13678C4.20064 5.93066 4.90045 4.83477 5.78266 3.91169ZM12.5001 13.7813C13.2199 13.7813 13.9103 13.4821 14.4193 12.9494C14.9283 12.4168 15.2142 11.6944 15.2142 10.9411C15.2142 10.1879 14.9283 9.46545 14.4193 8.93282C13.9103 8.40018 13.2199 8.10095 12.5001 8.10095C11.7803 8.10095 11.0899 8.40018 10.5809 8.93282C10.0719 9.46545 9.78598 10.1879 9.78598 10.9411C9.78598 11.6944 10.0719 12.4168 10.5809 12.9494C11.0899 13.4821 11.7803 13.7813 12.5001 13.7813Z" fill="#979797"/>
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M5.78266 3.91169C7.56423 2.04737 9.98057 1 12.5001 1C15.0196 1 17.436 2.04737 19.2175 3.91169C20.9991 5.77601 22 8.30457 22 10.9411C22 13.5777 20.9991 16.1062 19.2175 17.9706L12.5001 25L5.78266 17.9706C4.90045 17.0475 4.20064 15.9516 3.72319 14.7455C3.24574 13.5394 3 12.2466 3 10.9411C3 9.63562 3.24574 8.3429 3.72319 7.13678C4.20064 5.93066 4.90045 4.83477 5.78266 3.91169ZM12.5001 13.7813C13.2199 13.7813 13.9103 13.4821 14.4193 12.9494C14.9283 12.4168 15.2142 11.6944 15.2142 10.9411C15.2142 10.1879 14.9283 9.46545 14.4193 8.93282C13.9103 8.40018 13.2199 8.10095 12.5001 8.10095C11.7803 8.10095 11.0899 8.40018 10.5809 8.93282C10.0719 9.46545 9.78598 10.1879 9.78598 10.9411C9.78598 11.6944 10.0719 12.4168 10.5809 12.9494C11.0899 13.4821 11.7803 13.7813 12.5001 13.7813Z" fill="#979797" />
                                     </svg>
                                     <p className="text-[16px] font-normal text-[#979797] px-2">
                                         Gedung Teknologi Informasi Fakultas Teknik Universitas Udayana
                                     </p>
                                 </div>
-                                    
+
                             </div>
 
                             {/* Icon lingkaran */}
@@ -1053,7 +788,7 @@ export default function Welcome({ auth }) {
                                 {/* Date */}
                                 <div className="flex items-center px-6 pt-2 sm:pl-16">
                                     <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.75 1C7.43506 1 7.13301 1.15145 6.91031 1.42103C6.68761 1.69062 6.5625 2.05625 6.5625 2.4375V3.875H5.375C4.74511 3.875 4.14102 4.1779 3.69562 4.71707C3.25022 5.25624 3 5.9875 3 6.75V21.125C3 21.8875 3.25022 22.6188 3.69562 23.1579C4.14102 23.6971 4.74511 24 5.375 24H19.625C20.2549 24 20.859 23.6971 21.3044 23.1579C21.7498 22.6188 22 21.8875 22 21.125V6.75C22 5.9875 21.7498 5.25624 21.3044 4.71707C20.859 4.1779 20.2549 3.875 19.625 3.875H18.4375V2.4375C18.4375 2.05625 18.3124 1.69062 18.0897 1.42103C17.867 1.15145 17.5649 1 17.25 1C16.9351 1 16.633 1.15145 16.4103 1.42103C16.1876 1.69062 16.0625 2.05625 16.0625 2.4375V3.875H8.9375V2.4375C8.9375 2.05625 8.81239 1.69062 8.58969 1.42103C8.36699 1.15145 8.06494 1 7.75 1ZM7.75 8.1875C7.43506 8.1875 7.13301 8.33895 6.91031 8.60853C6.68761 8.87812 6.5625 9.24375 6.5625 9.625C6.5625 10.0062 6.68761 10.3719 6.91031 10.6415C7.13301 10.911 7.43506 11.0625 7.75 11.0625H17.25C17.5649 11.0625 17.867 10.911 18.0897 10.6415C18.3124 10.3719 18.4375 10.0062 18.4375 9.625C18.4375 9.24375 18.3124 8.87812 18.0897 8.60853C17.867 8.33895 17.5649 8.1875 17.25 8.1875H7.75Z" fill="#979797"/>
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.75 1C7.43506 1 7.13301 1.15145 6.91031 1.42103C6.68761 1.69062 6.5625 2.05625 6.5625 2.4375V3.875H5.375C4.74511 3.875 4.14102 4.1779 3.69562 4.71707C3.25022 5.25624 3 5.9875 3 6.75V21.125C3 21.8875 3.25022 22.6188 3.69562 23.1579C4.14102 23.6971 4.74511 24 5.375 24H19.625C20.2549 24 20.859 23.6971 21.3044 23.1579C21.7498 22.6188 22 21.8875 22 21.125V6.75C22 5.9875 21.7498 5.25624 21.3044 4.71707C20.859 4.1779 20.2549 3.875 19.625 3.875H18.4375V2.4375C18.4375 2.05625 18.3124 1.69062 18.0897 1.42103C17.867 1.15145 17.5649 1 17.25 1C16.9351 1 16.633 1.15145 16.4103 1.42103C16.1876 1.69062 16.0625 2.05625 16.0625 2.4375V3.875H8.9375V2.4375C8.9375 2.05625 8.81239 1.69062 8.58969 1.42103C8.36699 1.15145 8.06494 1 7.75 1ZM7.75 8.1875C7.43506 8.1875 7.13301 8.33895 6.91031 8.60853C6.68761 8.87812 6.5625 9.24375 6.5625 9.625C6.5625 10.0062 6.68761 10.3719 6.91031 10.6415C7.13301 10.911 7.43506 11.0625 7.75 11.0625H17.25C17.5649 11.0625 17.867 10.911 18.0897 10.6415C18.3124 10.3719 18.4375 10.0062 18.4375 9.625C18.4375 9.24375 18.3124 8.87812 18.0897 8.60853C17.867 8.33895 17.5649 8.1875 17.25 8.1875H7.75Z" fill="#979797" />
                                     </svg>
                                     <p className="text-[16px] leading-[24px] font-normal text-[#979797] px-2">
                                         23 Agustus 2025
@@ -1061,13 +796,13 @@ export default function Welcome({ auth }) {
                                 </div>
                                 <div className="flex items-center px-6 pt-2 sm:pl-16">
                                     <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 sm:w-6 sm:h-6">
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M5.78266 3.91169C7.56423 2.04737 9.98057 1 12.5001 1C15.0196 1 17.436 2.04737 19.2175 3.91169C20.9991 5.77601 22 8.30457 22 10.9411C22 13.5777 20.9991 16.1062 19.2175 17.9706L12.5001 25L5.78266 17.9706C4.90045 17.0475 4.20064 15.9516 3.72319 14.7455C3.24574 13.5394 3 12.2466 3 10.9411C3 9.63562 3.24574 8.3429 3.72319 7.13678C4.20064 5.93066 4.90045 4.83477 5.78266 3.91169ZM12.5001 13.7813C13.2199 13.7813 13.9103 13.4821 14.4193 12.9494C14.9283 12.4168 15.2142 11.6944 15.2142 10.9411C15.2142 10.1879 14.9283 9.46545 14.4193 8.93282C13.9103 8.40018 13.2199 8.10095 12.5001 8.10095C11.7803 8.10095 11.0899 8.40018 10.5809 8.93282C10.0719 9.46545 9.78598 10.1879 9.78598 10.9411C9.78598 11.6944 10.0719 12.4168 10.5809 12.9494C11.0899 13.4821 11.7803 13.7813 12.5001 13.7813Z" fill="#979797"/>
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M5.78266 3.91169C7.56423 2.04737 9.98057 1 12.5001 1C15.0196 1 17.436 2.04737 19.2175 3.91169C20.9991 5.77601 22 8.30457 22 10.9411C22 13.5777 20.9991 16.1062 19.2175 17.9706L12.5001 25L5.78266 17.9706C4.90045 17.0475 4.20064 15.9516 3.72319 14.7455C3.24574 13.5394 3 12.2466 3 10.9411C3 9.63562 3.24574 8.3429 3.72319 7.13678C4.20064 5.93066 4.90045 4.83477 5.78266 3.91169ZM12.5001 13.7813C13.2199 13.7813 13.9103 13.4821 14.4193 12.9494C14.9283 12.4168 15.2142 11.6944 15.2142 10.9411C15.2142 10.1879 14.9283 9.46545 14.4193 8.93282C13.9103 8.40018 13.2199 8.10095 12.5001 8.10095C11.7803 8.10095 11.0899 8.40018 10.5809 8.93282C10.0719 9.46545 9.78598 10.1879 9.78598 10.9411C9.78598 11.6944 10.0719 12.4168 10.5809 12.9494C11.0899 13.4821 11.7803 13.7813 12.5001 13.7813Z" fill="#979797" />
                                     </svg>
                                     <p className="text-[16px] font-normal text-[#979797] px-2">
                                         Gedung Teknologi Informasi Fakultas Teknik Universitas Udayana
                                     </p>
                                 </div>
-                                    
+
                             </div>
 
                             {/* Icon lingkaran */}
@@ -1090,21 +825,17 @@ export default function Welcome({ auth }) {
                             </div>
                             <div className="absolute -top-7 left-0 bg-[#285B70] sm:-left-[6px] h-[250px] sm:h-[250px] w-[5px] rounded-full z-0"></div>
                             <div className="absolute -right-[400px] -bottom-[150px] sm:block hidden">
-                                <img src="images/asset25.png" alt="bwabwa"/>
+                                <img src="images/asset25.png" alt="bwabwa" />
                             </div>
                         </div>
                     </div>
-            </section>
+                </section>
 
 
                 {/* Start News Letter */}
                 <section className="flex flex-col max-w-full py-4 my-24 sm:px-12">
                     <div className="relative z-[1] h-fit pb-28 sm:pb-40 max-w-full rounded-2xl sm:rounded-3xl overflow-hidden p-10 bg-cover bg-no-repeat bg-center before:content-[''] before:absolute before:inset-0 before:block bg-gradient-custom2 before:-z-[1]">
-                        <motion.div
-                            whileInView="visible"
-                            variants={variantZoom}
-                            initial="hidden"
-                            animate={controls}
+                        <div
                             className="flex flex-col justify-start items-center"
                         >
                             <div className="flex items-center space-x-2 mb-2">
@@ -1123,7 +854,7 @@ export default function Welcome({ auth }) {
                             <p className="text-slate-200 text-center text-sm sm:text-base mt-6 mx-0 md:mx-12">
                                 Jelajahi kategori-kategori sub topik PKM kami dan temukan passion yang menggetarkan hati Anda. Mulai dari keberlanjutan hingga teknologi, kesehatan hingga seni, kami mengundang Anda untuk meresapi setiap sub topik dengan penuh antusiasme. Temukan tempat Anda di dunia PKM, di mana setiap kategori adalah panggung bagi idealisasi dan perubahan.
                             </p>
-                        </motion.div>
+                        </div>
                     </div>
 
                     <div className="relative -mt-24 sm:-mt-32 z-[5] flex justify-center items-center">
@@ -1178,11 +909,7 @@ export default function Welcome({ auth }) {
 
                 {/* Start FAQ */}
                 <section className="flex flex-col gap-7 justify-center items-center w-full mb-20" id="FaQ">
-                    <motion.div
-                        whileInView="visible"
-                        variants={variantZoom}
-                        initial="hidden"
-                        animate={controls}
+                    <div
                         className="flex flex-col gap-2 justify-center items-center text-center"
                     >
                         <p className="font-bold text-[20px] tracking-[0.01em] text-[#42A1A4]">
@@ -1194,13 +921,9 @@ export default function Welcome({ auth }) {
                         <p className="font-normal text-[16px] tracking-[0.01em] text-slate-500">
                             Pertanyaan umum yang sering ditanyakan terkait PKM TI 2025. Jika masih ada yang ingin ditanyakan lebih lanjut, kalian bisa hubungi narahubung dibawah ini.
                         </p>
-                    </motion.div>
+                    </div>
                     {/* Buttons */}
-                    <motion.div
-                        whileInView="visible"
-                        variants={variantZoom}
-                        initial="hidden"
-                        animate={controls}
+                    <div
                         className="flex md:flex-row flex-col justify-center items-center gap-5 w-full"
                     >
                         <div
@@ -1224,22 +947,14 @@ export default function Welcome({ auth }) {
                         >
                             Klinik PKM
                         </div>
-                    </motion.div>
+                    </div>
                     <div className="flex md:flex-row flex-col justify-evenly items-center w-full">
-                        <motion.div
-                            whileInView="visible"
-                            variants={variantFade(-100, 0)}
-                            initial="hidden"
-                            animate={controls}
+                        <div
                         >
                             <img src="images/faqs-amicos.png" alt="" key={activeCategoryFaq} className="w-full md:w-[481px] md:h-[483px] h-auto animate-bounce-custom" />
-                        </motion.div>
+                        </div>
                         {activeCategoryFaq === "Guidebook" && (
-                            <motion.div
-                                whileInView="visible"
-                                variants={variantZoom}
-                                initial="hidden"
-                                animate={controls}
+                            <div
                                 className="flex flex-col gap-2 md:w-[636px] w-full dark:text-gray-400"
                             >
                                 <Accordion
@@ -1267,14 +982,10 @@ export default function Welcome({ auth }) {
                                     onClick={() => handleAccordionClick(3)}
                                 />
 
-                            </motion.div>
+                            </div>
                         )}
                         {activeCategoryFaq === "Hari H PKM" && (
-                            <motion.div
-                                whileInView="visible"
-                                variants={variantZoom}
-                                initial="hidden"
-                                animate={controls}
+                            <div
                                 className="flex flex-col gap-2 md:w-[636px] w-full dark:text-gray-400"
                             >
                                 <Accordion
@@ -1302,15 +1013,11 @@ export default function Welcome({ auth }) {
                                     onClick={() => handleAccordionClick(3)}
                                 />
 
-                            </motion.div>
+                            </div>
                         )}
                         {activeCategoryFaq === "Klinik PKM" && (
-                            <motion.div
+                            <div
                                 className="flex flex-col gap-2 md:w-[636px] w-full dark:text-gray-400"
-                                whileInView="visible"
-                                variants={variantZoom}
-                                initial="hidden"
-                                animate={controls}
                             >
 
                                 <Accordion
@@ -1338,7 +1045,7 @@ export default function Welcome({ auth }) {
                                     onClick={() => handleAccordionClick(3)}
                                 />
 
-                            </motion.div>
+                            </div>
                         )}
                     </div>
                 </section>
@@ -1347,11 +1054,7 @@ export default function Welcome({ auth }) {
 
                 {/* Start Kontak Kami */}
                 <section className="flex flex-col justify-center items-center w-full my-12" id="contact-us">
-                    <motion.div
-                        whileInView="visible"
-                        variants={variantZoom}
-                        initial="hidden"
-                        animate={controls}
+                    <div
                         className="flex flex-col justify-center items-center"
                     >
                         <h1 className="font-bold text-[48px] text-[#285B70]">
@@ -1360,12 +1063,8 @@ export default function Welcome({ auth }) {
                         <p className="w-4/5 text-base text-center dark:text-gray-400">
                             Jika Anda memiliki pertanyaan lebih lanjut, jangan ragu untuk menghubungi narahubung yang tertera di bawah ini.
                         </p>
-                    </motion.div>
-                    <motion.div
-                        whileInView="visible"
-                        variants={variantZoom}
-                        initial="hidden"
-                        animate={controls}
+                    </div>
+                    <div
                         className="grid grid-cols-1 md:grid-cols-3 justify-between my-8 gap-16"
                     >
                         <div className="flex flex-col gap-2 bg-[#285B70] py-4 pl-4 pr-24 rounded-b-2xl border-t-2 border-[#285B70] bg-opacity-20 dark:text-gray-400">
@@ -1401,15 +1100,11 @@ export default function Welcome({ auth }) {
                                 <a href="wa.me/62881038194017" className="text-base text-[#2A3374] dark:text-white">+62 881-0381-94017</a>
                             </div>
                         </div>
-                    </motion.div>
-                    <motion.div
-                        whileInView="visible"
-                        variants={variantZoom}
-                        initial="hidden"
-                        animate={controls}
+                    </div>
+                    <div
                     >
                         <img src="images/contact-amicos.png" alt="KONTAK-KAMI" className="md:w-[584px] w-full md:h-[540px] h-auto my-2 animate-bounce-custom" />
-                    </motion.div>
+                    </div>
                 </section>
                 {/* End Kontak Kami */}
                 <ScrollToTop />

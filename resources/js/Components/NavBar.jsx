@@ -28,7 +28,7 @@ export default function NavBar({ auth }) {
                 scrolled ? "shadow-md" : "shadow-none"
             } duration-300 z-20`}
         >
-            <div className="flex justify-between w-full lg:w-1/3 lg:navbar-start px-6 lg:px-0 py-2 sm:px-10 bg-base-100">
+            <div className="flex justify-between w-full lg:w-1/3 lg:navbar-start px-6 lg:px-0 py-2 sm:px-10">
                 <a href="#" className="cursor-pointer w-14">
                     <img src="/images/Logo-PKM-TI-2025.png" alt="w-full" />
                 </a>
