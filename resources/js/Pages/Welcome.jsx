@@ -96,7 +96,7 @@ export default function Welcome({ auth }) {
                 className="absolute z-0 w-screen object-center rounded-none h-[800px] object-cover hidden md:block top-0 dark:hidden opacity-50"
             />
             {/* Start HomePage */}
-            <section className="md:px-12 px-2 light:bg-[#F7F7F7] dark:bg-[#1d232a] flex md:flex-row flex-col-reverse max-w-full justify-between mb-36 pt-36">
+            <section className="md:px-12 px-2 light:bg-[#F7F7F7] dark:bg-[#1d232a] flex md:flex-row flex-col-reverse max-w-full justify-between pb-36 pt-36">
                 {/* Home Page Bagian Kiri */}
                 <div
                     className="flex flex-col gap-7 justify-center items-start w-full"
@@ -181,7 +181,7 @@ export default function Welcome({ auth }) {
                     </div>
                 </div>
 
-                <div className="w-full flex justify-center md:mb-0 mb-64">
+                <div className="w-full flex justify-center md:pb-0 pb-64">
                     <div className="relative">
                         {/* Home Page Bagian Kanan */}
                         <div className="md:w-[270px] w-[200px] md:h-[340px] h-auto absolute md:-right-80 top-0 ">
@@ -212,9 +212,8 @@ export default function Welcome({ auth }) {
             {/* End HomePage */}
 
             {/* Agenda Acara*/}
-            <section className="md:px-12 px-2 light:bg-[#F7F7F7] dark:bg-[#1d232a] mb-36 flex justify-center items-center md:mx-36 mx-0" data-aos="fade-up" data-aos-delay="100">
-                <div
-                    className="flex md:flex-row flex-col justify-between gap-5 px-12 py-10 max-w-full shadow-xl border border-base-300 rounded-2xl bg-white dark:bg-[#1d232a] dark:border-gray-400 z-50"
+            <section className="dark:bg-[#1d232a] pb-36 flex justify-center items-center md:px-36 mx-0 " data-aos="fade-up" data-aos-delay="100">
+                <div className="flex md:flex-row flex-col justify-between gap-5 px-12 py-10 max-w-full shadow-xl border border-base-300 rounded-2xl bg-white dark:bg-[#1d232a] dark:border-gray-400 z-50"
                 >
                     <div className="flex flex-row gap-4 sm:pr-10">
                         <BookmarkSquareIcon className="w-6 h-6 font-extrabold dark:text-gray-400 text-black" />
@@ -265,16 +264,16 @@ export default function Welcome({ auth }) {
             {/* End Agenda Acara */}
 
             {/* Start Tentang PKM-TI */}
-            <section className="light:bg-[#F7F7F7] dark:bg-[#1d232a] flex md:flex-row flex-col max-w-full justify-around mb-36 relative overflow-hidden" id="about-us">
+            <section className="light:bg-[#F7F7F7] dark:bg-[#1d232a] flex md:flex-row flex-col max-w-full justify-around relative overflow-hidden" id="about-us">
                 <img src="images/elements/element_about_section_2.png" alt="" className="absolute bottom-0 left-0 md:w-[468px] md:h-[470px] z-10" />
                 <img src="images/elements/element_about_section_1.png" alt="" className="absolute top-0 right-0 md:w-[468px] md:h-[470px] z-10" />
-                <img src="images/elements/element_about_section_8.png" alt="" className="absolute object-cover opacity-50 z-0 md:block hidden dark:hidden" />
+                <img src="images/elements/element_about_section_8.png" alt="" className="absolute object-cover opacity-40 z-0 md:block hidden dark:hidden" />
                 <div className="relative md:w-[521px] md:h-[541px]">
                     {/* Tentang PKM Bagian kiri */}
                     {/* <img src="images/image-tentangpkmti2025.png" alt="" className="md:w-[521px] max-w-full md:h-[479px] h-auto animate-bounce-custom" /> */}
                     <img src="images/elements/element_about_section_3.png" alt="" className="absolute bottom-4 md:w-[541px] md:h-[541px] z-20" data-aos="zoom-in" data-aos-delay="100" />
-                    <img src="images/elements/element_about_section_4.png" alt="" className="absolute md:w-[232px] md:h-[179px] bottom-10 right-0 z-20" data-aos="fade-up" data-aos-delay="100" />
-                    <img src="images/elements/element_about_section_5.png" alt="" className="absolute md:w-[304px] md:h-[179px] bottom-10 left-0 z-20" data-aos="fade-up" data-aos-delay="200" />
+                    <img src="images/elements/element_about_section_4.png" alt="" className="absolute md:w-[232px] md:h-[190px] bottom-8 right-0 z-20" data-aos="fade-up" data-aos-delay="100" />
+                    <img src="images/elements/element_about_section_5.png" alt="" className="absolute md:w-[304px] md:h-[190px] bottom-8 left-0 z-20" data-aos="fade-up" data-aos-delay="200" />
                     <img src="images/elements/element_about_section_7.png" alt="" className="absolute md:w-[277px] md:h-[286px] bottom-48 left-0 z-20" data-aos="fade-up" data-aos-delay="300" />
                     <img src="images/elements/element_about_section_6.png" alt="" className="absolute md:w-[186px] md:h-[158px] bottom-[13rem] right-20 z-20" data-aos="fade-up" data-aos-delay="300" />
                 </div>
@@ -311,7 +310,7 @@ export default function Welcome({ auth }) {
 
             {/* Start Ekspolari PKM-TI */}
             <div
-                className="md:px-12 px-2 light:bg-[#F7F7F7] dark:bg-[#1d232a] flex flex-col mb-36 justify-center items-center text-white"
+                className="md:px-12 px-2 light:bg-[#F7F7F7] dark:bg-[#1d232a] flex flex-col pt-36 pb-36 justify-center items-center text-white"
                 id="pkm-topik"
             >
                 <div className="flex flex-row bg-white gap-2 md:py-5 py-4 px-3 rounded-t-2xl w-full shadow-2xl border-[1px] border-slate-200">
@@ -335,7 +334,7 @@ export default function Welcome({ auth }) {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-2 mx-8 mb-12">
                         {topics.map((topic, index) => (
                             <div
-                                key={index} className="flex flex-col justify-center items-center bg-white text-black m-2 px-4 py-6 rounded-lg text-center gap-2 hover:shadow-[0_0_10px_#285B70]"
+                                key={index} className="flex flex-col justify-between items-center bg-white text-black m-2 px-4 py-6 rounded-lg text-center gap-2 hover:shadow-[0_0_10px_#285B70]"
                                 id="pkm-topik"
                             >
                                 <h1 className="font-semibold text-[24px] text-[#111E41] leading-[1.1em]">{topic.title}</h1>
@@ -352,7 +351,7 @@ export default function Welcome({ auth }) {
 
 
             {/* Start Pembicara */}
-            <section className="md:px-12 px-2 light:bg-[#F7F7F7] dark:bg-[#1d232a] flex flex-col-reverse lg:flex-row items-center max-w-full gap-6 mb-36">
+            <section className="md:px-12 px-2 light:bg-[#F7F7F7] dark:bg-[#1d232a] flex flex-col-reverse lg:flex-row items-center max-w-full gap-6">
                 <SlickCarousel>
                     <div>
                         <div className="relative mx-2 overflow-hidden group rounded-lg">
@@ -514,13 +513,12 @@ export default function Welcome({ auth }) {
             {/* End Pembicara */}
 
 
-            <section className="relative mx-auto mt-20 w-full max-w-[1200px] flex-shrink-0 px-4 sm:px-8 md:mb-36">
-                <div className="absolute -left-24 sm:block hidden">
+            <section className="md:px-12 px-2 light:bg-[#F7F7F7] dark:bg-[#1d232a] relative mx-auto pt-20 w-full flex-shrink-0 sm:px-8 md:pb-36">
+                <div className="absolute left-0 sm:block hidden">
                     <img src="images/asset25.png" alt="bwabwa" />
                 </div>
                 <h1
                     className="font-sans text-center text-[47px] font-bold uppercase dark:text-white sm:text-4xl"
-
                 >
                     TIMELINE PKM TI 2025
                 </h1>
@@ -530,8 +528,8 @@ export default function Welcome({ auth }) {
                     Jangan Lewatkan Kesempatan Ini
                 </p>
                 <div className="h-16" />
-                <div className="relative mt-12 flex min-h-fit flex-col items-center" style={{ gap: '96px' }}>
-                    <div className="absolute -left-36 -top-16 sm:block hidden">
+                <div className="relative mt-12 flex min-h-fit flex-col items-center max-w-[1200]" style={{ gap: '96px' }}>
+                    <div className="absolute left-0 top-0 sm:block hidden">
                         <img src="images/asset25.png" alt="bwabwa" />
                     </div>
                     {/* Timeline items */}
@@ -712,7 +710,7 @@ export default function Welcome({ auth }) {
                         </div>
                         <div className="absolute -top-7 left-0 bg-[#285B70] sm:-left-[6px] h-[290px] sm:h-[300px] w-[5px] rounded-full z-0"></div>
                     </div>
-                    <div className="absolute -right-60 -bottom-10 sm:block hidden">
+                    <div className="absolute right-0 bottom-0 sm:block hidden">
                         <img src="images/asset25.png" alt="bwabwa" />
                     </div>
                     <div
@@ -839,7 +837,7 @@ export default function Welcome({ auth }) {
 
 
             {/* Start News Letter */}
-            <section className="flex flex-col max-w-full py-4 my-24 sm:px-12 mb-36">
+            <section className="md:px-12 px-2 light:bg-[#F7F7F7] dark:bg-[#1d232a] flex flex-col max-w-full py-4 sm:px-12 pb-36">
                 <div className="relative z-[1] h-fit pb-28 sm:pb-40 max-w-full rounded-2xl sm:rounded-3xl overflow-hidden p-10 bg-cover bg-no-repeat bg-center before:content-[''] before:absolute before:inset-0 before:block bg-gradient-custom2 before:-z-[1]">
                     <div
                         className="flex flex-col justify-start items-center"
@@ -914,7 +912,7 @@ export default function Welcome({ auth }) {
 
 
             {/* Start FAQ */}
-            <section className="flex flex-col gap-7 justify-center items-center w-full mb-36" id="FaQ">
+            <section className="md:px-12 px-2 light:bg-[#F7F7F7] dark:bg-[#1d232a] flex flex-col gap-7 justify-center items-center w-full pb-36" id="FaQ">
                 <div
                     className="flex flex-col gap-2 justify-center items-center text-center"
                 >
@@ -1055,11 +1053,10 @@ export default function Welcome({ auth }) {
                     )}
                 </div>
             </section>
-            {/* End FAQ
+            {/* End FAQ */}
 
-
-                {/* Start Kontak Kami */}
-            <section className="flex flex-col justify-center items-center w-full my-12" id="contact-us">
+            {/* Start Kontak Kami */}
+            <section className="md:px-12 px-2 light:bg-[#F7F7F7] dark:bg-[#1d232a] flex flex-col justify-center items-center w-full" id="contact-us">
                 <div
                     className="flex flex-col justify-center items-center"
                 >
