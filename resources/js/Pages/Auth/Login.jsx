@@ -2,10 +2,10 @@ import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/solid";
 import { Head, Link, useForm } from "@inertiajs/react";
 import { useEffect, useState } from "react";
 import ToastError from "@/Components/ToastError";
-import { motion, useAnimation } from "framer-motion";
+import * as AOS from 'aos';
+import 'aos/dist/aos.css';
 
 export default function Login({ status, canResetPassword }) {
-    const controls = useAnimation();
     const [toastMessages, setToastMessages] = useState([]);
     const { data, setData, post, processing, errors, reset } = useForm({
         nim: "",
@@ -18,11 +18,6 @@ export default function Login({ status, canResetPassword }) {
             reset("password");
         };
     }, []);
-
-    const variantZoom = {
-        visible: { opacity: 1, scale: 1, transition: { duration: 0.8 } },
-        hidden: { opacity: 0, scale: 0.5, transition: { duration: 0.5 } },
-    };
 
     useEffect(() => {
         // Ambil semua pesan error yang ada dan simpan dalam array
@@ -46,6 +41,17 @@ export default function Login({ status, canResetPassword }) {
         post(route("login"));
     };
 
+    useEffect(() => {
+        AOS.init({
+            duration: 800,
+            once: false,
+            easing: 'ease-out-cubic',
+            offset: 100,
+            delay: 0,
+            mirror: false,
+            anchorPlacement: 'top-bottom',
+        });
+    }, []);
     return (
         <>
             <Head title="Masuk" />
@@ -59,20 +65,12 @@ export default function Login({ status, canResetPassword }) {
                     </div>
                 )}
                 {/* Start Login */}
-                <motion.div
-                    whileInView="visible"
-                    variants={variantZoom}
-                    initial="hidden"
-                    animate={controls}
+                <div
                     className="md:flex hidden justify-center items-center md:w-7/12 w-full"
                 >
-                    <img src="images/icon-login.png" className="md:w-[504px] w-full md:h-[504.06px] h-auto animate-bounce-custom" alt="icon-login" />
-                </motion.div>
-                <motion.div
-                    whileInView="visible"
-                    variants={variantZoom}
-                    initial="hidden"
-                    animate={controls}
+                    <img src="images/icon-login.png" className="md:w-[504px] w-full md:h-[504.06px] h-auto" data-aos="zoom-in" data-aos-delay="200" alt="icon-login" />
+                </div>
+                <div
                     className="border-[1px] shadow-sm-[#000000] border-slate-300 flex flex-col dark:bg-[#1d232a] light:bg-[#FFFFFF] rounded-[15px] md:p-10 p-5 md:w-5/12 w-full gap-5"
                 >
                     <div className="flex justify-center items-center">
@@ -150,7 +148,7 @@ export default function Login({ status, canResetPassword }) {
                                         </span>
                                     </label>
                                 </div>
-                                {canResetPassword && (
+                                {/* {canResetPassword && (
                                     <div className="text-sm text-end mt-3">
                                         <Link
                                             href={route('password.request')}
@@ -159,7 +157,7 @@ export default function Login({ status, canResetPassword }) {
                                             Forgot your password?
                                         </Link>
                                     </div>
-                                )}
+                                )} */}
                             </div>
                             <button
                                 className="btn text-[18px] bg-[#42A1A4] text-white w-full mb-2 hover:text-white hover:bg-[#59DFD1] dark:text-gray-400 dark:hover:text-white transition-all duration-300 hover:shadow-[0_0_10px_#42A1A4]"
@@ -179,7 +177,7 @@ export default function Login({ status, canResetPassword }) {
                             </p>
                         </form>
                     </div>
-                </motion.div>
+                </div>
             </section>
 
 
