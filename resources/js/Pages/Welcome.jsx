@@ -101,7 +101,7 @@ export default function Welcome({ auth }) {
                         variants={variantFade(-100, 0)}
                         initial="hidden"
                         animate={controls}
-                        className="flex flex-col gap-7 justify-center items-center"
+                        className="flex flex-col gap-7 justify-center items-start w-full"
                     >
                         <div className="relative md:w-[581px] max-w-full md:h-[210px] h-[148px] text-center md:text-start">
                             <div className="md:absolute md:block hidden md:left-2 left-12 top-14 ">
@@ -183,14 +183,31 @@ export default function Welcome({ auth }) {
                         </div>
                     </motion.div>
 
-                    <div className="relative w-full">
-                        {/* Home Page Bagian Kanan */}
-                        <img src="/images/elements/element_home_section_1.png" alt="" className="md:w-[270px] md:h-[340px] absolute right-0 top-0"/>
-                        <img src="/images/elements/element_home_section_2.png" className="md:w-[270px] md:h-[340px] absolute left-64 -bottom-12" alt="" />
-                        <img src="/images/elements/element_home_section_3.png" className="md:w-[247.18px] md:h-[178.26px] absolute top-12 left-60" alt="" />
-                        <img src="/images/elements/element_home_section_4.png" className="md:w-[393px] md:h-[284px] absolute right-0 top-12 z-20" alt="" />
-                        <img src="/images/elements/element_home_section_5.png" className="md:w-[393px] md:h-[284px] absolute left-48 -bottom-12 z-0" alt="" />
-                        <img src="/images/elements/element_home_section_6.png" className="md:w-[247.18px] md:h-[178.26px]  absolute right-12 -bottom-12" alt="" />
+                    <div className="w-full flex justify-center">
+                        <div className="relative">
+                            {/* Home Page Bagian Kanan */}
+                            <div className="md:w-[270px] md:h-[340px] absolute -right-80 top-0">
+                                <img src="/images/elements/element_home_section_1.png" alt="" className=" " />
+                            </div>
+                            <div className="md:w-[270px] md:h-[340px] absolute -left-52  -bottom-12">
+                                <img src="/images/elements/element_home_section_2.png" className="" alt="" />
+                            </div>
+
+                            <div className="md:w-[247.18px] md:h-[178.26px] absolute top-8 -left-56">
+                                <img src="/images/elements/element_home_section_3.png" className="" alt="" />
+                            </div>
+
+                            <div className="md:w-[332.31px] md:h-[239.94px] absolute left-0 top-8 z-20">
+                                <img src="/images/elements/element_home_section_4.png" className="" alt="" />
+                            </div>
+
+                            <div className="md:w-[332.31px] md:h-[239.94px] absolute -right-24 top-48 z-0">
+                                <img src="/images/elements/element_home_section_5.png" className="" alt="" />
+                            </div>
+                            <div className="md:w-[247.18px] md:h-[178.26px]  absolute -right-80 -bottom-4">
+                                <img src="/images/elements/element_home_section_6.png" className="" alt="" />
+                            </div>
+                        </div>
                     </div>
                 </section>
 
