@@ -24,11 +24,11 @@ export default function NavBar({ auth }) {
 
     return (
         <nav
-            className={`navbar bg-white dark:bg-[#1d232a] p-0  lg:px-12 z-10 fixed top-0 flex-col items-start lg:items-center lg:flex-row ${
+            className={`navbar bg-white dark:bg-[#1d232a] p-0 lg:px-12 z-50 fixed top-0 flex-col items-start lg:items-center lg:flex-row ${
                 scrolled ? "shadow-md" : "shadow-none"
             } duration-300 z-20`}
         >
-            <div className="flex justify-between w-full lg:w-1/3 lg:navbar-start px-6 lg:px-0 py-2 sm:px-10 bg-base-100">
+            <div className="flex justify-between w-full lg:w-1/3 lg:navbar-start px-6 lg:px-0 py-2 sm:px-10">
                 <a href="#" className="cursor-pointer w-14">
                     <img src="/images/Logo-PKM-TI-2025.png" alt="w-full" />
                 </a>
