@@ -81,6 +81,13 @@ export default function Welcome({ auth }) {
             description:
                 "PKM Gagasan Futuristik Tertulis (PKM-GFT) merupakan gagasan kreatif yang futuristik sebagai respons intelektual atas persoalan aktual yang dihadapi bangsa. Gagasan tersebut tidak terkait...",
         },
+        {
+            title: "PKM-VGK",
+            links: "",
+            description:
+                "PKM Video Gagasan Konstruktif (PKM-VGK) merupakan program yang mendorong mahasiswa untuk menyampaikan solusi terhadap permasalahan nyata di masyarakat dalam bentuk video kreatif. Melalui pendekatan visual...",
+        }
+
     ];
 
     return (
@@ -1108,7 +1115,6 @@ export default function Welcome({ auth }) {
                 </div>
                 <div
                 >
-                    <img src="images/contact-amicos.png" alt="KONTAK-KAMI" className="md:w-[584px] w-full md:h-[540px] h-auto my-2 animate-bounce-custom" />
                     <div className="md:w-[584px] w-full md:h-[540px] h-auto my-2 animate-bounce-custom">
                         <IconContact />
                     </div>
