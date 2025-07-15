@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Rules\MaxWordCount;
 use App\Rules\ValidProposalScheme;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class ProposalController extends Controller
@@ -32,11 +33,11 @@ class ProposalController extends Controller
         ]);
 
         // validate quota for PKM-GFT
-        if ($request->scheme == 'PKM-GFT') {
-            $gftTeamsCount = Proposal::where('scheme', 'PKM-GFT')->count();
+        // if ($request->scheme == 'PKM-GFT') {
+        //     $gftTeamsCount = Proposal::where('scheme', 'PKM-GFT')->count();
 
-            if ($gftTeamsCount == self::MAX_GFT_TEAMS) return back()->with('msg', 'Kuota skema PKM-GFT sudah penuh');
-        }
+        //     if ($gftTeamsCount == self::MAX_GFT_TEAMS) return back()->with('msg', 'Kuota skema PKM-GFT sudah penuh');
+        // }
 
         // validate submit timeline
         // $from = strtotime('2024-04-01'); // ??
@@ -51,11 +52,21 @@ class ProposalController extends Controller
         //     return back()->with('msg', 'Masa pengajuan proposal telah berakhir');
         // }
 
-        // allow submit when team member count if more than 3
+        // submit jika nimnya terkandung 24 maka anggota timnya wajib 3 orang
+        // jika nimnya selain terkandung 24, anggota minimal 3 orang
+        $user = Auth::user();
         $teamMembersCount = User::where('team_id', $teamId)->count();
 
-        if ($teamMembersCount < 3) {
-            return back()->with('msg', 'Tim terdiri dari minimal 3 orang untuk mengajukan proposal');
+        $angkatan = substr($user->nim, 0, 2);
+
+        if ($angkatan == '24') {
+            if ($teamMembersCount != 3) {
+                return back()->with('msg', 'Tim angkatan wajib terdiri dari 3 orang untuk mengajukan proposal');
+            }
+        } else {
+            if ($teamMembersCount < 3) {
+                return back()->with('msg', 'Tim terdiri dari minimal 3 orang untuk mengajukan proposal');
+            }
         }
 
         Proposal::create([

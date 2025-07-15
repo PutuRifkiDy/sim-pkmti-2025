@@ -7,7 +7,7 @@ use Illuminate\Contracts\Validation\ValidationRule;
 
 class ValidProposalScheme implements ValidationRule
 {
-    public $validSchemes = ['PKM-GFT', 'PKM-K', 'PKM-KC', 'PKM-PI', 'PKM-PM'];
+    public $validSchemes = ['PKM-GFT', 'PKM-K', 'PKM-KC', 'PKM-PI', 'PKM-PM', 'PKM-VGK'];
 
     /**
      * Run the validation rule.

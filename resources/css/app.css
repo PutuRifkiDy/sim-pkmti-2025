@@ -5,13 +5,46 @@
 }
 
 @tailwind utilities;
+
 @layer tailwind-components {
     @tailwind components;
 }
 
-html,body {
-    scroll-behavior: smooth;
+@font-face {
+    font-family: 'Product Sans';
+    src: url('../fonts/ProductSans-Light.ttf') format('truetype');
+    font-weight: 300;
+    /* light */
+    font-style: normal;
+}
 
+@font-face {
+    font-family: 'Product Sans';
+    src: url('../fonts/ProductSans-Regular.ttf') format('truetype');
+    font-weight: 400;
+    /* normal */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Product Sans';
+    src: url('../fonts/ProductSans-Medium.ttf') format('truetype');
+    font-weight: 500;
+    /* medium */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Product Sans';
+    src: url('../fonts/ProductSans-Bold.ttf') format('truetype');
+    font-weight: 700;
+    /* bold */
+    font-style: normal;
+}
+
+html,
+body {
+    font-family: 'Product Sans', sans-serif;
 }
 
 .bg-gradient-custom {
