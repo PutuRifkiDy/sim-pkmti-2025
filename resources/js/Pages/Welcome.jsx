@@ -536,8 +536,8 @@ export default function Welcome({ auth }) {
                 </section>
                 {/* End Pembicara */}
 
-
                 {/* Start Timeline */}
+{/*
                 <section className="relative px-6 md:px-24 mt-36 mb-16 " id="Timeline">
                     <div
                         className="absolute right-0 left-0 top-[400px] md:flex hidden justify-center items-center -z-10"
@@ -659,7 +659,7 @@ export default function Welcome({ auth }) {
                     <div
                         alt="gambar"
                         className="max-w-[570px] h-[445px] absolute right-0 top-[6000px] md:top-[3200px] animate-bounce-custom"
-                        data-aos="fade-up"
+                    
                     >
                     </div>
                     <motion.div
@@ -705,7 +705,7 @@ export default function Welcome({ auth }) {
                                 31 Maret - 16 Mei 2024
                             </p>
                             <p className="text-[14px] md:text-[16px]">📍 Melalui website resmi PKM TI https://pkm.hmtiudayana.id/</p>
-                            {/* <p className="text-[16px]">📍 On Webex https://webex</p> */}
+                            
                         </div>
                     </motion.div>
                     <motion.div
@@ -766,11 +766,335 @@ export default function Welcome({ auth }) {
                                 22 Juni 2024
                             </p>
                             <p className="text-[14px] md:text-[16px]">📍 Melalui website resmi PKM TI https://pkm.hmtiudayana.id/</p>
-                            {/* <p className="text-[16px]">📍 On Webex https://webex</p> */}
                         </div>
                     </motion.div>
                 </section>
+
+                */}
                 {/* End Timeline */}
+
+                <div className="absolute left-2 sm:block hidden">
+                    <img src="images/asset25.png" alt="bwabwa"/>
+                </div>
+                <section className="mx-auto mt-20 w-full max-w-[1200px] flex-shrink-0 px-4 sm:px-8 md:mt-36">
+                    <h1
+                        className="font-sans text-center text-[47px] font-bold uppercase dark:text-white sm:text-4xl"
+
+                    >
+                        TIMELINE PKM TI 2025
+                    </h1>
+                    <p
+                        className="font-sans mx-auto max-w-[653px] text-center font-bold text-2xl dark:text-gray-500 text-[#285B70]"
+                    >
+                        Jangan Lewatkan Kesempatan Ini 
+                    </p>
+                    <div className="h-16" />
+                    <div className="relative mt-12 flex min-h-fit flex-col items-center" style={{ gap: '96px' }}>
+                    <div className="absolute -left-24 -top-16 sm:block hidden">
+                        <img src="images/asset25.png" alt="bwabwa"/>
+                    </div>
+                        {/* Timeline items */}
+                        <div
+                            className="relative z-10 flex w-full max-w-[900px] items-center "
+                        >
+                            <div className="font-sans relative h-max flex-1 flex-shrink-0 rounded-[20px] shadow-xl border border-[#E8E8E8] bg-white py-4 dark:bg-[#285B70]">
+                                {/* Status Label */}
+                                <div className={`absolute right-3 top-3 flex items-center gap-2 rounded-[10px] px-3 py-1 shadow-sm bg-[#E82323]/20 text-[#E82323]`}>
+                                    <div className={`h-3 w-3 rounded-full bg-[#E82323]`} />
+                                    <span className={`font-sans text-[10px] font-medium text-[#E82323]`}>
+                                        Not Available
+                                    </span>
+                                </div>
+
+                                {/* Title */}
+                                <div className='flex items-start mb-1'>
+                                    <p className="xs:text-sm text-2xl font-bold pl-8 pt-4 sm:pt-1 capitalize text-[#141619] dark:text-white sm:text-lg md:text-3xl lg:text-[#30px] md:w-[600px] max-w-none sm:pl-16 sm:text-[30px] lg:mt-1">
+                                        Pembukaan PKM TI
+                                    </p>
+                                </div>
+                                {/* Date */}
+                                <div className="flex items-center px-6 pt-2 sm:pl-16">
+                                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.75 1C7.43506 1 7.13301 1.15145 6.91031 1.42103C6.68761 1.69062 6.5625 2.05625 6.5625 2.4375V3.875H5.375C4.74511 3.875 4.14102 4.1779 3.69562 4.71707C3.25022 5.25624 3 5.9875 3 6.75V21.125C3 21.8875 3.25022 22.6188 3.69562 23.1579C4.14102 23.6971 4.74511 24 5.375 24H19.625C20.2549 24 20.859 23.6971 21.3044 23.1579C21.7498 22.6188 22 21.8875 22 21.125V6.75C22 5.9875 21.7498 5.25624 21.3044 4.71707C20.859 4.1779 20.2549 3.875 19.625 3.875H18.4375V2.4375C18.4375 2.05625 18.3124 1.69062 18.0897 1.42103C17.867 1.15145 17.5649 1 17.25 1C16.9351 1 16.633 1.15145 16.4103 1.42103C16.1876 1.69062 16.0625 2.05625 16.0625 2.4375V3.875H8.9375V2.4375C8.9375 2.05625 8.81239 1.69062 8.58969 1.42103C8.36699 1.15145 8.06494 1 7.75 1ZM7.75 8.1875C7.43506 8.1875 7.13301 8.33895 6.91031 8.60853C6.68761 8.87812 6.5625 9.24375 6.5625 9.625C6.5625 10.0062 6.68761 10.3719 6.91031 10.6415C7.13301 10.911 7.43506 11.0625 7.75 11.0625H17.25C17.5649 11.0625 17.867 10.911 18.0897 10.6415C18.3124 10.3719 18.4375 10.0062 18.4375 9.625C18.4375 9.24375 18.3124 8.87812 18.0897 8.60853C17.867 8.33895 17.5649 8.1875 17.25 8.1875H7.75Z" fill="#979797"/>
+                                    </svg>
+                                    <p className="text-[16px] leading-[24px] font-normal text-[#979797] px-2">
+                                        23 Agustus 2025
+                                    </p>
+                                </div>
+                                <div className="flex items-center px-6 pt-2 sm:pl-16">
+                                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 sm:w-6 sm:h-6">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M5.78266 3.91169C7.56423 2.04737 9.98057 1 12.5001 1C15.0196 1 17.436 2.04737 19.2175 3.91169C20.9991 5.77601 22 8.30457 22 10.9411C22 13.5777 20.9991 16.1062 19.2175 17.9706L12.5001 25L5.78266 17.9706C4.90045 17.0475 4.20064 15.9516 3.72319 14.7455C3.24574 13.5394 3 12.2466 3 10.9411C3 9.63562 3.24574 8.3429 3.72319 7.13678C4.20064 5.93066 4.90045 4.83477 5.78266 3.91169ZM12.5001 13.7813C13.2199 13.7813 13.9103 13.4821 14.4193 12.9494C14.9283 12.4168 15.2142 11.6944 15.2142 10.9411C15.2142 10.1879 14.9283 9.46545 14.4193 8.93282C13.9103 8.40018 13.2199 8.10095 12.5001 8.10095C11.7803 8.10095 11.0899 8.40018 10.5809 8.93282C10.0719 9.46545 9.78598 10.1879 9.78598 10.9411C9.78598 11.6944 10.0719 12.4168 10.5809 12.9494C11.0899 13.4821 11.7803 13.7813 12.5001 13.7813Z" fill="#979797"/>
+                                    </svg>
+                                    <p className="text-[16px] font-normal text-[#979797] px-2">
+                                        Gedung Teknologi Informasi Fakultas Teknik Universitas Udayana
+                                    </p>
+                                </div>
+                                    
+                            </div>
+
+                            {/* Icon lingkaran */}
+                            <div className="absolute -top-8 -left-6 rounded-[500px] bg-[#285B70] p-4 sm:-left-10 sm:top-8 z-10 ">
+                                <div className="absolute inset-0 z-0 h-full w-full animate-ping rounded-full bg-[#285B70]"></div>
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="39"
+                                    height="39"
+                                    viewBox="0 0 39 39"
+                                    fill="none"
+                                    x="26.5"
+                                    y="26.5"
+                                >
+                                    <path
+                                        d="M6.09375 36.5625C5.77052 36.5625 5.46052 36.4341 5.23196 36.2055C5.0034 35.977 4.875 35.667 4.875 35.3438V5.18959C4.87509 4.87026 4.95882 4.55653 5.11785 4.27963C5.27688 4.00272 5.50567 3.7723 5.78145 3.61131C6.70313 3.07582 8.5602 2.4375 12.1875 2.4375C15.0219 2.4375 18.1921 3.55799 20.9892 4.54594C23.2416 5.34193 25.369 6.09375 26.8125 6.09375C28.6707 6.08805 30.5091 5.71259 32.2207 4.98926C32.4291 4.90128 32.6561 4.86624 32.8814 4.88727C33.1066 4.9083 33.3232 4.98474 33.5117 5.10978C33.7003 5.23482 33.8549 5.40458 33.9619 5.60391C34.0689 5.80324 34.125 6.02595 34.125 6.25219V22.9613C34.1247 23.2574 34.0381 23.5471 33.8757 23.7948C33.7134 24.0425 33.4824 24.2375 33.2109 24.356C32.5475 24.6462 30.1252 25.5938 26.8125 25.5938C24.9737 25.5938 22.6703 25.0499 20.232 24.4733C17.4913 23.8258 14.6578 23.1562 12.1875 23.1562C9.37904 23.1562 7.94168 23.5813 7.3125 23.8502V35.3438C7.3125 35.667 7.1841 35.977 6.95554 36.2055C6.72698 36.4341 6.41698 36.5625 6.09375 36.5625Z"
+                                        fill="white"
+                                    />
+                                </svg>
+                            </div>
+                            <div className="absolute -top-7 left-0 bg-[#285B70] sm:-left-[6px] h-[290px] sm:h-[300px] w-[5px] rounded-full z-0"></div>
+                        </div>
+                        <div
+                            className="relative z-10 flex w-full max-w-[900px] items-center "
+                        >
+                            <div className="font-sans relative h-max flex-1 flex-shrink-0 rounded-[20px] shadow-xl border border-[#E8E8E8] bg-white py-4 dark:bg-[#285B70]">
+                                {/* Status Label */}
+                                <div className={`absolute right-3 top-3 flex items-center gap-2 rounded-[10px] px-3 py-1 shadow-sm bg-[#E82323]/20 text-[#E82323]`}>
+                                    <div className={`h-3 w-3 rounded-full bg-[#E82323]`} />
+                                    <span className={`font-sans text-[10px] font-medium text-[#E82323]`}>
+                                        Not Available
+                                    </span>
+                                </div>
+
+                                {/* Title */}
+                                <div className='flex items-start mb-1'>
+                                    <p className="xs:text-sm text-2xl font-bold pl-8 pt-4  sm:pt-1 capitalize text-[#141619] dark:text-white sm:text-lg md:text-3xl lg:text-[#30px] md:w-[600px] max-w-none sm:pl-16 sm:text-[30px] lg:mt-1">
+                                        Pembukaan PKM TI
+                                    </p>
+                                </div>
+                                {/* Date */}
+                                <div className="flex items-center px-6 pt-2 sm:pl-16">
+                                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.75 1C7.43506 1 7.13301 1.15145 6.91031 1.42103C6.68761 1.69062 6.5625 2.05625 6.5625 2.4375V3.875H5.375C4.74511 3.875 4.14102 4.1779 3.69562 4.71707C3.25022 5.25624 3 5.9875 3 6.75V21.125C3 21.8875 3.25022 22.6188 3.69562 23.1579C4.14102 23.6971 4.74511 24 5.375 24H19.625C20.2549 24 20.859 23.6971 21.3044 23.1579C21.7498 22.6188 22 21.8875 22 21.125V6.75C22 5.9875 21.7498 5.25624 21.3044 4.71707C20.859 4.1779 20.2549 3.875 19.625 3.875H18.4375V2.4375C18.4375 2.05625 18.3124 1.69062 18.0897 1.42103C17.867 1.15145 17.5649 1 17.25 1C16.9351 1 16.633 1.15145 16.4103 1.42103C16.1876 1.69062 16.0625 2.05625 16.0625 2.4375V3.875H8.9375V2.4375C8.9375 2.05625 8.81239 1.69062 8.58969 1.42103C8.36699 1.15145 8.06494 1 7.75 1ZM7.75 8.1875C7.43506 8.1875 7.13301 8.33895 6.91031 8.60853C6.68761 8.87812 6.5625 9.24375 6.5625 9.625C6.5625 10.0062 6.68761 10.3719 6.91031 10.6415C7.13301 10.911 7.43506 11.0625 7.75 11.0625H17.25C17.5649 11.0625 17.867 10.911 18.0897 10.6415C18.3124 10.3719 18.4375 10.0062 18.4375 9.625C18.4375 9.24375 18.3124 8.87812 18.0897 8.60853C17.867 8.33895 17.5649 8.1875 17.25 8.1875H7.75Z" fill="#979797"/>
+                                    </svg>
+                                    <p className="text-[16px] leading-[24px] font-normal text-[#979797] px-2">
+                                        23 Agustus 2025
+                                    </p>
+                                </div>
+                                <div className="flex items-center px-6 pt-2 sm:pl-16">
+                                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 sm:w-6 sm:h-6">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M5.78266 3.91169C7.56423 2.04737 9.98057 1 12.5001 1C15.0196 1 17.436 2.04737 19.2175 3.91169C20.9991 5.77601 22 8.30457 22 10.9411C22 13.5777 20.9991 16.1062 19.2175 17.9706L12.5001 25L5.78266 17.9706C4.90045 17.0475 4.20064 15.9516 3.72319 14.7455C3.24574 13.5394 3 12.2466 3 10.9411C3 9.63562 3.24574 8.3429 3.72319 7.13678C4.20064 5.93066 4.90045 4.83477 5.78266 3.91169ZM12.5001 13.7813C13.2199 13.7813 13.9103 13.4821 14.4193 12.9494C14.9283 12.4168 15.2142 11.6944 15.2142 10.9411C15.2142 10.1879 14.9283 9.46545 14.4193 8.93282C13.9103 8.40018 13.2199 8.10095 12.5001 8.10095C11.7803 8.10095 11.0899 8.40018 10.5809 8.93282C10.0719 9.46545 9.78598 10.1879 9.78598 10.9411C9.78598 11.6944 10.0719 12.4168 10.5809 12.9494C11.0899 13.4821 11.7803 13.7813 12.5001 13.7813Z" fill="#979797"/>
+                                    </svg>
+                                    <p className="text-[16px] font-normal text-[#979797] px-2">
+                                        Gedung Teknologi Informasi Fakultas Teknik Universitas Udayana
+                                    </p>
+                                </div>
+                                    
+                            </div>
+
+                            {/* Icon lingkaran */}
+                            <div className="absolute -top-8 -left-6 rounded-[500px] bg-[#285B70] p-4 sm:-left-10 sm:top-8 z-10 ">
+                                <div className="absolute inset-0 z-0 h-full w-full animate-ping rounded-full bg-[#285B70]"></div>
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="39"
+                                    height="39"
+                                    viewBox="0 0 39 39"
+                                    fill="none"
+                                    x="26.5"
+                                    y="26.5"
+                                >
+                                    <path
+                                        d="M6.09375 36.5625C5.77052 36.5625 5.46052 36.4341 5.23196 36.2055C5.0034 35.977 4.875 35.667 4.875 35.3438V5.18959C4.87509 4.87026 4.95882 4.55653 5.11785 4.27963C5.27688 4.00272 5.50567 3.7723 5.78145 3.61131C6.70313 3.07582 8.5602 2.4375 12.1875 2.4375C15.0219 2.4375 18.1921 3.55799 20.9892 4.54594C23.2416 5.34193 25.369 6.09375 26.8125 6.09375C28.6707 6.08805 30.5091 5.71259 32.2207 4.98926C32.4291 4.90128 32.6561 4.86624 32.8814 4.88727C33.1066 4.9083 33.3232 4.98474 33.5117 5.10978C33.7003 5.23482 33.8549 5.40458 33.9619 5.60391C34.0689 5.80324 34.125 6.02595 34.125 6.25219V22.9613C34.1247 23.2574 34.0381 23.5471 33.8757 23.7948C33.7134 24.0425 33.4824 24.2375 33.2109 24.356C32.5475 24.6462 30.1252 25.5938 26.8125 25.5938C24.9737 25.5938 22.6703 25.0499 20.232 24.4733C17.4913 23.8258 14.6578 23.1562 12.1875 23.1562C9.37904 23.1562 7.94168 23.5813 7.3125 23.8502V35.3438C7.3125 35.667 7.1841 35.977 6.95554 36.2055C6.72698 36.4341 6.41698 36.5625 6.09375 36.5625Z"
+                                        fill="white"
+                                    />
+                                </svg>
+                            </div>
+                            <div className="absolute -top-7 left-0 bg-[#285B70] sm:-left-[6px] h-[290px] sm:h-[300px] w-[5px] rounded-full z-0"></div>
+                        </div>
+                        <div className="absolute top-24">
+                            <img src="images/Logo-PKM-TI-2025.png" alt="Background Icon" className="w-[500px] opacity-30 animate-bounce-custom" />
+                        </div>
+                        <div
+                            className="relative z-10 flex w-full max-w-[900px] items-center "
+                        >
+                            <div className="font-sans relative h-max flex-1 flex-shrink-0 rounded-[20px] shadow-xl border border-[#E8E8E8] bg-white py-4 dark:bg-[#285B70]">
+                                {/* Status Label */}
+                                <div className={`absolute right-3 top-3 flex items-center gap-2 rounded-[10px] px-3 py-1 shadow-sm bg-[#E82323]/20 text-[#E82323]`}>
+                                    <div className={`h-3 w-3 rounded-full bg-[#E82323]`} />
+                                    <span className={`font-sans text-[10px] font-medium text-[#E82323]`}>
+                                        Not Available
+                                    </span>
+                                </div>
+
+                                {/* Title */}
+                                <div className='flex items-start mb-1'>
+                                    <p className="xs:text-sm text-2xl font-bold pl-8 pt-4  sm:pt-1 capitalize text-[#141619] dark:text-white sm:text-lg md:text-3xl lg:text-[#30px] md:w-[600px] max-w-none sm:pl-16 sm:text-[30px] lg:mt-1">
+                                        Pembukaan PKM TI
+                                    </p>
+                                </div>
+                                {/* Date */}
+                                <div className="flex items-center px-6 pt-2 sm:pl-16">
+                                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.75 1C7.43506 1 7.13301 1.15145 6.91031 1.42103C6.68761 1.69062 6.5625 2.05625 6.5625 2.4375V3.875H5.375C4.74511 3.875 4.14102 4.1779 3.69562 4.71707C3.25022 5.25624 3 5.9875 3 6.75V21.125C3 21.8875 3.25022 22.6188 3.69562 23.1579C4.14102 23.6971 4.74511 24 5.375 24H19.625C20.2549 24 20.859 23.6971 21.3044 23.1579C21.7498 22.6188 22 21.8875 22 21.125V6.75C22 5.9875 21.7498 5.25624 21.3044 4.71707C20.859 4.1779 20.2549 3.875 19.625 3.875H18.4375V2.4375C18.4375 2.05625 18.3124 1.69062 18.0897 1.42103C17.867 1.15145 17.5649 1 17.25 1C16.9351 1 16.633 1.15145 16.4103 1.42103C16.1876 1.69062 16.0625 2.05625 16.0625 2.4375V3.875H8.9375V2.4375C8.9375 2.05625 8.81239 1.69062 8.58969 1.42103C8.36699 1.15145 8.06494 1 7.75 1ZM7.75 8.1875C7.43506 8.1875 7.13301 8.33895 6.91031 8.60853C6.68761 8.87812 6.5625 9.24375 6.5625 9.625C6.5625 10.0062 6.68761 10.3719 6.91031 10.6415C7.13301 10.911 7.43506 11.0625 7.75 11.0625H17.25C17.5649 11.0625 17.867 10.911 18.0897 10.6415C18.3124 10.3719 18.4375 10.0062 18.4375 9.625C18.4375 9.24375 18.3124 8.87812 18.0897 8.60853C17.867 8.33895 17.5649 8.1875 17.25 8.1875H7.75Z" fill="#979797"/>
+                                    </svg>
+                                    <p className="text-[16px] leading-[24px] font-normal text-[#979797] px-2">
+                                        23 Agustus 2025
+                                    </p>
+                                </div>
+                                <div className="flex items-center px-6 pt-2 sm:pl-16">
+                                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 sm:w-6 sm:h-6">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M5.78266 3.91169C7.56423 2.04737 9.98057 1 12.5001 1C15.0196 1 17.436 2.04737 19.2175 3.91169C20.9991 5.77601 22 8.30457 22 10.9411C22 13.5777 20.9991 16.1062 19.2175 17.9706L12.5001 25L5.78266 17.9706C4.90045 17.0475 4.20064 15.9516 3.72319 14.7455C3.24574 13.5394 3 12.2466 3 10.9411C3 9.63562 3.24574 8.3429 3.72319 7.13678C4.20064 5.93066 4.90045 4.83477 5.78266 3.91169ZM12.5001 13.7813C13.2199 13.7813 13.9103 13.4821 14.4193 12.9494C14.9283 12.4168 15.2142 11.6944 15.2142 10.9411C15.2142 10.1879 14.9283 9.46545 14.4193 8.93282C13.9103 8.40018 13.2199 8.10095 12.5001 8.10095C11.7803 8.10095 11.0899 8.40018 10.5809 8.93282C10.0719 9.46545 9.78598 10.1879 9.78598 10.9411C9.78598 11.6944 10.0719 12.4168 10.5809 12.9494C11.0899 13.4821 11.7803 13.7813 12.5001 13.7813Z" fill="#979797"/>
+                                    </svg>
+                                    <p className="text-[16px] font-normal text-[#979797] px-2">
+                                        Gedung Teknologi Informasi Fakultas Teknik Universitas Udayana
+                                    </p>
+                                </div>
+                                    
+                            </div>
+
+                            {/* Icon lingkaran */}
+                            <div className="absolute -top-8 -left-6 rounded-[500px] bg-[#285B70] p-4 sm:-left-10 sm:top-8 z-10 ">
+                                <div className="absolute inset-0 z-0 h-full w-full animate-ping rounded-full bg-[#285B70]"></div>
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="39"
+                                    height="39"
+                                    viewBox="0 0 39 39"
+                                    fill="none"
+                                    x="26.5"
+                                    y="26.5"
+                                >
+                                    <path
+                                        d="M6.09375 36.5625C5.77052 36.5625 5.46052 36.4341 5.23196 36.2055C5.0034 35.977 4.875 35.667 4.875 35.3438V5.18959C4.87509 4.87026 4.95882 4.55653 5.11785 4.27963C5.27688 4.00272 5.50567 3.7723 5.78145 3.61131C6.70313 3.07582 8.5602 2.4375 12.1875 2.4375C15.0219 2.4375 18.1921 3.55799 20.9892 4.54594C23.2416 5.34193 25.369 6.09375 26.8125 6.09375C28.6707 6.08805 30.5091 5.71259 32.2207 4.98926C32.4291 4.90128 32.6561 4.86624 32.8814 4.88727C33.1066 4.9083 33.3232 4.98474 33.5117 5.10978C33.7003 5.23482 33.8549 5.40458 33.9619 5.60391C34.0689 5.80324 34.125 6.02595 34.125 6.25219V22.9613C34.1247 23.2574 34.0381 23.5471 33.8757 23.7948C33.7134 24.0425 33.4824 24.2375 33.2109 24.356C32.5475 24.6462 30.1252 25.5938 26.8125 25.5938C24.9737 25.5938 22.6703 25.0499 20.232 24.4733C17.4913 23.8258 14.6578 23.1562 12.1875 23.1562C9.37904 23.1562 7.94168 23.5813 7.3125 23.8502V35.3438C7.3125 35.667 7.1841 35.977 6.95554 36.2055C6.72698 36.4341 6.41698 36.5625 6.09375 36.5625Z"
+                                        fill="white"
+                                    />
+                                </svg>
+                            </div>
+                            <div className="absolute -top-7 left-0 bg-[#285B70] sm:-left-[6px] h-[290px] sm:h-[300px] w-[5px] rounded-full z-0"></div>
+                        </div>
+                         <div className="absolute -right-[200px] bottom-16 sm:block hidden">
+                            <img src="images/asset25.png" alt="bwabwa"/>
+                        </div>
+                        <div
+                            className="relative z-10 flex w-full max-w-[900px] items-center "
+                        >
+                            <div className="font-sans relative h-max flex-1 flex-shrink-0 rounded-[20px] shadow-xl border border-[#E8E8E8] bg-white py-4 dark:bg-[#285B70]">
+                                {/* Status Label */}
+                                <div className={`absolute right-3 top-3 flex items-center gap-2 rounded-[10px] px-3 py-1 shadow-sm bg-[#E82323]/20 text-[#E82323]`}>
+                                    <div className={`h-3 w-3 rounded-full bg-[#E82323]`} />
+                                    <span className={`font-sans text-[10px] font-medium text-[#E82323]`}>
+                                        Not Available
+                                    </span>
+                                </div>
+
+                                {/* Title */}
+                                <div className='flex items-start mb-1'>
+                                    <p className="xs:text-sm text-2xl font-bold pl-8 pt-4  sm:pt-1 capitalize text-[#141619] dark:text-white sm:text-lg md:text-3xl lg:text-[#30px] md:w-[600px] max-w-none sm:pl-16 sm:text-[30px] lg:mt-1">
+                                        Pembukaan PKM TI
+                                    </p>
+                                </div>
+                                {/* Date */}
+                                <div className="flex items-center px-6 pt-2 sm:pl-16">
+                                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.75 1C7.43506 1 7.13301 1.15145 6.91031 1.42103C6.68761 1.69062 6.5625 2.05625 6.5625 2.4375V3.875H5.375C4.74511 3.875 4.14102 4.1779 3.69562 4.71707C3.25022 5.25624 3 5.9875 3 6.75V21.125C3 21.8875 3.25022 22.6188 3.69562 23.1579C4.14102 23.6971 4.74511 24 5.375 24H19.625C20.2549 24 20.859 23.6971 21.3044 23.1579C21.7498 22.6188 22 21.8875 22 21.125V6.75C22 5.9875 21.7498 5.25624 21.3044 4.71707C20.859 4.1779 20.2549 3.875 19.625 3.875H18.4375V2.4375C18.4375 2.05625 18.3124 1.69062 18.0897 1.42103C17.867 1.15145 17.5649 1 17.25 1C16.9351 1 16.633 1.15145 16.4103 1.42103C16.1876 1.69062 16.0625 2.05625 16.0625 2.4375V3.875H8.9375V2.4375C8.9375 2.05625 8.81239 1.69062 8.58969 1.42103C8.36699 1.15145 8.06494 1 7.75 1ZM7.75 8.1875C7.43506 8.1875 7.13301 8.33895 6.91031 8.60853C6.68761 8.87812 6.5625 9.24375 6.5625 9.625C6.5625 10.0062 6.68761 10.3719 6.91031 10.6415C7.13301 10.911 7.43506 11.0625 7.75 11.0625H17.25C17.5649 11.0625 17.867 10.911 18.0897 10.6415C18.3124 10.3719 18.4375 10.0062 18.4375 9.625C18.4375 9.24375 18.3124 8.87812 18.0897 8.60853C17.867 8.33895 17.5649 8.1875 17.25 8.1875H7.75Z" fill="#979797"/>
+                                    </svg>
+                                    <p className="text-[16px] leading-[24px] font-normal text-[#979797] px-2">
+                                        23 Agustus 2025
+                                    </p>
+                                </div>
+                                <div className="flex items-center px-6 pt-2 sm:pl-16">
+                                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 sm:w-6 sm:h-6">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M5.78266 3.91169C7.56423 2.04737 9.98057 1 12.5001 1C15.0196 1 17.436 2.04737 19.2175 3.91169C20.9991 5.77601 22 8.30457 22 10.9411C22 13.5777 20.9991 16.1062 19.2175 17.9706L12.5001 25L5.78266 17.9706C4.90045 17.0475 4.20064 15.9516 3.72319 14.7455C3.24574 13.5394 3 12.2466 3 10.9411C3 9.63562 3.24574 8.3429 3.72319 7.13678C4.20064 5.93066 4.90045 4.83477 5.78266 3.91169ZM12.5001 13.7813C13.2199 13.7813 13.9103 13.4821 14.4193 12.9494C14.9283 12.4168 15.2142 11.6944 15.2142 10.9411C15.2142 10.1879 14.9283 9.46545 14.4193 8.93282C13.9103 8.40018 13.2199 8.10095 12.5001 8.10095C11.7803 8.10095 11.0899 8.40018 10.5809 8.93282C10.0719 9.46545 9.78598 10.1879 9.78598 10.9411C9.78598 11.6944 10.0719 12.4168 10.5809 12.9494C11.0899 13.4821 11.7803 13.7813 12.5001 13.7813Z" fill="#979797"/>
+                                    </svg>
+                                    <p className="text-[16px] font-normal text-[#979797] px-2">
+                                        Gedung Teknologi Informasi Fakultas Teknik Universitas Udayana
+                                    </p>
+                                </div>
+                                    
+                            </div>
+
+                            {/* Icon lingkaran */}
+                            <div className="absolute -top-8 -left-6 rounded-[500px] bg-[#285B70] p-4 sm:-left-10 sm:top-8 z-10 ">
+                                <div className="absolute inset-0 z-0 h-full w-full animate-ping rounded-full bg-[#285B70]"></div>
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="39"
+                                    height="39"
+                                    viewBox="0 0 39 39"
+                                    fill="none"
+                                    x="26.5"
+                                    y="26.5"
+                                >
+                                    <path
+                                        d="M6.09375 36.5625C5.77052 36.5625 5.46052 36.4341 5.23196 36.2055C5.0034 35.977 4.875 35.667 4.875 35.3438V5.18959C4.87509 4.87026 4.95882 4.55653 5.11785 4.27963C5.27688 4.00272 5.50567 3.7723 5.78145 3.61131C6.70313 3.07582 8.5602 2.4375 12.1875 2.4375C15.0219 2.4375 18.1921 3.55799 20.9892 4.54594C23.2416 5.34193 25.369 6.09375 26.8125 6.09375C28.6707 6.08805 30.5091 5.71259 32.2207 4.98926C32.4291 4.90128 32.6561 4.86624 32.8814 4.88727C33.1066 4.9083 33.3232 4.98474 33.5117 5.10978C33.7003 5.23482 33.8549 5.40458 33.9619 5.60391C34.0689 5.80324 34.125 6.02595 34.125 6.25219V22.9613C34.1247 23.2574 34.0381 23.5471 33.8757 23.7948C33.7134 24.0425 33.4824 24.2375 33.2109 24.356C32.5475 24.6462 30.1252 25.5938 26.8125 25.5938C24.9737 25.5938 22.6703 25.0499 20.232 24.4733C17.4913 23.8258 14.6578 23.1562 12.1875 23.1562C9.37904 23.1562 7.94168 23.5813 7.3125 23.8502V35.3438C7.3125 35.667 7.1841 35.977 6.95554 36.2055C6.72698 36.4341 6.41698 36.5625 6.09375 36.5625Z"
+                                        fill="white"
+                                    />
+                                </svg>
+                            </div>
+                            <div className="absolute -top-7 left-0 bg-[#285B70] sm:-left-[6px] h-[290px] sm:h-[300px] w-[5px] rounded-full z-0"></div>
+                        </div>
+                        <div
+                            className="relative z-10 flex w-full max-w-[900px] items-center "
+                        >
+                            <div className="font-sans relative h-max flex-1 flex-shrink-0 rounded-[20px] shadow-xl border border-[#E8E8E8] bg-white py-4 dark:bg-[#285B70]">
+                                {/* Status Label */}
+                                <div className={`absolute right-3 top-3 flex items-center gap-2 rounded-[10px] px-3 py-1 shadow-sm bg-[#E82323]/20 text-[#E82323]`}>
+                                    <div className={`h-3 w-3 rounded-full bg-[#E82323]`} />
+                                    <span className={`font-sans text-[10px] font-medium text-[#E82323]`}>
+                                        Not Available
+                                    </span>
+                                </div>
+
+                                {/* Title */}
+                                <div className='flex items-start mb-1'>
+                                    <p className="xs:text-sm text-2xl font-bold pl-8 pt-4  sm:pt-1 capitalize text-[#141619] dark:text-white sm:text-lg md:text-3xl lg:text-[#30px] md:w-[600px] max-w-none sm:pl-16 sm:text-[30px] lg:mt-1">
+                                        Pembukaan PKM TI
+                                    </p>
+                                </div>
+                                {/* Date */}
+                                <div className="flex items-center px-6 pt-2 sm:pl-16">
+                                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.75 1C7.43506 1 7.13301 1.15145 6.91031 1.42103C6.68761 1.69062 6.5625 2.05625 6.5625 2.4375V3.875H5.375C4.74511 3.875 4.14102 4.1779 3.69562 4.71707C3.25022 5.25624 3 5.9875 3 6.75V21.125C3 21.8875 3.25022 22.6188 3.69562 23.1579C4.14102 23.6971 4.74511 24 5.375 24H19.625C20.2549 24 20.859 23.6971 21.3044 23.1579C21.7498 22.6188 22 21.8875 22 21.125V6.75C22 5.9875 21.7498 5.25624 21.3044 4.71707C20.859 4.1779 20.2549 3.875 19.625 3.875H18.4375V2.4375C18.4375 2.05625 18.3124 1.69062 18.0897 1.42103C17.867 1.15145 17.5649 1 17.25 1C16.9351 1 16.633 1.15145 16.4103 1.42103C16.1876 1.69062 16.0625 2.05625 16.0625 2.4375V3.875H8.9375V2.4375C8.9375 2.05625 8.81239 1.69062 8.58969 1.42103C8.36699 1.15145 8.06494 1 7.75 1ZM7.75 8.1875C7.43506 8.1875 7.13301 8.33895 6.91031 8.60853C6.68761 8.87812 6.5625 9.24375 6.5625 9.625C6.5625 10.0062 6.68761 10.3719 6.91031 10.6415C7.13301 10.911 7.43506 11.0625 7.75 11.0625H17.25C17.5649 11.0625 17.867 10.911 18.0897 10.6415C18.3124 10.3719 18.4375 10.0062 18.4375 9.625C18.4375 9.24375 18.3124 8.87812 18.0897 8.60853C17.867 8.33895 17.5649 8.1875 17.25 8.1875H7.75Z" fill="#979797"/>
+                                    </svg>
+                                    <p className="text-[16px] leading-[24px] font-normal text-[#979797] px-2">
+                                        23 Agustus 2025
+                                    </p>
+                                </div>
+                                <div className="flex items-center px-6 pt-2 sm:pl-16">
+                                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 sm:w-6 sm:h-6">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M5.78266 3.91169C7.56423 2.04737 9.98057 1 12.5001 1C15.0196 1 17.436 2.04737 19.2175 3.91169C20.9991 5.77601 22 8.30457 22 10.9411C22 13.5777 20.9991 16.1062 19.2175 17.9706L12.5001 25L5.78266 17.9706C4.90045 17.0475 4.20064 15.9516 3.72319 14.7455C3.24574 13.5394 3 12.2466 3 10.9411C3 9.63562 3.24574 8.3429 3.72319 7.13678C4.20064 5.93066 4.90045 4.83477 5.78266 3.91169ZM12.5001 13.7813C13.2199 13.7813 13.9103 13.4821 14.4193 12.9494C14.9283 12.4168 15.2142 11.6944 15.2142 10.9411C15.2142 10.1879 14.9283 9.46545 14.4193 8.93282C13.9103 8.40018 13.2199 8.10095 12.5001 8.10095C11.7803 8.10095 11.0899 8.40018 10.5809 8.93282C10.0719 9.46545 9.78598 10.1879 9.78598 10.9411C9.78598 11.6944 10.0719 12.4168 10.5809 12.9494C11.0899 13.4821 11.7803 13.7813 12.5001 13.7813Z" fill="#979797"/>
+                                    </svg>
+                                    <p className="text-[16px] font-normal text-[#979797] px-2">
+                                        Gedung Teknologi Informasi Fakultas Teknik Universitas Udayana
+                                    </p>
+                                </div>
+                                    
+                            </div>
+
+                            {/* Icon lingkaran */}
+                            <div className="absolute -top-8 -left-6 rounded-[500px] bg-[#285B70] p-4 sm:-left-10 sm:top-8 z-10 ">
+                                <div className="absolute inset-0 z-0 h-full w-full animate-ping rounded-full bg-[#285B70]"></div>
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="39"
+                                    height="39"
+                                    viewBox="0 0 39 39"
+                                    fill="none"
+                                    x="26.5"
+                                    y="26.5"
+                                >
+                                    <path
+                                        d="M6.09375 36.5625C5.77052 36.5625 5.46052 36.4341 5.23196 36.2055C5.0034 35.977 4.875 35.667 4.875 35.3438V5.18959C4.87509 4.87026 4.95882 4.55653 5.11785 4.27963C5.27688 4.00272 5.50567 3.7723 5.78145 3.61131C6.70313 3.07582 8.5602 2.4375 12.1875 2.4375C15.0219 2.4375 18.1921 3.55799 20.9892 4.54594C23.2416 5.34193 25.369 6.09375 26.8125 6.09375C28.6707 6.08805 30.5091 5.71259 32.2207 4.98926C32.4291 4.90128 32.6561 4.86624 32.8814 4.88727C33.1066 4.9083 33.3232 4.98474 33.5117 5.10978C33.7003 5.23482 33.8549 5.40458 33.9619 5.60391C34.0689 5.80324 34.125 6.02595 34.125 6.25219V22.9613C34.1247 23.2574 34.0381 23.5471 33.8757 23.7948C33.7134 24.0425 33.4824 24.2375 33.2109 24.356C32.5475 24.6462 30.1252 25.5938 26.8125 25.5938C24.9737 25.5938 22.6703 25.0499 20.232 24.4733C17.4913 23.8258 14.6578 23.1562 12.1875 23.1562C9.37904 23.1562 7.94168 23.5813 7.3125 23.8502V35.3438C7.3125 35.667 7.1841 35.977 6.95554 36.2055C6.72698 36.4341 6.41698 36.5625 6.09375 36.5625Z"
+                                        fill="white"
+                                    />
+                                </svg>
+                            </div>
+                            <div className="absolute -top-7 left-0 bg-[#285B70] sm:-left-[6px] h-[250px] sm:h-[250px] w-[5px] rounded-full z-0"></div>
+                            <div className="absolute -right-[400px] -bottom-[150px] sm:block hidden">
+                                <img src="images/asset25.png" alt="bwabwa"/>
+                            </div>
+                        </div>
+                    </div>
+            </section>
 
 
                 {/* Start News Letter */}
