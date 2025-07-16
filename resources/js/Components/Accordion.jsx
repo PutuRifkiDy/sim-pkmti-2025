@@ -13,7 +13,7 @@ const Accordion = ({ heading, description, isOpen, onClick }) => {
                     <span className={`text-[15px] md:text-lg font-semibold light:text-gray-900 w-[550px] ${isOpen ? 'text-[#FFFFFF]' : ''}`}>{heading}</span>
                     {/* icon arrow */}
                     <svg
-                        className={`w-6 h-6 transition-transform transform duration-300 ease-out ${isOpen ? 'rotate-180 stroke-white' : ''
+                        className={`w-6 h-6 transition-transform transform duration-300 ease-out flex-shrink-0 ${isOpen ? 'rotate-180 stroke-white' : ''
                             }`}
                         fill="none"
                         stroke="currentColor"
