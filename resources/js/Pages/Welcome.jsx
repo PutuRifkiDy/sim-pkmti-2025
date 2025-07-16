@@ -108,7 +108,7 @@ export default function Welcome({ auth }) {
                 <div
                     className="flex flex-col gap-7 justify-center items-start w-full"
                 >
-                    <div className="relative md:w-[581px] max-w-full md:h-[210px] h-auto text-center md:text-start" data-aos="fade-up" data-aos-delay="100">
+                    <div className="relative md:w-[581px] max-w-full md:h-[210px] h-auto text-center md:text-start">
                         <div className="md:absolute md:block hidden md:left-2 left-12 top-14">
                             <IconTextHomePage />
                         </div>
@@ -504,13 +504,13 @@ export default function Welcome({ auth }) {
                 <div
                     className="flex flex-col max-w-full lg:w-1/2"
                 >
-                    <span className="uppercase text-[20px] font-semibold sm:text-base text-[#42A1A4] mb-1" data-aos="fade-up" data-aos-delay="100">
+                    <span className="uppercase text-[20px] font-semibold sm:text-base text-[#42A1A4] mb-1">
                         Pembicara
                     </span>
-                    <h3 className="capitalize text-3xl md:text-[48px] lg:text-5xl font-bold text-[#285B70] leading-12 md:leading-16" data-aos="fade-up" data-aos-delay="200">
+                    <h3 className="capitalize text-3xl md:text-[48px] lg:text-5xl font-bold text-[#285B70] leading-12 md:leading-16">
                         Bertemu dengan mereka yang sudah profesional
                     </h3>
-                    <p className="text-[18px] leading-[1.5em] font-normal light:text-[#111E41] mt-3 dark:text-gray-400" data-aos="fade-up" data-aos-delay="300">
+                    <p className="text-[18px] leading-[1.5em] font-normal light:text-[#111E41] mt-3 dark:text-gray-400">
                         Selamatkan tempat di barisan terdepan karena
                         kami mempersembahkan Narasumber yang luar biasa
                         di acara spesial PKM kami! Bersiaplah untuk
@@ -530,13 +530,11 @@ export default function Welcome({ auth }) {
                 </div>
                 <h1
                     className="font-sans text-center text-[47px] font-bold uppercase dark:text-white sm:text-4xl"
-                    data-aos="fade-up" data-aos-delay="100"
                 >
                     TIMELINE PKM TI 2025
                 </h1>
                 <p
                     className="font-sans mx-auto max-w-[653px] text-center font-bold text-2xl dark:text-gray-500 text-[#285B70]"
-                    data-aos="fade-up" data-aos-delay="200"
                 >
                     Jangan Lewatkan Kesempatan Ini
                 </p>
@@ -546,7 +544,7 @@ export default function Welcome({ auth }) {
                     {/* Timeline items */}
                     <div
                         className="relative z-10 flex w-full max-w-[900px] items-center "
-                        data-aos="fade-up" data-aos-delay="100"
+
                     >
                         <div className="font-sans relative h-max flex-1 flex-shrink-0 rounded-[20px] shadow-xl border border-[#E8E8E8] bg-white py-4 dark:bg-[#285B70]">
                             {/* Status Label */}
@@ -605,7 +603,7 @@ export default function Welcome({ auth }) {
                     </div>
                     <div
                         className="relative z-10 flex w-full max-w-[900px] items-center "
-                        data-aos="fade-up" data-aos-delay="100"
+
                     >
                         <div className="font-sans relative h-max flex-1 flex-shrink-0 rounded-[20px] shadow-xl border border-[#E8E8E8] bg-white py-4 dark:bg-[#285B70]">
                             {/* Status Label */}
@@ -667,7 +665,7 @@ export default function Welcome({ auth }) {
                     </div>
                     <div
                         className="relative z-10 flex w-full max-w-[900px] items-center "
-                        data-aos="fade-up" data-aos-delay="100"
+
                     >
                         <div className="font-sans relative h-max flex-1 flex-shrink-0 rounded-[20px] shadow-xl border border-[#E8E8E8] bg-white py-4 dark:bg-[#285B70]">
                             {/* Status Label */}
@@ -727,7 +725,7 @@ export default function Welcome({ auth }) {
 
                     <div
                         className="relative z-10 flex w-full max-w-[900px] items-center "
-                        data-aos="fade-up" data-aos-delay="100"
+
                     >
                         <div className="font-sans relative h-max flex-1 flex-shrink-0 rounded-[20px] shadow-xl border border-[#E8E8E8] bg-white py-4 dark:bg-[#285B70]">
                             {/* Status Label */}
@@ -786,7 +784,7 @@ export default function Welcome({ auth }) {
                     </div>
                     <div
                         className="relative z-10 flex w-full max-w-[900px] items-center "
-                        data-aos="fade-up" data-aos-delay="100"
+
                     >
                         <div className="font-sans relative h-max flex-1 flex-shrink-0 rounded-[20px] shadow-xl border border-[#E8E8E8] bg-white py-4 dark:bg-[#285B70]">
                             {/* Status Label */}
@@ -857,19 +855,19 @@ export default function Welcome({ auth }) {
                         className="flex flex-col justify-start items-center"
                     >
                         <div className="flex items-center space-x-2 mb-2">
-                            <p className="uppercase font-bold text-sm sm:text-xl text-center text-white px-6" data-aos="fade-up" data-aos-delay="100">
+                            <p className="uppercase font-bold text-sm sm:text-xl text-center text-white px-6">
                                 para suhu berbicara
                             </p>
                         </div>
                         <div className="relative flex">
-                            <h2 className="capitalize text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center mb-2 z-10" data-aos="fade-up" data-aos-delay="200">
+                            <h2 className="capitalize text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center mb-2 z-10">
                                 Bergabung dengan mereka
                             </h2>
                             <div className="md:absolute md:block hidden top-[65px] z-0">
                                 <IconTextTopics />
                             </div>
                         </div>
-                        <p className="text-slate-200 text-center text-sm sm:text-base mt-6 mx-0 md:mx-12" data-aos="fade-up" data-aos-delay="100">
+                        <p className="text-slate-200 text-center text-sm sm:text-base mt-6 mx-0 md:mx-12">
                             Jelajahi kategori-kategori sub topik PKM kami dan temukan passion yang menggetarkan hati Anda. Mulai dari keberlanjutan hingga teknologi, kesehatan hingga seni, kami mengundang Anda untuk meresapi setiap sub topik dengan penuh antusiasme. Temukan tempat Anda di dunia PKM, di mana setiap kategori adalah panggung bagi idealisasi dan perubahan.
                         </p>
                     </div>
@@ -930,20 +928,19 @@ export default function Welcome({ auth }) {
                 <div
                     className="flex flex-col gap-2 justify-center items-center text-center"
                 >
-                    <p className="font-bold text-[20px] tracking-[0.01em] text-[#42A1A4]" data-aos="fade-up" data-aos-delay="100">
+                    <p className="font-bold text-[20px] tracking-[0.01em] text-[#42A1A4]" >
                         Pertanyaan Umum
                     </p>
-                    <h1 className="font-bold text-[50px] leading-[50px] text-[#285B70]" data-aos="fade-up" data-aos-delay="200">
+                    <h1 className="font-bold text-[50px] leading-[50px] text-[#285B70]">
                         Hal Yang Sering Ditanyakan
                     </h1>
-                    <p className="font-normal text-[16px] tracking-[0.01em] text-slate-500" data-aos="fade-up" data-aos-delay="300">
+                    <p className="font-normal text-[16px] tracking-[0.01em] text-slate-500">
                         Pertanyaan umum yang sering ditanyakan terkait PKM TI 2025. Jika masih ada yang ingin ditanyakan lebih lanjut, kalian bisa hubungi narahubung dibawah ini.
                     </p>
                 </div>
                 {/* Buttons */}
                 <div
                     className="flex md:flex-row flex-col justify-center items-center gap-5 w-full"
-                    data-aos="fade-up" data-aos-delay="100"
                 >
                     <div
                         onClick={() => setActiveCategoryFaq("Guidebook")}
@@ -970,14 +967,14 @@ export default function Welcome({ auth }) {
                 <div className="flex md:flex-row flex-col-reverse justify-evenly items-center w-full">
                     <div
                     >
-                        <div className="w-full" data-aos="zoom-in" data-aos-delay="300">
+                        <div className="w-full">
                             <IconFaq />
                         </div>
                     </div>
                     {activeCategoryFaq === "Guidebook" && (
                         <div
                             className="flex flex-col gap-2 md:w-[636px] w-full dark:text-gray-400"
-                            data-aos="zoom-in" data-aos-delay="300"
+
                         >
                             <Accordion
                                 heading="Apa itu guidebook pelatihan PKM?"
@@ -1009,7 +1006,7 @@ export default function Welcome({ auth }) {
                     {activeCategoryFaq === "Hari H PKM" && (
                         <div
                             className="flex flex-col gap-2 md:w-[636px] w-full dark:text-gray-400"
-                            data-aos="zoom-in" data-aos-delay="300"
+
                         >
                             <Accordion
                                 heading="Apakah ada pembimbing yang akan memberikan masukan terhadap ide dan judul yang diajukan?"
@@ -1041,9 +1038,7 @@ export default function Welcome({ auth }) {
                     {activeCategoryFaq === "Klinik PKM" && (
                         <div
                             className="flex flex-col gap-2 md:w-[636px] w-full dark:text-gray-400"
-                            data-aos="zoom-in" data-aos-delay="300"
                         >
-
                             <Accordion
                                 heading="Apa itu Klinik PKM dan bagaimana cara mengikutinya?"
                                 description=""
@@ -1080,19 +1075,17 @@ export default function Welcome({ auth }) {
                 <div
                     className="flex flex-col justify-center items-center"
                 >
-                    <h1 className="font-bold text-[48px] text-[#285B70]"
-                        data-aos="fade-up" data-aos-delay="100">
+                    <h1 className="font-bold text-[48px] text-[#285B70]" data-aos="fade-up" data-aos-duration="100">
                         Kontak Kami
                     </h1>
-                    <p className="w-4/5 text-base text-center dark:text-gray-400"
-                        data-aos="fade-up" data-aos-delay="200">
+                    <p className="w-4/5 text-base text-center dark:text-gray-400" data-aos="fade-up" data-aos-duration="100">
                         Jika Anda memiliki pertanyaan lebih lanjut, jangan ragu untuk menghubungi narahubung yang tertera di bawah ini.
                     </p>
                 </div>
                 <div
                     className="grid grid-cols-1 md:grid-cols-3 justify-between my-8 gap-16"
                 >
-                    <div className="flex flex-col gap-2 bg-[#285B70] py-4 pl-4 pr-24 rounded-b-2xl border-t-2 border-[#285B70] bg-opacity-20 dark:text-gray-400" data-aos="fade-up" data-aos-delay="100">
+                    <div className="flex flex-col gap-2 bg-[#285B70] py-4 pl-4 pr-24 rounded-b-2xl border-t-2 border-[#285B70] bg-opacity-20 dark:text-gray-400" data-aos="fade-up" data-aos-duration="100">
                         <h1 className="font-bold text-xl">Tiksna Apsari</h1>
                         <div className="flex flex-row justify-start gap-4">
                             <IconLine />
@@ -1103,8 +1096,7 @@ export default function Welcome({ auth }) {
                             <a href="wa.me/6285739490558" className="text-base text-[#2A3374] dark:text-white">+62 857-3949-0558</a>
                         </div>
                     </div>
-                    <div className="flex flex-col gap-2 bg-[#42A1A4] py-4 pl-4 pr-24 rounded-b-2xl border-t-2 border-[#42A1A4] bg-opacity-20 dark:text-gray-400"
-                        data-aos="fade-up" data-aos-delay="200">
+                    <div className="flex flex-col gap-2 bg-[#42A1A4] py-4 pl-4 pr-24 rounded-b-2xl border-t-2 border-[#42A1A4] bg-opacity-20 dark:text-gray-400" data-aos="fade-up" data-aos-duration="200">
                         <h1 className="font-bold text-xl">Dewa Ayu</h1>
                         <div className="flex flex-row justify-start gap-4">
                             <IconLine />
@@ -1115,8 +1107,7 @@ export default function Welcome({ auth }) {
                             <a href="wa.me/6285940899163" className="text-base text-[#2A3374] dark:text-white">+62 859-4089-9163</a>
                         </div>
                     </div>
-                    <div className="flex flex-col gap-2 bg-[#285B70] py-4 pl-4 pr-24 rounded-b-2xl border-t-2 border-[#285B70] bg-opacity-20 dark:text-gray-400"
-                        data-aos="fade-up" data-aos-delay="300">
+                    <div className="flex flex-col gap-2 bg-[#285B70] py-4 pl-4 pr-24 rounded-b-2xl border-t-2 border-[#285B70] bg-opacity-20 dark:text-gray-400" data-aos="fade-up" data-aos-duration="300">
                         <h1 className="font-bold text-xl">Putu Rifki</h1>
                         <div className="flex flex-row justify-start gap-4">
                             <IconLine />
@@ -1130,7 +1121,7 @@ export default function Welcome({ auth }) {
                 </div>
                 <div
                 >
-                    <div className=" my-2" data-aos="zoom-in" data-aos-delay="300">
+                    <div className=" my-2">
                         <IconContact />
                     </div>
                 </div>

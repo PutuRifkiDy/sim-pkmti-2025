@@ -37,9 +37,9 @@ export default function NavBar({ auth }) {
                     <DarkMode />
                     <button onClick={toggleNav}>
                         {!openNav ? (
-                            <Bars3Icon className="w-10" />
+                            <Bars3Icon className="w-10 dark:fill-white" />
                         ) : (
-                            <XMarkIcon className="w-10" />
+                            <XMarkIcon className="w-10 dark:fill-white" />
                         )}
                     </button>
                 </div>
@@ -48,7 +48,7 @@ export default function NavBar({ auth }) {
             <div
                 className={`${
                     openNav ? "translate-y-16" : "-translate-y-full"
-                } z-[-5] absolute left-0 bg-base-100 w-full flex-col items-start pt-6 pb-10 shadow-md lg:bg-transparent lg:relative lg:translate-y-0 lg:px-0 lg:shadow-none lg:py-0 lg:flex lg:flex-row lg:justify-between lg:items-center ease-out duration-500`}
+                } z-[-5] absolute left-0 bg-base-100 dark:bg-[#1d232a] w-full flex-col items-start pt-6 pb-10 shadow-md lg:bg-transparent lg:relative lg:translate-y-0 lg:px-0 lg:shadow-none lg:py-0 lg:flex lg:flex-row lg:justify-between lg:items-center ease-out duration-500`}
             >
                 <div className="lg:navbar-center flex-col lg:flex">
                     <ul className="menu menu-vertical lg:menu-horizontal gap-5 dark:text-gray-400">
