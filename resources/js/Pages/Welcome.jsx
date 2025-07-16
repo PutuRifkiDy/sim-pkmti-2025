@@ -1138,7 +1138,7 @@ export default function Welcome({ auth }) {
                 </div>
                 <div
                 >
-                    <div className=" my-2">
+                    <div className="my-2" data-aos="zoom-in" data-aos-delay="200">
                         <IconContact />
                     </div>
                 </div>
