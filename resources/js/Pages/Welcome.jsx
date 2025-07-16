@@ -53,37 +53,37 @@ export default function Welcome({ auth }) {
     const topics = [
         {
             title: "PKM-KC",
-            links: "https://drive.google.com/file/d/1VhnGeOLCPxXXNy1WIshnUoMjLaNTu4nb/view?usp=sharing",
+            links: "https://drive.google.com/file/d/1mlsmp5160FzV6ZzLpFbSitDcfCPW7Wks/view?usp=sharing",
             description:
                 "Program Kreativitas Mahasiswa-Karsa Cipta (PKM-KC) merupakan program penciptaan yang didasari atas karsa dan nalar mahasiswa, bersifat konstruktif serta menghasilkan suatu sistem...",
         },
         {
             title: "PKM-K",
-            links: "https://drive.google.com/file/d/1P2Xi_pevKDFX82gv7NviF2yYZl4azjoj/view?usp=sharing",
+            links: "https://drive.google.com/file/d/1tPbmUJ7Pxd0XDRCzuxEGvmB1cDPdNnmw/view?usp=sharing",
             description:
                 "Program Kreativitas Mahasiswa Kewirausahaan (PKM-K) merupakan program kreativitas mahasiswa dalam menciptakan aktivitas usaha. Dalam PKM-K, tim mahasiswa berlatih membuat...",
         },
         {
             title: "PKM-PM",
-            links: "https://drive.google.com/file/d/10AyHDJx650ORiSBwg2h9S8xV6H-OYWgr/view?usp=sharing",
+            links: "https://drive.google.com/file/d/1CnEBlY1elzF2ZmhUnlB-TR6GwL-oJcH-/view?usp=sharing",
             description:
                 "PKM-PM adalah program penerapan ilmu pengetahuan, teknologi dan seni yang berorientasi non profit dalam upaya untuk membantu mengatasi permasalahan kemiskinan...",
         },
         {
             title: "PKM-PI",
-            links: "https://drive.google.com/file/d/19JHFO6JWpAyw-vi7dnuoiSOZ9X-P0cfO/view?usp=sharing",
+            links: "https://drive.google.com/file/d/1nJ-RXt7GS28iCAsjHzkUeCKXctAzf466/view?usp=sharing",
             description:
                 "Program Kreativitas Mahasiswa Penerapan-IPTEK (PKM-PI) termasuk ke dalam salah satu kelompok PKM 5 bidang yang menerapkan ilmu pengetahuan dan teknologi untuk menjadi...",
         },
         {
             title: "PKM-GFT",
-            links: "https://drive.google.com/file/d/1BXEK5quZ7oIfbPTju1qU1M9SuagRhHtq/view?usp=sharing",
+            links: "https://drive.google.com/file/d/1WhCqa9FNejG7wL5TceXQbLDhCIHytbFP/view?usp=sharing",
             description:
                 "PKM Gagasan Futuristik Tertulis (PKM-GFT) merupakan gagasan kreatif yang futuristik sebagai respons intelektual atas persoalan aktual yang dihadapi bangsa. Gagasan tersebut tidak terkait...",
         },
         {
             title: "PKM-VGK",
-            links: "",
+            links: "https://drive.google.com/file/d/1GlSGwYLzaqKbeGzArmx_i9cD5dRdhoBa/view?usp=sharing",
             description:
                 "PKM Video Gagasan Konstruktif (PKM-VGK) merupakan program yang mendorong mahasiswa untuk menyampaikan solusi terhadap permasalahan nyata di masyarakat dalam bentuk video kreatif. Melalui pendekatan visual...",
         }

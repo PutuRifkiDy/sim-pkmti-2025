@@ -25,7 +25,10 @@ class UserSeeder extends Seeder
             ['name' => 'Sarah Lee', 'email' => 'sarahlee220555@example.com', 'nim' => '2205550002', 'phone' => '081234567895', 'line_id' => 'sarahlee123', 'status' => 'failed', 'password' => bcrypt('password123')],
             // Data dengan nim berawalan 210555
             ['name' => 'Chris Brown', 'email' => 'chrisbrown210555@example.com', 'nim' => '2105550001', 'phone' => '081234567896', 'line_id' => 'chrisbrown123', 'status' => 'failed', 'password' => bcrypt('password123')],
-            ['name' => 'Lisa White', 'email' => 'lisawhite210555@example.com', 'nim' => '2105550002', 'phone' => '081234567897', 'line_id' => 'lisawhite123', 'status' => 'failed', 'password' => bcrypt('password123')]
+            ['name' => 'Lisa White', 'email' => 'lisawhite210555@example.com', 'nim' => '2105550002', 'phone' => '081234567897', 'line_id' => 'lisawhite123', 'status' => 'failed', 'password' => bcrypt('password123')],
+
+            ['name' => 'Santus Clark', 'email' => 'santusclark240555@example.com', 'nim' => '2405550003', 'phone' => '081234567893', 'line_id' => 'santusclark123', 'status' => 'failed', 'password' => bcrypt('password123')],
+            ['name' => 'Emia Clark', 'email' => 'emiaclark240555@example.com', 'nim' => '2405550004', 'phone' => '081234567893', 'line_id' => 'emiaclark123', 'status' => 'failed', 'password' => bcrypt('password123')],
         ];
 
         DB::table('users')->insertOrIgnore($data);
