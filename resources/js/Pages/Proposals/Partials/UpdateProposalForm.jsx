@@ -1,3 +1,4 @@
+import { IconWarning } from "@/Components/IconLanding";
 import { useParam } from "@/utils";
 import { DocumentArrowUpIcon } from "@heroicons/react/24/outline";
 import {
@@ -49,19 +50,10 @@ export default function UpdateProposalForm({ user, proposal }) {
 
     return (
         <div className="flex gap-5 flex-col md:px-10 px-3 py-10 rounded-[14px] bg-white dark:bg-[#181d23]">
-            <ProposalStatus />  
+            <ProposalStatus />
 
             <form onSubmit={submit}>
-                {proposal.note && (
-                    <div className="bg-[#49B1D2]/10 border-l-4 border-[#49B1D2] text-[#49B1D2] w-full px-5 py-2.5 flex flex-row gap-5 items-center rounded-l-[4px]" role="alert">
-                        <InformationCircleIcon className="h-6 w-6" />
-                        <div>
-                            <h3 className="font-bold text-[18px]">Catatan</h3>
-                            <div className="text-[14px]">{proposal.note}</div>
-                        </div>
-                    </div>
-                )}
-                <div className="grid md:grid-cols-2 grid-cols-1 gap-2">
+                <div className="grid md:grid-cols-2 grid-cols-1 gap-x-10">
                     <div className="form-control my-2">
                         <label htmlFor="title" className="font-bold mb-2">
                             Judul
@@ -164,26 +156,50 @@ export default function UpdateProposalForm({ user, proposal }) {
                         >
                             Link Proposal Final (.pdf)
                         </label>
-                        <div className="join">
-                            <input
-                                id="final_proposal_url"
-                                type="text"
-                                name="final_proposal_url"
-                                value={data.final_proposal_url}
-                                autoComplete="final_proposal_url"
-                                disabled={true && !proposal.draft_proposal_url}
-                                onChange={(e) =>
-                                    setData("final_proposal_url", e.target.value)
-                                }
-                                className="input input-bordered join-item z-[1] w-full"
-                            />
-                            <div className="tooltip" data-tip="Kunjungi tautan">
-                                <a
-                                    href={proposal.final_proposal_url}
-                                    className="join-item btn btn-square"
+                        <div className="join flex flex-col gap-5 w-full">
+                            <div className="flex flex-row">
+                                <input
+                                    id="final_proposal_url"
+                                    type="text"
+                                    name="final_proposal_url"
+                                    value={data.final_proposal_url}
+                                    autoComplete="final_proposal_url"
+                                    disabled={true && !proposal.draft_proposal_url}
+                                    onChange={(e) =>
+                                        setData("final_proposal_url", e.target.value)
+                                    }
+                                    className="input input-bordered join-item z-[1] w-full"
+                                />
+                                <div className="tooltip" data-tip="Kunjungi tautan">
+                                    <a
+                                        href={proposal.final_proposal_url}
+                                        className="join-item btn btn-square"
+                                    >
+                                        <ArrowUturnRightIcon className="h-6 w-6" />
+                                    </a>
+                                </div>
+
+                            </div>
+
+                            <div className="flex md:flex-row flex-col gap-2 w-full">
+                                <button
+                                    className="flex flex-row justify-center items-center font-bold bg-[#42A1A4] w-full py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#59DFD1]  transition-all duration-300 shadow-[0_0_10px_#42A1A4]"
+                                    disabled={processing}
+                                    type="submit"
                                 >
-                                    <ArrowUturnRightIcon className="h-6 w-6" />
-                                </a>
+                                    <DocumentArrowUpIcon className="h-6 w-6" />
+                                    Simpan Proposal
+                                </button>
+                                {(user.id === proposal.team.leader_id || user.role === "admin") && (
+                                    <Link
+                                        as="button"
+                                        method="delete"
+                                        className="flex flex-row justify-center items-center font-bold bg-[#E82323] w-full py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#E82323]/80 dark:text-gray-400 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#E82323]"
+                                        href={route("proposals.destroy", useParam(1))}
+                                    >
+                                        <TrashIcon className="h-6 w-6" /> Hapus Proposal
+                                    </Link>
+                                )}
                             </div>
                         </div>
 
@@ -191,30 +207,24 @@ export default function UpdateProposalForm({ user, proposal }) {
                             {errors.final_proposal_url}
                         </p>
                     </div>
+                    {proposal.note && (
+                        <div className="bg-[#FA3434]/20 text-[#FA3434] w-full px-5 py-2.5 flex flex-row gap-5 items-center rounded-[10px] text-justify " role="alert">
+
+                            <div>
+                                <div className="flex flex-row gap-2">
+                                    <IconWarning />
+                                    <h3 className="font-bold text-[18px]">Catatan</h3>
+
+                                </div>
+                                <div className="text-[12px] tracking-wider">{proposal.note}</div>
+                            </div>
+                        </div>
+                    )}
                 </div>
 
                 {/* Input Title */}
 
-                <div className="flex md:flex-row flex-col gap-2 md:w-1/2 w-full">
-                    <button
-                        className="flex flex-row justify-center items-center font-bold bg-[#42A1A4] w-full py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#59DFD1]  transition-all duration-300 shadow-[0_0_10px_#42A1A4]"
-                        disabled={processing}
-                        type="submit"
-                    >
-                        <DocumentArrowUpIcon className="h-6 w-6" />
-                        Simpan Proposal
-                    </button>
-                    {(user.id === proposal.team.leader_id || user.role === "admin") && (
-                        <Link
-                            as="button"
-                            method="delete"
-                            className="flex flex-row justify-center items-center font-bold bg-[#E82323] w-full py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#E82323]/80 dark:text-gray-400 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#E82323]"
-                            href={route("proposals.destroy", useParam(1))}
-                        >
-                            <TrashIcon className="h-6 w-6" /> Hapus Proposal
-                        </Link>
-                    )}
-                </div>
+
             </form>
 
             <div>
