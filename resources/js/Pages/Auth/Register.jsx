@@ -96,7 +96,7 @@ export default function Register() {
                         <form onSubmit={submit}>
                             <div className="flex flex-col gap-2">
                                 <div className="flex flex-col gap-2">
-                                    <label htmlFor="fullName" className="text-[18px] font-semibold">Nama Lengkap</label>
+                                    <label htmlFor="fullName" className="text-[18px] font-semibold dark:text-gray-200">Nama Lengkap</label>
                                     <input
                                         id="name"
                                         type="text"
@@ -112,7 +112,7 @@ export default function Register() {
                                     />
                                 </div>
                                 <div className="flex flex-col gap-2">
-                                    <label htmlFor="line_id" className="text-[18px] font-semibold">ID Line</label>
+                                    <label htmlFor="line_id" className="text-[18px] font-semibold dark:text-gray-200">ID Line</label>
                                     <input
                                         id="line_id"
                                         type="text"
@@ -131,7 +131,7 @@ export default function Register() {
 
                             <div className="flex flex-col gap-2">
                                 <div className="flex flex-col gap-2">
-                                    <label htmlFor="email" className="text-[18px] font-semibold">Email</label>
+                                    <label htmlFor="email" className="text-[18px] font-semibold dark:text-gray-200">Email</label>
                                     <input
                                         id="email"
                                         type="email"
@@ -149,7 +149,7 @@ export default function Register() {
 
                                 </div>
                                 <div className="flex flex-col gap-2">
-                                    <label htmlFor="phone" className="text-[18px] font-semibold">Telepon</label>
+                                    <label htmlFor="phone" className="text-[18px] font-semibold dark:text-gray-200">Telepon</label>
                                     <input
                                         id="phone"
                                         type="text"
@@ -170,7 +170,7 @@ export default function Register() {
 
                             <div className="flex flex-col gap-2">
                                 <div className="flex flex-col gap-2">
-                                    <label htmlFor="nim" className="text-[18px] font-semibold">
+                                    <label htmlFor="nim" className="text-[18px] font-semibold dark:text-gray-200">
                                         NIM
                                     </label>
                                     <input
@@ -191,7 +191,7 @@ export default function Register() {
                                 <div className="flex flex-col gap-2">
                                     <label
                                         htmlFor="password"
-                                        className="text-[18px] font-semibold"
+                                        className="text-[18px] font-semibold dark:text-gray-200"
                                     >
                                         Password
                                     </label>
@@ -232,7 +232,7 @@ export default function Register() {
                                 <div className="flex flex-col gap-2">
                                     <label
                                         htmlFor="password_confirmation"
-                                        className="text-[18px] font-semibold"
+                                        className="text-[18px] font-semibold dark:text-gray-200"
                                     >
                                         Konfirmasi Password
                                     </label>
@@ -287,12 +287,12 @@ export default function Register() {
                                     Selanjutnya
                                 </button> */}
                             <button
-                                className="mt-3 btn text-[18px] bg-[#42A1A4] text-white w-full mb-2 hover:text-white hover:bg-[#59DFD1] dark:text-gray-400 dark:hover:text-white transition-all duration-300 hover:shadow-[0_0_10px_#42A1A4]"
+                                className="mt-3 btn text-[18px] bg-[#42A1A4] text-white w-full mb-2 hover:text-white hover:bg-[#59DFD1] dark:text-white dark:hover:text-white transition-all duration-300 hover:shadow-[0_0_10px_#42A1A4]"
                                 disabled={processing}
                             >
                                 Masuk
                             </button>
-                            <p className="text-center mt-5 flex flex-row justify-center gap-1 text-[16px]">
+                            <p className="text-center mt-5 flex flex-row justify-center gap-1 text-[16px] dark:text-gray-100">
                                 Sudah mempunyai akun?
                                 <Link
                                     href={route("login")}

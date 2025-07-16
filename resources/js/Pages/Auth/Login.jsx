@@ -81,7 +81,7 @@ export default function Login({ status, canResetPassword }) {
                     <div className="flex flex-col gap-2">
                         <form onSubmit={submit} className="flex flex-col gap-2">
                             <div className="flex flex-col gap-2">
-                                <label htmlFor="nim" className="text-[18px] font-semibold">NIM</label>
+                                <label htmlFor="nim" className="text-[18px] font-semibold dark:text-gray-100">NIM</label>
                                 <input
                                     id="nim"
                                     type="text"
@@ -96,7 +96,7 @@ export default function Login({ status, canResetPassword }) {
                                 {/* <p className="mt-2 text-error">{errors.nim}</p> */}
                             </div>
                             <div className="flex flex-col gap-2">
-                                <label htmlFor="password" className="text-[18px] font-semibold">Password</label>
+                                <label htmlFor="password" className="text-[18px] font-semibold dark:text-gray-100">Password</label>
                                 <div className="join">
                                     <input
                                         id="password"
@@ -138,12 +138,12 @@ export default function Login({ status, canResetPassword }) {
                                             type="checkbox"
                                             name="remember"
                                             checked={data.remember}
-                                            className="checkbox inline"
+                                            className="checkbox inline dark:bg-gray-700 dark:border-gray-600"
                                             onChange={(e) =>
                                                 setData("remember", e.target.checked)
                                             }
                                         />
-                                        <span className="text-[16px]">
+                                        <span className="text-[16px] dark:text-gray-100">
                                             Ingatkan saya
                                         </span>
                                     </label>
@@ -160,12 +160,12 @@ export default function Login({ status, canResetPassword }) {
                                 )} */}
                             </div>
                             <button
-                                className="btn text-[18px] bg-[#42A1A4] text-white w-full mb-2 hover:text-white hover:bg-[#59DFD1] dark:text-gray-400 dark:hover:text-white transition-all duration-300 hover:shadow-[0_0_10px_#42A1A4]"
+                                className="btn text-[18px] bg-[#42A1A4] text-white w-full mb-2 hover:text-white hover:bg-[#59DFD1] dark:text-white dark:hover:text-white transition-all duration-300 hover:shadow-[0_0_10px_#42A1A4]"
                                 disabled={processing}
                             >
                                 Masuk
                             </button>
-                            <p className="text-center mt-5 flex flex-row justify-center gap-1 text-[16px]">
+                            <p className="text-center mt-5 flex flex-row justify-center gap-1 text-[16px] dark:text-gray-100">
                                 Belum mempunyai akun?
                                 <Link
                                     href={route("register")}
