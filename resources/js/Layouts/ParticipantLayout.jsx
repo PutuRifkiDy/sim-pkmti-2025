@@ -7,27 +7,45 @@ import {
     HomeIcon,
     UserGroupIcon,
 } from "@heroicons/react/24/solid";
-import { Head } from "@inertiajs/react";
+import { Head, usePage } from "@inertiajs/react";
 
-export default function ParticipantLayout({ user, title, children }) {
+export default function ParticipantLayout({ user, title, children}) {
+    const date_now = usePage().props.date_now;
+    const end_date_sharing_session_event = usePage().props.end_date_sharing_session_event;
+    const isAfterSharingSession = new Date(date_now) < new Date(end_date_sharing_session_event);
+
+    console.log("date_now", date_now);
+    console.log("end_date_sharing_session_event", end_date_sharing_session_event);
+    console.log("isAfterSharingSession", isAfterSharingSession);
+
     const navigations = [
-        {
-            icon: <IconBerandaSideBar />,
-            text: "Beranda",
-            link: route("dashboard"),
-        },
+        ...(isAfterSharingSession ? [
+            {
+                icon: <IconBerandaSideBar />,
+                text: "Beranda",
+                link: route("dashboard"),
+            }
+        ] : [
+            {
+                icon: <IconBerandaSideBar />,
+                text: "Beranda",
+                link: route("dashboard"),
+            },
 
-        ...(!user.team_id ? [{
-            icon: <IconGabungTim />,
-            text: "Gabung Tim",
-            link: route("teams.join_or_create"),
-        }] : []),
-        {
-            icon: <IconProfileSideBar />,
-            text: "Profile",
-            link: route("profile.edit"),
-        },
+            ...(!user.team_id ? [{
+                icon: <IconGabungTim />,
+                text: "Gabung Tim",
+                link: route("teams.join_or_create"),
+            }] : []),
+
+            {
+                icon: <IconProfileSideBar />,
+                text: "Profile",
+                link: route("profile.edit"),
+            },
+        ]),
     ];
+
 
     if (user.team_id) {
         navigations.push(
@@ -42,7 +60,7 @@ export default function ParticipantLayout({ user, title, children }) {
                 link: route("proposals.show", user.team_id),
             },
             {
-                icon: <IconBuktiProposal/>,
+                icon: <IconBuktiProposal />,
                 text: "Asistensi",
                 link: route("assistance-proofs.show", user.team_id),
             }

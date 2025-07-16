@@ -955,12 +955,12 @@ export default function Welcome({ auth }) {
                 {/* Buttons */}
                 <div
                     className="flex md:flex-row flex-col justify-center items-center gap-5 w-full"
+                    data-aos="fade-up" data-aos-delay="100"
                 >
                     <div
                         onClick={() => setActiveCategoryFaq("Guidebook")}
                         className={`${activeCategoryFaq === "Guidebook" ? "bg-[#59DFD1] shadow-[0_0_20px_#59DFD1] text-white" : ""
                             } hover:bg-[#59DFD1] hover:shadow-[0_0_10px_#59DFD1] hover:text-white md:w-[196px] w-full md:h-[50px] h-[60px] flex justify-center items-center rounded-[50px] border-[1px] border-slate-200 text-[#42A1A4] font-bold text-[20px] transition-all duration-300 ease-in-out cursor-pointer`}
-                        data-aos="fade-up" data-aos-delay="100"
                     >
                         Guidebook
                     </div>
@@ -968,7 +968,6 @@ export default function Welcome({ auth }) {
                         onClick={() => setActiveCategoryFaq("Hari H PKM")}
                         className={`${activeCategoryFaq === "Hari H PKM" ? "bg-[#59DFD1] text-white shadow-[0_0_20px_#59DFD1]" : ""
                             } hover:bg-[#59DFD1] hover:shadow-[0_0_10px_#59DFD1] hover:text-white md:w-[196px] w-full md:h-[50px] h-[60px] flex justify-center items-center rounded-[50px] border-[1px] border-slate-200 text-[#42A1A4] font-bold text-[20px] transition-all duration-300 ease-in-out cursor-pointer`}
-                        data-aos="fade-up" data-aos-delay="200"
                     >
                         Hari H PKM
                     </div>
@@ -976,8 +975,7 @@ export default function Welcome({ auth }) {
                         onClick={() => setActiveCategoryFaq("Klinik PKM")}
                         className={`${activeCategoryFaq === "Klinik PKM" ? "bg-[#59DFD1] text-white shadow-[0_0_20px_#59DFD1]" : ""
                             } hover:bg-[#59DFD1] hover:shadow-[0_0_10px_#59DFD1] hover:text-white md:w-[196px] w-full md:h-[50px] h-[60px] flex justify-center items-center rounded-[50px] border-[1px] border-slate-200 text-[#42A1A4] font-bold text-[20px] transition-all duration-300 ease-in-out cursor-pointer`}
-                        data-aos="fade-up" data-aos-delay="300"
-                   >
+                    >
                         Klinik PKM
                     </div>
                 </div>
@@ -1095,7 +1093,7 @@ export default function Welcome({ auth }) {
                     <h1 className="font-bold text-[48px] text-[#285B70]" data-aos="fade-up" data-aos-delay="100">
                         Kontak Kami
                     </h1>
-                    <p className="w-4/5 text-base text-center dark:text-gray-400" data-aos="fade-up"  data-aos-delay="200">
+                    <p className="w-4/5 text-base text-center dark:text-gray-400" data-aos="fade-up" data-aos-delay="200">
                         Jika Anda memiliki pertanyaan lebih lanjut, jangan ragu untuk menghubungi narahubung yang tertera di bawah ini.
                     </p>
                 </div>
