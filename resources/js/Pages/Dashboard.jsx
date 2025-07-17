@@ -252,7 +252,7 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                             <img src="images/elements/element_dashboard_section_3.png" className="absolute right-0 bottom-0 w-[200px] h-auto" alt="" />
                             <div className="p-10">
                                 <div className="flex flex-row gap-1 justify-center items-center">
-                                    <div className="flex flex-row gap-1">
+                                    <div className="flex flex-row gap-2">
                                         <CalendarDaysIcon className="h-6 w-6 text-[#111E41]" />
                                         <p>Kamis, 23 Agustus 2025</p>
                                     </div>
