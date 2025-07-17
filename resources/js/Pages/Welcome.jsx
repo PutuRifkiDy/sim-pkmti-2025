@@ -620,22 +620,22 @@ export default function Welcome({ auth }) {
                     <img src="images/asset25.png" alt="bwabwa" />
                 </div>
                 <h1
-                    className="font-sans text-center text-[47px] font-bold uppercase dark:text-white sm:text-4xl"
+                    className="font-sans text-center text-[47px] font-bold uppercase dark:text-white sm:text-4xl text-[#285B70]"
                     data-aos="fade-up" data-aos-delay="100"
                 >
                     TIMELINE PKM TI 2025
                 </h1>
                 <p
-                    className="font-sans mx-auto max-w-[653px] text-center font-bold text-2xl dark:text-gray-500 text-[#285B70]"
+                    className="mx-auto max-w-[653px] text-center font-regular text-[16px] dark:text-gray-500 text-[#5E5E5E]"
                     data-aos="fade-up" data-aos-delay="200"
                 >
-                    Jangan Lewatkan Kesempatan Ini
+                    Dapatkan gambaran lengkap tentang rangkaian acara, pastikan Anda selalu update dan tidak melewatkan setiap tahap penting.
                 </p>
                 <div className="h-16" />
                 <div className="relative mt-12 flex min-h-fit flex-col items-center max-w-[1200]" style={{ gap: '96px' }}>
 
                     {/* Timeline items */}
-                    { timeline.map((event, index) => (
+                    {timeline.map((event, index) => (
 
                         <div
                             className="relative z-10 flex w-full max-w-[900px] items-center "
@@ -788,15 +788,11 @@ export default function Welcome({ auth }) {
                 <div
                     className="flex flex-col gap-2 justify-center items-center text-center"
                 >
-                    <p className="font-bold text-[20px] tracking-[0.01em] text-[#42A1A4]"
-                        data-aos="fade-up" data-aos-delay="100">
-                        Pertanyaan Umum
-                    </p>
                     <h1 className="font-bold text-[50px] leading-[50px] text-[#285B70]"
                         data-aos="fade-up" data-aos-delay="200">
                         Hal Yang Sering Ditanyakan
                     </h1>
-                    <p className="font-normal text-[16px] tracking-[0.01em] text-slate-500"
+                    <p className="font-normal text-[16px] tracking-[0.01em] text-slate-500 max-w-[653px]"
                         data-aos="fade-up" data-aos-delay="300">
                         Pertanyaan umum yang sering ditanyakan terkait PKM TI 2025. Jika masih ada yang ingin ditanyakan lebih lanjut, kalian bisa hubungi narahubung dibawah ini.
                     </p>
