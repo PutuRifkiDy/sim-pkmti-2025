@@ -75,12 +75,12 @@ export default function ProposalTitles({ auth }) {
                 <h1 className='font-bold text-5xl leading-[1.1] text-[#111E41] dark:text-gray-400 md:w-2/3 w-full '>Daftar Judul Lolos Pendanaan Tingkat Nasional</h1> 
                 <p className='md:w-3/4 w-full text-justify dark:text-gray-300'>Lorem ipsum dolor sit amet consectetur. Ut elementum enim ultricies quam accumsan. Malesuada amet est vel id mattis pulvinar. Nulla fames ut turpis diam eget morbi venenatis. Gravida dictum mauris ac ac sem risus felis.</p>
             </div>
-            <div className='flex md:flex-row flex-col gap-3 my-4'>
+            <div className='flex flex-wrap gap-3 my-4'>
                 {['PKM-KC', 'PKM-K', 'PKM-PM', 'PKM-PI', 'PKM-GT', 'PKM-VGK'].map((type) => (
                     <button
                         key={type}
                         onClick={() => setSelectedType(type)}
-                        className={`border px-16 py-4 rounded-xl shadow-xl font-bold ${
+                        className={`border px-16 py-4 md:min-w-fit min-w-full rounded-xl shadow-xl font-bold ${
                             selectedType === type ? 'bg-[#42A1A4] text-white' : 'border-gray-300 text-black dark:text-gray-400 '
                         }`}
                     >
