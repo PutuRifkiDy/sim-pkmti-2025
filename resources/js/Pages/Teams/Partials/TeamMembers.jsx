@@ -62,7 +62,7 @@ export default function TeamMembers({ user, team }) {
         <>
             <div className="flex flex-row items-center gap-4 mt-4 mb-4">
                 <IconGabungTim />
-                <span className="font-bold">{team.members.length} / 5</span>
+                <span className="font-bold">{team.members.length} / {user.nim.includes('24') ? 3 : 5}</span>
             </div>
             <div className="card">
             <DataTable

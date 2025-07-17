@@ -209,7 +209,7 @@ export default function UpdateProposalForm({ user, proposal }) {
                     {proposal.note && (
                         <div className="bg-[#FA3434]/20 text-[#FA3434] w-full px-3 py-2.5 flex flex-row gap-5 rounded-[10px] text-justify " role="alert">
                             <div>
-                                <div className="flex flex-row gap-2">
+                                <div className="flex flex-row gap-2 justify-center items-center">
                                     <IconWarning />
                                     <h3 className="font-bold text-[18px]">Catatan</h3>
                                 </div>
