@@ -205,7 +205,7 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                                         <p className="font-bold text-white text-[13px] leading-[110%]">
                                             Anak Agung Ngurah Hary Susila, S.TI., M.MT.
                                         </p>
-                                        <p className="max-w-[177px] text-center text-[17px] leading-[110%] font-bold absolute top-12 left-12">
+                                        <p className="max-w-[177px] text-center text-[17px] leading-[110%] font-bold absolute top-16 left-12">
                                             Akademisi TI
                                             Universitas Udayana
                                         </p>
@@ -213,7 +213,7 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                                 </div>
 
                                 {/* pembicara ke-2 dan ke-3 */}
-                                <div className="flex md:flex-row flex-col justify-around md:mt-5 mt-10 pb-10">
+                                <div className="flex md:flex-row flex-col justify-around md:mt-5 mt-20 pb-10">
                                     <div className="flex flex-col justify-center items-center relative">
                                         <img src="images/pembicara-1.png" alt="Pembicara 1" className="w-[177px] h-[195px]" />
                                         <div className="bg-gradient-to-r from-[#285B70] via-[#42A1A4] to-[#285B70] absolute bottom-0 rounded-[15px] p-4">
@@ -251,15 +251,15 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                             <img src="images/elements/element_dashboard_section_2.png" className="absolute left-0 top-0 w-[200px] h-auto" alt="" />
                             <img src="images/elements/element_dashboard_section_3.png" className="absolute right-0 bottom-0 w-[200px] h-auto" alt="" />
                             <div className="p-10">
-                                <div className="flex flex-row gap-1 justify-center items-center">
-                                    <div className="flex flex-row gap-1">
-                                        <CalendarDaysIcon className="h-6 w-6 text-[#111E41]" />
-                                        <p>Kamis, 23 Agustus 2025</p>
+                                <div className="flex flex-row gap-1 justify-between items-center">
+                                    <div className="flex flex-row gap-1 w-full items-center">
+                                        <CalendarDaysIcon className="h-6 w-6 text-[#111E41] flex-shrink-0" />
+                                        <p className="text-[10px] z-10 text-[#111E41]">Kamis, 23 Agustus 2025</p>
                                     </div>
                                     <div className="w-[1px] h-8 bg-[#111E41]"></div>
-                                    <div className="flex flex-row gap-1">
-                                        <MapPinIcon className="h-6 w-6 text-[#111E41]" />
-                                        <p>Kamis, 23 Agustus 2025</p>
+                                    <div className="flex flex-row gap-1 w-full">
+                                        <MapPinIcon className="h-6 w-6 text-[#111E41] flex-shrink-0" />
+                                        <p className="text-[10px] z-10 text-[#111E41]">Gedung Teknologi Informasi Fakultas Teknik Universitas Udayana</p>
                                     </div>
                                 </div>
 
@@ -268,7 +268,7 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                                 </div>
                                 <div className="flex flex-row gap-3 justify-center items-center mt-5">
                                     <div className="flex flex-col gap-1">
-                                        <p className="font-bold text-[50px] text-[#285B70] leading-[110%] z-20">
+                                        <p className="font-bold text-[24px] md:text-[50px] text-[#285B70] leading-[110%] z-20">
                                             {timeLeft.days.toString().padStart(2, "0")}
                                         </p>
                                         <p className="text-[#141619] text-[15px] leading-[110%] z-20">
@@ -277,7 +277,7 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                                     </div>
                                     <p className="text-[50px] leading-[110%] text-[#000000] z-20">:</p>
                                     <div className="flex flex-col gap-1">
-                                        <p className="font-bold text-[50px] text-[#357F8B] leading-[110%] z-20">
+                                        <p className="font-bold text-[24px] md:text-[50px] text-[#357F8B] leading-[110%] z-20">
                                             {timeLeft.hours.toString().padStart(2, "0")}
 
                                         </p>
@@ -287,7 +287,7 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                                     </div>
                                     <p className="text-[50px] leading-[110%] text-[#000000] z-20">:</p>
                                     <div className="flex flex-col gap-1">
-                                        <p className="font-bold text-[50px] text-[#42A1A4] leading-[110%] z-20">
+                                        <p className="font-bold text-[24px] md:text-[50px] text-[#42A1A4] leading-[110%] z-20">
                                             {timeLeft.minutes.toString().padStart(2, "0")}
                                         </p>
                                         <p className="text-[#141619] text-[15px] leading-[110%] z-20">
@@ -296,7 +296,7 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                                     </div>
                                     <p className="text-[50px] leading-[110%] text-[#000000] z-20">:</p>
                                     <div className="flex flex-col gap-1">
-                                        <p className="font-bold text-[50px] text-[#59DFD1] leading-[110%] z-20">
+                                        <p className="font-bold text-[24px] md:text-[50px] text-[#59DFD1] leading-[110%] z-20">
                                             {timeLeft.seconds.toString().padStart(2, "0")}
                                         </p>
                                         <p className="text-[#141619] text-[15px] leading-[110%] z-20">
