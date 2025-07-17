@@ -98,4 +98,12 @@ class UserController extends Controller
 
         return back()->with('msg', 'Pengguna berhasil dihapus');
     }
+
+    public function resetPassword(User $user)
+    {
+        $user->update([
+            'password' => bcrypt($user->nim)
+        ]);
+        return back()->with('msg', 'Password berhasil direset');
+    }
 }

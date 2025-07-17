@@ -179,6 +179,24 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
         );
     };
 
+    // reset password action
+    const resetPasswordAction = (rowData) => {
+        const submit = (e) => {
+            e.preventDefault();
+
+            router.post(route("users.reset-password", rowData.id));
+        }
+
+        return (
+            <button
+                onClick={submit}
+                className="font-bold bg-[#CFD249] px-3 py-3 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white  transition-all duration-300 shadow-[0_0_10px_#CFD249]"
+            >
+                <ArrowPathIcon className="h-4 w-4" />
+            </button>
+        );
+    }
+
     const dt = useRef(null);
 
     const exportCSV = (selectionOnly) => {
@@ -579,6 +597,12 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                                     "Belum ada sertifikat"
                                 )
                             }
+                        />
+                        <Column
+                            body={resetPasswordAction}
+                            key="reset_password"
+                            className="min-w-44 text-center"
+                            header={<span className="me-2">Reset Password</span>}
                         />
                         <Column rowEditor={true} header={"Edit"}></Column>
                         <Column

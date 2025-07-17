@@ -60,7 +60,7 @@ Route::get('/', function () {
 
 Route::get('/proposal-titles', function () {
     return Inertia::render('ProposalTitles', [
-        
+
     ]);
 })->name('proposal-titles');
 
@@ -129,11 +129,13 @@ Route::middleware('auth')->group(function () {
 
     Route::middleware(['role:admin'])->resource('users', UserController::class);
     Route::middleware(['role:admin'])->post('users/{user}', [UserController::class, 'update'])->name('users.update');
+    // route untuk fitur reset password menjadi nim mereka
+    Route::middleware(['role:admin'])->post('user/{user}/reset-password', [UserController::class, 'resetPassword'])->name('users.reset-password');
 });
 
 Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard')->middleware('role:admin,lecturer');
-    Route::get('/users', [AdminController::class, 'showUsers'])->name('admin.users')->middleware('role:admin'); 
+    Route::get('/users', [AdminController::class, 'showUsers'])->name('admin.users')->middleware('role:admin');
     Route::get('/teams', [AdminController::class, 'showTeams'])->name('admin.teams')->middleware('role:admin');
     Route::get('/proposals', [AdminController::class, 'showProposals'])->name('admin.proposals')->middleware( 'role:lecturer,admin');
     Route::get('/assistance-proofs', [AdminController::class, 'showAssistanceProofs'])->name('admin.assistance-proofs')->middleware('role:admin');
