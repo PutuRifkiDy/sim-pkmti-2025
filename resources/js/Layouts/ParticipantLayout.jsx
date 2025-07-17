@@ -22,7 +22,7 @@ export default function ParticipantLayout({ user, title, children}) {
         ...(isAfterSharingSession ? [
             {
                 icon: <IconBerandaSideBar />,
-                text: "Beranda",
+                text: "Dashboard",
                 link: route("dashboard"),
             }
         ] : [

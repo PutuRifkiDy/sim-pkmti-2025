@@ -7,12 +7,15 @@ import {
     SunIcon,
     UserIcon,
 } from "@heroicons/react/24/solid";
-import { Link } from "@inertiajs/react";
+import { Link, usePage } from "@inertiajs/react";
 import { useEffect, useState } from "react";
 import { IconDashboard, IconDropdown, IconHome, IconLogout, IconLogoutSideBar, IconProfile, IconSideBar, IconSilangResponsiveWeb } from "./IconAdmin";
 
 export default function Sidebar({ user, navigations, children }) {
     const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth >= 768);
+    const date_now = usePage().props.date_now;
+    const end_date_sharing_session_event = usePage().props.end_date_sharing_session_event;
+    const isSharingSessionEvent = date_now < end_date_sharing_session_event;
 
     const currentRoute = route().current();
 
@@ -205,11 +208,11 @@ export default function Sidebar({ user, navigations, children }) {
                                             (location.pathname.search(/admin/) === -1 ? (
                                                 <li className="border-b-2 border-slate-200 ">
                                                     <Link
-                                                        href={route("admin.proposals")} // Assuming a lecture dashboard route
+                                                        href={route("admin.proposals")}
                                                         as="button"
                                                         className="flex flex-row gap-2 justify-start items-center font-medium text-[14px] light:text-[#404040]  tracking-[0.11em]"
                                                     >
-                                                        <AcademicCapIcon className="h-6 w-6" /> {/* You might want a different icon */}
+                                                        <AcademicCapIcon className="h-6 w-6" />
                                                         Mode Lecture
                                                     </Link>
                                                 </li>
@@ -262,12 +265,10 @@ export default function Sidebar({ user, navigations, children }) {
                                     key={i}
                                     className={`text-[48px] font-semibold`}
                                 >
-                                    {displayText}
+                                    {isSharingSessionEvent ? " " : displayText}
                                 </h1>
                             );
                         })}
-
-
                         {children}
                     </div>
                 </div>
