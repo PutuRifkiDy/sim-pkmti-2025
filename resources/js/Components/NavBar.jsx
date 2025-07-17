@@ -53,16 +53,16 @@ export default function NavBar({ auth }) {
                 <div className="lg:navbar-center flex-col lg:flex">
                     <ul className="menu menu-vertical lg:menu-horizontal gap-5 dark:text-gray-400">
                         <li>
-                            <a href="#" className="hover:text-[#42A1A4] text-[18px] font-medium">Beranda</a>
+                            <a href="/" className="hover:text-[#42A1A4] text-[18px] font-medium">Beranda</a>
                         </li>
                         <li>
-                            <a href="#about-us" className="hover:text-[#42A1A4] text-[18px] font-medium">Tentang PKM TI</a>
+                            <a href="/proposal-titles" className="hover:text-[#42A1A4] text-[18px] font-medium">Contoh Judul PKM</a>
                         </li>
                         <li>
-                            <a href="#FaQ" className="hover:text-[#42A1A4] text-[18px] font-medium">Pertanyaan Umum</a>
+                            <a href="/#FaQ" className="hover:text-[#42A1A4] text-[18px] font-medium">Pertanyaan Umum</a>
                         </li>
                         <li>
-                            <a href="#contact-us" className="hover:text-[#42A1A4] text-[18px] font-medium">Kontak Kami</a>
+                            <a href="/#contact-us" className="hover:text-[#42A1A4] text-[18px] font-medium">Kontak Kami</a>
                         </li>
                     </ul>
                 </div>
