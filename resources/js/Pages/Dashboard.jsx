@@ -251,15 +251,15 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                             <img src="images/elements/element_dashboard_section_2.png" className="absolute left-0 top-0 w-[200px] h-auto" alt="" />
                             <img src="images/elements/element_dashboard_section_3.png" className="absolute right-0 bottom-0 w-[200px] h-auto" alt="" />
                             <div className="p-10">
-                                <div className="flex flex-row gap-1 justify-center items-center">
-                                    <div className="flex flex-row gap-2">
-                                        <CalendarDaysIcon className="h-6 w-6 text-[#111E41]" />
-                                        <p>Kamis, 23 Agustus 2025</p>
+                                <div className="flex flex-row gap-1 justify-between items-center">
+                                    <div className="flex flex-row gap-1 w-full items-center">
+                                        <CalendarDaysIcon className="h-6 w-6 text-[#111E41] flex-shrink-0" />
+                                        <p className="text-[10px] z-10 text-[#111E41]">Kamis, 23 Agustus 2025</p>
                                     </div>
                                     <div className="w-[1px] h-8 bg-[#111E41]"></div>
-                                    <div className="flex flex-row gap-1">
-                                        <MapPinIcon className="h-6 w-6 text-[#111E41]" />
-                                        <p>Kamis, 23 Agustus 2025</p>
+                                    <div className="flex flex-row gap-1 w-full">
+                                        <MapPinIcon className="h-6 w-6 text-[#111E41] flex-shrink-0" />
+                                        <p className="text-[10px] z-10 text-[#111E41]">Gedung Teknologi Informasi Fakultas Teknik Universitas Udayana</p>
                                     </div>
                                 </div>
 
