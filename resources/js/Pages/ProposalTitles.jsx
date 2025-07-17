@@ -73,7 +73,7 @@ export default function ProposalTitles({ auth }) {
         <div className='flex flex-col px-12 py-24 light:bg-[#F7F7F7] dark:bg-[#1d232a]'>
             <div className='flex flex-col items-start mt-4 gap-2 '>
                 <h1 className='font-bold text-5xl leading-[1.1] text-[#111E41] dark:text-gray-400 md:w-2/3 w-full '>Daftar Judul Lolos Pendanaan Tingkat Nasional</h1>
-                <p className='md:w-3/4 w-full text-justify dark:text-gray-300'>Lorem ipsum dolor sit amet consectetur. Ut elementum enim ultricies quam accumsan. Malesuada amet est vel id mattis pulvinar. Nulla fames ut turpis diam eget morbi venenatis. Gravida dictum mauris ac ac sem risus felis.</p>
+                <p className='md:w-3/4 w-full text-justify dark:text-gray-300'>Berikut adalah daftar judul proposal Program Kreativitas Mahasiswa (PKM) yang berhasil lolos pendanaan tingkat nasional, mencerminkan semangat inovasi dan kontribusi nyata mahasiswa Indonesia terhadap pembangunan bangsa.</p>
             </div>
             <div className='flex flex-wrap gap-3 my-4'>
                 {['PKM-KC', 'PKM-K', 'PKM-PM', 'PKM-PI', 'PKM-GT', 'PKM-VGK'].map((type) => (
@@ -103,7 +103,7 @@ export default function ProposalTitles({ auth }) {
                 value={filteredData}
                 dataKey="id"
                 rows={10}
-                rowsPerPageOptions={[10, 25]}
+                rowsPerPageOptions={[10, 25, 50, 100]}
                 paginatorTemplate="RowsPerPageDropdown FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
                 currentPageReportTemplate="{first} to {last} of {totalRecords}"
                 emptyMessage="Tidak ada data ditemukan."
