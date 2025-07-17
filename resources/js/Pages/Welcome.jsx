@@ -195,14 +195,15 @@ export default function Welcome({ auth }) {
             />
             {/* Start HomePage */}
             <section className="md:px-12 px-2 light:bg-[#F7F7F7] dark:bg-[#1d232a] flex md:flex-row flex-col-reverse max-w-full justify-between md:pb-60 pb-24 pt-36">
+                
                 {/* Home Page Bagian Kiri */}
                 <div
-                    className="flex flex-col gap-7 justify-center items-start w-full"
+                    className="flex flex-col gap-7 justify-center items-start w-full relative"
                 >
+                    <div className="absolute left-0 -bottom-48 sm:block hidden scale-x-[-1] w-24" data-aos="zoom-in" data-aos-delay="600">
+                        <img src="images/asset25.png" alt="bwabwa" />
+                    </div>
                     <div className="relative md:w-[581px] max-w-full md:h-[210px] h-auto text-center md:text-start">
-                        <div className="md:absolute md:block hidden md:left-2 left-12 top-14" data-aos="fade-up" data-aos-delay="100">
-                            <IconTextHomePage />
-                        </div>
                         <p className="font-bold md:text-[64px] text-[36px] text-[#111E41] dark:text-[#42A1A4] leading-[1.1em] z-20" data-aos="fade-up" data-aos-delay="100">Sistem Informasi Pelatihan PKM TI Udayana</p>
                     </div>
                     <div>
@@ -281,6 +282,9 @@ export default function Welcome({ auth }) {
 
                 <div className="w-full flex justify-center md:pb-0 pb-64">
                     <div className="relative">
+                        <div className="absolute right-28 -top-4 sm:block hidden w-32" data-aos="zoom-in" data-aos-delay="600">
+                            <img src="images/asset28.png" alt="bwabwa" />
+                        </div>
                         {/* Home Page Bagian Kanan */}
                         <div className="md:w-[270px] w-[200px] md:h-[340px] h-auto absolute md:-right-80 top-0 ">
                             <img src="/images/elements/element_home_section_1.png" alt="" className=" " />
@@ -300,66 +304,17 @@ export default function Welcome({ auth }) {
                         <div className="md:w-[332.31px] w-[200px] md:h-[239.94px] h-auto absolute md:-right-24 -right-8 md:top-48 top-24 z-0" data-aos="zoom-in" data-aos-delay="300">
                             <img src="/images/elements/element_home_section_5.png" className="" alt="" />
                         </div>
-                        <div className="md:w-[247.18px] w-[150px] md:h-[178.26px] h-auto absolute md:-right-80 -right-40 md:-bottom-4 top-36 md:top-64" data-aos="fade-up" data-aos-delay="200">
+                        <div className="md:w-[247.18px] w-[150px] md:h-[178.26px] h-auto absolute md:-right-80 -right-40 md:-bottom-4 top-36 md:top-64 z-10" data-aos="fade-up" data-aos-delay="200">
                             <img src="/images/elements/element_home_section_6.png" className="" alt="" />
+                        </div>
+                        <div className="absolute left-36 -bottom-[90px] sm:block hidden w-32 z-0" data-aos="zoom-in" data-aos-delay="600">
+                            <img src="images/asset25.png" alt="bwabwa" />
                         </div>
                     </div>
                 </div>
             </section>
 
             {/* End HomePage */}
-
-            {/* Agenda Acara*/}
-            <section className="dark:bg-[#1d232a] pb-36 flex justify-center items-center md:px-36 mx-0">
-                <div className="flex md:flex-row flex-col justify-between gap-5 px-12 py-10 max-w-full shadow-xl border border-base-300 rounded-2xl bg-white dark:bg-[#1d232a] dark:border-gray-400 z-50"
-                >
-                    <div className="flex flex-row gap-4 sm:pr-10">
-                        <BookmarkSquareIcon className="w-6 h-6 font-extrabold dark:text-gray-400 text-black" />
-                        <div className="block">
-                            <span className="capitalize text-black dark:text-gray-400 font-normal text-sm md:text-base">
-                                Agenda Acara
-                            </span>
-
-                            <p className="text-base md:text-sm font-light dark:text-gray-400">
-                                Pembukaan PKM-TI 2024
-                            </p>
-                        </div>
-                    </div>
-
-                    <div className="divider divider-horizontal before:bg-black after:bg-black dark:before:bg-gray-400 dark:after:bg-gray-400"></div>
-
-                    <div className="flex flex-row gap-4">
-                        <CalendarDaysIcon className="w-6 h-6 font-extrabold dark:text-gray-400" />
-                        <div className="block">
-                            <span className="capitalize text-black dark:text-gray-400 font-normal text-sm md:text-base">
-                                Date
-                            </span>
-
-                            <p className="text-base md:text-sm font-light dark:text-gray-400">
-                                Minggu, 4 Februari 2024
-                            </p>
-                        </div>
-                    </div>
-
-                    <div className="divider divider-horizontal before:bg-black after:bg-black dark:before:bg-gray-400 dark:after:bg-gray-400"></div>
-
-                    <div className="flex flex-row gap-4">
-                        <MapPinIcon className="w-6 h-6 font-extrabold dark:text-gray-400" />
-
-                        <div className="block">
-                            <span className="capitalize text-dark dark:text-gray-400 font-normal text-sm md:text-base">
-                                Lokasi Acara
-                            </span>
-
-                            <p className="text-base md:text-sm font-light dark:text-gray-400">
-                                Gedung Teknologi Informasi Fakultas
-                                Teknik Universitas Udayana
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            {/* End Agenda Acara */}
 
             {/* Start Tentang PKM-TI */}
             <section className="light:bg-[#F7F7F7] dark:bg-[#1d232a] flex md:flex-row flex-col max-w-full justify-around relative overflow-hidden" id="about-us">
