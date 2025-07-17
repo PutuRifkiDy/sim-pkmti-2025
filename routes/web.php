@@ -58,6 +58,12 @@ Route::get('/', function () {
     ]);
 })->name('welcome');
 
+Route::get('/proposal-titles', function () {
+    return Inertia::render('ProposalTitles', [
+        
+    ]);
+})->name('proposal-titles');
+
 Route::get('/dashboard', function () {
     $user = User::with('team', 'team.proposal', 'team.members', 'team.assistanceProofs')->find(Auth::id());
     $get_user = User::select('name', 'nim', 'status')->where('status', 'passed')->find(Auth::id());
