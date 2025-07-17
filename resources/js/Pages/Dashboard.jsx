@@ -2,20 +2,64 @@ import Toast from "@/Components/Toast";
 import ParticipantLayout from "@/Layouts/ParticipantLayout";
 import { useRandomInt } from "@/utils";
 import {
+    CalendarDaysIcon,
     CheckCircleIcon,
     ExclamationCircleIcon,
     ExclamationTriangleIcon,
+    MapIcon,
+    MapPinIcon,
 } from "@heroicons/react/24/solid";
 import { IconPassed, IconUnduh } from "@/Components/IconAdmin";
-import { Link } from "@inertiajs/react";
+import { Link, usePage } from "@inertiajs/react";
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { useState, useEffect } from "react";
 import jsPDF from "jspdf";
+import { IconLine, IconWhatsapp } from "@/Components/IconLanding";
 
 export default function Dashboard({ auth, infos, flash, get_user, certificate }) {
     const { user } = auth;
     const [certPath, setCertPath] = useState(null);
+    const date_now = usePage().props.date_now;
+    const end_date_sharing_session_event = usePage().props.end_date_sharing_session_event;
+    const isSharingSessionEvent = date_now < end_date_sharing_session_event;
+
+
+    const [timeLeft, setTimeLeft] = useState({
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0,
+    });
+
+    useEffect(() => {
+        const startTime = new Date(date_now).getTime();
+        const endTime = new Date(end_date_sharing_session_event).getTime();
+
+        const timer = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = endTime - now;
+
+            if (distance <= 0) {
+                clearInterval(timer);
+                setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor(
+                (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+            );
+            const minutes = Math.floor(
+                (distance % (1000 * 60 * 60)) / (1000 * 60)
+            );
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            setTimeLeft({ days, hours, minutes, seconds });
+        }, 1000);
+
+        return () => clearInterval(timer);
+    }, [date_now, end_date_sharing_session_event]);
 
     useEffect(() => {
         if (certificate) {
@@ -139,64 +183,253 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                     id="team_information"
                 />
             )}
-            {
-                user.status == "passed" ? (
-                    <div className="flex md:flex-row flex-col justify-between md:gap-16 gap-8">
-                        <div className="flex flex-col gap-5 md:w-1/2 w-full">
-                            <div className="bg-[#4DE45C]/10 border-l-4 border-[#4DE45C] text-[#4DE45C] w-full px-5 py-3 flex flex-row gap-5 items-center rounded-l-[4px]">
-                                <p className="flex flex-row justify-center items-center gap-5 font-bold text-[17px] md:leading-[16px] leading-[24px]">
-                                    <IconPassed />
-                                    Selamat Anda Telah Lulus Dari PKM TI 2025
+
+            {isSharingSessionEvent && (
+                <div className="w-full flex md:flex-row flex-col-reverse gap-5">
+                    {/* card yang di kiri */}
+                    <div className="flex flex-col relative rounded-[10px] overflow-y-hidden min-h-max w-full md:w-[58%]">
+                        <img src="images/elements/element_dashboard_section_1.png" className="absolute md:h-[200vh] w-screen h-[200vh] z-0" alt="" />
+                        <img src="images/elements/element_dashboard_section_2.png" className="absolute left-0 top-0 w-[250px] h-auto" alt="" />
+                        <img src="images/elements/element_dashboard_section_3.png" className="absolute right-0 bottom-0 w-[250px] h-auto" alt="" />
+                        <div className="p-10">
+                            <div className="flex justify-center items-center">
+                                <p className="font-bold md:text-[28px] text-[24px] text-[#202224] text-center md:w-[500px] z-20">
+                                    Pembukaan dan Sharing Session Pelatihan PKM-TI 2025
                                 </p>
                             </div>
-                            <div className="flex flex-col mt-8 justify-center items-center">
-                                <img src="images/passed-icon.png" alt="" className="w-[290px] h-[290px]" />
+                            <div className="flex flex-col">
+                                {/* pembicara ke-1 */}
+                                <div className="flex flex-col justify-center items-center relative pb-10">
+                                    <img src="images/pembicara-1.png" alt="Pembicara 1" className="w-[177px] h-[195px]" />
+                                    <div className="bg-gradient-to-r from-[#285B70] via-[#42A1A4] to-[#285B70] absolute bottom-0 rounded-[15px] p-4">
+                                        <p className="font-bold text-white text-[13px] leading-[110%]">
+                                            Anak Agung Ngurah Hary Susila, S.TI., M.MT.
+                                        </p>
+                                        <p className="max-w-[177px] text-center text-[17px] leading-[110%] font-bold absolute top-12 left-12">
+                                            Akademisi TI
+                                            Universitas Udayana
+                                        </p>
+                                    </div>
+                                </div>
+
+                                {/* pembicara ke-2 dan ke-3 */}
+                                <div className="flex md:flex-row flex-col justify-around md:mt-5 mt-10 pb-10">
+                                    <div className="flex flex-col justify-center items-center relative">
+                                        <img src="images/pembicara-1.png" alt="Pembicara 1" className="w-[177px] h-[195px]" />
+                                        <div className="bg-gradient-to-r from-[#285B70] via-[#42A1A4] to-[#285B70] absolute bottom-0 rounded-[15px] p-4">
+                                            <p className="font-bold text-white text-[13px] leading-[110%]">
+                                                Anak Agung Ngurah Hary Susila, S.TI., M.MT.
+                                            </p>
+                                            <p className="max-w-[177px] text-center text-[17px] leading-[110%] font-bold absolute top-16 md:left-0 left-12">
+                                                Akademisi TI
+                                                Universitas Udayana
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div className="flex flex-col justify-center items-center relative md:mt-10 mt-16 md:mb-0 pb-10">
+                                        <img src="images/pembicara-1.png" alt="Pembicara 1" className="w-[177px] h-[195px]" />
+                                        <div className="bg-gradient-to-r from-[#285B70] via-[#42A1A4] to-[#285B70] rounded-[15px] absolute bottom-0 p-4">
+                                            <p className="font-bold text-white text-[13px] leading-[110%]">
+                                                Anak Agung Ngurah Hary Susila, S.TI., M.MT.
+                                            </p>
+                                            <p className="max-w-[177px] text-center text-[17px] leading-[110%] font-bold absolute top-16 md:left-0 left-12">
+                                                Akademisi TI
+                                                Universitas Udayana
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {/* card yang di kanan */}
+                    <div className="flex flex-col gap-5 md:w-[42%] w-full">
+                        <div className="flex flex-col relative rounded-[10px] overflow-hidden object cover min-h-max">
+
+                            <img src="images/elements/element_dashboard_section_1.png" className="absolute md:h-[200vh] w-screen h-[200vh] z-0" alt="" />
+                            <img src="images/elements/element_dashboard_section_2.png" className="absolute left-0 top-0 w-[200px] h-auto" alt="" />
+                            <img src="images/elements/element_dashboard_section_3.png" className="absolute right-0 bottom-0 w-[200px] h-auto" alt="" />
+                            <div className="p-10">
+                                <div className="flex flex-row gap-1 justify-center items-center">
+                                    <div className="flex flex-row gap-1">
+                                        <CalendarDaysIcon className="h-6 w-6 text-[#111E41]" />
+                                        <p>Kamis, 23 Agustus 2025</p>
+                                    </div>
+                                    <div className="w-[1px] h-8 bg-[#111E41]"></div>
+                                    <div className="flex flex-row gap-1">
+                                        <MapPinIcon className="h-6 w-6 text-[#111E41]" />
+                                        <p>Kamis, 23 Agustus 2025</p>
+                                    </div>
+                                </div>
+
+                                <div className="flex flex-col justify-center items-center mt-5">
+                                    <p className="text-[30px] leading-[110%] text-[#111E41] z-20 font-bold">COUNTDOWN</p>
+                                </div>
+                                <div className="flex flex-row gap-3 justify-center items-center mt-5">
+                                    <div className="flex flex-col gap-1">
+                                        <p className="font-bold text-[50px] text-[#285B70] leading-[110%] z-20">
+                                            {timeLeft.days.toString().padStart(2, "0")}
+                                        </p>
+                                        <p className="text-[#141619] text-[15px] leading-[110%] z-20">
+                                            Days
+                                        </p>
+                                    </div>
+                                    <p className="text-[50px] leading-[110%] text-[#000000] z-20">:</p>
+                                    <div className="flex flex-col gap-1">
+                                        <p className="font-bold text-[50px] text-[#357F8B] leading-[110%] z-20">
+                                            {timeLeft.hours.toString().padStart(2, "0")}
+
+                                        </p>
+                                        <p className="text-[#141619] text-[15px] leading-[110%] z-20">
+                                            Hours
+                                        </p>
+                                    </div>
+                                    <p className="text-[50px] leading-[110%] text-[#000000] z-20">:</p>
+                                    <div className="flex flex-col gap-1">
+                                        <p className="font-bold text-[50px] text-[#42A1A4] leading-[110%] z-20">
+                                            {timeLeft.minutes.toString().padStart(2, "0")}
+                                        </p>
+                                        <p className="text-[#141619] text-[15px] leading-[110%] z-20">
+                                            Minutes
+                                        </p>
+                                    </div>
+                                    <p className="text-[50px] leading-[110%] text-[#000000] z-20">:</p>
+                                    <div className="flex flex-col gap-1">
+                                        <p className="font-bold text-[50px] text-[#59DFD1] leading-[110%] z-20">
+                                            {timeLeft.seconds.toString().padStart(2, "0")}
+                                        </p>
+                                        <p className="text-[#141619] text-[15px] leading-[110%] z-20">
+                                            Seconds
+                                        </p>
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
 
+                        <div className="flex flex-col relative rounded-[10px] overflow-hidden object cover min-h-max">
 
+                            <img src="images/elements/element_dashboard_section_1.png" className="absolute md:h-[200vh] w-screen h-[200vh] z-0" alt="" />
+                            <img src="images/elements/element_dashboard_section_2.png" className="absolute left-0 top-0 w-[200px] h-auto" alt="" />
+                            <img src="images/elements/element_dashboard_section_3.png" className="absolute right-0 bottom-0 w-[200px] h-auto" alt="" />
+                            <div className="p-8">
+                                <div className="flex flex-row gap-1 justify-center items-center">
 
-                        <div className="flex flex-col bg-white rounded-[12px] shadow-xl p-10 gap-10 md:w-1/2 w-full">
-                            <p className="font-bold text-[36px] leading-[24px] text-[#131523]/80 tracking-[0.03em]">Identitas</p>
-                            <div className="flex flex-col gap-5 w-full">
-                                <div className="flex flex-col gap-1">
-                                    <label className="relative  flex items-center gap-2 font-normal leading-[20px] text-[#5A607F]">
-                                        Nama
-                                    </label>
-                                    <p className="flex items-center input input-bordered rounded-[4px] tracking-[0.03em]">{get_user.name}</p>
+                                    <p className="text-[27px] leading-[110%] text-[#000000] z-20">Don’t Forget to join our official  LINE group </p>
+
+                                    <img src="/images/elements/element_dashboard_line_qr.png" className="w-[129px] h-[129px] z-10" alt="" />
                                 </div>
-                                <div className="flex flex-col gap-1">
-                                    <label className="relative  flex items-center gap-2 font-normal leading-[20px] text-[#5A607F]">
-                                        NIM
-                                    </label>
-                                    <p className="flex items-center input input-bordered rounded-[4px] tracking-[0.03em]">{get_user.nim}</p>
+
+                                <div className="flex flex-col justify-center items-center mt-5">
+                                    <p className="text-[24px] leading-[110%] text-[#111E41] z-20 font-bold text-center">Any Questions? Contact the following contact</p>
                                 </div>
-                                <div className="flex flex-col gap-1">
-                                    <label className="relative  flex items-center gap-2 font-normal leading-[20px] text-[#5A607F]">
-                                        Angkatan
-                                    </label>
-                                    <p className="flex items-center input input-bordered rounded-[4px] tracking-[0.03em]">{20 + get_user.nim.substring(0, 2)}</p>
+                                <div className="flex flex-wrap gap-5 justify-center items-center mt-5">
+                                    <div className="flex flex-col gap-2">
+                                        <p className="font-bold text-[13px] text-[#3A3A3A] leading-[110%] z-20">
+                                            Contact Person 1
+                                        </p>
+                                        <div className="flex flex-row mt-3 gap-2">
+                                            <IconWhatsapp />
+                                            <a href="wa.me/6285739490558" className="text-base text-[#2A3374] dark:text-white text-[12px] z-20">+62 857-3949-0558</a>
+                                        </div>
+                                        <div className="flex flex-row gap-2">
+                                            <IconLine />
+                                            <a href="https://line.me/R/ti/p/~tiksnaapsr." className="text-base text-[#2A3374] dark:text-white text-[12px] z-20">tiksnaapsr.</a>
+                                        </div>
+
+                                    </div>
+
+                                    <div className="flex flex-col gap-2">
+                                        <p className="font-bold text-[13px] text-[#3A3A3A] leading-[110%] z-20">
+                                            Contact Person 2
+                                        </p>
+                                        <div className="flex flex-row mt-3 gap-2">
+                                            <IconWhatsapp />
+                                            <a href="wa.me/6285940899163" className="text-base text-[#2A3374] dark:text-white text-[12px] z-20">+62 859-4089-9163</a>
+                                        </div>
+                                        <div className="flex flex-row gap-2">
+                                            <IconLine />
+                                            <a href="https://line.me/R/ti/p/~dewayu1275" className="text-base text-[#2A3374] dark:text-white text-[12px] z-20">dewayu1275</a>
+                                        </div>
+                                    </div>
+
+                                    <div className="flex flex-col gap-2">
+                                        <p className="font-bold text-[13px] text-[#3A3A3A] leading-[110%] z-20">
+                                            Contact Person 3
+                                        </p>
+                                        <div className="flex flex-row mt-3 gap-2">
+                                            <IconWhatsapp />
+                                            <a href="wa.me/62881038194017" className="text-base text-[#2A3374] dark:text-white text-[12px] z-20">+62 881-0381-94017</a>
+                                        </div>
+                                        <div className="flex flex-row gap-2">
+                                            <IconLine />
+                                            <a href="https://line.me/R/ti/p/~puturifki56" className="text-base text-[#2A3374] dark:text-white text-[12px] z-20">puturifki56</a>
+                                        </div>
+                                    </div>
                                 </div>
-                                <p className="font-bold tracking-[0.03em] flex justify-center items-center bg-[#C4F8E2] rounded-[12px] py-2 px-3 text-[#06A561] md:w-[130px] w-full">
-                                    {get_user.status && "Completed"}
-                                </p>
                             </div>
                         </div>
 
                     </div>
-                ) : user.status == "failed" || user.status == null || user.status == "" ? (
+                </div>
+            )}
 
-                    <div className="flex flex-col gap-3 w-full items-start">
-                        
-                        {Object.keys(infos).map((key, i) => {
-                            const text =
-                                displayedInfos[key][infos[key].toString()].text;
-                            const mode =
-                                displayedInfos[key][infos[key].toString()].mode;
-                            return <InfoElement text={text} mode={mode} key={i} />;
-                        })}
+            {user.status == "passed" ? (
+                <div className="flex md:flex-row flex-col justify-between md:gap-16 gap-8">
+                    <div className="flex flex-col gap-5 md:w-1/2 w-full">
+                        <div className="bg-[#4DE45C]/10 border-l-4 border-[#4DE45C] text-[#4DE45C] w-full px-5 py-3 flex flex-row gap-5 items-center rounded-l-[4px]">
+                            <p className="flex flex-row justify-center items-center gap-5 font-bold text-[17px] md:leading-[16px] leading-[24px]">
+                                <IconPassed />
+                                Selamat Anda Telah Lulus Dari PKM TI 2025
+                            </p>
+                        </div>
+                        <div className="flex flex-col mt-8 justify-center items-center">
+                            <img src="images/passed-icon.png" alt="" className="w-[290px] h-[290px]" />
+                        </div>
                     </div>
-                ) : null
+
+                    <div className="flex flex-col bg-white rounded-[12px] shadow-xl p-10 gap-10 md:w-1/2 w-full">
+                        <p className="font-bold text-[36px] leading-[24px] text-[#131523]/80 tracking-[0.03em]">Identitas</p>
+                        <div className="flex flex-col gap-5 w-full">
+                            <div className="flex flex-col gap-1">
+                                <label className="relative  flex items-center gap-2 font-normal leading-[20px] text-[#5A607F]">
+                                    Nama
+                                </label>
+                                <p className="flex items-center input input-bordered rounded-[4px] tracking-[0.03em]">{get_user.name}</p>
+                            </div>
+                            <div className="flex flex-col gap-1">
+                                <label className="relative  flex items-center gap-2 font-normal leading-[20px] text-[#5A607F]">
+                                    NIM
+                                </label>
+                                <p className="flex items-center input input-bordered rounded-[4px] tracking-[0.03em]">{get_user.nim}</p>
+                            </div>
+                            <div className="flex flex-col gap-1">
+                                <label className="relative  flex items-center gap-2 font-normal leading-[20px] text-[#5A607F]">
+                                    Angkatan
+                                </label>
+                                <p className="flex items-center input input-bordered rounded-[4px] tracking-[0.03em]">{20 + get_user.nim.substring(0, 2)}</p>
+                            </div>
+                            <p className="font-bold tracking-[0.03em] flex justify-center items-center bg-[#C4F8E2] rounded-[12px] py-2 px-3 text-[#06A561] md:w-[130px] w-full">
+                                {get_user.status && "Completed"}
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            ) : (user.status == "failed" || user.status == null || user.status == "") && isSharingSessionEvent != true ? (
+
+                <div className="flex flex-col gap-3 w-full items-start">
+
+                    {Object.keys(infos).map((key, i) => {
+                        const text =
+                            displayedInfos[key][infos[key].toString()].text;
+                        const mode =
+                            displayedInfos[key][infos[key].toString()].mode;
+                        return <InfoElement text={text} mode={mode} key={i} />;
+                    })}
+                </div>
+            ) : null
             }
         </ParticipantLayout>
     );

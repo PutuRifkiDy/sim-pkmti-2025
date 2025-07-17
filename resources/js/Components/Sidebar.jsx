@@ -7,12 +7,15 @@ import {
     SunIcon,
     UserIcon,
 } from "@heroicons/react/24/solid";
-import { Link } from "@inertiajs/react";
+import { Link, usePage } from "@inertiajs/react";
 import { useEffect, useState } from "react";
 import { IconDashboard, IconDropdown, IconHome, IconLogout, IconLogoutSideBar, IconProfile, IconSideBar, IconSilangResponsiveWeb } from "./IconAdmin";
 
 export default function Sidebar({ user, navigations, children }) {
     const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth >= 768);
+    const date_now = usePage().props.date_now;
+    const end_date_sharing_session_event = usePage().props.end_date_sharing_session_event;
+    const isSharingSessionEvent = date_now < end_date_sharing_session_event;
 
     const currentRoute = route().current();
 
@@ -25,9 +28,8 @@ export default function Sidebar({ user, navigations, children }) {
         <>
             <div className="flex md:flex-row flex-col justify-between">
                 {/* Sidebar */}
-                <aside className={`hidden md:flex flex-col gap-6 justify-start items-center transition-all duration-200 ease-in-out overflow-hidden border-r-[1px] border-r-slate-200 ${isSidebarOpen ? "md:w-[242px] w-16" : "md:w-16 w-0"} min-h-screen fixed`} >
-                    <div className="py-6 w-full flex flex-row gap-1 justify-center items-center font-semibold text-[24px] text-[#285B70] border-b-[1px] border-slate-200 ">
-
+                <aside className={`hidden md:flex flex-col gap-6 justify-start items-center transition-all duration-200 ease-in-out overflow-hidden border-r-[1px] border-r-slate-200 ${isSidebarOpen ? "md:w-[242px] w-16 bg" : "md:w-16 w-0"} min-h-screen fixed`} >
+                    <div className="py-6 w-full flex flex-row gap-1 justify-center items-center font-semibold text-[24px] text-[#285B70] border-b-[1px] border-slate-200">
                         PKM<span className={`${isSidebarOpen ? "flex flex-row text-[#42A1A4]" : "hidden"}`}>TI 2025</span>
                     </div>
                     <img src={`${window.location.origin}/images/Logo-PKM-TI-2025.png`} alt="Profile" className={`${isSidebarOpen ? "w-[90px] h-[111px]" : "w-[37px] h-[46px]"}`} />
@@ -83,7 +85,7 @@ export default function Sidebar({ user, navigations, children }) {
                 {isSidebarOpen && window.innerWidth < 768 && (
                     <div className="fixed inset-0 bg-black bg-opacity-50 z-50 md:hidden" onClick={() => setIsSidebarOpen(false)}></div>
                 )}
-                <aside className={`fixed top-0 left-0 h-full w-full z-50 transition-transform transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} md:hidden`}>
+                <aside className={`fixed top-0 left-0 h-full w-full z-50 bg-white transition-transform transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} md:hidden`}>
                     <div className="flex justify-between items-center p-5 border-b">
                         <span className="font-bold text-xl">PKM <span className="text-[#42A1A4]">TI 2025</span></span>
                         <button onClick={() => setIsSidebarOpen(false)} className="">
@@ -205,11 +207,11 @@ export default function Sidebar({ user, navigations, children }) {
                                             (location.pathname.search(/admin/) === -1 ? (
                                                 <li className="border-b-2 border-slate-200 ">
                                                     <Link
-                                                        href={route("admin.proposals")} // Assuming a lecture dashboard route
+                                                        href={route("admin.proposals")}
                                                         as="button"
                                                         className="flex flex-row gap-2 justify-start items-center font-medium text-[14px] light:text-[#404040]  tracking-[0.11em]"
                                                     >
-                                                        <AcademicCapIcon className="h-6 w-6" /> {/* You might want a different icon */}
+                                                        <AcademicCapIcon className="h-6 w-6" />
                                                         Mode Lecture
                                                     </Link>
                                                 </li>
@@ -262,12 +264,10 @@ export default function Sidebar({ user, navigations, children }) {
                                     key={i}
                                     className={`text-[48px] font-semibold`}
                                 >
-                                    {displayText}
+                                    {isSharingSessionEvent ? " " : displayText}
                                 </h1>
                             );
                         })}
-
-
                         {children}
                     </div>
                 </div>
