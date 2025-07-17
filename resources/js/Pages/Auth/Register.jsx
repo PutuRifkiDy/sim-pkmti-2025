@@ -107,9 +107,27 @@ export default function Register() {
                                         onChange={(e) =>
                                             setData("name", e.target.value)
                                         }
-                                        className="input input-bordered"
+                                        className="input input-bordered dark:text-white dark:bg-[#13151a]"
 
                                     />
+                                </div>
+                                <div className="flex flex-col gap-2">
+                                    <label htmlFor="email" className="text-[18px] font-semibold dark:text-gray-200">Email</label>
+                                    <input
+                                        id="email"
+                                        type="email"
+                                        name="email"
+                                        value={data.email}
+                                        autoComplete="email"
+                                        isfocused="true"
+                                        onChange={(e) =>
+                                            setData("email", e.target.value)
+                                        }
+                                        className="input input-bordered dark:text-white dark:bg-[#13151a]"
+
+                                    />
+
+
                                 </div>
                                 <div className="flex flex-col gap-2">
                                     <label htmlFor="line_id" className="text-[18px] font-semibold dark:text-gray-200">ID Line</label>
@@ -123,31 +141,11 @@ export default function Register() {
                                         onChange={(e) =>
                                             setData("line_id", e.target.value)
                                         }
-                                        className="input input-bordered"
+                                        className="input input-bordered dark:text-white dark:bg-[#13151a]"
 
                                     />
                                 </div>
-                            </div>
 
-                            <div className="flex flex-col gap-2">
-                                <div className="flex flex-col gap-2">
-                                    <label htmlFor="email" className="text-[18px] font-semibold dark:text-gray-200">Email</label>
-                                    <input
-                                        id="email"
-                                        type="email"
-                                        name="email"
-                                        value={data.email}
-                                        autoComplete="email"
-                                        isfocused="true"
-                                        onChange={(e) =>
-                                            setData("email", e.target.value)
-                                        }
-                                        className="input input-bordered"
-
-                                    />
-
-
-                                </div>
                                 <div className="flex flex-col gap-2">
                                     <label htmlFor="phone" className="text-[18px] font-semibold dark:text-gray-200">Telepon</label>
                                     <input
@@ -160,15 +158,12 @@ export default function Register() {
                                         onChange={(e) =>
                                             setData("phone", e.target.value)
                                         }
-                                        className="input input-bordered"
+                                        className="input input-bordered dark:text-white dark:bg-[#13151a]"
 
                                     />
 
 
                                 </div>
-                            </div>
-
-                            <div className="flex flex-col gap-2">
                                 <div className="flex flex-col gap-2">
                                     <label htmlFor="nim" className="text-[18px] font-semibold dark:text-gray-200">
                                         NIM
@@ -181,7 +176,7 @@ export default function Register() {
                                         autoComplete="nim"
                                         isfocused="true"
                                         onChange={(e) => setData("nim", e.target.value)}
-                                        className="input input-bordered"
+                                        className="input input-bordered dark:text-white dark:bg-[#13151a]"
 
                                     />
 
@@ -205,7 +200,7 @@ export default function Register() {
                                                 setData("password", e.target.value)
                                             }
 
-                                            className="input input-bordered w-full join-item z-[1]"
+                                            className="input input-bordered dark:text-white dark:bg-[#13151a] w-full join-item z-[1]"
                                         />
                                         <label className="btn btn-square join-item swap">
                                             <input
@@ -249,7 +244,7 @@ export default function Register() {
                                                 )
                                             }
 
-                                            className="input input-bordered w-full join-item z-[1]"
+                                            className="input input-bordered dark:text-white dark:bg-[#13151a] w-full join-item z-[1]"
                                         />
                                         <label className="btn btn-square join-item swap">
                                             <input
@@ -271,6 +266,9 @@ export default function Register() {
 
                                 </div>
                             </div>
+
+
+
 
                             {/* <button
                                     className="mt-3 btn text-[18px] bg-[#42A1A4] text-white w-full mb-2 hover:text-white hover:bg-[#59DFD1] dark:text-gray-400 dark:hover:text-white transition-all duration-300 hover:shadow-[0_0_10px_#42A1A4]"
@@ -333,7 +331,7 @@ export default function Register() {
                                 onChange={(e) =>
                                     setData("name", e.target.value)
                                 }
-                                className="input input-bordered"
+                                className="input input-bordered dark:bg-[#1d232a]"
                             />
 
                             <p className="mt-2 text-error">{errors.name}</p>
