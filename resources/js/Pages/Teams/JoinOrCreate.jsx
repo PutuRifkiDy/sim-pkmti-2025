@@ -43,6 +43,9 @@ export default function JoinOrCreate({ auth, flash }) {
                             <p className="text-[14px] leading-[28px] text-start">
                                 *Hanya ketua tim yang dapat membuat tim
                             </p>
+                            <p className="text-[14px] leading-[28px] text-start">
+                                *Tim angkatan 24 hanya bisa bergabung dengan tim angkatan 24
+                            </p>
                         </div>
                     </div>
                 </div>

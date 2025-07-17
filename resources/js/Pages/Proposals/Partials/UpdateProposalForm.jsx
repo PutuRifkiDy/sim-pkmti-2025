@@ -187,7 +187,6 @@ export default function UpdateProposalForm({ user, proposal }) {
                                     disabled={processing}
                                     type="submit"
                                 >
-                                    <DocumentArrowUpIcon className="h-6 w-6" />
                                     Simpan Proposal
                                 </button>
                                 {(user.id === proposal.team.leader_id || user.role === "admin") && (
@@ -197,7 +196,7 @@ export default function UpdateProposalForm({ user, proposal }) {
                                         className="flex flex-row justify-center items-center font-bold bg-[#E82323] w-full py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#E82323]/80 dark:text-gray-400 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#E82323]"
                                         href={route("proposals.destroy", useParam(1))}
                                     >
-                                        <TrashIcon className="h-6 w-6" /> Hapus Proposal
+                                        Hapus Proposal
                                     </Link>
                                 )}
                             </div>

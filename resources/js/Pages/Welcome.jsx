@@ -195,7 +195,7 @@ export default function Welcome({ auth }) {
             />
             {/* Start HomePage */}
             <section className="md:px-12 px-2 light:bg-[#F7F7F7] dark:bg-[#1d232a] flex md:flex-row flex-col-reverse max-w-full justify-between md:pb-60 pb-24 pt-36">
-                
+
                 {/* Home Page Bagian Kiri */}
                 <div
                     className="flex flex-col gap-7 justify-center items-start w-full relative"
