@@ -185,9 +185,9 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
             )}
 
             {isSharingSessionEvent && (
-                <div className="w-full flex md:flex-row flex-col gap-5">
+                <div className="w-full flex md:flex-row flex-col-reverse gap-5">
                     {/* card yang di kiri */}
-                    <div className="flex flex-col relative rounded-[10px] overflow-y-hidden min-h-max w-[58%]">
+                    <div className="flex flex-col relative rounded-[10px] overflow-y-hidden min-h-max w-full md:w-[58%]">
                         <img src="images/elements/element_dashboard_section_1.png" className="absolute md:h-[200vh] w-screen h-[200vh] z-0" alt="" />
                         <img src="images/elements/element_dashboard_section_2.png" className="absolute left-0 top-0 w-[250px] h-auto" alt="" />
                         <img src="images/elements/element_dashboard_section_3.png" className="absolute right-0 bottom-0 w-[250px] h-auto" alt="" />
@@ -213,27 +213,27 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                                 </div>
 
                                 {/* pembicara ke-2 dan ke-3 */}
-                                <div className="flex md:flex-row flex-col justify-around mt-5 pb-10">
+                                <div className="flex md:flex-row flex-col justify-around md:mt-5 mt-10 pb-10">
                                     <div className="flex flex-col justify-center items-center relative">
                                         <img src="images/pembicara-1.png" alt="Pembicara 1" className="w-[177px] h-[195px]" />
                                         <div className="bg-gradient-to-r from-[#285B70] via-[#42A1A4] to-[#285B70] absolute bottom-0 rounded-[15px] p-4">
                                             <p className="font-bold text-white text-[13px] leading-[110%]">
                                                 Anak Agung Ngurah Hary Susila, S.TI., M.MT.
                                             </p>
-                                            <p className="max-w-[177px] text-center text-[17px] leading-[110%] font-bold absolute top-16 ">
+                                            <p className="max-w-[177px] text-center text-[17px] leading-[110%] font-bold absolute top-16 md:left-0 left-12">
                                                 Akademisi TI
                                                 Universitas Udayana
                                             </p>
                                         </div>
                                     </div>
 
-                                    <div className="flex flex-col justify-center items-center relative mt-10 md:mb-0 pb-10">
+                                    <div className="flex flex-col justify-center items-center relative md:mt-10 mt-16 md:mb-0 pb-10">
                                         <img src="images/pembicara-1.png" alt="Pembicara 1" className="w-[177px] h-[195px]" />
                                         <div className="bg-gradient-to-r from-[#285B70] via-[#42A1A4] to-[#285B70] rounded-[15px] absolute bottom-0 p-4">
                                             <p className="font-bold text-white text-[13px] leading-[110%]">
                                                 Anak Agung Ngurah Hary Susila, S.TI., M.MT.
                                             </p>
-                                            <p className="max-w-[177px] text-center text-[17px] leading-[110%] font-bold absolute top-16">
+                                            <p className="max-w-[177px] text-center text-[17px] leading-[110%] font-bold absolute top-16 md:left-0 left-12">
                                                 Akademisi TI
                                                 Universitas Udayana
                                             </p>
@@ -244,7 +244,7 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                         </div>
                     </div>
                     {/* card yang di kanan */}
-                    <div className="flex flex-col gap-5 w-[42%]">
+                    <div className="flex flex-col gap-5 md:w-[42%] w-full">
                         <div className="flex flex-col relative rounded-[10px] overflow-hidden object cover min-h-max">
 
                             <img src="images/elements/element_dashboard_section_1.png" className="absolute md:h-[200vh] w-screen h-[200vh] z-0" alt="" />
@@ -326,7 +326,7 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                                 </div>
                                 <div className="flex flex-wrap gap-5 justify-center items-center mt-5">
                                     <div className="flex flex-col gap-2">
-                                        <p className="font-bold text-[12px] text-[#3A3A3A] leading-[110%] z-20">
+                                        <p className="font-bold text-[13px] text-[#3A3A3A] leading-[110%] z-20">
                                             Contact Person 1
                                         </p>
                                         <div className="flex flex-row mt-3 gap-2">
@@ -341,7 +341,7 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                                     </div>
 
                                     <div className="flex flex-col gap-2">
-                                        <p className="font-bold text-[12px] text-[#3A3A3A] leading-[110%] z-20">
+                                        <p className="font-bold text-[13px] text-[#3A3A3A] leading-[110%] z-20">
                                             Contact Person 2
                                         </p>
                                         <div className="flex flex-row mt-3 gap-2">
@@ -355,7 +355,7 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                                     </div>
 
                                     <div className="flex flex-col gap-2">
-                                        <p className="font-bold text-[12px] text-[#3A3A3A] leading-[110%] z-20">
+                                        <p className="font-bold text-[13px] text-[#3A3A3A] leading-[110%] z-20">
                                             Contact Person 3
                                         </p>
                                         <div className="flex flex-row mt-3 gap-2">
