@@ -366,41 +366,47 @@ export default function Welcome({ auth }) {
 
             {/* Start Ekspolari PKM-TI */}
             <div
-                className="md:px-12 px-2 light:bg-[#F7F7F7] dark:bg-[#1d232a] flex flex-col pt-36 pb-36 justify-center items-center text-white"
+                className="md:px-12 px-2 light:bg-[#F7F7F7] dark:bg-[#1d232a] flex flex-col pt-36 pb-36 justify-center items-center text-white relative"
                 id="pkm-topik"
             >
-                <div className="flex flex-row bg-white gap-2 md:py-5 py-4 px-3 rounded-t-2xl w-full shadow-2xl border-[1px] border-slate-200">
-                    <div className="md:w-3 md:h-3 w-2 h-2 rounded-full bg-[#E11D48]"></div>
-                    <div className="md:w-3 md:h-3 w-2 h-2 bg-[#FBBF24] rounded-full"></div>
-                    <div className="md:w-3 md:h-3 w-2 h-2 bg-[#22C55E] rounded-full"></div>
+                <div className="absolute left-0 top-16 sm:block hidden w-34 z-0" data-aos="fade-up" data-aos-delay="400">
+                    <img src="images/doubleAsset.png" alt="bwabwa" />
                 </div>
-                <div className="flex flex-col bg-gradient-custom max-w-full h-auto rounded-b-2xl shadow-2xl">
-                    <div
-                        className="flex flex-col relative items-center text-center m-8 md:m-16 md:gap-2 gap-1"
-                    >
-                        <h2 className="md:text-xl text-lg font-bold uppercase" data-aos="fade-up" data-aos-delay="100">Eksplorasi Topik PKM</h2>
-                        <h1 className="font-bold md:text-[48px] text-[36px] leading-9 z-10" data-aos="fade-up" data-aos-delay="200">Kembangkan Ide Cemerlang Anda</h1>
-                        <div className="md:absolute md:block hidden md:left-[740px] left-12 top-20 z-0">
-                            <IconTextTopics />
-                        </div>
-                        <p className="text-[16px] leading-[1.5em] font-normal md:mx-[70px] mt-2 md:mt-6" data-aos="fade-up" data-aos-delay="300">
-                            Jelajahi kategori-kategori sub topik PKM kami dan temukan passion yang menggetarkan hati Anda. Mulai dari keberlanjutan hingga teknologi, kesehatan hingga seni, kami mengundang Anda untuk meresapi setiap sub topik dengan penuh antusiasme. Temukan tempat Anda di dunia PKM, di mana setiap kategori adalah panggung bagi idealisasi dan perubahan.
-                        </p>
+                <div className="z-10">
+
+                    <div className="flex flex-row bg-white gap-2 md:py-5 py-4 px-3 rounded-t-2xl w-full shadow-2xl border-[1px] border-slate-200">
+                        <div className="md:w-3 md:h-3 w-2 h-2 rounded-full bg-[#E11D48]"></div>
+                        <div className="md:w-3 md:h-3 w-2 h-2 bg-[#FBBF24] rounded-full"></div>
+                        <div className="md:w-3 md:h-3 w-2 h-2 bg-[#22C55E] rounded-full"></div>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-2 mx-8 mb-12">
-                        {topics.map((topic, index) => (
-                            <div
-                                key={index} className="flex flex-col justify-between items-center bg-white text-black m-2 px-4 py-6 rounded-lg text-center gap-2 hover:shadow-[0_0_10px_#285B70]"
-                                id="pkm-topik"
-                                data-aos="fade-up" data-aos-delay={(index + 1) * 100}
-                            >
-                                <h1 className="font-semibold text-[24px] text-[#111E41] leading-[1.1em]">{topic.title}</h1>
-                                <p className="text-[17px] text-[#475569] leading-[1.4em]">{topic.description}</p>
-                                <a href={topic.links} target="_blank" className="border-[2px] w-full border-[#285B70] p-2 rounded-lg mt-1 text-[#285B70] text-[17px] leading-[24px] tracking-[0.5px] hover:bg-[#285B70] hover:text-white hover:shadow-[0_0_10px_#285B70] transition-all duration-500 ease-in-250">
-                                    Selengkapnya
-                                </a>
+                    <div className="flex flex-col bg-gradient-custom max-w-full h-auto rounded-b-2xl shadow-2xl">
+                        <div
+                            className="flex flex-col relative items-center text-center m-8 md:m-16 md:gap-2 gap-1"
+                        >
+                            <h2 className="md:text-xl text-lg font-bold uppercase" data-aos="fade-up" data-aos-delay="100">Eksplorasi Topik PKM</h2>
+                            <h1 className="font-bold md:text-[48px] text-[36px] leading-9 z-10" data-aos="fade-up" data-aos-delay="200">Kembangkan Ide Cemerlang Anda</h1>
+                            <div className="md:absolute md:block hidden md:left-[740px] left-12 top-20 z-0">
+                                <IconTextTopics />
                             </div>
-                        ))}
+                            <p className="text-[16px] leading-[1.5em] font-normal md:mx-[70px] mt-2 md:mt-6" data-aos="fade-up" data-aos-delay="300">
+                                Jelajahi kategori-kategori sub topik PKM kami dan temukan passion yang menggetarkan hati Anda. Mulai dari keberlanjutan hingga teknologi, kesehatan hingga seni, kami mengundang Anda untuk meresapi setiap sub topik dengan penuh antusiasme. Temukan tempat Anda di dunia PKM, di mana setiap kategori adalah panggung bagi idealisasi dan perubahan.
+                            </p>
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-2 mx-8 mb-12">
+                            {topics.map((topic, index) => (
+                                <div
+                                    key={index} className="flex flex-col justify-between items-center bg-white text-black m-2 px-4 py-6 rounded-lg text-center gap-2 hover:shadow-[0_0_10px_#285B70]"
+                                    id="pkm-topik"
+                                    data-aos="fade-up" data-aos-delay={(index + 1) * 100}
+                                >
+                                    <h1 className="font-semibold text-[24px] text-[#111E41] leading-[1.1em]">{topic.title}</h1>
+                                    <p className="text-[17px] text-[#475569] leading-[1.4em]">{topic.description}</p>
+                                    <a href={topic.links} target="_blank" className="border-[2px] w-full border-[#285B70] p-2 rounded-lg mt-1 text-[#285B70] text-[17px] leading-[24px] tracking-[0.5px] hover:bg-[#285B70] hover:text-white hover:shadow-[0_0_10px_#285B70] transition-all duration-500 ease-in-250">
+                                        Selengkapnya
+                                    </a>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>
