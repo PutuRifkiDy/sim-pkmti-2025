@@ -224,7 +224,7 @@ export default function TeamInformation({ user, team, lecturers }) {
                                 disabled={processing}
                                 type="submit"
                             >
-                                <PencilIcon className="h-6 w-6" />
+                                {/* <PencilIcon className="h-6 w-6" /> */}
                                 Simpan Perubahan
                             </button>
                             <button
@@ -235,7 +235,7 @@ export default function TeamInformation({ user, team, lecturers }) {
                                 }
                                 type="submit"
                             >
-                                <ArrowPathIcon className="h-6 w-6" />
+                                {/* <ArrowPathIcon className="h-6 w-6" /> */}
                                 Buat Token Baru
                             </button>
                         </div>
@@ -249,7 +249,8 @@ export default function TeamInformation({ user, team, lecturers }) {
                     className="w-full mb-2 flex flex-row justify-center items-center gap-2 font-bold bg-[#E82323] py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#E82323]/70   transition-all duration-300 shadow-[0_0_10px_#E82323]"
                     href={route("teams.leave", useParam(1))}
                 >
-                    <ArrowLeftEndOnRectangleIcon className="h-6 w-6" /> Keluar
+                    {/* <ArrowLeftEndOnRectangleIcon className="h-6 w-6" />  */}
+                    Keluar
                     Tim
                 </Link>
 
@@ -260,7 +261,8 @@ export default function TeamInformation({ user, team, lecturers }) {
                         className="w-full mb-2 flex flex-row justify-center items-center gap-2 font-bold bg-[#E82323] py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#E82323]/70   transition-all duration-300 shadow-[0_0_10px_#E82323]"
                         href={route("teams.destroy", useParam(1))}
                     >
-                        <PowerIcon className="h-6 w-6" /> Bubarkan Tim
+                        {/* <PowerIcon className="h-6 w-6" />  */}
+                        Bubarkan Tim
                     </Link>
                 )}
             </div>

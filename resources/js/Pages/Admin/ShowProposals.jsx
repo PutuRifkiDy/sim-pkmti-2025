@@ -77,7 +77,7 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
                 };
             })
         );
-        initFilters(); // Inisialisasi filter saat data berubah
+        initFilters();
     }, [props.proposals]);
 
     useEffect(() => {
@@ -172,8 +172,7 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
 
             patch(route("proposals.reject", rowData.id), {
                 onSuccess: () => {
-                    // Ini akan memicu useEffect yang memperbarui selectedFields
-                    // karena props.proposals akan direfresh oleh Inertia.
+
                 }
             });
             document
@@ -435,7 +434,6 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
             </>
         );
     };
-
 
     const handleDelete = () => {
         if (proposalToDelete) {
@@ -701,12 +699,23 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
                             header={"Tolak"}
                             body={rejectAction}
                         />
-                        <Column
-                            rowEditor={true}
-                            header={"Edit"}
-                            className="text-center"
-                            unstyled
-                        />
+                        {auth.user.role == "lecturer" ? (
+                            <Column
+                                rowEditor={false}
+                                body="Tidak diizinkan"
+                                header={"Edit"}
+                                className="text-center text-red-600"
+                                unstyled
+                            />
+
+                        ) : (
+                            <Column
+                                rowEditor={true}
+                                header={"Edit"}
+                                className="text-center"
+                                unstyled
+                            />
+                        )}
                         <Column
                             header={"Hapus"}
                             style={{ textAlign: 'center' }}

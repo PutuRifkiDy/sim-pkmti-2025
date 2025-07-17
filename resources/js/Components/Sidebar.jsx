@@ -203,30 +203,30 @@ export default function Sidebar({ user, navigations, children }) {
                                                 </Link>
                                             </li>
                                         ))}
-                                        {user.role === "lecturer" &&
-                                            (location.pathname.search(/admin/) === -1 ? (
-                                                <li className="border-b-2 border-slate-200 ">
-                                                    <Link
-                                                        href={route("admin.proposals")}
-                                                        as="button"
-                                                        className="flex flex-row gap-2 justify-start items-center font-medium text-[14px] light:text-[#404040]  tracking-[0.11em]"
-                                                    >
-                                                        <AcademicCapIcon className="h-6 w-6" />
-                                                        Mode Lecture
-                                                    </Link>
-                                                </li>
-                                            ) : (
-                                                <li className="border-b-2 border-slate-200 ">
-                                                    <Link
-                                                        href={route("dashboard")}
-                                                        as="button"
-                                                        className="flex flex-row gap-2 justify-start items-center font-medium text-[14px] light:text-[#404040]  tracking-[0.11em]"
-                                                    >
-                                                        <AcademicCapIcon className="h-6 w-6" />
-                                                        Mode Participant
-                                                    </Link>
-                                                </li>
-                                            ))}
+                                    {user.role === "lecturer" &&
+                                        (location.pathname.search(/admin/) === -1 ? (
+                                            <li className="border-b-2 border-slate-200 ">
+                                                <Link
+                                                    href={route("admin.proposals")}
+                                                    as="button"
+                                                    className="flex flex-row gap-2 justify-start items-center font-medium text-[14px] light:text-[#404040]  tracking-[0.11em]"
+                                                >
+                                                    <AcademicCapIcon className="h-6 w-6" />
+                                                    Mode Lecture
+                                                </Link>
+                                            </li>
+                                        ) : (
+                                            <li className="border-b-2 border-slate-200 ">
+                                                <Link
+                                                    href={route("dashboard")}
+                                                    as="button"
+                                                    className="flex flex-row gap-2 justify-start items-center font-medium text-[14px] light:text-[#404040]  tracking-[0.11em]"
+                                                >
+                                                    <AcademicCapIcon className="h-6 w-6" />
+                                                    Mode Participant
+                                                </Link>
+                                            </li>
+                                        ))}
                                     <li>
                                         <a
                                             onClick={() =>
