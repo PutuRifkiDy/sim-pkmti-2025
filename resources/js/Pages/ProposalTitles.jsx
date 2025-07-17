@@ -72,7 +72,7 @@ export default function ProposalTitles({ auth }) {
         <NavBar auth={auth} />
         <div className='flex flex-col px-12 py-24 light:bg-[#F7F7F7] dark:bg-[#1d232a]'>
             <div className='flex flex-col items-start mt-4 gap-2 '>
-                <h1 className='font-bold text-5xl leading-[1.1] text-[#111E41] dark:text-gray-400 md:w-2/3 w-full '>Daftar Judul Lolos Pendanaan Tingkat Nasional</h1> 
+                <h1 className='font-bold text-5xl leading-[1.1] text-[#111E41] dark:text-gray-400 md:w-2/3 w-full '>Daftar Judul Lolos Pendanaan Tingkat Nasional</h1>
                 <p className='md:w-3/4 w-full text-justify dark:text-gray-300'>Lorem ipsum dolor sit amet consectetur. Ut elementum enim ultricies quam accumsan. Malesuada amet est vel id mattis pulvinar. Nulla fames ut turpis diam eget morbi venenatis. Gravida dictum mauris ac ac sem risus felis.</p>
             </div>
             <div className='flex flex-wrap gap-3 my-4'>
@@ -129,7 +129,7 @@ export default function ProposalTitles({ auth }) {
                 <Column
                     key="nomor"
                     field="nomor"
-                    className="text-center"
+                    className="text-start"
                     body={rowNumberTemplate}
                     header={<span className="me-2">No.</span>}
                 />
@@ -143,14 +143,14 @@ export default function ProposalTitles({ auth }) {
                 <Column
                     key="jenis_pkm"
                     field="jenis_pkm"
-                    className="text-center"
+                    className="text-start"
                     body={rowData => rowData.type_pkm}
                     header={<span className="me-2">Jenis PKM</span>}
                 />
                 <Column
                     key="instansi"
                     field="instansi"
-                    className="text-center"
+                    className="text-start"
                     body={rowData => rowData.institution}
                     header={<span className="me-2">Instansi</span>}
                 />
@@ -197,6 +197,6 @@ export default function ProposalTitles({ auth }) {
             <p>© 2025 PKM TI Udayana </p>
         </footer>
     </>
-    
+
     );
 }
