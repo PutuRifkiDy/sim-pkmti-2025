@@ -54,91 +54,52 @@ export default function Welcome({ auth }) {
 
     const timeline = [
         {
-            "nama_acara": "Pendaftaran Partisipan Hari-H PKM TI",
-            "waktu": "15 Agustus - 21 Agustus 2025",
-            "tempat": "Online"
+            "event_title": "Pendaftaran Pembukaan & Sharing Session",
+            "event_date": "15 Agustus 2025 – 21 Agustus 2025",
+            "place": "Online",
         },
         {
-            "nama_acara": "Hari-H PKM TI",
-            "waktu": "23 Agustus 2025",
-            "tempat": "Online"
+            "event_title": "Pembukaan dan Sharing Session",
+            "event_date": "23 Agustus 2025",
+            "place": "Online",
         },
         {
-            "nama_acara": "Pendaftaran dan Pengumpulan Judul",
-            "waktu": "1 September - 10 September 2025",
-            "tempat": "Online"
+            "event_title": "Pendaftaran Tim",
+            "event_date": "01 September 2025 – 10 September 2025",
+            "place": "Online",
         },
         {
-            "nama_acara": "Pengecekan Judul Oleh Tim Dosen",
-            "waktu": "11 September - 17 September 2025",
-            "tempat": "Online"
+            "event_title": "Pengumpulan Judul Final",
+            "event_date": "18 September 2025 – 23 September 2025",
+            "place": "Online"
         },
         {
-            "nama_acara": "Pengumpulan Judul Final",
-            "waktu": "18 September - 23 September 2025",
-            "tempat": "Online"
+            "event_title": "Pengumuman Tim & Penugasan",
+            "event_date": "26 September 2025 – 28 September 2025",
+            "place": "Online"
         },
         {
-            "nama_acara": "Pengecekan Judul Kembali Oleh Tim Dosen",
-            "waktu": "24 September - 25 September 2025",
-            "tempat": "Online"
+            "event_title": "Pengumpulan Draft Proposal",
+            "event_date": "27 Oktober 2025 – 02 November 2025",
+            "place": "Online"
         },
         {
-            "nama_acara": "Pengumuman Tim",
-            "waktu": "26 September 2025",
-            "tempat": "Online"
+            "event_title": "Klinik",
+            "event_date": "22 November 2025",
+            "place": "Online"
         },
         {
-            "nama_acara": "Pengumpulan Penugasan",
-            "waktu": "26 September - 28 September 2025",
-            "tempat": "Online"
+            "event_title": "Pengumpulan Proposal Final",
+            "event_date": "24 November 2025 – 30 November 2025",
+            "place": "Online"
         },
         {
-            "nama_acara": "Periode Penugasan",
-            "waktu": "29 September - 26 Oktober 2025",
-            "tempat": "Online"
-        },
-        {
-            "nama_acara": "Pengumpulan Draft Proposal",
-            "waktu": "27 Oktober - 2 November 2025",
-            "tempat": "Online"
-        },
-        {
-            "nama_acara": "Pengecekan Format Proposal Oleh Panitia",
-            "waktu": "27 Oktober - 9 November 2025",
-            "tempat": "Online"
-        },
-        {
-            "nama_acara": "Pengecekan Isi Proposal oleh Tim Dosen",
-            "waktu": "10 November - 19 November 2025",
-            "tempat": "Online"
-        },
-        {
-            "nama_acara": "Klinik PKM TI",
-            "waktu": "22 November 2025",
-            "tempat": "Online"
-        },
-        {
-            "nama_acara": "Pengumpulan Proposal Final",
-            "waktu": "24 November - 30 November 2025",
-            "tempat": "Online"
-        },
-        {
-            "nama_acara": "Pengecekan Proposal Final oleh Panitia PKM TI",
-            "waktu": "1 Desember - 10 Desember 2025",
-            "tempat": "Online"
-        },
-        {
-            "nama_acara": "Pengumuman Kelulusan",
-            "waktu": "12 Desember 2025",
-            "tempat": "Online"
-        },
-        {
-            "nama_acara": "Pembentukan Tim oleh Angkatan 23 dan 24 untuk Pengumpulan Proposal ke Universitas",
-            "waktu": "13 Desember - 19 Desember 2025",
-            "tempat": "Online"
+            "event_title": "Pembentukan Tim oleh Angkatan 23 dan 24 & Pengumpulan Proposal ke Universitas",
+            "event_date": "13 Desember 2025 – 19 Desember 2025",
+            "place": "Online"
         }
     ]
+
     const [showAll, setShowAll] = useState(false);
 
     // Batasi data jika showAll === false
@@ -600,7 +561,7 @@ export default function Welcome({ auth }) {
                 <div className="relative mt-12 flex min-h-fit flex-col items-center max-w-[1200]" style={{ gap: '96px' }}>
                 
                     {/* Timeline items */}
-                    {displayedEvents.map((event, index) => (
+                    {timeline.map((event, index) => (
 
                         <div
                             className="relative z-10 flex w-full max-w-[900px] items-center "
@@ -618,7 +579,7 @@ export default function Welcome({ auth }) {
                                 {/* Title */}
                                 <div className='flex items-start mb-1'>
                                     <p className="xs:text-sm text-2xl font-bold pl-8 pt-4  sm:pt-1 capitalize text-[#141619] dark:text-white sm:text-lg md:text-3xl lg:text-[#30px] md:w-[600px] max-w-none sm:pl-16 sm:text-[30px] lg:mt-1">
-                                        {event.nama_acara}
+                                        {event.event_title}
                                     </p>
                                 </div>
                                 {/* Date */}
@@ -627,7 +588,7 @@ export default function Welcome({ auth }) {
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M7.75 1C7.43506 1 7.13301 1.15145 6.91031 1.42103C6.68761 1.69062 6.5625 2.05625 6.5625 2.4375V3.875H5.375C4.74511 3.875 4.14102 4.1779 3.69562 4.71707C3.25022 5.25624 3 5.9875 3 6.75V21.125C3 21.8875 3.25022 22.6188 3.69562 23.1579C4.14102 23.6971 4.74511 24 5.375 24H19.625C20.2549 24 20.859 23.6971 21.3044 23.1579C21.7498 22.6188 22 21.8875 22 21.125V6.75C22 5.9875 21.7498 5.25624 21.3044 4.71707C20.859 4.1779 20.2549 3.875 19.625 3.875H18.4375V2.4375C18.4375 2.05625 18.3124 1.69062 18.0897 1.42103C17.867 1.15145 17.5649 1 17.25 1C16.9351 1 16.633 1.15145 16.4103 1.42103C16.1876 1.69062 16.0625 2.05625 16.0625 2.4375V3.875H8.9375V2.4375C8.9375 2.05625 8.81239 1.69062 8.58969 1.42103C8.36699 1.15145 8.06494 1 7.75 1ZM7.75 8.1875C7.43506 8.1875 7.13301 8.33895 6.91031 8.60853C6.68761 8.87812 6.5625 9.24375 6.5625 9.625C6.5625 10.0062 6.68761 10.3719 6.91031 10.6415C7.13301 10.911 7.43506 11.0625 7.75 11.0625H17.25C17.5649 11.0625 17.867 10.911 18.0897 10.6415C18.3124 10.3719 18.4375 10.0062 18.4375 9.625C18.4375 9.24375 18.3124 8.87812 18.0897 8.60853C17.867 8.33895 17.5649 8.1875 17.25 8.1875H7.75Z" fill="#979797" />
                                     </svg>
                                     <p className="text-[16px] leading-[24px] font-normal text-[#979797] px-2">
-                                        {event.waktu}
+                                        {event.event_date}
                                     </p>
                                 </div>
                                 <div className="flex items-center px-6 pt-2 sm:pl-16">
@@ -635,7 +596,7 @@ export default function Welcome({ auth }) {
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M5.78266 3.91169C7.56423 2.04737 9.98057 1 12.5001 1C15.0196 1 17.436 2.04737 19.2175 3.91169C20.9991 5.77601 22 8.30457 22 10.9411C22 13.5777 20.9991 16.1062 19.2175 17.9706L12.5001 25L5.78266 17.9706C4.90045 17.0475 4.20064 15.9516 3.72319 14.7455C3.24574 13.5394 3 12.2466 3 10.9411C3 9.63562 3.24574 8.3429 3.72319 7.13678C4.20064 5.93066 4.90045 4.83477 5.78266 3.91169ZM12.5001 13.7813C13.2199 13.7813 13.9103 13.4821 14.4193 12.9494C14.9283 12.4168 15.2142 11.6944 15.2142 10.9411C15.2142 10.1879 14.9283 9.46545 14.4193 8.93282C13.9103 8.40018 13.2199 8.10095 12.5001 8.10095C11.7803 8.10095 11.0899 8.40018 10.5809 8.93282C10.0719 9.46545 9.78598 10.1879 9.78598 10.9411C9.78598 11.6944 10.0719 12.4168 10.5809 12.9494C11.0899 13.4821 11.7803 13.7813 12.5001 13.7813Z" fill="#979797" />
                                     </svg>
                                     <p className="text-[16px] font-normal text-[#979797] px-2">
-                                        {event.tempat}
+                                        {event.place}
                                     </p>
                                 </div>
 
@@ -662,14 +623,7 @@ export default function Welcome({ auth }) {
                             <div className="absolute -top-7 left-0 bg-[#285B70] sm:-left-[6px] h-[290px] sm:h-[300px] w-[5px] rounded-full z-0"></div>
                         </div>
                     ))}
-                    {timeline.length > 5 && (
-                        <button
-                        onClick={() => setShowAll(!showAll)}
-                        className="mt-4 px-6 py-2 text-white bg-[#285B70] hover:bg-[#1e4655] rounded-xl transition-all duration-200 shadow-md z-10"
-                        >
-                        {showAll ? "Show less" : "Show more"}
-                        </button>
-                    )}
+                    
                 </div>
                 <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center z-0">
                     <img src="images/Logo-PKM-TI-2025.png" alt="Background Icon" className="w-[500px] opacity-30 animate-bounce-custom" />
