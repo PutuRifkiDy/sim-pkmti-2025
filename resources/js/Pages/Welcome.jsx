@@ -638,8 +638,8 @@ export default function Welcome({ auth }) {
                             </div>
 
                             {/* Icon lingkaran */}
-                            <div className="absolute -top-8 -left-6 rounded-[500px] bg-[#285B70] p-4 sm:-left-10 sm:top-8 z-10 ">
-                                <div className="absolute inset-0 z-0 h-full w-full animate-ping rounded-full bg-[#285B70]"></div>
+                            <div className="absolute -top-8 -left-6 rounded-[500px] bg-[#285B70] p-4 sm:-left-10 sm:top-8 z-10 dark:border dark:border-white">
+                                <div className="absolute inset-0 z-0 h-full w-full animate-ping rounded-full bg-[#285B70] dark:border dark:border-white"></div>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="39"
@@ -660,6 +660,12 @@ export default function Welcome({ auth }) {
                     ))}
                     <div className="absolute top-24">
                         <img src="images/Logo-PKM-TI-2025.png" alt="Background Icon" className="w-[500px] opacity-30 animate-bounce-custom" />
+                    </div>
+                    <div className="absolute right-0 -bottom-44 sm:block hidden w-24" data-aos="zoom-in" data-aos-delay="600">
+                        <img src="images/asset25.png" alt="bwabwa" />
+                    </div>
+                    <div className="absolute right-20 -bottom-20 sm:block hidden w-24" data-aos="zoom-in" data-aos-delay="600">
+                        <img src="images/asset25.png" alt="bwabwa" />
                     </div>
                 </div>
             </section>
@@ -745,7 +751,10 @@ export default function Welcome({ auth }) {
 
 
             {/* Start FAQ */}
-            <section className="md:px-12 px-2 light:bg-[#F7F7F7] dark:bg-[#1d232a] flex flex-col gap-7 justify-center items-center w-full pb-36" id="FaQ">
+            <section className="md:px-12 px-2 light:bg-[#F7F7F7] dark:bg-[#1d232a] flex flex-col gap-7 justify-center items-center w-full pb-36 relative" id="FaQ">
+                <div className="absolute right-28 -top-4 sm:block hidden w-32" data-aos="zoom-in" data-aos-delay="600">
+                    <img src="images/asset28.png" alt="bwabwa" />
+                </div>
                 <div
                     className="flex flex-col gap-2 justify-center items-center text-center"
                 >
@@ -757,6 +766,9 @@ export default function Welcome({ auth }) {
                         data-aos="fade-up" data-aos-delay="300">
                         Pertanyaan umum yang sering ditanyakan terkait PKM TI 2025. Jika masih ada yang ingin ditanyakan lebih lanjut, kalian bisa hubungi narahubung dibawah ini.
                     </p>
+                </div>
+                <div className="absolute left-0 top-16 sm:block hidden w-34 z-0" data-aos="fade-up" data-aos-delay="400">
+                    <img src="images/doubleAsset.png" alt="bwabwa" />
                 </div>
                 {/* Buttons */}
                 <div
@@ -785,7 +797,7 @@ export default function Welcome({ auth }) {
                         Klinik PKM
                     </div>
                 </div>
-                <div className="flex md:flex-row flex-col-reverse justify-evenly items-center w-full">
+                <div className="flex md:flex-row flex-col-reverse justify-evenly items-center w-full relative">
                     <div
                     >
                         <div className="w-full" data-aos="zoom-in" data-aos-delay="300">
@@ -887,6 +899,9 @@ export default function Welcome({ auth }) {
 
                         </div>
                     )}
+                    <div className="absolute left-[600px] bottom-0 sm:block hidden w-32" data-aos="zoom-in" data-aos-delay="600">
+                        <img src="images/asset28.png" alt="bwabwa" />
+                    </div>
                 </div>
             </section>
             {/* End FAQ */}
@@ -894,8 +909,14 @@ export default function Welcome({ auth }) {
             {/* Start Kontak Kami */}
             <section className="md:px-12 px-2 light:bg-[#F7F7F7] dark:bg-[#1d232a] flex flex-col justify-center items-center w-full" id="contact-us">
                 <div
-                    className="flex flex-col justify-center items-center"
+                    className="flex flex-col justify-center items-center relative"
                 >
+                    <div className="absolute -left-[400px] -bottom-[500px] sm:block hidden w-34 z-0" data-aos="fade-up" data-aos-delay="400">
+                        <img src="images/doubleAsset.png" alt="bwabwa" />
+                    </div>
+                    <div className="absolute -left-64 -top-4 sm:block hidden w-32" data-aos="zoom-in" data-aos-delay="600">
+                            <img src="images/asset28.png" alt="bwabwa" />
+                        </div>
                     <h1 className="font-bold text-[48px] text-[#285B70]" data-aos="fade-up" data-aos-delay="100">
                         Kontak Kami
                     </h1>
@@ -904,8 +925,11 @@ export default function Welcome({ auth }) {
                     </p>
                 </div>
                 <div
-                    className="grid grid-cols-1 md:grid-cols-3 justify-between my-8 gap-16"
+                    className="grid grid-cols-1 md:grid-cols-3 justify-between my-8 gap-16 relative"
                 >
+                    <div className="absolute -right-28 -bottom-48 sm:block hidden w-24" data-aos="zoom-in" data-aos-delay="600">
+                        <img src="images/asset25.png" alt="bwabwa" />
+                    </div>
                     <div className="flex flex-col gap-2 bg-[#285B70] py-4 pl-4 pr-24 rounded-b-2xl border-t-2 border-[#285B70] bg-opacity-20 dark:text-gray-400" data-aos="fade-up" data-aos-duration="200">
                         <h1 className="font-bold text-xl">Tiksna Apsari</h1>
                         <div className="flex flex-row justify-start gap-4">
