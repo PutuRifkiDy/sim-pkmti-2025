@@ -139,6 +139,10 @@ export default function Welcome({ auth }) {
             "tempat": "Online"
         }
     ]
+    const [showAll, setShowAll] = useState(false);
+
+    // Batasi data jika showAll === false
+    const displayedEvents = showAll ? timeline : timeline.slice(0, 5);
 
 
     const topics = [
@@ -594,9 +598,9 @@ export default function Welcome({ auth }) {
                 </p>
                 <div className="h-16" />
                 <div className="relative mt-12 flex min-h-fit flex-col items-center max-w-[1200]" style={{ gap: '96px' }}>
-
+                
                     {/* Timeline items */}
-                    {timeline.map((event, index) => (
+                    {displayedEvents.map((event, index) => (
 
                         <div
                             className="relative z-10 flex w-full max-w-[900px] items-center "
@@ -658,15 +662,23 @@ export default function Welcome({ auth }) {
                             <div className="absolute -top-7 left-0 bg-[#285B70] sm:-left-[6px] h-[290px] sm:h-[300px] w-[5px] rounded-full z-0"></div>
                         </div>
                     ))}
-                    <div className="absolute top-24">
-                        <img src="images/Logo-PKM-TI-2025.png" alt="Background Icon" className="w-[500px] opacity-30 animate-bounce-custom" />
-                    </div>
-                    <div className="absolute right-0 -bottom-44 sm:block hidden w-24" data-aos="zoom-in" data-aos-delay="600">
-                        <img src="images/asset25.png" alt="bwabwa" />
-                    </div>
-                    <div className="absolute right-20 -bottom-20 sm:block hidden w-24" data-aos="zoom-in" data-aos-delay="600">
-                        <img src="images/asset25.png" alt="bwabwa" />
-                    </div>
+                    {timeline.length > 5 && (
+                        <button
+                        onClick={() => setShowAll(!showAll)}
+                        className="mt-4 px-6 py-2 text-white bg-[#285B70] hover:bg-[#1e4655] rounded-xl transition-all duration-200 shadow-md z-10"
+                        >
+                        {showAll ? "Show less" : "Show more"}
+                        </button>
+                    )}
+                </div>
+                <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center z-0">
+                    <img src="images/Logo-PKM-TI-2025.png" alt="Background Icon" className="w-[500px] opacity-30 animate-bounce-custom" />
+                </div>
+                <div className={`absolute right-0 -bottom-12 sm:block w-24 ${showAll ? "hidden" : "block"}`} data-aos="zoom-in" data-aos-delay="600">
+                    <img src="images/asset25.png" alt="bwabwa" />
+                </div>
+                <div className={`absolute right-20 -bottom-0 sm:block w-24 ${showAll ? "hidden" : "block"}`} data-aos="zoom-in" data-aos-delay="600">
+                    <img src="images/asset25.png" alt="bwabwa" />
                 </div>
             </section>
 
