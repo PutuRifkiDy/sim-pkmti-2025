@@ -354,7 +354,7 @@ export default function Welcome({ auth }) {
                                 <IconTextTopics />
                             </div>
                             <p className="text-[16px] leading-[1.5em] font-normal md:mx-[70px] mt-2 md:mt-6" data-aos="fade-up" data-aos-delay="300">
-                                Jelajahi kategori-kategori sub topik PKM kami dan temukan passion yang menggetarkan hati Anda. Mulai dari keberlanjutan hingga teknologi, kesehatan hingga seni, kami mengundang Anda untuk meresapi setiap sub topik dengan penuh antusiasme. Temukan tempat Anda di dunia PKM, di mana setiap kategori adalah panggung bagi idealisasi dan perubahan.
+                                PKM ini mencakup berbagai kategori, seperti PKM-Gagasan futuristik tertulis (PKM-GFT), PKM-Pengabdian kepada Masyarakat (PKM-PM), PKM-Penerapan Inovasi (PKM-PI), PKM Karsa Cipta (PKM-KC), PKM-Video Gagasan Konstruktif (PKM VGK), PKM-Kewirausahaan (PKM-K). Setiap subtopik dirancang untuk mengakomodasi beragam ide dan pendekatan sesuai minat peserta.
                             </p>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-2 mx-8 mb-12">
@@ -525,16 +525,10 @@ export default function Welcome({ auth }) {
                         Pembicara
                     </span>
                     <h3 className="capitalize text-3xl md:text-[48px] lg:text-5xl font-bold text-[#285B70] leading-12 md:leading-16" data-aos="fade-up" data-aos-delay="200">
-                        Bertemu dengan mereka yang sudah profesional
+                        Bertemu dengan para profesional di bidangnya
                     </h3>
                     <p className="text-[18px] leading-[1.5em] font-normal light:text-[#111E41] mt-3 dark:text-gray-400" data-aos="fade-up" data-aos-delay="300">
-                        Selamatkan tempat di barisan terdepan karena
-                        kami mempersembahkan Narasumber yang luar biasa
-                        di acara spesial PKM kami! Bersiaplah untuk
-                        terinspirasi, berinteraksi, dan mengambil
-                        momentum positif dari pandangan hidup yang penuh
-                        semangat. Tunggu apa lagi? Bergabunglah dengan
-                        kami untuk pengalaman yang mengesankan!
+                        Pada acara Sharing Session PKM TI 2025, kami akan menghadirkan narasumber berpengalaman yang akan membagikan pengetahuan dan pengalaman mereka.
                     </p>
                 </div>
             </section>
@@ -555,7 +549,7 @@ export default function Welcome({ auth }) {
                     className="mx-auto max-w-[653px] text-center font-regular text-[16px] dark:text-gray-500 text-[#5E5E5E]"
                     data-aos="fade-up" data-aos-delay="200"
                 >
-                    Dapatkan gambaran lengkap tentang rangkaian acara, pastikan Anda selalu update dan tidak melewatkan setiap tahap penting.
+                    Dapatkan gambaran lengkap tentang rangkaian acara, melalui timeline di bawah ini
                 </p>
                 <div className="h-16" />
                 <div className="relative mt-12 flex min-h-fit flex-col items-center max-w-[1200]" style={{ gap: '96px' }}>
@@ -647,7 +641,7 @@ export default function Welcome({ auth }) {
                             <p className="uppercase font-bold text-sm sm:text-xl text-center text-white px-6"
                                 data-aos="fade-up" data-aos-delay="100"
                             >
-                                para suhu berbicara
+                                PENDAPAT MEREKA TENTANG PKM TI
                             </p>
                         </div>
                         <div className="relative flex">
@@ -659,10 +653,10 @@ export default function Welcome({ auth }) {
                                 <IconTextTopics />
                             </div>
                         </div>
-                        <p className="text-slate-200 text-center text-sm sm:text-base mt-6 mx-0 md:mx-12"
+                        {/* <p className="text-slate-200 text-center text-sm sm:text-base mt-6 mx-0 md:mx-12"
                             data-aos="fade-up" data-aos-delay="300">
-                            Jelajahi kategori-kategori sub topik PKM kami dan temukan passion yang menggetarkan hati Anda. Mulai dari keberlanjutan hingga teknologi, kesehatan hingga seni, kami mengundang Anda untuk meresapi setiap sub topik dengan penuh antusiasme. Temukan tempat Anda di dunia PKM, di mana setiap kategori adalah panggung bagi idealisasi dan perubahan.
-                        </p>
+                            Jelajahi berbagai subtopik PKM yang tersedia dan temukan bidang yang sesuai dengan minat Anda.
+                        </p> */}
                     </div>
                 </div>
 
@@ -678,7 +672,7 @@ export default function Welcome({ auth }) {
                                     />
                                 </div>
                                 <p className="text-center text-slate-600 mb-2">
-                                    “ Program Kreativitas Mahasiswa-Karsa Cipta (PKM-KC) merupakan program penciptaan yang didasari atas karsa dan nalar mahasiswa, bersifat konstruktif serta menghasilkan suatu sistem, desain, model/barang atau prototipe dan sejenisnya. “
+                                    “Program Kreativitas Mahasiswa-Karsa Cipta (PKM-KC) merupakan program penciptaan yang didasari atas karsa dan nalar mahasiswa, bersifat konstruktif serta menghasilkan suatu sistem, desain, model/barang atau prototipe dan sejenisnya.“
                                 </p>
                                 <h3 className="capitalize text-xl text-[#285b70] font-bold mb-2">
                                     Bayu Zilong
@@ -699,7 +693,7 @@ export default function Welcome({ auth }) {
                                     />
                                 </div>
                                 <p className="text-center text-slate-600 mb-2">
-                                    “Banyak insight dan pandangan baru yang saya dapat berkat tips and trick dari Pelatihan PKM TI. Saya merasa lebih siap dan percaya diri untuk eksplorasi ide menjadi hasil yang inovatif.”
+                                    “Banyak insight dan pandangan baru yang saya dapat berkat tips and trick dari Pelatihan PKM TI. Saya merasa lebih siap dan percaya diri untuk eksplorasi ide menjadi hasil yang inovatif.”
                                 </p>
                                 <h3 className="capitalize text-xl text-[#285b70] font-bold mb-2">
                                     Christina
@@ -709,7 +703,6 @@ export default function Welcome({ auth }) {
                                 </p>
                             </div>
                         </div>
-
                     </CustomCarousel>
                 </div>
             </section>
@@ -881,8 +874,8 @@ export default function Welcome({ auth }) {
                         <img src="images/doubleAsset.png" alt="bwabwa" />
                     </div>
                     <div className="absolute -left-64 -top-4 sm:block hidden w-32" data-aos="zoom-in" data-aos-delay="600">
-                            <img src="images/asset28.png" alt="bwabwa" />
-                        </div>
+                        <img src="images/asset28.png" alt="bwabwa" />
+                    </div>
                     <h1 className="font-bold text-[48px] text-[#285B70]" data-aos="fade-up" data-aos-delay="100">
                         Kontak Kami
                     </h1>

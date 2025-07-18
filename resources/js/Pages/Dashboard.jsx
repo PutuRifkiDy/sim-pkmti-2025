@@ -271,7 +271,7 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                                         <p className="font-bold text-[24px] md:text-[50px] text-[#285B70] leading-[110%] z-20">
                                             {timeLeft.days.toString().padStart(2, "0")}
                                         </p>
-                                        <p className="text-[#141619] text-[15px] leading-[110%] z-20">
+                                        <p className="text-[#141619] text-[15px] leading-[110%] z-20 text-center">
                                             Days
                                         </p>
                                     </div>
@@ -279,9 +279,8 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                                     <div className="flex flex-col gap-1">
                                         <p className="font-bold text-[24px] md:text-[50px] text-[#357F8B] leading-[110%] z-20">
                                             {timeLeft.hours.toString().padStart(2, "0")}
-
                                         </p>
-                                        <p className="text-[#141619] text-[15px] leading-[110%] z-20">
+                                        <p className="text-[#141619] text-[15px] leading-[110%] z-20 text-center">
                                             Hours
                                         </p>
                                     </div>
@@ -290,7 +289,7 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                                         <p className="font-bold text-[24px] md:text-[50px] text-[#42A1A4] leading-[110%] z-20">
                                             {timeLeft.minutes.toString().padStart(2, "0")}
                                         </p>
-                                        <p className="text-[#141619] text-[15px] leading-[110%] z-20">
+                                        <p className="text-[#141619] text-[15px] leading-[110%] z-20 text-center">
                                             Minutes
                                         </p>
                                     </div>
@@ -299,11 +298,10 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                                         <p className="font-bold text-[24px] md:text-[50px] text-[#59DFD1] leading-[110%] z-20">
                                             {timeLeft.seconds.toString().padStart(2, "0")}
                                         </p>
-                                        <p className="text-[#141619] text-[15px] leading-[110%] z-20">
+                                        <p className="text-[#141619] text-[15px] leading-[110%] z-20 text-center">
                                             Seconds
                                         </p>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
