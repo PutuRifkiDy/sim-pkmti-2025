@@ -1,3 +1,4 @@
+import { IconWarning } from "@/Components/IconLanding";
 import { useParam, useRandomString } from "@/utils";
 import {
     ArrowLeftEndOnRectangleIcon,
@@ -243,27 +244,60 @@ export default function TeamInformation({ user, team, lecturers }) {
                 )}
             </form>
             <div className="grid md:grid-cols-2 grid-cols-1 gap-2 md:w-1/2 w-full">
-                <Link
-                    as="button"
-                    method="delete"
-                    className="w-full mb-2 flex flex-row justify-center items-center gap-2 font-bold bg-[#E82323] py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#E82323]/70   transition-all duration-300 shadow-[0_0_10px_#E82323]"
-                    href={route("teams.leave", useParam(1))}
-                >
-                    {/* <ArrowLeftEndOnRectangleIcon className="h-6 w-6" />  */}
-                    Keluar
-                    Tim
-                </Link>
+                <button className="w-full mb-2 flex flex-row justify-center items-center gap-2 font-bold bg-[#E82323] py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#E82323]/70   transition-all duration-300 shadow-[0_0_10px_#E82323]" onClick={() => document.getElementById("leave-team-confirmation").showModal()}>
+                    Keluar Tim
+                </button>
+                <dialog id="leave-team-confirmation" className="modal">
+                    <div className="modal-box">
+                        <div className="flex flex-row justify-start items-center gap-3">
+                            <IconWarning />
+                            <h3 className="font-bold text-lg">Keluar</h3>
+                        </div>
+                        <p className="py-4">Apakah Anda yakin untuk keluar?</p>
+                        <div className="modal-action">
+                            <form method="dialog">
+                                <Link
+                                    as="button"
+                                    className="btn bg-red-500 text-white"
+                                    method="delete"
+                                    href={route("teams.leave", useParam(1))}
+                                >
+                                    Keluar
+                                </Link>
+                                <button className="btn ms-1">Batal</button>
+                            </form>
+                        </div>
+                    </div>
+                </dialog>
 
                 {(user.id == team.leader_id || user.role == "admin") && (
-                    <Link
-                        as="button"
-                        method="delete"
-                        className="w-full mb-2 flex flex-row justify-center items-center gap-2 font-bold bg-[#E82323] py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#E82323]/70   transition-all duration-300 shadow-[0_0_10px_#E82323]"
-                        href={route("teams.destroy", useParam(1))}
-                    >
-                        {/* <PowerIcon className="h-6 w-6" />  */}
-                        Bubarkan Tim
-                    </Link>
+                    <div>
+                        <button className="w-full mb-2 flex flex-row justify-center items-center gap-2 font-bold bg-[#E82323] py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#E82323]/70   transition-all duration-300 shadow-[0_0_10px_#E82323]" onClick={() => document.getElementById("delete-team-confirmation").showModal()}>
+                            Bubarkan Tim
+                        </button>
+                        <dialog id="delete-team-confirmation" className="modal">
+                            <div className="modal-box">
+                                <div className="flex flex-row justify-start items-center gap-3">
+                                    <IconWarning />
+                                    <h3 className="font-bold text-lg">Hapus team</h3>
+                                </div>
+                                <p className="py-4">Apakah Anda yakin untuk membubarkan team ini?</p>
+                                <div className="modal-action">
+                                    <form method="dialog">
+                                        <Link
+                                            as="button"
+                                            className="btn bg-red-500 text-white"
+                                            method="delete"
+                                            href={route("teams.destroy", useParam(1))}
+                                        >
+                                            Bubarkan
+                                        </Link>
+                                        <button className="btn ms-1">Batal</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </dialog>
+                    </div>
                 )}
             </div>
 

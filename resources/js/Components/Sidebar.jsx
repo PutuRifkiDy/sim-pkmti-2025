@@ -10,6 +10,7 @@ import {
 import { Link, usePage } from "@inertiajs/react";
 import { useEffect, useState } from "react";
 import { IconDashboard, IconDropdown, IconHome, IconLogout, IconLogoutSideBar, IconProfile, IconSideBar, IconSilangResponsiveWeb } from "./IconAdmin";
+import { IconWarning } from "./IconLanding";
 
 export default function Sidebar({ user, navigations, children }) {
     const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth >= 768);
@@ -278,13 +279,16 @@ export default function Sidebar({ user, navigations, children }) {
             {/* Logout confirmation */}
             <dialog id="logout-confirmation" className="modal">
                 <div className="modal-box">
-                    <h3 className="font-bold text-lg">Keluar</h3>
+                    <div className="flex flex-row justify-start items-center gap-3">
+                        <IconWarning />
+                        <h3 className="font-bold text-lg">Keluar</h3>
+                    </div>
                     <p className="py-4">Apakah Anda yakin untuk keluar?</p>
                     <div className="modal-action">
                         <form method="dialog">
                             <Link
                                 as="button"
-                                className="btn btn-error me-1"
+                                className="btn bg-red-500 text-white"
                                 method="post"
                                 href={route("logout")}
                             >
