@@ -559,7 +559,7 @@ export default function Welcome({ auth }) {
                 </p>
                 <div className="h-16" />
                 <div className="relative mt-12 flex min-h-fit flex-col items-center max-w-[1200]" style={{ gap: '96px' }}>
-                
+
                     {/* Timeline items */}
                     {timeline.map((event, index) => (
 
@@ -623,7 +623,7 @@ export default function Welcome({ auth }) {
                             <div className="absolute -top-7 left-0 bg-[#285B70] sm:-left-[6px] h-[290px] sm:h-[300px] w-[5px] rounded-full z-0"></div>
                         </div>
                     ))}
-                    
+
                 </div>
                 <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center z-0">
                     <img src="images/Logo-PKM-TI-2025.png" alt="Background Icon" className="w-[500px] opacity-30 animate-bounce-custom" />
@@ -865,7 +865,7 @@ export default function Welcome({ auth }) {
 
                         </div>
                     )}
-                    <div className="absolute left-[600px] bottom-0 sm:block hidden w-32" data-aos="zoom-in" data-aos-delay="600">
+                    <div className="absolute left-[400px] -bottom-24 sm:block hidden w-32" data-aos="zoom-in" data-aos-delay="600">
                         <img src="images/asset28.png" alt="bwabwa" />
                     </div>
                 </div>
