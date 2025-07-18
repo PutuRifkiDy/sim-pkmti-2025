@@ -183,21 +183,40 @@ export default function UpdateProposalForm({ user, proposal }) {
 
                             <div className="flex md:flex-row flex-col gap-2 w-full">
                                 <button
-                                    className="flex flex-row justify-center items-center font-bold bg-[#42A1A4] w-full py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#59DFD1]  transition-all duration-300 shadow-[0_0_10px_#42A1A4]"
+                                    className="flex flex-row justify-center items-center font-bold bg-[#42A1A4] w-full py-2 tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#59DFD1]  transition-all duration-300 shadow-[0_0_10px_#42A1A4]"
                                     disabled={processing}
                                     type="submit"
                                 >
                                     Simpan Proposal
                                 </button>
                                 {(user.id === proposal.team.leader_id || user.role === "admin") && (
-                                    <Link
-                                        as="button"
-                                        method="delete"
-                                        className="flex flex-row justify-center items-center font-bold bg-[#E82323] w-full py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#E82323]/80 dark:text-gray-400 dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#E82323]"
-                                        href={route("proposals.destroy", useParam(1))}
-                                    >
-                                        Hapus Proposal
-                                    </Link>
+                                    <div className="w-full">
+                                        <button type="button" className="w-full flex flex-row justify-center items-center gap-2 font-bold bg-[#E82323] py-2 tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#E82323]/70transition-all duration-300 shadow-[0_0_10px_#E82323]" onClick={() => document.getElementById("delete-proposal").showModal()}>
+                                            Hapus Proposal
+                                        </button>
+                                        <dialog id="delete-proposal" className="modal">
+                                            <div className="modal-box">
+                                                <div className="flex flex-row justify-start items-center gap-3">
+                                                    <IconWarning />
+                                                    <h3 className="font-bold text-lg">Hapus Proposal</h3>
+                                                </div>
+                                                <p className="py-4">Apakah Anda yakin untuk Menghapus Proposal?</p>
+                                                <div className="modal-action">
+                                                    <form method="dialog">
+                                                        <Link
+                                                            as="button"
+                                                            className="btn bg-red-500 text-white"
+                                                            method="delete"
+                                                            href={route("proposals.destroy", useParam(1))}
+                                                        >
+                                                            Hapus
+                                                        </Link>
+                                                        <button className="btn ms-1">Batal</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </dialog>
+                                    </div>
                                 )}
                             </div>
                         </div>

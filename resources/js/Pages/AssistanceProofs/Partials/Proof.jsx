@@ -1,3 +1,4 @@
+import { IconWarning } from "@/Components/IconLanding";
 import { useParam } from "@/utils";
 import {
     ArrowUturnRightIcon,
@@ -78,26 +79,48 @@ export default function Proof({ proof, order }) {
                 </div>
 
                 <div className="grid grid-cols-2 gap-2">
-                    <button className="w-full mb-2 flex flex-row justify-center items-center gap-2 font-bold bg-[#42A1A4] px-10 py-3 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#59DFD1]  transition-all duration-300 shadow-[0_0_10px_#42A1A4]">
-                        <PencilIcon
-                            className="h-6 w-6"
-                            disabled={processing}
-                            type="submit"
-                        />
+                    <button className="w-full mb-2 flex flex-row justify-center items-center gap-2 font-bold bg-[#42A1A4] py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#59DFD1]  transition-all duration-300 shadow-[0_0_10px_#42A1A4]">
                         Edit
                     </button>
-                    <Link
+                    {/* <Link
                         as="button"
                         href={route("assistance-proofs.destroy", [
                             useParam(1),
                             proof.id,
                         ])}
                         method="delete"
-                        className="w-full mb-2 flex flex-row justify-center items-center gap-2 font-bold bg-[#E82323] py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#E82323]/70 transition-all duration-300 shadow-[0_0_10px_#E82323]"
+                        className="w-full flex flex-row justify-center items-center gap-2 font-bold bg-[#E82323] py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#E82323]/70 transition-all duration-300 shadow-[0_0_10px_#E82323]"
                     >
-                        <TrashIcon className="h-6 w-6" />
                         Hapus
-                    </Link>
+                    </Link> */}
+                    <button type="button" className="w-full mb-2 flex flex-row justify-center items-center gap-2 font-bold bg-[#E82323] py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#E82323]/70 transition-all duration-300 shadow-[0_0_10px_#E82323]" onClick={() => document.getElementById("delete-asistance-confirmation").showModal()}>
+                        Hapus Bukti
+                    </button>
+                    <dialog id="delete-asistance-confirmation" className="modal">
+                        <div className="modal-box">
+                            <div className="flex flex-row justify-start items-center gap-3">
+                                <IconWarning />
+                                <h3 className="font-bold text-lg">Hapus</h3>
+                            </div>
+                            <p className="py-4">Apakah Anda yakin untuk hapus bukti asistensi ini?</p>
+                            <div className="modal-action">
+                                <form method="dialog">
+                                    <Link
+                                        as="button"
+                                        className="btn bg-red-500 text-white"
+                                        method="delete"
+                                        href={route("assistance-proofs.destroy", [
+                                            useParam(1),
+                                            proof.id,
+                                        ])}
+                                    >
+                                        Hapus
+                                    </Link>
+                                    <button className="btn ms-1">Batal</button>
+                                </form>
+                            </div>
+                        </div>
+                    </dialog>
                 </div>
             </form>
         </>

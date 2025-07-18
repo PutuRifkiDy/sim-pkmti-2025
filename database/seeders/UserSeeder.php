@@ -1,8 +1,6 @@
 <?php
-
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -14,21 +12,86 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         $data = [
-            // Data dengan nim berawalan 230555
-            ['name' => 'John Doe', 'email' => 'johndoe230555@example.com', 'nim' => '2305550001', 'phone' => '081234567890', 'line_id' => 'johndoe123', 'status' => 'failed', 'password' => bcrypt('password123')],
-            ['name' => 'Jane Doe', 'email' => 'janedoe230555@example.com', 'nim' => '2305550002', 'phone' => '081234567891', 'line_id' => 'janedoe123', 'status' => 'failed', 'password' => bcrypt('password123')],
-            // Data dengan nim berawalan 240555
-            ['name' => 'Alex Smith', 'email' => 'alexsmith240555@example.com', 'nim' => '2405550001', 'phone' => '081234567892', 'line_id' => 'alexsmith123', 'status' => 'failed', 'password' => bcrypt('password123')],
-            ['name' => 'Emily Clark', 'email' => 'emilyclark240555@example.com', 'nim' => '2405550002', 'phone' => '081234567893', 'line_id' => 'emilyclark123', 'status' => 'failed', 'password' => bcrypt('password123')],
-            // Data dengan nim berawalan 220555
-            ['name' => 'Michael Jordan', 'email' => 'michaeljordan220555@example.com', 'nim' => '2205550001', 'phone' => '081234567894', 'line_id' => 'michaeljordan123', 'status' => 'failed', 'password' => bcrypt('password123')],
-            ['name' => 'Sarah Lee', 'email' => 'sarahlee220555@example.com', 'nim' => '2205550002', 'phone' => '081234567895', 'line_id' => 'sarahlee123', 'status' => 'failed', 'password' => bcrypt('password123')],
-            // Data dengan nim berawalan 210555
-            ['name' => 'Chris Brown', 'email' => 'chrisbrown210555@example.com', 'nim' => '2105550001', 'phone' => '081234567896', 'line_id' => 'chrisbrown123', 'status' => 'failed', 'password' => bcrypt('password123')],
-            ['name' => 'Lisa White', 'email' => 'lisawhite210555@example.com', 'nim' => '2105550002', 'phone' => '081234567897', 'line_id' => 'lisawhite123', 'status' => 'failed', 'password' => bcrypt('password123')],
-
-            ['name' => 'Santus Clark', 'email' => 'santusclark240555@example.com', 'nim' => '2405550003', 'phone' => '081234567893', 'line_id' => 'santusclark123', 'status' => 'failed', 'password' => bcrypt('password123')],
-            ['name' => 'Emia Clark', 'email' => 'emiaclark240555@example.com', 'nim' => '2405550004', 'phone' => '081234567893', 'line_id' => 'emiaclark123', 'status' => 'failed', 'password' => bcrypt('password123')],
+            [
+                'name'     => "Putu Rifki Dirkayuda",
+                'email'    => "puturifki56@gmail.com",
+                'nim'      => "2305551068",
+                'phone'    => "0881038194017",
+                'line_id'  => "puturifki56",
+                'status'   => "failed",
+                'role'     => "admin",
+                'password' => bcrypt("ilmiah231068"),
+            ],
+            [
+                'name'     => "I Putu Gunamanta Yuana ",
+                'email'    => "gunamanta.yuana@gmail.com ",
+                'nim'      => "2405551100",
+                'phone'    => "089643471945",
+                'line_id'  => "swesty01",
+                'status'   => "failed",
+                'role'     => "admin",
+                'password' => bcrypt("ilmiah241100"),
+            ],
+            [
+                'name'     => "Putu Rama Devantara",
+                'email'    => "runesong71@gmail.com",
+                'nim'      => "2405551067",
+                'phone'    => "081339619293",
+                'line_id'  => "devantara123",
+                'status'   => "failed",
+                'role'     => "admin",
+                'password' => bcrypt("ilmiah241067"),
+            ],
+            [
+                'name'     => "Najwa Tahir",
+                'email'    => "najwatahir186@gmail.com",
+                'nim'      => "2405551039",
+                'phone'    => "0895386344682",
+                'line_id'  => "najwatahir8",
+                'status'   => "failed",
+                'role'     => "admin",
+                'password' => bcrypt("ilmiah241039"),
+            ],
+            [
+                'name'     => "Nyoman Tri Darma Wahyudi",
+                'email'    => "triidarma06@gmail.com",
+                'nim'      => "2305551052",
+                'phone'    => "081333486847",
+                'line_id'  => "tri.dharma.",
+                'status'   => "failed",
+                'role'     => "admin",
+                'password' => bcrypt("ilmiah231052"),
+            ],
+            [
+                'name'     => "Putu Devasya Aditya Widyadana",
+                'email'    => "widyadana.2305551071@student.unud.ac.id ",
+                'nim'      => "2305551071",
+                'phone'    => "089643860167",
+                'line_id'  => "aawwwdeva",
+                'status'   => "failed",
+                'role'     => "admin",
+                'password' => bcrypt("ilmiah231071"),
+            ],
+            [
+                'name'     => "I Made Nanda Prasetya Dwipayana",
+                'email'    => "nandaprasetya712@gmail.com",
+                'nim'      => "2405551043",
+                'phone'    => "085706693595",
+                'line_id'  => "nandaprasetya",
+                'status'   => "failed",
+                'role'     => "admin",
+                'password' => bcrypt("ilmiah241043"),
+            ],
+            [
+                'name'     => "Nyoman Wiprayanka",
+                'email'    => "nyomantayo@gmail.com",
+                'nim'      => "2305551009",
+                'phone'    => "085969084584",
+                'line_id'  => "nyomanwiprayanka",
+                'status'   => "failed",
+                'role'     => "admin",
+                'password' => bcrypt("ilmiah231009"),
+            ],
         ];
 
         DB::table('users')->insertOrIgnore($data);

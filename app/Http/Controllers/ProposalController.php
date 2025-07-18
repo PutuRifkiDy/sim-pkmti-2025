@@ -52,8 +52,6 @@ class ProposalController extends Controller
         //     return back()->with('msg', 'Masa pengajuan proposal telah berakhir');
         // }
 
-        // submit jika nimnya terkandung 24 maka anggota timnya wajib 3 orang
-        // jika nimnya selain terkandung 24, anggota minimal 3 orang
         $user = Auth::user();
         $teamMembersCount = User::where('team_id', $teamId)->count();
 
