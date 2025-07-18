@@ -647,7 +647,7 @@ export default function Welcome({ auth }) {
                         <div className="relative flex">
                             <h2 className="capitalize text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center mb-2 z-10"
                                 data-aos="fade-up" data-aos-delay="200">
-                                Bergabung dengan mereka
+                                Jadilah Bagian Dari Mereka
                             </h2>
                             <div className="md:absolute md:block hidden top-[65px] z-0">
                                 <IconTextTopics />
