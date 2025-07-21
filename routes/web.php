@@ -18,7 +18,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LecturerController;
 use App\Http\Controllers\ProposalController;
 use App\Http\Controllers\AssistanceProofController;
-
+use App\Http\Controllers\ProposTitleExampleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,11 +58,12 @@ Route::get('/', function () {
     ]);
 })->name('welcome');
 
-Route::get('/proposal-titles', function () {
-    return Inertia::render('ProposalTitles', [
+// Route::get('/proposal-titles', function () {
+//     return Inertia::render('ProposalTitles', [ProposTitleExampleController::class, 'index']);
+// })->name('proposal-titles');
 
-    ]);
-})->name('proposal-titles');
+Route::get('proposal-titles', [ProposTitleExampleController::class, 'index'])->name('proposal-titles');
+
 
 Route::get('/dashboard', function () {
     $user = User::with('team', 'team.proposal', 'team.members', 'team.assistanceProofs')->find(Auth::id());
