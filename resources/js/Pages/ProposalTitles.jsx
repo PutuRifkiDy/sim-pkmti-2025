@@ -38,7 +38,7 @@ export default function ProposalTitles({ auth }) {
                     <p className='md:w-3/4 w-full text-justify dark:text-gray-300'>Berikut adalah daftar judul proposal Program Kreativitas Mahasiswa (PKM) yang berhasil lolos pendanaan tingkat nasional, mencerminkan semangat inovasi dan kontribusi nyata mahasiswa Indonesia terhadap pembangunan bangsa.</p>
                 </div>
                 <div className='flex flex-wrap gap-3 my-4'>
-                    {['PKM - KC', 'PKM - K', 'PKM - PM', 'PKM - PI', 'PKM - GT', 'PKM - VGK'].map((type) => (
+                    {['PKM - KC', 'PKM - K', 'PKM - PM', 'PKM - PI', 'PKM - GFT', 'PKM - VGK'].map((type) => (
                         <button
                             key={type}
                             onClick={() => setSelectedType(type)}
