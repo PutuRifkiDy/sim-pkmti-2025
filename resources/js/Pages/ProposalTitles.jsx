@@ -96,7 +96,7 @@ export default function ProposalTitles({ auth }) {
                     <Column
                         key="judul_proposal"
                         field="judul_proposal"
-                        className="text-start"
+                        className="text-start md:w-1/2 w-full"
                         body={rowData => rowData.title}
                         header={<span className="me-2">Judul Proposal</span>}
                     />
