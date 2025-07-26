@@ -302,9 +302,9 @@ export default function Welcome({ auth }) {
                     className="flex flex-col justify-center md:w-[687px] max-w-full gap-10"
                 >
                     <div className="relative text-center md:text-start">
-                        <div className="md:absolute md:block hidden md:left-72 left-12 top-14">
+                        {/* <div className="md:absolute md:block hidden md:left-72 left-12 top-14">
                             <IconTextHomePage />
-                        </div>
+                        </div> */}
                         <p className="font-bold md:text-[56px] text-[36px] text-[#111E41] leading-[1.1em] dark:text-[#42A1A4] z-40 md:px-0 px-5" data-aos="fade-up" data-aos-delay="100">Tentang PKM TI 2025</p>
                     </div>
                     <div className="flex flex-col gap-3 text-justify md:text-start md:px-0 px-5">
@@ -344,15 +344,15 @@ export default function Welcome({ auth }) {
                         <div className="md:w-3 md:h-3 w-2 h-2 bg-[#FBBF24] rounded-full"></div>
                         <div className="md:w-3 md:h-3 w-2 h-2 bg-[#22C55E] rounded-full"></div>
                     </div>
-                    <div className="flex flex-col bg-gradient-custom max-w-full h-auto rounded-b-2xl shadow-2xl">
+                    <div className="flex flex-col bg-gradient-to-r from-[#285B70] via-[#42A1A4] to-[#285B70] max-w-full h-auto rounded-b-2xl shadow-2xl">
                         <div
                             className="flex flex-col relative items-center text-center m-8 md:m-16 md:gap-2 gap-1"
                         >
                             <h2 className="md:text-xl text-lg font-bold uppercase" data-aos="fade-up" data-aos-delay="100">Eksplorasi Topik PKM</h2>
                             <h1 className="font-bold md:text-[48px] text-[36px] leading-9 z-10" data-aos="fade-up" data-aos-delay="200">Kembangkan Ide Cemerlang Anda</h1>
-                            <div className="md:absolute md:block hidden md:left-[740px] left-12 top-20 z-0">
+                            {/* <div className="md:absolute md:block hidden md:left-[740px] left-12 top-20 z-0">
                                 <IconTextTopics />
-                            </div>
+                            </div> */}
                             <p className="text-[16px] leading-[1.5em] font-normal md:mx-[70px] mt-2 md:mt-6" data-aos="fade-up" data-aos-delay="300">
                                 PKM ini mencakup berbagai kategori, seperti PKM-Gagasan futuristik tertulis (PKM-GFT), PKM-Pengabdian kepada Masyarakat (PKM-PM), PKM-Penerapan Inovasi (PKM-PI), PKM Karsa Cipta (PKM-KC), PKM-Video Gagasan Konstruktif (PKM VGK), PKM-Kewirausahaan (PKM-K). Setiap subtopik dirancang untuk mengakomodasi beragam ide dan pendekatan sesuai minat peserta.
                             </p>
@@ -633,7 +633,9 @@ export default function Welcome({ auth }) {
 
             {/* Start News Letter */}
             <section className="md:px-12 px-2 light:bg-[#F7F7F7] dark:bg-[#1d232a] flex flex-col max-w-full py-4 sm:px-12 pb-36">
-                <div className="relative z-[1] h-fit pb-28 sm:pb-40 max-w-full rounded-2xl sm:rounded-3xl overflow-hidden p-10 bg-cover bg-no-repeat bg-center before:content-[''] before:absolute before:inset-0 before:block bg-gradient-custom2 before:-z-[1]">
+                <div className="relative z-[1] h-fit pb-28 sm:pb-40 max-w-full rounded-2xl sm:rounded-3xl overflow-hidden p-10 bg-cover bg-no-repeat bg-center before:content-[''] before:absolute before:inset-0 before:block bg-gradient-to-r from-[#285B70] via-[#42A1A4] to-[#285B70] before:-z-[1]">
+                    <img src="images/elements/element_about_section_2.png" alt="" className="absolute top-0 left-0 md:w-[468px] w-[250px] h-auto md:h-[470px] z-10 transform rotate-90" />
+                    <img src="images/elements/element_about_section_1.png" alt="" className="absolute top-0 right-0 md:w-[468px] md:h-[470px] w-[250px] h-auto z-10" />
                     <div
                         className="flex flex-col justify-start items-center"
                     >
@@ -649,9 +651,9 @@ export default function Welcome({ auth }) {
                                 data-aos="fade-up" data-aos-delay="200">
                                 Jadilah Bagian Dari Mereka
                             </h2>
-                            <div className="md:absolute md:block hidden top-[65px] z-0">
+                            {/* <div className="md:absolute md:block hidden top-[65px] z-0">
                                 <IconTextTopics />
-                            </div>
+                            </div> */}
                         </div>
                         {/* <p className="text-slate-200 text-center text-sm sm:text-base mt-6 mx-0 md:mx-12"
                             data-aos="fade-up" data-aos-delay="300">
@@ -660,8 +662,8 @@ export default function Welcome({ auth }) {
                     </div>
                 </div>
 
-                <div className="relative -mt-24 sm:-mt-32 z-[5] flex justify-center items-center">
-                    <CustomCarousel className="flex justify-center items-center text-center space-x-4">
+                <div className="relative -mt-24 sm:-mt-32 z-[5] flex justify-center items-center" data-aos="zoom-in" data-aos-delay="400">
+                    <CustomCarousel className="flex justify-center items-center text-center space-x-4" >
                         <div className="relative flex justify-center items-center pb-5">
                             <div className="flex flex-col items-center w-11/12 md:max-w-[50rem] p-6 bg-white backdrop-brightness-150 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
                                 <div className="flex justify-center items-center mb-4 max-w-[12rem] max-h-[12rem] rounded-full overflow-hidden border-2 border-[#285b70]">
