@@ -15,8 +15,23 @@ import { IconWarning } from "./IconLanding";
 export default function Sidebar({ user, navigations, children }) {
     const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth >= 768);
     const date_now = usePage().props.date_now;
-    const end_date_sharing_session_event = usePage().props.end_date_sharing_session_event;
-    const isSharingSessionEvent = date_now < end_date_sharing_session_event;
+    let dateActive;
+    let titleActive;
+    let isCoachingPKMEvent = false;
+    let isSharingSessionEvent = false;
+
+    const date_coaching_pkm = usePage().props.date_coaching_pkm;
+    const date_sharing_session = usePage().props.date_sharing_session;
+
+    if (date_now < date_sharing_session) {
+        dateActive = date_sharing_session.date;
+        titleActive = date_sharing_session.title;
+        isSharingSessionEvent = true;
+    } else if (date_now < date_coaching_pkm && date_sharing_session == null) {
+        dateActive = date_coaching_pkm.date;
+        titleActive = date_coaching_pkm.title;
+        isCoachingPKMEvent = true;
+    }
 
     const currentRoute = route().current();
 
@@ -43,9 +58,6 @@ export default function Sidebar({ user, navigations, children }) {
                                 const routeName = navigation.link.startsWith("http")
                                     ? new URL(navigation.link).pathname
                                     : navigation.link;
-
-                                console.log("ini adalah route path", routePath);
-                                console.log("ini adalah route name", routeName);
 
                                 const isActive = routePath === routeName;
 
@@ -265,7 +277,7 @@ export default function Sidebar({ user, navigations, children }) {
                                     key={i}
                                     className={`text-[48px] font-semibold`}
                                 >
-                                    {isSharingSessionEvent ? " " : displayText}
+                                    {isSharingSessionEvent || isCoachingPKMEvent ? " " : displayText}
                                 </h1>
                             );
                         })}

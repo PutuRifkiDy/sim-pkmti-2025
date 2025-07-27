@@ -21,9 +21,32 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
     const { user } = auth;
     const [certPath, setCertPath] = useState(null);
     const date_now = usePage().props.date_now;
-    const end_date_sharing_session_event = usePage().props.end_date_sharing_session_event;
-    const isSharingSessionEvent = date_now < end_date_sharing_session_event;
 
+    let dateActive = null;
+    let titleActive = "";
+    let isCoachingPKMEvent = false;
+    let isSharingSessionEvent = false;
+
+    const date_coaching_pkm = usePage().props.date_coaching_pkm;
+    const date_sharing_session = usePage().props.date_sharing_session;
+    // console.log("date_coaching_pkm", date_coaching_pkm);
+    // console.log("date_sharing_session", date_sharing_session);
+
+    if (date_now < date_sharing_session) {
+        dateActive = date_sharing_session.date;
+        titleActive = date_sharing_session.title;
+        isSharingSessionEvent = true;
+    } else if (date_now < date_coaching_pkm && date_sharing_session == null) {
+        dateActive = date_coaching_pkm.date;
+        titleActive = date_coaching_pkm.title;
+        isCoachingPKMEvent = true;
+    }
+
+    console.log("cek isi", date_sharing_session);
+    console.log("cek isi", date_coaching_pkm);
+    console.log("ini adalaah isCoachingPKMEvent", isCoachingPKMEvent);
+    console.log("ini adalaah isSharingSessionEvent", isSharingSessionEvent);
+    console.log("ini adalaah dateActive", dateActive);
 
     const [timeLeft, setTimeLeft] = useState({
         days: 0,
@@ -34,7 +57,7 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
 
     useEffect(() => {
         const startTime = new Date(date_now).getTime();
-        const endTime = new Date(end_date_sharing_session_event).getTime();
+        const endTime = new Date(dateActive).getTime();
 
         const timer = setInterval(() => {
             const now = new Date().getTime();
@@ -59,7 +82,7 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
         }, 1000);
 
         return () => clearInterval(timer);
-    }, [date_now, end_date_sharing_session_event]);
+    }, [date_now, dateActive]);
 
     useEffect(() => {
         if (certificate) {
@@ -183,8 +206,7 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                     id="team_information"
                 />
             )}
-
-            {isSharingSessionEvent && (
+            {isSharingSessionEvent ? (
                 <div className="w-full flex md:flex-row flex-col-reverse gap-5">
                     {/* card yang di kiri */}
                     <div className="flex flex-col relative rounded-[10px] overflow-y-hidden min-h-max w-full md:w-[58%]">
@@ -194,7 +216,7 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                         <div className="p-10">
                             <div className="flex justify-center items-center">
                                 <p className="font-bold md:text-[28px] text-[24px] text-[#202224] text-center md:w-[500px] z-20">
-                                    Pembukaan dan Sharing Session Pelatihan PKM-TI 2025
+                                    {titleActive}
                                 </p>
                             </div>
                             <div className="flex flex-col">
@@ -244,15 +266,15 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                         </div>
                     </div>
                     {/* card yang di kanan */}
-                    <div className="flex flex-col gap-5 md:w-[42%] w-full">
+                    <div className={`flex flex-col gap-5 md:w-[42%] w-full ${isCoachingPKMEvent ? "md:w-[100%]" : ""}`}>
                         <div className="flex flex-col relative rounded-[10px] overflow-hidden object cover min-h-max">
 
                             <img src="images/elements/element_dashboard_section_1.png" className="absolute md:h-[200vh] w-screen h-[200vh] z-0" alt="" />
                             <img src="images/elements/element_dashboard_section_2.png" className="absolute left-0 top-0 w-[200px] h-auto" alt="" />
                             <img src="images/elements/element_dashboard_section_3.png" className="absolute right-0 bottom-0 w-[200px] h-auto" alt="" />
                             <div className="p-10">
-                                <div className="flex flex-row gap-1 justify-between items-center">
-                                    <div className="flex flex-row gap-1 w-full items-center">
+                                <div className="flex flex-row gap-4">
+                                    <div className="flex flex-row gap-1 w-full items-center justify-end">
                                         <CalendarDaysIcon className="h-6 w-6 text-[#111E41] flex-shrink-0" />
                                         <p className="text-[10px] z-10 text-[#111E41]">Kamis, 23 Agustus 2025</p>
                                     </div>
@@ -371,6 +393,134 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
 
                     </div>
                 </div>
+            ) : (
+                <div className={`flex flex-col gap-5 md:w-[42%] w-full ${isCoachingPKMEvent ? "md:w-[100%]" : ""}`}>
+                    <div className="flex flex-col relative rounded-[10px] overflow-hidden object cover min-h-max">
+
+                        <img src="images/elements/element_dashboard_section_1.png" className="absolute md:h-[200vh] w-screen h-[200vh] z-0" alt="" />
+                        <img src="images/elements/element_dashboard_section_2.png" className="absolute left-0 top-0 w-[200px] h-auto" alt="" />
+                        <img src="images/elements/element_dashboard_section_3.png" className="absolute right-0 bottom-0 w-[200px] h-auto" alt="" />
+                        <div className="p-10">
+
+                            <div className="flex flex-row gap-10 items-center">
+                                <div className="flex flex-row gap-1 w-full items-center justify-end">
+                                    <CalendarDaysIcon className="h-6 w-6 text-[#111E41] flex-shrink-0" />
+                                    <p className="text-[15px] z-10 text-[#111E41]">Kamis, 23 Agustus 2025</p>
+                                </div>
+                                <div className="w-[4px] h-8 bg-[#111E41]"></div>
+                                <div className="flex flex-row gap-1 w-full items-center">
+                                    <MapPinIcon className="h-6 w-6 text-[#111E41] flex-shrink-0" />
+                                    <p className="text-[15px] z-10 text-[#111E41]">Gedung Teknologi Informasi Fakultas Teknik Universitas Udayana</p>
+                                </div>
+                            </div>
+
+                            <div className="flex flex-col justify-center items-center mt-5">
+                                <p className="text-[30px] leading-[110%] text-[#111E41] z-20 font-bold">{isCoachingPKMEvent ? titleActive : "COUNTDOWN"}</p>
+                            </div>
+                            <div className="flex flex-row gap-3 justify-center items-center mt-5">
+                                <div className="flex flex-col gap-1">
+                                    <p className="font-bold text-[24px] md:text-[50px] text-[#285B70] leading-[110%] z-20">
+                                        {timeLeft.days.toString().padStart(2, "0")}
+                                    </p>
+                                    <p className="text-[#141619] text-[15px] leading-[110%] z-20 text-center">
+                                        Days
+                                    </p>
+                                </div>
+                                <p className="text-[50px] leading-[110%] text-[#000000] z-20">:</p>
+                                <div className="flex flex-col gap-1">
+                                    <p className="font-bold text-[24px] md:text-[50px] text-[#357F8B] leading-[110%] z-20">
+                                        {timeLeft.hours.toString().padStart(2, "0")}
+                                    </p>
+                                    <p className="text-[#141619] text-[15px] leading-[110%] z-20 text-center">
+                                        Hours
+                                    </p>
+                                </div>
+                                <p className="text-[50px] leading-[110%] text-[#000000] z-20">:</p>
+                                <div className="flex flex-col gap-1">
+                                    <p className="font-bold text-[24px] md:text-[50px] text-[#42A1A4] leading-[110%] z-20">
+                                        {timeLeft.minutes.toString().padStart(2, "0")}
+                                    </p>
+                                    <p className="text-[#141619] text-[15px] leading-[110%] z-20 text-center">
+                                        Minutes
+                                    </p>
+                                </div>
+                                <p className="text-[50px] leading-[110%] text-[#000000] z-20">:</p>
+                                <div className="flex flex-col gap-1">
+                                    <p className="font-bold text-[24px] md:text-[50px] text-[#59DFD1] leading-[110%] z-20">
+                                        {timeLeft.seconds.toString().padStart(2, "0")}
+                                    </p>
+                                    <p className="text-[#141619] text-[15px] leading-[110%] z-20 text-center">
+                                        Seconds
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className={`flex flex-col relative rounded-[10px] overflow-hidden object cover min-h-max`}>
+
+                        <img src="images/elements/element_dashboard_section_1.png" className="absolute md:h-[200vh] w-screen h-[200vh] z-0" alt="" />
+                        <img src="images/elements/element_dashboard_section_2.png" className="absolute left-0 top-0 w-[200px] h-auto" alt="" />
+                        <img src="images/elements/element_dashboard_section_3.png" className="absolute right-0 bottom-0 w-[200px] h-auto" alt="" />
+                        <div className="p-8">
+                            <div className="flex flex-row gap-10 justify-center items-center">
+
+                                <p className="text-[27px] leading-[110%] text-[#000000] z-20">Don’t Forget to join our official  LINE group </p>
+
+                                <img src="/images/elements/element_dashboard_line_qr.png" className="w-[129px] h-[129px] z-10" alt="" />
+                            </div>
+
+                            <div className="flex flex-col justify-center items-center mt-5">
+                                <p className="text-[24px] leading-[110%] text-[#111E41] z-20 font-bold text-center">Any Questions? Contact the following contact</p>
+                            </div>
+                            <div className="flex flex-wrap gap-5 justify-center items-center mt-5">
+                                <div className="flex flex-col gap-2">
+                                    <p className="font-bold text-[13px] text-[#3A3A3A] leading-[110%] z-20">
+                                        Contact Person 1
+                                    </p>
+                                    <div className="flex flex-row mt-3 gap-2">
+                                        <IconWhatsapp />
+                                        <a href="https://wa.me//6285739490558" className="text-base text-[#2A3374] dark:text-white text-[12px] z-20">+62 857-3949-0558</a>
+                                    </div>
+                                    <div className="flex flex-row gap-2">
+                                        <IconLine />
+                                        <a href="https://line.me/R/ti/p/~tiksnaapsr." className="text-base text-[#2A3374] dark:text-white text-[12px] z-20">tiksnaapsr.</a>
+                                    </div>
+
+                                </div>
+
+                                <div className="flex flex-col gap-2">
+                                    <p className="font-bold text-[13px] text-[#3A3A3A] leading-[110%] z-20">
+                                        Contact Person 2
+                                    </p>
+                                    <div className="flex flex-row mt-3 gap-2">
+                                        <IconWhatsapp />
+                                        <a href="https://wa.me//6285940899163" className="text-base text-[#2A3374] dark:text-white text-[12px] z-20">+62 859-4089-9163</a>
+                                    </div>
+                                    <div className="flex flex-row gap-2">
+                                        <IconLine />
+                                        <a href="https://line.me/R/ti/p/~dewayu1275" className="text-base text-[#2A3374] dark:text-white text-[12px] z-20">dewayu1275</a>
+                                    </div>
+                                </div>
+
+                                <div className="flex flex-col gap-2">
+                                    <p className="font-bold text-[13px] text-[#3A3A3A] leading-[110%] z-20">
+                                        Contact Person 3
+                                    </p>
+                                    <div className="flex flex-row mt-3 gap-2">
+                                        <IconWhatsapp />
+                                        <a href="https://wa.me//62881038194017" className="text-base text-[#2A3374] dark:text-white text-[12px] z-20">+62 881-0381-94017</a>
+                                    </div>
+                                    <div className="flex flex-row gap-2">
+                                        <IconLine />
+                                        <a href="https://line.me/R/ti/p/~puturifki56" className="text-base text-[#2A3374] dark:text-white text-[12px] z-20">puturifki56</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             )}
 
             {user.status == "passed" ? (
@@ -415,7 +565,7 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                     </div>
 
                 </div>
-            ) : (user.status == "failed" || user.status == null || user.status == "") && isSharingSessionEvent != true ? (
+            ) : (user.status == "failed" || user.status == null || user.status == "") && isSharingSessionEvent != true && isCoachingPKMEvent != true ? (
 
                 <div className="flex flex-col gap-3 w-full items-start">
 
