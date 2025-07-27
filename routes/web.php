@@ -66,17 +66,17 @@ Route::get('/dashboard', function () {
     $user     = User::with('team', 'team.proposal', 'team.members', 'team.assistanceProofs')->find(Auth::id());
     $get_user = User::select('name', 'nim', 'status')->where('status', 'passed')->find(Auth::id());
 
-    $end_date_sharing_session_event = date('Y-m-d H:i:s', strtotime('2025-07-23 15:59:00'));
-    $start_date_coaching_PKM        = date('Y-m-d H:i:s', strtotime('2025-08-25 16:00:00'));
+    $end_date_sharing_session_event = date('Y-m-d H:i:s', strtotime('2025-08-23 15:59:00'));
+    $start_date_coaching_PKM        = date('Y-m-d H:i:s', strtotime('2025-09-01 16:00:00'));
 
     $timeline_events = [
         [
-            'title' => 'Pembukaan dan Sharing Session Pelatihan PKM-TI 2025',
-            'date'  => $end_date_sharing_session_event,
+            'title'    => 'Pembukaan dan Sharing Session Pelatihan PKM-TI 2025',
+            'date'     => $end_date_sharing_session_event,
         ],
         [
-            'title' => 'Pendaftaran Pelatihan PKM-TI 2025',
-            'date'  => $start_date_coaching_PKM,
+            'title'    => 'Pendaftaran Pelatihan PKM-TI 2025',
+            'date'     => $start_date_coaching_PKM,
         ],
     ];
 
@@ -98,12 +98,9 @@ Route::get('/dashboard', function () {
         "hasEnoughTeamMembers"      => $user->team && $user->team->members->count() >= 3,
         "hasProposal"               => $user->team && ! is_null($user->team->proposal),
         "proposalStatus"            => $user->team && $user->team->proposal ? $user->team->proposal->status : "unsubmitted",
-        // "note" => $user->team && $user->team->proposal ? $user->team->proposal->note : "",
         "hasEnoughAssistanceProofs" => $user->team && $user->team->assistanceProofs->count() >= 3,
         "hasNotUploadFinalProposal" => $user->team?->proposal?->final_proposal_url == null,
     ];
-
-    // dd($date_active);
 
     return Inertia::render('Dashboard', compact('infos', 'user', 'get_user', 'date_sharing_session', 'date_coaching_pkm'));
 })->middleware(['auth', 'verified'])->name('dashboard');
