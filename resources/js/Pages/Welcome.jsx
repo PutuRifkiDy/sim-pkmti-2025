@@ -177,71 +177,57 @@ export default function Welcome({ auth }) {
                         </p>
                     </div>
                     <div className="flex md:flex-row flex-col md:gap-5 gap-1 md:justify-start justify-center md:w-[581px] w-full" data-aos="fade-up" data-aos-delay="400">
-                        {auth.user ? (
-                            <>
-                                {/* <Link
-                                        as="button"
-                                        href={route("register")}
-                                        className="font-bold border-[1px] border-slate-300 px-6 py-2 rounded-md text-[#59DFD1] hover:text-white hover:bg-[#42A1A4] dark:text-gray-400 dark:hover:text-white transition-all duration-300 flex flex-row gap-2 justify-center items-center hover:shadow-[0_0_10px_#42A1A4]"
-                                    >
-                                        <IconViewDemo />
-                                        View Demo
-                                    </Link> */}
-                                {/* You can open the modal using document.getElementById('ID').showModal() method */}
-                                <button className="font-bold border-[1px] border-slate-200 px-6 py-2 rounded-md text-[#59DFD1] hover:text-white hover:bg-[#42A1A4] dark:text-gray-100 dark:hover:text-white transition-all duration-300 flex flex-row gap-2 justify-center items-center hover:shadow-[0_0_10px_#42A1A4] z-50" onClick={() => document.getElementById('my_modal_3').showModal()} >View Demo</button>
-                                <dialog id="my_modal_3" className="modal">
-                                    <div className="modal-box w-11/12 max-w-5xl">
-                                        <form method="dialog">
-                                            {/* if there is a button in form, it will close the modal */}
-                                            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-                                        </form>
-                                        <h3 className="font-bold text-lg mb-3 dark:text-slate-200">Demonstrasi Sistem Informasi PKM TI 2025</h3>
-                                        <div className="video-container">
-                                            <iframe
-                                                width="100%"
-                                                height="500"
-                                                src="https://www.youtube.com/embed/your-video-id"
-                                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                                allowFullScreen
-                                                title="Video Demonstrasi"
-                                            ></iframe>
-                                        </div>
-                                    </div>
-                                </dialog>
-                            </>
-                        ) : (
-                            <>
-                                <Link
-                                    as="button"
-                                    href={route("register")}
-                                    className="font-bold bg-[#42A1A4] px-12 py-3 rounded-md text-white hover:text-white hover:bg-[#59DFD1] dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#42A1A4] z-50"
-                                >
-                                    Sign Up Now
-                                </Link>
-                                {/* You can open the modal using document.getElementById('ID').showModal() method */}
-                                <button className="font-bold border-[1px] border-slate-300 px-6 py-2 rounded-md text-[#59DFD1] hover:text-white hover:bg-[#42A1A4] dark:text-gray-400 dark:hover:text-white transition-all duration-300 flex flex-row gap-2 justify-center items-center hover:shadow-[0_0_10px_#42A1A4] z-50" onClick={() => document.getElementById('my_modal_3').showModal()}>View Demo</button>
-                                <dialog id="my_modal_3" className="modal">
-                                    <div className="modal-box w-11/12 max-w-5xl">
-                                        <form method="dialog">
-                                            {/* if there is a button in form, it will close the modal */}
-                                            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-                                        </form>
-                                        <h3 className="font-bold text-lg mb-3 dark:text-slate-200">Demonstrasi Sistem Informasi PKM TI 2025</h3>
-                                        <div className="video-container">
-                                            <iframe
-                                                width="100%"
-                                                height="500"
-                                                src="https://www.youtube.com/embed/your-video-id"
-                                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                                allowFullScreen
-                                                title="Video Demonstrasi"
-                                            ></iframe>
-                                        </div>
-                                    </div>
-                                </dialog>
 
-                            </>
-                        )}
+                        {/* <Link
+                            as="button"
+                            href={route("register")}
+                            className="font-bold bg-[#42A1A4] px-12 py-3 rounded-md text-white hover:text-white hover:bg-[#59DFD1] dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#42A1A4] z-50"
+                        >
+                            Sign Up Now
+                        </Link> */}
+                        {/* <a href="" className="font-bold bg-[#42A1A4] px-12 py-3 rounded-md text-white hover:text-white hover:bg-[#59DFD1] dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#42A1A4] z-50">
+                            Guidebook
+                        </a> */}
+                        <details className="dropdown">
+                            <summary className="btn font-bold bg-[#42A1A4] px-12 py-3 rounded-md text-white hover:text-white hover:bg-[#59DFD1] dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#42A1A4] z-50 border-none text-[18px]">
+                                Guidebook
+                            </summary>
+                            <ul className="menu dropdown-content bg-base-100 rounded-md z-1 w-max p-2 shadow-sm">
+                                <li>
+                                    <a href="https://docs.google.com/document/d/1IiPt4fwXxcEtM3zykOxGxDptC3VsGJLM/edit?usp=sharing&ouid=112988973086027762490&rtpof=true&sd=true"  className="font-medium" target="_blank">
+                                        Guidebook Angkatan 24
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://docs.google.com/document/d/1OidG8QoRDvZLOK9x5JKFvxxbAtQt7Qi3/edit?usp=sharing&ouid=112988973086027762490&rtpof=true&sd=true" className="font-medium" target="_blank">
+                                        Guidebook Angkatan 23, 22, 21
+                                    </a>
+                                </li>
+                            </ul>
+                        </details>
+                        {/* You can open the modal using document.getElementById('ID').showModal() method */}
+                        <button className="font-bold border-[1px] border-slate-300 px-6 py-2 rounded-md text-[#59DFD1] hover:text-white hover:bg-[#42A1A4] dark:text-gray-400 dark:hover:text-white transition-all duration-300 flex flex-row gap-2 justify-center items-center hover:shadow-[0_0_10px_#42A1A4] z-50 text-[18px]" onClick={() => document.getElementById('my_modal_3').showModal()}>View Demo</button>
+                        <dialog id="my_modal_3" className="modal">
+                            <div className="modal-box w-11/12 max-w-5xl">
+                                <form method="dialog">
+                                    {/* if there is a button in form, it will close the modal */}
+                                    <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                                </form>
+                                <h3 className="font-bold text-lg mb-3 dark:text-slate-200">Demonstrasi Sistem Informasi PKM TI 2025</h3>
+                                <div className="video-container">
+                                    <iframe
+                                        width="100%"
+                                        height="500"
+                                        src="https://www.youtube.com/embed/your-video-id"
+                                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                        allowFullScreen
+                                        title="Video Demonstrasi"
+                                    ></iframe>
+                                </div>
+                            </div>
+                        </dialog>
+
+
                     </div>
                 </div>
 

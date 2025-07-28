@@ -206,7 +206,7 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
     };
 
     return (
-        <ParticipantLayout user={user} title="Beranda" date_coaching_pkm={date_coaching_pkm} date_sharing_session={date_sharing_session}>
+        <ParticipantLayout user={user} title="Beranda" header={"Dashboard"} date_coaching_pkm={date_coaching_pkm} date_sharing_session={date_sharing_session}>
             {flash.msg && (
                 <Toast
                     key={useRandomInt()}
@@ -541,7 +541,7 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
             )}
 
             {user.status == "passed" ? (
-                <div className="flex md:flex-row flex-col justify-between md:gap-16 gap-8">
+                <div className="flex md:flex-row flex-col justify-between md:gap-16 gap-8 mt-5">
                     <div className="flex flex-col gap-5 md:w-1/2 w-full">
                         <div className="bg-[#4DE45C]/10 border-l-4 border-[#4DE45C] text-[#4DE45C] w-full px-5 py-3 flex flex-row gap-5 items-center rounded-l-[4px]">
                             <p className="flex flex-row justify-center items-center gap-5 font-bold text-[17px] md:leading-[16px] leading-[24px]">
@@ -584,7 +584,7 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                 </div>
             ) : (user.status == "failed" || user.status == null || user.status == "") && isSharingSessionEvent != true && isCoachingPKMEvent != true ? (
 
-                <div className="flex flex-col gap-3 w-full items-start">
+                <div className="flex flex-col gap-3 w-full items-start mt-5">
 
                     {Object.keys(infos).map((key, i) => {
                         const text =

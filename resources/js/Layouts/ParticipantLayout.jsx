@@ -9,7 +9,7 @@ import {
 } from "@heroicons/react/24/solid";
 import { Head, usePage } from "@inertiajs/react";
 
-export default function ParticipantLayout({ user, title, children, date_coaching_pkm, date_sharing_session }) {
+export default function ParticipantLayout({ user, title, children, header, date_coaching_pkm, date_sharing_session }) {
     const date_now = usePage().props.date_now;
 
     let dateActive = null;
@@ -79,7 +79,7 @@ export default function ParticipantLayout({ user, title, children, date_coaching
     return (
         <>
             <Head title={title} />
-            <Sidebar user={user} navigations={navigations}>
+            <Sidebar user={user} navigations={navigations} header={header}>
                 {children}
             </Sidebar>
         </>

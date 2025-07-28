@@ -8,7 +8,7 @@ export default function Show({ auth, proposal, flash }) {
     const { user } = auth;
 
     return (
-        <ParticipantLayout title="Proposal" user={user}>
+        <ParticipantLayout title="Proposal" user={user} header={"Proposal PKM"}>
             {flash.msg && (
                 <Toast
                     key={useRandomInt()}
@@ -16,12 +16,14 @@ export default function Show({ auth, proposal, flash }) {
                     content={flash.msg}
                 />
             )}
+            <div className="mt-5">
+                {proposal ? (
+                    <UpdateProposalForm user={user} proposal={proposal} />
+                ) : (
+                    <CreateProposalForm />
+                )}
+            </div>
 
-            {proposal ? (
-                <UpdateProposalForm user={user} proposal={proposal} />
-            ) : (
-                <CreateProposalForm />
-            )}
         </ParticipantLayout>
     );
 }

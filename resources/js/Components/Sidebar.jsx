@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";
 import { IconDashboard, IconDropdown, IconHome, IconLogout, IconLogoutSideBar, IconProfile, IconSideBar, IconSilangResponsiveWeb } from "./IconAdmin";
 import { IconWarning } from "./IconLanding";
 
-export default function Sidebar({ user, navigations, children }) {
+export default function Sidebar({ user, navigations, children, header }) {
     const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth >= 768);
     const date_now = usePage().props.date_now;
     let dateActive;
@@ -261,32 +261,15 @@ export default function Sidebar({ user, navigations, children }) {
                     </header>
 
                     <div className="flex flex-col gap-2 md:px-12 px-4 md:py-5 py-2 bg-[#F5F6FA] min-h-screen">
-                        {navigations.map((navigation, i) => {
-                            let routePath = window.location.pathname;
-                            const routeName = navigation.link.startsWith("http")
-                                ? new URL(navigation.link).pathname
-                                : navigation.link;
-
-                            let displayText = routeName === routePath ? navigation.text : " ";
-                            if (displayText === "Asistensi") {
-                                displayText = "Bukti Asistensi";
-                            }
-                            return (
-
-                                <h1
-                                    key={i}
-                                    className={`text-[48px] font-semibold`}
-                                >
-                                    {isSharingSessionEvent || isCoachingPKMEvent ? " " : displayText}
-                                </h1>
-                            );
-                        })}
+                        <h1
+                            className={`text-[48px] font-semibold`}
+                        >
+                            {isSharingSessionEvent || isCoachingPKMEvent ? " " : header}
+                        </h1>
                         {children}
                     </div>
                 </div>
             </div>
-
-
 
             {/* Logout confirmation */}
             <dialog id="logout-confirmation" className="modal">

@@ -8,7 +8,7 @@ export default function Show({ auth, team, lecturers, flash }) {
     const { user } = auth;
 
     return (
-        <ParticipantLayout user={user} title="Tim">
+        <ParticipantLayout user={user} title="Tim" header={"Tim Saya"}>
             {flash.msg && (
                 <Toast
                     key={useRandomInt()}
@@ -16,7 +16,7 @@ export default function Show({ auth, team, lecturers, flash }) {
                     id="team_information"
                 />
             )}
-            <div className="bg-white flex gap-5 flex-col md:px-10 px-3 py-10 rounded-[14px] ">
+            <div className="bg-white flex gap-5 flex-col md:px-10 px-3 py-10 rounded-[14px] mt-5">
                 <div role="tablist" className="tabs tabs-bordered">
                     <input
                         type="radio"
