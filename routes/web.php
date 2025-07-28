@@ -66,7 +66,7 @@ Route::get('/dashboard', function () {
     $user     = User::with('team', 'team.proposal', 'team.members', 'team.assistanceProofs')->find(Auth::id());
     $get_user = User::select('name', 'nim', 'status')->where('status', 'passed')->find(Auth::id());
 
-    $end_date_sharing_session_event = date('Y-m-d H:i:s', strtotime('2025-08-23 15:59:00'));
+    $end_date_sharing_session_event = date('Y-m-d H:i:s', strtotime('2025-07-23 15:59:00'));
     $start_date_coaching_PKM        = date('Y-m-d H:i:s', strtotime('2025-09-01 16:00:00'));
 
     $timeline_events = [

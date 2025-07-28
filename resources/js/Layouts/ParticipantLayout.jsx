@@ -9,17 +9,26 @@ import {
 } from "@heroicons/react/24/solid";
 import { Head, usePage } from "@inertiajs/react";
 
-export default function ParticipantLayout({ user, title, children}) {
+export default function ParticipantLayout({ user, title, children, date_coaching_pkm, date_sharing_session }) {
     const date_now = usePage().props.date_now;
-    const end_date_sharing_session_event = usePage().props.end_date_sharing_session_event;
-    const isAfterSharingSession = new Date(date_now) < new Date(end_date_sharing_session_event);
 
-    console.log("date_now", date_now);
-    console.log("end_date_sharing_session_event", end_date_sharing_session_event);
-    console.log("isAfterSharingSession", isAfterSharingSession);
+    let dateActive = null;
+    let titleActive = "";
+    let isCoachingPKMEvent = false;
+    let isSharingSessionEvent = false;
+
+    if (date_now < date_sharing_session) {
+        dateActive = date_sharing_session.date;
+        titleActive = date_sharing_session.title;
+        isSharingSessionEvent = true;
+    } else if (date_now < date_coaching_pkm && date_sharing_session == null) {
+        dateActive = date_coaching_pkm.date;
+        titleActive = date_coaching_pkm.title;
+        isCoachingPKMEvent = true;
+    }
 
     const navigations = [
-        ...(isAfterSharingSession ? [
+        ...(isSharingSessionEvent || isCoachingPKMEvent  ? [
             {
                 icon: <IconBerandaSideBar />,
                 text: "Dashboard",

@@ -198,7 +198,7 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
     };
 
     return (
-        <ParticipantLayout user={user} title="Beranda">
+        <ParticipantLayout user={user} title="Beranda" date_coaching_pkm={date_coaching_pkm} date_sharing_session={date_sharing_session}>
             {flash.msg && (
                 <Toast
                     key={useRandomInt()}
@@ -331,12 +331,16 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                         <div className="flex flex-col relative rounded-[10px] overflow-hidden object cover min-h-max">
 
                             <img src="images/elements/element_dashboard_section_1.png" className="absolute md:h-[200vh] w-screen h-[200vh] z-0" alt="" />
-                            <img src="images/elements/element_dashboard_section_2.png" className="absolute left-0 top-0 w-[200px] h-auto" alt="" />
-                            <img src="images/elements/element_dashboard_section_3.png" className="absolute right-0 bottom-0 w-[200px] h-auto" alt="" />
+                            <img src="images/elements/element_dashboard_section_2.png" className="absolute left-0 top-0 w-[200px] h-auto z-0" alt="" />
+                            <img src="images/elements/element_dashboard_section_3.png" className="absolute right-0 bottom-0 w-[200px] h-auto z-0" alt="" />
                             <div className="p-8">
                                 <div className="flex flex-row gap-1 justify-center items-center">
-
-                                    <p className="text-[27px] leading-[110%] text-[#000000] z-20">Don’t Forget to join our official  LINE group </p>
+                                    <div className="flex flex-col gap-1">
+                                        <p className="text-[27px] leading-[110%] text-[#000000] z-20">Don’t Forget to join our official  LINE group</p>
+                                        <a href="https://line.me/R/ti/g/uzvemAzAVdrt" className="text-[16px] leading-[110%] text-indigo-800 z-20 cursor-pointer" target="_blank" >
+                                            https://line.me/R/ti/g/uzvemAzAVdrt
+                                        </a>
+                                    </div>
 
                                     <img src="/images/elements/element_dashboard_line_qr.png" className="w-[129px] h-[129px] z-10" alt="" />
                                 </div>
@@ -410,7 +414,7 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                                 <div className="w-[4px] h-8 bg-[#111E41]"></div>
                                 <div className="flex flex-row gap-1 w-full items-center">
                                     <MapPinIcon className="h-6 w-6 text-[#111E41] flex-shrink-0" />
-                                    <p className="text-[15px] z-10 text-[#111E41]">Online</p>
+                                    <p className="text-[15px] z-10 text-[#111E41]">Online Via Zoom Meeting</p>
                                 </div>
                             </div>
 
@@ -460,12 +464,17 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                     <div className={`flex flex-col relative rounded-[10px] overflow-hidden object cover min-h-max`}>
 
                         <img src="images/elements/element_dashboard_section_1.png" className="absolute md:h-[200vh] w-screen h-[200vh] z-0" alt="" />
-                        <img src="images/elements/element_dashboard_section_2.png" className="absolute left-0 top-0 w-[200px] h-auto" alt="" />
-                        <img src="images/elements/element_dashboard_section_3.png" className="absolute right-0 bottom-0 w-[200px] h-auto" alt="" />
+                        <img src="images/elements/element_dashboard_section_2.png" className="absolute left-0 top-0 w-[200px] h-auto z-0" alt="" />
+                        <img src="images/elements/element_dashboard_section_3.png" className="absolute right-0 bottom-0 w-[200px] h-auto z-0" alt="" />
                         <div className="p-8">
                             <div className="flex flex-row gap-10 justify-center items-center">
 
-                                <p className="text-[27px] leading-[110%] text-[#000000] z-20">Don’t Forget to join our official  LINE group </p>
+                                <div className="flex flex-col gap-1">
+                                    <p className="text-[27px] leading-[110%] text-[#000000] z-20">Don’t Forget to join our official  LINE group</p>
+                                    <a href="https://line.me/R/ti/g/uzvemAzAVdrt" className="text-[16px] leading-[110%] text-indigo-800 z-30" target="_blank" >
+                                        https://line.me/R/ti/g/uzvemAzAVdrt
+                                    </a>
+                                </div>
 
                                 <img src="/images/elements/element_dashboard_line_qr.png" className="w-[129px] h-[129px] z-10" alt="" />
                             </div>
