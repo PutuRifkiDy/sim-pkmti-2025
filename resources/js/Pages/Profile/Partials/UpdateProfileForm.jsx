@@ -172,23 +172,23 @@ export default function UpdateProfileForm({ user }) {
             {updateProfileInformation == false && (
                 <div className='mt-10 grid md:grid-cols-2 grid-cols-1 gap-5'>
                     <div>
-                        <label htmlFor="name" value="Name" className='text-[12px] text-[#676767] dark:text-gray-400 block text-sm font-medium leading-relaxed' >Nama</label>
+                        <label htmlFor="name" value="Name" className=' dark:text-gray-400 block text-sm font-bold leading-relaxed'>Nama Lengkap</label>
                         <p>{data.name}</p>
                     </div>
                     <div>
-                        <label htmlFor="name" value="Name" className='text-[12px] text-[#676767] dark:text-gray-400 block text-sm font-medium leading-relaxed' >NIM</label>
+                        <label htmlFor="name" value="Name" className='text-[12px] dark:text-gray-400 block text-sm font-bold leading-relaxed' >NIM</label>
                         <p>{data.nim}</p>
                     </div>
                     <div>
-                        <label htmlFor="name" value="Name" className='text-[12px] text-[#676767] dark:text-gray-400 block text-sm font-medium leading-relaxed' >Email</label>
+                        <label htmlFor="name" value="Name" className='text-[12px] dark:text-gray-400 block text-sm font-bold leading-relaxed' >Email</label>
                         <p>{data.email}</p>
                     </div>
                     <div>
-                        <label htmlFor="name" value="Nomor" className='text-[12px] text-[#676767] dark:text-gray-400 block text-sm font-medium leading-relaxed' >Nomor Telepon</label>
+                        <label htmlFor="name" value="Nomor" className='text-[12px] dark:text-gray-400 block text-sm font-bold leading-relaxed' >Nomor Telepon</label>
                         <p>{data.phone}</p>
                     </div>
                     <div>
-                        <label htmlFor="name" value="Nomor" className='text-[12px] text-[#676767] dark:text-gray-400 block text-sm font-medium leading-relaxed' >ID Line</label>
+                        <label htmlFor="name" value="Nomor" className='text-[12px] dark:text-gray-400 block text-sm font-bold leading-relaxed' >ID Line</label>
                         <p>{data.line_id}</p>
                     </div>
                 </div>

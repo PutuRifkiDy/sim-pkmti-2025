@@ -60,66 +60,72 @@ export default function TeamMembers({ user, team }) {
 
     return (
         <>
+            <header>
+                <h2 className="text-lg font-medium text-gray-900 dark:text-gray-200">Informasi Anggota Tim</h2>
+
+                <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                    Kelola anggota tim Anda.
+                </p>
+            </header>
             <div className="flex flex-row items-center gap-4 mt-4 mb-4">
                 <IconGabungTim />
                 <span className="font-bold">{team.members.length} / {user.nim.includes('24') ? 3 : 5}</span>
             </div>
             <div className="card">
-            <DataTable
-                value={teamsData}
-                paginator
-                showGridlines
-                rows={5}
-                scrollable
-                className="p-datatable-striped whitespace-nowrap overflow-x-auto "
-                tableStyle={{ maxWidth: '50rem' }}
+                <DataTable
+                    value={teamsData}
+                    paginator
+                    // showGridlines
+                    rows={5}
+                    scrollable
+                    className="p-datatable-striped whitespace-nowrap overflow-x-auto "
+                    tableStyle={{ maxWidth: '50rem' }}
                 >
 
-                <Column field="nim" header="NIM" sortable />
-                <Column field="name" header="Nama" sortable />
-                <Column field="angkatan" header="Angkatan" sortable />
-                <Column
-                    field="role"
-                    header="Jabatan"
-                    sortable
-                    body={(rowData) => (
-                        <div className="flex flex-row items-center">
-                            {rowData.role == 'Saya' && (
-                                <div className="tooltip tooltip-bottom flex flex-row" data-tip="Saya">
-                                    <TagIcon className="h-5 w-5 text-green-500 me-2" />
-                                </div>
-                            )}
-                            {rowData.role == 'Saya' && rowData.role_is_leader != 'Ketua' && "Anggota"}
-                            {rowData.role_is_leader == 'Ketua' && (
-                                <div className="tooltip tooltip-bottom flex" data-tip="Ketua">
-                                    <CodeBracketSquareIcon className="h-5 w-5 text-blue-500 me-2" />
-                                    <p>Ketua</p>
-                                </div>
-                            )}
-                            {rowData.role == "Anggota" && rowData.role_is_leader != 'Ketua' && "Anggota"}
-                        </div>
-                    )}
-                />
-                <Column field="email" header="Email" sortable />
-                <Column field="phone" header="Telepon" sortable />
-                <Column field="line_id" header="ID Line" sortable />
+                    <Column field="nim" header="NIM" sortable />
+                    <Column field="name" header="Nama" sortable />
+                    <Column field="angkatan" header="Angkatan" sortable />
+                    <Column
+                        field="role"
+                        header="Jabatan"
+                        sortable
+                        body={(rowData) => (
+                            <div className="flex flex-row items-center">
+                                {rowData.role == 'Saya' && (
+                                    <div className="tooltip tooltip-bottom flex flex-row" data-tip="Saya">
+                                        <TagIcon className="h-5 w-5 text-green-500 me-2" />
+                                    </div>
+                                )}
+                                {rowData.role == 'Saya' && rowData.role_is_leader != 'Ketua' && "Anggota"}
+                                {rowData.role_is_leader == 'Ketua' && (
+                                    <div className="tooltip tooltip-bottom flex" data-tip="Ketua">
+                                        <CodeBracketSquareIcon className="h-5 w-5 text-blue-500 me-2" />
+                                        <p>Ketua</p>
+                                    </div>
+                                )}
+                                {rowData.role == "Anggota" && rowData.role_is_leader != 'Ketua' && "Anggota"}
+                            </div>
+                        )}
+                    />
+                    <Column field="email" header="Email" sortable />
+                    <Column field="phone" header="Telepon" sortable />
+                    <Column field="line_id" header="ID Line" sortable />
 
-                <Column
-                    header="Aksi"
-                    body={(rowData) => (
-                        <div className="flex gap-1">
-                            {(user.id != rowData.id && user.id == team.leader_id) && (
-                                <>
-                                    <KickMember memberId={rowData.id} />
-                                    <ChangeLeader memberId={rowData.id} />
-                                </>
-                            )}
-                        </div>
-                    )}
-                />
-            </DataTable>
-        </div>
-            {/* </div> */}
+                    <Column
+                        header="Aksi"
+                        body={(rowData) => (
+                            <div className="flex gap-1">
+                                {(user.id != rowData.id && user.id == team.leader_id) && (
+                                    <>
+                                        <KickMember memberId={rowData.id} />
+                                        <ChangeLeader memberId={rowData.id} />
+                                    </>
+                                )}
+                            </div>
+                        )}
+                    />
+                </DataTable>
+            </div>
         </>
     );
 }
