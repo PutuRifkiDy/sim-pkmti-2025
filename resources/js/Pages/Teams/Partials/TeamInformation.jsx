@@ -23,13 +23,13 @@ export default function TeamInformation({ user, team, lecturers }) {
 
     const selectLecturer = lecturers.find((lecturer) => lecturer.id === data.lecturer_id);
 
-    console.log("lecturer", selectLecturer);
-
-
     const updateTeam = (e) => {
         e.preventDefault();
 
         patch(route("teams.update", useParam(1)));
+        setTimeout(() => {
+            window.location.reload();
+        }, 500);
     };
     return (
         <>
@@ -244,7 +244,6 @@ export default function TeamInformation({ user, team, lecturers }) {
                         </div>
 
                     )}
-
                     {(user.id == team.leader_id || user.role == "admin") && (
                         <>
                             <div className="grid md:grid-cols-2 grid-cols-1 md:w-1/2 w-full gap-2 mt-5">
@@ -270,6 +269,52 @@ export default function TeamInformation({ user, team, lecturers }) {
                             </div>
                         </>
                     )}
+                </form>
+            )}
+
+
+            {updateTeamInformation == false && (
+                <div className='mt-10 grid md:grid-cols-2 grid-cols-1 gap-10'>
+                    <div>
+                        <label htmlFor="name" value="Nama Tim" className=' dark:text-gray-400 block text-sm font-bold leading-relaxed'>Nama Tim</label>
+                        <p>{data.team_name}</p>
+                    </div>
+                    <div>
+                        <label htmlFor="name" value="Dosen Pembimbing" className='text-[12px] dark:text-gray-400 block text-sm font-bold leading-relaxed'>Dosen Pembimbing</label>
+                        <p>
+                            {selectLecturer?.name ?? "-"}
+                        </p>
+                    </div>
+                    <div>
+                        <label htmlFor="name" value="Token" className='text-[12px] dark:text-gray-400 block text-sm font-bold leading-relaxed' >Token</label>
+                        <div
+                            className="flex flex-row gap-3 items-center"
+                        >
+                            <p>{data.token}</p>
+                            <label
+                                className="tooltip "
+                                onClick={() => {
+                                    navigator.clipboard.writeText(
+                                        location.origin +
+                                        "/teams/" +
+                                        data.token +
+                                        "/join"
+                                    );
+                                    setWasCopied(true);
+                                    setTimeout(
+                                        () => setWasCopied(false),
+                                        1000
+                                    );
+                                }}
+                                data-tip={
+                                    !wasCopied ? "Salin tautan" : "Tersalin"
+                                }
+                            >
+                                <ClipboardDocumentIcon className="h-6 w-6" />
+                            </label>
+                        </div>
+                    </div>
+
                     <div className="grid md:grid-cols-2 grid-cols-1 gap-2 md:w-1/2 w-full">
                         <button className="w-full mb-2 flex flex-row justify-center items-center gap-2 font-bold bg-[#E82323] py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#E82323]/70   transition-all duration-300 shadow-[0_0_10px_#E82323]" onClick={() => document.getElementById("leave-team-confirmation").showModal()}>
                             Keluar Tim
@@ -326,50 +371,6 @@ export default function TeamInformation({ user, team, lecturers }) {
                                 </dialog>
                             </div>
                         )}
-                    </div>
-                </form>
-            )}
-
-            {updateTeamInformation == false && (
-                <div className='mt-10 grid md:grid-cols-2 grid-cols-1 gap-5'>
-                    <div>
-                        <label htmlFor="name" value="Nama Tim" className=' dark:text-gray-400 block text-sm font-bold leading-relaxed'>Nama Tim</label>
-                        <p>{data.team_name}</p>
-                    </div>
-                    <div>
-                        <label htmlFor="name" value="Dosen Pembimbing" className='text-[12px] dark:text-gray-400 block text-sm font-bold leading-relaxed'>Dosen Pembimbing</label>
-                        <p>
-                            {selectLecturer.name}
-                        </p>
-                    </div>
-                    <div>
-                        <label htmlFor="name" value="Token" className='text-[12px] dark:text-gray-400 block text-sm font-bold leading-relaxed' >Token</label>
-                        <div
-                            className="flex flex-row gap-3 items-center"
-                        >
-                            <p>{data.token}</p>
-                            <label
-                                className="tooltip "
-                                onClick={() => {
-                                    navigator.clipboard.writeText(
-                                        location.origin +
-                                        "/teams/" +
-                                        data.token +
-                                        "/join"
-                                    );
-                                    setWasCopied(true);
-                                    setTimeout(
-                                        () => setWasCopied(false),
-                                        1000
-                                    );
-                                }}
-                                data-tip={
-                                    !wasCopied ? "Salin tautan" : "Tersalin"
-                                }
-                            >
-                                <ClipboardDocumentIcon className="h-6 w-6" />
-                            </label>
-                        </div>
                     </div>
 
                 </div>
