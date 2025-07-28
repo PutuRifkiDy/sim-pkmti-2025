@@ -58,7 +58,7 @@ class ProposalController extends Controller
 
         if ($angkatan == '24') {
             if ($teamMembersCount != 3) {
-                return back()->with('msg', 'Tim angkatan wajib terdiri dari 3 orang untuk mengajukan proposal');
+                return back()->with('msg', 'Tim angkatan 24 wajib terdiri dari 3 orang untuk mengajukan proposal');
             }
         } else {
             if ($teamMembersCount < 3) {
@@ -92,14 +92,14 @@ class ProposalController extends Controller
         ]);
 
         // validate quota for PKM-GFT
-        if ($request->scheme == 'PKM-GFT') {
-            $gftTeamsCount = Proposal::where('scheme', 'PKM-GFT')->count();
+        // if ($request->scheme == 'PKM-GFT') {
+        //     $gftTeamsCount = Proposal::where('scheme', 'PKM-GFT')->count();
 
-            if ($gftTeamsCount >= self::MAX_GFT_TEAMS) {
-                return back()->with('msg', 'Kuota skema PKM-GFT sudah penuh');
-            }
+        //     if ($gftTeamsCount >= self::MAX_GFT_TEAMS) {
+        //         return back()->with('msg', 'Kuota skema PKM-GFT sudah penuh');
+        //     }
 
-        }
+        // }
 
         Proposal::where('team_id', $teamId)->first()->update($request->all());
 

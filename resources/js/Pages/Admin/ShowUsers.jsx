@@ -20,13 +20,14 @@ import {
     TrashIcon,
     XMarkIcon,
 } from "@heroicons/react/24/solid";
-import { Link, router } from "@inertiajs/react";
+import { Link, router, usePage } from "@inertiajs/react";
 import { Inertia } from '@inertiajs/inertia';
 import Toast from "@/Components/Toast";
 import { useIsObjectEmpty, useRandomInt } from "@/utils";
 
 export default function Users({ auth, users, flash, errors, akt21, akt22, akt23, akt24 }) {
     const { user } = auth;
+    const { props } = usePage();
     const [visible, setVisible] = useState(false);
     const [userToDelete, setUserToDelete] = useState(null);
 
@@ -47,6 +48,27 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
             };
         })
     );
+
+    useEffect(() => {
+        setSelectedFields(
+            props.users.map((user) => {
+                return {
+                    id: user.id,
+                    nim: user.nim,
+                    name: user.name,
+                    role: user.role,
+                    class_of: 20 + user.nim.substring(0, 2),
+                    phone: user.phone,
+                    line_id: user.line_id,
+                    email: user.email,
+                    status: user.status,
+                    certificate_path: user.certificate_path,
+                    have_team: user.team_id == null ? 'Belum Punya Tim' : 'Punya Tim',
+                };
+            })
+        );
+        initFilters();
+    }, [props.users])
 
     // Search
     const [filters, setFilters] = useState(null);

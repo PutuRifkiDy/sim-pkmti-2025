@@ -68,7 +68,7 @@ class UserController extends Controller
 
         User::find($id)->update($selectedRequest);
 
-        return back()->with('msg', 'Pengguna berhasil diperbarui');
+        return back()->with('msg', 'Pengguna berhasil diperbarui')->with(['inertia_reload' => true]);
     }
 
     public function destroy(string $id)

@@ -331,7 +331,7 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
 
     const handleDelete = () => {
         if (teamToDelete) {
-            router.delete(route("teams.destroy", teamToDelete.id), {
+            router.delete(route("admin.teams.destroy", teamToDelete.id), {
                 onSuccess: () => {
                     setSelectedFields((prevData) =>
                         prevData.filter((teams) => teams.id !== teamToDelete.id)

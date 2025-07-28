@@ -89,8 +89,6 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
             setCertPath(certificate);
         }
     }, [certificate]);
-
-
     const displayedInfos = {
         hasTeam: {
             true: {
@@ -102,9 +100,19 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                 mode: "error",
             },
         },
-        hasEnoughTeamMembers: {
+        hasEnoughTeamMembersNonAkt24: {
             true: {
                 text: "Jumlah tim cukup (≥ 3)",
+                mode: "success",
+            },
+            false: {
+                text: "Jumlah tim kurang, segera penuhi kekurangan anggota",
+                mode: "error",
+            },
+        },
+        hasEnoughTeamMembersAkt24: {
+            true: {
+                text: "Jumlah tim cukup (= 3)",
                 mode: "success",
             },
             false: {
@@ -397,7 +405,7 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
 
                     </div>
                 </div>
-            ) : (
+            ) : isCoachingPKMEvent && (
                 <div className={`flex flex-col gap-5 md:w-[42%] w-full ${isCoachingPKMEvent ? "md:w-[100%]" : ""}`}>
                     <div className="flex flex-col relative rounded-[10px] overflow-hidden object cover min-h-max">
 

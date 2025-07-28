@@ -41,12 +41,12 @@ export default function Toast({ id, content }) {
             id={id}
             className="toast md:toast-top lg:toast-end toast-top toast-center z-50"
         >
-            <div role="alert" className="alert bg-green-400">
-                <InformationCircleIcon className="h-6 w-6 hidden lg:block" />
+            <div role="alert" className="alert bg-[#42A1A4]">
+                <InformationCircleIcon className="h-6 w-6 hidden lg:block text-white" />
 
                 <div className="me-10">
-                    <h3 className="font-bold text-left">Informasi</h3>
-                    <div className="text-[16px] text-left">{content}</div>
+                    <h3 className="font-bold text-left text-white">Informasi</h3>
+                    <div className="text-[16px] text-left text-white">{content}</div>
                     <progress
                         className="progress w-56 bg-green-100"
                         value={progress}
@@ -58,7 +58,7 @@ export default function Toast({ id, content }) {
                     className="btn btn-sm btn-circle btn-ghost absolute right-5 top-5"
                     onClick={() => closeToast()}
                 >
-                    <XCircleIcon className="h-6 w-6 " />
+                    <XCircleIcon className="h-6 w-6 text-white" />
                 </button>
             </div>
         </div>

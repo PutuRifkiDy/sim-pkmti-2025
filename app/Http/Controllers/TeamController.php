@@ -155,4 +155,10 @@ class TeamController extends Controller
 
         return to_route('dashboard')->with('msg', 'Tim berhasil dibubarkan.');
     }
+
+    public function destroy_admin($teamId)
+    {
+        Team::find($teamId)->delete();
+        return back()->with('msg', 'Tim ini berhasil dihapus');
+    }
 }

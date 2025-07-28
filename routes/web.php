@@ -66,8 +66,8 @@ Route::get('/dashboard', function () {
     $user     = User::with('team', 'team.proposal', 'team.members', 'team.assistanceProofs')->find(Auth::id());
     $get_user = User::select('name', 'nim', 'status')->where('status', 'passed')->find(Auth::id());
 
-    $end_date_sharing_session_event = date('Y-m-d H:i:s', strtotime('2025-08-23 15:59:00'));
-    $start_date_coaching_PKM        = date('Y-m-d H:i:s', strtotime('2025-09-01 16:00:00'));
+    $end_date_sharing_session_event = date('Y-m-d H:i:s', strtotime('2025-07-23 15:59:00'));
+    $start_date_coaching_PKM        = date('Y-m-d H:i:s', strtotime('2025-07-01 16:00:00'));
 
     $timeline_events = [
         [
@@ -95,12 +95,17 @@ Route::get('/dashboard', function () {
 
     $infos = [
         "hasTeam"                   => ! is_null($user->team),
-        "hasEnoughTeamMembers"      => $user->team && $user->team->members->count() >= 3,
         "hasProposal"               => $user->team && ! is_null($user->team->proposal),
         "proposalStatus"            => $user->team && $user->team->proposal ? $user->team->proposal->status : "unsubmitted",
         "hasEnoughAssistanceProofs" => $user->team && $user->team->assistanceProofs->count() >= 3,
         "hasNotUploadFinalProposal" => $user->team?->proposal?->final_proposal_url == null,
     ];
+
+    if (str_contains($user->nim, '24')) {
+        $infos["hasEnoughTeamMembersAkt24"] = $user->team && $user->team->members->count() == 3;
+    } else {
+        $infos["hasEnoughTeamMembersNonAkt24"] = $user->team && $user->team->members->count() >= 3;
+    }
 
     return Inertia::render('Dashboard', compact('infos', 'user', 'get_user', 'date_sharing_session', 'date_coaching_pkm'));
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -129,6 +134,7 @@ Route::middleware('auth')->group(function () {
         Route::patch('/teams/{teamId}/leader/{userId}', [TeamController::class, 'changeLeader'])->name('teams.changeLeader');
         Route::patch('/teams/{teamId}', [TeamController::class, 'update'])->name('teams.update');
         Route::delete('/teams/{teamId}', [TeamController::class, 'destroy'])->name('teams.destroy');
+        Route::delete("admin/teams/delete/{teamId}", [TeamController::class, 'destroy_admin'])->name('admin.teams.destroy');
     });
 
     Route::middleware(['role:admin,member'])->prefix('/teams/{teamId}')->group(function () {
