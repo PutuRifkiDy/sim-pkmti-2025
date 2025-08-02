@@ -118,7 +118,7 @@ export default function TeamInformation({ user, team, lecturers }) {
                                         type="text"
                                         name="invitation_link"
                                         value={data.token}
-                                        className="input input-bordered join-item z-[1] w-full"
+                                        className="input input-bordered join-item z-[1] w-full cursor-pointer"
                                         readOnly
                                     />
                                     <div
@@ -128,7 +128,7 @@ export default function TeamInformation({ user, team, lecturers }) {
                                         }
                                     >
                                         <label
-                                            className="btn btn-square join-item"
+                                            className="btn btn-square join-item cursor-pointer"
                                             onClick={() => {
                                                 navigator.clipboard.writeText(
                                                     location.origin +
@@ -143,7 +143,7 @@ export default function TeamInformation({ user, team, lecturers }) {
                                                 );
                                             }}
                                         >
-                                            <ClipboardDocumentIcon className="h-6 w-6" />
+                                            <ClipboardDocumentIcon className="h-6 w-6 cursor-pointer" />
                                         </label>
                                     </div>
                                 </div>
