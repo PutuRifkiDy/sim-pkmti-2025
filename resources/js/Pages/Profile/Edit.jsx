@@ -8,7 +8,7 @@ export default function EditProfile({ auth }) {
         <ParticipantLayout user={user} title="Beranda" header={"Profil Saya"}>
 
             <div className="mx-auto w-full mt-5">
-                <div className="bg-white dark:bg-[#040529] p-4 shadow sm:rounded-lg sm:p-8 mb-6">
+                <div className="bg-white p-4 shadow sm:rounded-lg sm:p-8 mb-6">
 
                     <UpdateProfileForm
                         user={user}
@@ -16,7 +16,7 @@ export default function EditProfile({ auth }) {
                     />
                 </div>
 
-                <div className="bg-white dark:bg-[#040529] p-4 shadow sm:rounded-lg sm:p-8">
+                <div className="bg-white p-4 shadow sm:rounded-lg sm:p-8">
                     <UpdatePasswordForm className="w-full" />
                 </div>
 

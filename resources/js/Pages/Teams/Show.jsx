@@ -17,7 +17,7 @@ export default function Show({ auth, team, lecturers, flash }) {
                 />
             )}
             <div className="mx-auto w-full mt-5">
-                <div className="bg-white dark:bg-[#040529] p-4 shadow sm:rounded-lg sm:p-8 mb-6">
+                <div className="bg-white p-4 shadow sm:rounded-lg sm:p-8 mb-6">
 
                     <TeamInformation
                         user={user}
@@ -26,7 +26,7 @@ export default function Show({ auth, team, lecturers, flash }) {
                     />
                 </div>
 
-                <div className="bg-white dark:bg-[#040529] p-4 shadow sm:rounded-lg sm:p-8 overflow-x-auto">
+                <div className="bg-white p-4 shadow sm:rounded-lg sm:p-8 overflow-x-auto">
                     <TeamMembers user={user} team={team} />
                 </div>
             </div>

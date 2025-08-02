@@ -54,13 +54,12 @@ class TeamController extends Controller
         $user->team_id = $team->id;
         $user->save();
 
-        return to_route('teams.show', $team->id);
+        return to_route('teams.show', $team->id)->with('msg', 'Tim berhasil dibuat! Silakan ajak anggota timmu untuk bergabung dengan tim ini.');
     }
 
     public function join($token)
     {
         $user_login = Auth::user();
-        // dd($user_login);
         $team = Team::where('token', $token)->first();
         if (!$team) return back()->with('msg', 'Tim tidak ditemukan.');
 
@@ -79,7 +78,7 @@ class TeamController extends Controller
             }
         }
 
-        // ensure nim yang isi 24 tidak ada di tim yang nim nya ga isi 24
+
         $teamMembers = User::where('team_id', $teamId)->get();
         foreach ($teamMembers as $member) {
             if (str_contains($user_login->nim, '24') && !str_contains($member->nim, '24')) {

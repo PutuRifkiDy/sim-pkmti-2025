@@ -37,20 +37,20 @@ export default function UpdateProfileForm({ user }) {
 
             <div className='flex flex-row justify-between w-full mb-8'>
                 <header>
-                    <h2 className="text-lg font-medium text-gray-900 dark:text-gray-200">Informasi Profil</h2>
+                    <h2 className="text-lg font-medium text-gray-900">Informasi Profil</h2>
 
-                    <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                    <p className="mt-1 text-sm text-gray-600">
                         Perbarui informasi profil akun Anda.
                     </p>
                 </header>
                 {updateProfileInformation == false && (
-                    <button className='bg-[#42A1A4] hover:bg-[#42A1A4]/80 text-white dark:bg-[#42A1A4] inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none min-w-max py-2 px-5' onClick={() => setUpdateProfileInformation(true)}>
+                    <button className='bg-[#42A1A4] hover:bg-[#42A1A4]/80 text-white inline-flex items-center justify-center gap-1 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none min-w-max py-2 px-5' onClick={() => setUpdateProfileInformation(true)}>
                         <IconEditForDashboard />
                         Edit
                     </button>
                 )}
                 {updateProfileInformation == true && (
-                    <button className='border-[#42A1A4] border-2 text-[#42A1A4] dark:border-[#42A1A4] dark:text-white p-3 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none min-w-max py-2 px-5' onClick={() => setUpdateProfileInformation(false)}>
+                    <button className='border-[#42A1A4] border-2 text-[#42A1A4] inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none min-w-max py-2 px-5' onClick={() => setUpdateProfileInformation(false)}>
                         <CancelUpdateProfile />
                         Cancel
                     </button>
@@ -172,23 +172,23 @@ export default function UpdateProfileForm({ user }) {
             {updateProfileInformation == false && (
                 <div className='mt-10 grid md:grid-cols-2 grid-cols-1 gap-5'>
                     <div>
-                        <label htmlFor="name" value="Name" className=' dark:text-gray-400 block text-sm font-bold leading-relaxed'>Nama Lengkap</label>
+                        <label htmlFor="name" value="Name" className=' block text-sm font-bold leading-relaxed'>Nama Lengkap</label>
                         <p>{data.name}</p>
                     </div>
                     <div>
-                        <label htmlFor="name" value="Name" className='text-[12px] dark:text-gray-400 block text-sm font-bold leading-relaxed' >NIM</label>
+                        <label htmlFor="name" value="Name" className='text-[12px] block text-sm font-bold leading-relaxed' >NIM</label>
                         <p>{data.nim}</p>
                     </div>
                     <div>
-                        <label htmlFor="name" value="Name" className='text-[12px] dark:text-gray-400 block text-sm font-bold leading-relaxed' >Email</label>
+                        <label htmlFor="name" value="Name" className='text-[12px] block text-sm font-bold leading-relaxed' >Email</label>
                         <p>{data.email}</p>
                     </div>
                     <div>
-                        <label htmlFor="name" value="Nomor" className='text-[12px] dark:text-gray-400 block text-sm font-bold leading-relaxed' >Nomor Telepon</label>
+                        <label htmlFor="name" value="Nomor" className='text-[12px] block text-sm font-bold leading-relaxed' >Nomor Telepon</label>
                         <p>{data.phone}</p>
                     </div>
                     <div>
-                        <label htmlFor="name" value="Nomor" className='text-[12px] dark:text-gray-400 block text-sm font-bold leading-relaxed' >ID Line</label>
+                        <label htmlFor="name" value="Nomor" className='text-[12px] block text-sm font-bold leading-relaxed' >ID Line</label>
                         <p>{data.line_id}</p>
                     </div>
                 </div>

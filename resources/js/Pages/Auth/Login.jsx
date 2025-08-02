@@ -58,7 +58,7 @@ export default function Login({ status, canResetPassword }) {
             {toastMessages.map((message, index) => (
                 <ToastError key={index} content={message} />
             ))}
-            <section className="flex md:flex-row flex-col md:justify-between justify-center items-center md:px-24 px-2 dark:bg-[#1d232a] light:bg-[#F4F4F4] w-full h-[100vh]">
+            <section className="flex md:flex-row flex-col md:justify-between justify-center items-center md:px-24 px-2 w-full h-[100vh]">
                 {status && (
                     <div className="mb-4 font-medium text-sm text-green-600">
                         {status}
@@ -71,7 +71,7 @@ export default function Login({ status, canResetPassword }) {
                     <img src="images/icon-login.png" className="md:w-[504px] w-full md:h-[504.06px] h-auto" data-aos="zoom-in" data-aos-delay="200" alt="icon-login" />
                 </div>
                 <div
-                    className="border-[1px] shadow-sm-[#000000] border-slate-300 flex flex-col dark:bg-[#1d232a] light:bg-[#FFFFFF] rounded-[15px] md:p-10 p-5 md:w-5/12 w-full gap-5"
+                    className="border-[1px] shadow-sm-[#000000] border-slate-300 flex flex-col light:bg-[#FFFFFF] rounded-[15px] md:p-10 p-5 md:w-5/12 w-full gap-5"
                 >
                     <div className="flex justify-center items-center">
                         <Link href={route("welcome")}>
@@ -81,7 +81,7 @@ export default function Login({ status, canResetPassword }) {
                     <div className="flex flex-col gap-2">
                         <form onSubmit={submit} className="flex flex-col gap-2">
                             <div className="flex flex-col gap-2">
-                                <label htmlFor="nim" className="text-[18px] font-semibold dark:text-gray-100">NIM</label>
+                                <label htmlFor="nim" className="text-[18px] font-semibold">NIM</label>
                                 <input
                                     id="nim"
                                     type="text"
@@ -96,7 +96,7 @@ export default function Login({ status, canResetPassword }) {
                                 {/* <p className="mt-2 text-error">{errors.nim}</p> */}
                             </div>
                             <div className="flex flex-col gap-2">
-                                <label htmlFor="password" className="text-[18px] font-semibold dark:text-gray-100">Password</label>
+                                <label htmlFor="password" className="text-[18px] font-semibold">Password</label>
                                 <div className="join">
                                     <input
                                         id="password"
@@ -138,12 +138,12 @@ export default function Login({ status, canResetPassword }) {
                                             type="checkbox"
                                             name="remember"
                                             checked={data.remember}
-                                            className="checkbox inline dark:bg-gray-700 dark:border-gray-600"
+                                            className="checkbox inline"
                                             onChange={(e) =>
                                                 setData("remember", e.target.checked)
                                             }
                                         />
-                                        <span className="text-[16px] dark:text-gray-100">
+                                        <span className="text-[16px]">
                                             Ingatkan saya
                                         </span>
                                     </label>
@@ -160,12 +160,12 @@ export default function Login({ status, canResetPassword }) {
                                 )} */}
                             </div>
                             <button
-                                className="btn text-[18px] bg-[#42A1A4] text-white w-full mb-2 hover:text-white hover:bg-[#59DFD1] dark:text-white dark:hover:text-white transition-all duration-300 hover:shadow-[0_0_10px_#42A1A4]"
+                                className="btn text-[18px] bg-[#42A1A4] text-white w-full mb-2 hover:text-white hover:bg-[#59DFD1] transition-all duration-300 hover:shadow-[0_0_10px_#42A1A4]"
                                 disabled={processing}
                             >
                                 Masuk
                             </button>
-                            <p className="text-center mt-5 flex flex-row justify-center gap-1 text-[16px] dark:text-gray-100">
+                            <p className="text-center mt-5 flex flex-row justify-center gap-1 text-[16px]">
                                 Belum mempunyai akun?
                                 <Link
                                     href={route("register")}

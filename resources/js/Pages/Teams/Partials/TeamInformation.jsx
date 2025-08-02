@@ -35,20 +35,20 @@ export default function TeamInformation({ user, team, lecturers }) {
         <>
             <div className='flex flex-row justify-between w-full mb-8'>
                 <header>
-                    <h2 className="text-lg font-medium text-gray-900 dark:text-gray-200">Informasi Team</h2>
+                    <h2 className="text-lg font-medium text-gray-900">Informasi Team</h2>
 
-                    <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                    <p className="mt-1 text-sm text-gray-600">
                         Perbarui informasi team Anda.
                     </p>
                 </header>
                 {updateTeamInformation == false && (
-                    <button className='bg-[#42A1A4] hover:bg-[#42A1A4]/80 text-white dark:bg-[#42A1A4] inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none min-w-max py-2 px-5' onClick={() => setUpdateTeamInformation(true)}>
+                    <button className='bg-[#42A1A4] hover:bg-[#42A1A4]/80 text-white inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none min-w-max py-2 px-5' onClick={() => setUpdateTeamInformation(true)}>
                         <IconEditForDashboard />
                         Edit
                     </button>
                 )}
                 {updateTeamInformation == true && (
-                    <button className='border-[#42A1A4] border-2 text-[#42A1A4] dark:border-[#42A1A4] dark:text-white p-3 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none min-w-max py-2 px-5' onClick={() => setUpdateTeamInformation(false)}>
+                    <button className='border-[#42A1A4] border-2 text-[#42A1A4]  p-3 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none min-w-max py-2 px-5' onClick={() => setUpdateTeamInformation(false)}>
                         <CancelUpdateProfile />
                         Cancel
                     </button>
@@ -276,17 +276,17 @@ export default function TeamInformation({ user, team, lecturers }) {
             {updateTeamInformation == false && (
                 <div className='mt-10 grid md:grid-cols-2 grid-cols-1 gap-10'>
                     <div>
-                        <label htmlFor="name" value="Nama Tim" className=' dark:text-gray-400 block text-sm font-bold leading-relaxed'>Nama Tim</label>
+                        <label htmlFor="name" value="Nama Tim" className=' block text-sm font-bold leading-relaxed'>Nama Tim</label>
                         <p>{data.team_name}</p>
                     </div>
                     <div>
-                        <label htmlFor="name" value="Dosen Pembimbing" className='text-[12px] dark:text-gray-400 block text-sm font-bold leading-relaxed'>Dosen Pembimbing</label>
+                        <label htmlFor="name" value="Dosen Pembimbing" className='text-[12px] block text-sm font-bold leading-relaxed'>Dosen Pembimbing</label>
                         <p>
                             {selectLecturer?.name ?? "-"}
                         </p>
                     </div>
                     <div>
-                        <label htmlFor="name" value="Token" className='text-[12px] dark:text-gray-400 block text-sm font-bold leading-relaxed' >Token</label>
+                        <label htmlFor="name" value="Token" className='text-[12px] block text-sm font-bold leading-relaxed' >Token</label>
                         <div
                             className="flex flex-row gap-3 items-center"
                         >

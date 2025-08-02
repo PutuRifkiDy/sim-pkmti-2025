@@ -72,7 +72,7 @@ export default function Register() {
                     <ToastError key={index} content={message} />
                 ))}
             </div>
-            <section className="flex md:flex-row flex-col md:justify-between justify-center items-center md:px-24 px-2 dark:bg-[#1d232a] light:bg-[#F4F4F4] w-full md:py-12 py-0">
+            <section className="flex md:flex-row flex-col md:justify-between justify-center items-center md:px-24 px-2 light:bg-[#F4F4F4] w-full md:py-12 py-0">
 
                 {status && (
                     <div className="mb-4 font-medium text-sm text-green-600">
@@ -85,7 +85,7 @@ export default function Register() {
                     <img src="images/icon-login.png" className="md:w-[504px] w-full md:h-[504.06px] h-auto" data-aos="zoom-in" data-aos-delay="200" alt="icon-login" />
                 </div>
                 <div
-                    className="border-[1px] shadow-sm-[#000000] border-slate-300 flex flex-col dark:bg-[#1d232a] light:bg-[#FFFFFF] rounded-[15px] md:p-10 p-5 md:w-5/12 w-full gap-5"
+                    className="border-[1px] shadow-sm-[#000000] border-slate-300 flex flex-col light:bg-[#FFFFFF] rounded-[15px] md:p-10 p-5 md:w-5/12 w-full gap-5"
                 >
                     <div className="flex justify-center items-center">
                         <Link href={route("welcome")}>
@@ -96,7 +96,7 @@ export default function Register() {
                         <form onSubmit={submit}>
                             <div className="flex flex-col gap-2">
                                 <div className="flex flex-col gap-2">
-                                    <label htmlFor="fullName" className="text-[18px] font-semibold dark:text-gray-200">Nama Lengkap</label>
+                                    <label htmlFor="fullName" className="text-[18px] font-semibold">Nama Lengkap</label>
                                     <input
                                         id="name"
                                         type="text"
@@ -107,12 +107,12 @@ export default function Register() {
                                         onChange={(e) =>
                                             setData("name", e.target.value)
                                         }
-                                        className="input input-bordered dark:text-white dark:bg-[#13151a]"
+                                        className="input input-bordered"
 
                                     />
                                 </div>
                                 <div className="flex flex-col gap-2">
-                                    <label htmlFor="email" className="text-[18px] font-semibold dark:text-gray-200">Email</label>
+                                    <label htmlFor="email" className="text-[18px] font-semibold">Email</label>
                                     <input
                                         id="email"
                                         type="email"
@@ -123,14 +123,14 @@ export default function Register() {
                                         onChange={(e) =>
                                             setData("email", e.target.value)
                                         }
-                                        className="input input-bordered dark:text-white dark:bg-[#13151a]"
+                                        className="input input-bordered"
 
                                     />
 
 
                                 </div>
                                 <div className="flex flex-col gap-2">
-                                    <label htmlFor="line_id" className="text-[18px] font-semibold dark:text-gray-200">ID Line</label>
+                                    <label htmlFor="line_id" className="text-[18px] font-semibold ">ID Line</label>
                                     <input
                                         id="line_id"
                                         type="text"
@@ -141,13 +141,13 @@ export default function Register() {
                                         onChange={(e) =>
                                             setData("line_id", e.target.value)
                                         }
-                                        className="input input-bordered dark:text-white dark:bg-[#13151a]"
+                                        className="input input-bordered"
 
                                     />
                                 </div>
 
                                 <div className="flex flex-col gap-2">
-                                    <label htmlFor="phone" className="text-[18px] font-semibold dark:text-gray-200">Telepon</label>
+                                    <label htmlFor="phone" className="text-[18px] font-semibold">Telepon</label>
                                     <input
                                         id="phone"
                                         type="text"
@@ -158,14 +158,14 @@ export default function Register() {
                                         onChange={(e) =>
                                             setData("phone", e.target.value)
                                         }
-                                        className="input input-bordered dark:text-white dark:bg-[#13151a]"
+                                        className="input input-bordered"
 
                                     />
 
 
                                 </div>
                                 <div className="flex flex-col gap-2">
-                                    <label htmlFor="nim" className="text-[18px] font-semibold dark:text-gray-200">
+                                    <label htmlFor="nim" className="text-[18px] font-semibold">
                                         NIM
                                     </label>
                                     <input
@@ -176,7 +176,7 @@ export default function Register() {
                                         autoComplete="nim"
                                         isfocused="true"
                                         onChange={(e) => setData("nim", e.target.value)}
-                                        className="input input-bordered dark:text-white dark:bg-[#13151a]"
+                                        className="input input-bordered"
 
                                     />
 
@@ -186,7 +186,7 @@ export default function Register() {
                                 <div className="flex flex-col gap-2">
                                     <label
                                         htmlFor="password"
-                                        className="text-[18px] font-semibold dark:text-gray-200"
+                                        className="text-[18px] font-semibold"
                                     >
                                         Password
                                     </label>
@@ -200,7 +200,7 @@ export default function Register() {
                                                 setData("password", e.target.value)
                                             }
 
-                                            className="input input-bordered dark:text-white dark:bg-[#13151a] w-full join-item z-[1]"
+                                            className="input input-bordered w-full join-item z-[1]"
                                         />
                                         <label className="btn btn-square join-item swap">
                                             <input
@@ -227,7 +227,7 @@ export default function Register() {
                                 <div className="flex flex-col gap-2">
                                     <label
                                         htmlFor="password_confirmation"
-                                        className="text-[18px] font-semibold dark:text-gray-200"
+                                        className="text-[18px] font-semibold"
                                     >
                                         Konfirmasi Password
                                     </label>
@@ -244,7 +244,7 @@ export default function Register() {
                                                 )
                                             }
 
-                                            className="input input-bordered dark:text-white dark:bg-[#13151a] w-full join-item z-[1]"
+                                            className="input input-bordered w-full join-item z-[1]"
                                         />
                                         <label className="btn btn-square join-item swap">
                                             <input
@@ -285,12 +285,12 @@ export default function Register() {
                                     Selanjutnya
                                 </button> */}
                             <button
-                                className="mt-3 btn text-[18px] bg-[#42A1A4] text-white w-full mb-2 hover:text-white hover:bg-[#59DFD1] dark:text-white dark:hover:text-white transition-all duration-300 hover:shadow-[0_0_10px_#42A1A4]"
+                                className="mt-3 btn text-[18px] bg-[#42A1A4] text-white w-full mb-2 hover:text-white hover:bg-[#59DFD1] transition-all duration-300 hover:shadow-[0_0_10px_#42A1A4]"
                                 disabled={processing}
                             >
                                 Masuk
                             </button>
-                            <p className="text-center mt-5 flex flex-row justify-center gap-1 text-[16px] dark:text-gray-100">
+                            <p className="text-center mt-5 flex flex-row justify-center gap-1 text-[16px] ">
                                 Sudah mempunyai akun?
                                 <Link
                                     href={route("login")}

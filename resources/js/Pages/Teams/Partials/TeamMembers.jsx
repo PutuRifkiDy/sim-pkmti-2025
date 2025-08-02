@@ -61,9 +61,9 @@ export default function TeamMembers({ user, team }) {
     return (
         <>
             <header>
-                <h2 className="text-lg font-medium text-gray-900 dark:text-gray-200">Informasi Anggota Tim</h2>
+                <h2 className="text-lg font-medium text-gray-900 ">Informasi Anggota Tim</h2>
 
-                <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                <p className="mt-1 text-sm text-gray-600">
                     Kelola anggota tim Anda.
                 </p>
             </header>
