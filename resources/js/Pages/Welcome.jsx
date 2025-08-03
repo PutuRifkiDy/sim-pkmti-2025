@@ -194,7 +194,7 @@ export default function Welcome({ auth }) {
                             </summary>
                             <ul className="menu dropdown-content bg-base-100 rounded-md z-1 w-max p-2 shadow-sm">
                                 <li>
-                                    <a href="https://docs.google.com/document/d/1IiPt4fwXxcEtM3zykOxGxDptC3VsGJLM/edit?usp=sharing&ouid=112988973086027762490&rtpof=true&sd=true"  className="font-medium" target="_blank">
+                                    <a href="https://docs.google.com/document/d/1IiPt4fwXxcEtM3zykOxGxDptC3VsGJLM/edit?usp=sharing&ouid=112988973086027762490&rtpof=true&sd=true" className="font-medium" target="_blank">
                                         Guidebook Angkatan 24
                                     </a>
                                 </li>
@@ -757,26 +757,26 @@ export default function Welcome({ auth }) {
 
                         >
                             <Accordion
-                                heading="Apa itu guidebook pelatihan PKM?"
-                                description=""
+                                heading="Apa fungsi guidebook PKM TI 2025?"
+                                description="Guidebook berfungsi sebagai panduan resmi yang memuat seluruh informasi penting terkait alur pelaksanaan pelatihan PKM TI 2025."
                                 isOpen={openIndex === 0}
                                 onClick={() => handleAccordionClick(0)}
                             />
                             <Accordion
-                                heading="Di mana saya bisa mendapatkan guidebook pelatihan PKM ini?"
-                                description=""
+                                heading="Bagaimana jika terdapat bagian dalam guidebook yang tidak dipahami peserta?"
+                                description="Peserta dapat menanyakan langsung kepada narahubung (contact person) yang tertera pada halaman web."
                                 isOpen={openIndex === 1}
                                 onClick={() => handleAccordionClick(1)}
                             />
                             <Accordion
-                                heading="Apakah guidebook ini wajib dibaca sebelum mengikuti pelatihan?"
-                                description=""
+                                heading="Apakah ketentuan tim dan proposal dijelaskan di Guidebook?"
+                                description="Ya, guidebook mencantumkan ketentuan terkait pembentukan tim, mekanisme pelatihan, dan struktur penyusunan proposal yang harus diikuti peserta."
                                 isOpen={openIndex === 2}
                                 onClick={() => handleAccordionClick(2)}
                             />
                             <Accordion
-                                heading="Bagaimana jika ada bagian dari guidebook yang kurang saya pahami?"
-                                description=""
+                                heading="Apakah isi guidebook mencakup contoh proposal PKM dan format proposal PKM?"
+                                description="Ya, guidebook menyertakan contoh proposal serta format penulisan proposal PKM sesuai pedoman yang berlaku agar memudahkan peserta dalam penulisan."
                                 isOpen={openIndex === 3}
                                 onClick={() => handleAccordionClick(3)}
                             />
@@ -789,26 +789,26 @@ export default function Welcome({ auth }) {
 
                         >
                             <Accordion
-                                heading="Apakah ada pembimbing yang akan memberikan masukan terhadap ide dan judul yang diajukan?"
-                                description=""
+                                heading="Kapan dan di mana Hari H Pelatihan PKM TI akan dilaksanakan?"
+                                description="Hari H pelatihan PKM TI akan dilaksanakan pada Sabtu, 23 Agustus 2025 melalui zoom. Informasi lengkap mengenai tanggal dan platform pelaksanaan akan diumumkan melalui media resmi panitia."
                                 isOpen={openIndex === 0}
                                 onClick={() => handleAccordionClick(0)}
                             />
                             <Accordion
-                                heading="Bagaimana cara mendaftarkan ide atau judul untuk sesi bedah ide?"
-                                description=""
+                                heading="Apa saja topik yang akan dibahas dalam kegiatan pelatihan?"
+                                description="Topik yang dibahas meliputi pengenalan PKM dan membedah judul proposal yang lolos pendanaan."
                                 isOpen={openIndex === 1}
                                 onClick={() => handleAccordionClick(1)}
                             />
                             <Accordion
-                                heading="Kapan dan di mana pelatihan PKM akan dilaksanakan?"
-                                description=""
+                                heading="Apakah ada sesi tanya jawab langsung dengan pembicara pada Hari H?"
+                                description="Ya, sesi tanya jawab langsung disediakan agar peserta dapat berinteraksi dan memperdalam pemahaman terhadap materi yang disampaikan oleh narasumber."
                                 isOpen={openIndex === 2}
                                 onClick={() => handleAccordionClick(2)}
                             />
                             <Accordion
-                                heading="Apa saja yang akan dibahas dalam pelatihan PKM ini?"
-                                description=""
+                                heading="Bagaimana jika saya berhalangan hadir pada Hari H PKM?"
+                                description="Kehadiran pada Hari H sangat dianjurkan karena berkaitan dengan absensi dan sertifikat. Peserta diperbolehkan tidak menghadiri kegiatan dengan syarat dan ketentuan berlaku."
                                 isOpen={openIndex === 3}
                                 onClick={() => handleAccordionClick(3)}
                             />
@@ -820,26 +820,26 @@ export default function Welcome({ auth }) {
                             className="flex flex-col gap-2 md:w-[636px] w-full dark:text-gray-400"
                         >
                             <Accordion
-                                heading="Apa itu Klinik PKM dan bagaimana cara mengikutinya?"
-                                description=""
+                                heading="Apakah Klinik PKM TI wajib diikuti oleh seluruh peserta pelatihan?"
+                                description="Ya, seluruh peserta pelatihan PKM TI wajib mengikuti Klinik PKM TI."
                                 isOpen={openIndex === 0}
                                 onClick={() => handleAccordionClick(0)}
                             />
                             <Accordion
-                                heading="Apa saja yang bisa saya konsultasikan dalam Klinik PKM?"
-                                description=""
+                                heading="Apakah draft proposal akan dievaluasi dalam Klinik PKM TI?"
+                                description="Draft proposal akan dievaluasi pada Klinik PKM TI, selanjutnya proposal yang dievaluasi harus diperbaiki oleh tim terkait."
                                 isOpen={openIndex === 1}
                                 onClick={() => handleAccordionClick(1)}
                             />
                             <Accordion
-                                heading="Apakah Klinik PKM hanya untuk peserta yang sudah memiliki proposal?"
-                                description=""
+                                heading="Di mana saya harus mengunggah proposal hasil revisi setelah Klinik PKM?"
+                                description="Proposal hasil revisi wajib diunggah kembali pada platform resmi pelatihan yaitu di menu Proposal PKM di laman pkm.hmtiudayana.id, sesuai dengan batas waktu yang ditentukan."
                                 isOpen={openIndex === 2}
                                 onClick={() => handleAccordionClick(2)}
                             />
                             <Accordion
-                                heading="Siapa saja yang akan membimbing peserta dalam Klinik PKM?"
-                                description=""
+                                heading="Apakah peserta harus menyalakan kamera selama mengikuti Klinik PKM?"
+                                description="Ya, peserta wajib menghidupkan kamera selama Klinik PKM berlangsung sebagai bukti kehadiran. Kehadiran hanya akan dicatat jika kamera aktif dan peserta tidak menggunakan virtual background dengan foto."
                                 isOpen={openIndex === 3}
                                 onClick={() => handleAccordionClick(3)}
                             />
