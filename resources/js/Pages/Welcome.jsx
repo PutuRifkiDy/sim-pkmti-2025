@@ -549,10 +549,10 @@ export default function Welcome({ auth }) {
                         >
                             <div className="font-sans relative h-max flex-1 flex-shrink-0 rounded-[20px] shadow-xl border border-[#E8E8E8] bg-white py-4 dark:bg-[#285B70]">
                                 {/* Status Label */}
-                                <div className={`absolute right-3 top-3 flex items-center gap-2 rounded-[10px] px-3 py-1 shadow-sm bg-[#E82323]/20 text-[#E82323]`}>
-                                    <div className={`h-3 w-3 rounded-full bg-[#E82323]`} />
-                                    <span className={`font-sans text-[10px] font-medium text-[#E82323]`}>
-                                        Not Available
+                                <div className={`absolute right-3 top-3 flex items-center gap-2 rounded-[10px] px-3 py-1 shadow-sm bg-[#23e858]/20 text-[#23e858]`}>
+                                    <div className={`h-3 w-3 rounded-full bg-[#23e858]`} />
+                                    <span className={`font-sans text-[10px] font-medium text-[#23e858]`}>
+                                        Timeline tersedia
                                     </span>
                                 </div>
 

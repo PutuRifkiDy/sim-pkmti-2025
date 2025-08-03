@@ -287,7 +287,6 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                     </div>
 
                     <div className="flex flex-row gap-2">
-                        <Button type="button" icon="pi pi-file-pdf" severity="warning" rounded onClick={exportPdf} data-pr-tooltip="Export Sebagai PDF File" data-pr-position="top" className="export-button" />
                         <Button type="button" className="export-button" icon="pi pi-file" rounded onClick={() => exportCSV(false)} data-pr-tooltip="Export Sebagai CSV File" data-pr-position="top" />
                         <Button type="button" className="export-button" icon="pi pi-file-excel" severity="success" rounded onClick={exportExcel} data-pr-tooltip="Export Sebagai Excel File" data-pr-position="top" />
                     </div>
