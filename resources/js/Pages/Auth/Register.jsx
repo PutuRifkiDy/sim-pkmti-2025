@@ -254,7 +254,7 @@ export default function Register() {
                                                         "password_confirmation"
                                                     );
                                                     x.type =
-                                                        x.type === "password"
+                                                        x.type == "password"
                                                             ? "text"
                                                             : "password";
                                                 }}

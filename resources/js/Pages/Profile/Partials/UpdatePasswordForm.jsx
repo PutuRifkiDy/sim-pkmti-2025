@@ -89,7 +89,7 @@ export default function UpdatePasswordForm() {
                                                 "current_password"
                                             );
                                         x.type =
-                                            x.type === "password"
+                                            x.type == "password"
                                                 ? "text"
                                                 : "password";
                                     }}
@@ -124,7 +124,7 @@ export default function UpdatePasswordForm() {
                                     onClick={() => {
                                         let x = document.getElementById("password");
                                         x.type =
-                                            x.type === "password"
+                                            x.type == "password"
                                                 ? "text"
                                                 : "password";
                                     }}

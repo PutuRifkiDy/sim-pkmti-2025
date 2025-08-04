@@ -21,7 +21,7 @@ export default function TeamInformation({ user, team, lecturers }) {
         lecturer_id: team.lecturer_id,
     });
 
-    const selectLecturer = lecturers.find((lecturer) => lecturer.id === data.lecturer_id);
+    const selectLecturer = lecturers.find((lecturer) => lecturer.id == data.lecturer_id);
 
     const updateTeam = (e) => {
         e.preventDefault();
@@ -29,7 +29,7 @@ export default function TeamInformation({ user, team, lecturers }) {
         patch(route("teams.update", useParam(1)));
         setTimeout(() => {
             window.location.reload();
-        }, 500);
+        }, 3000);
     };
     return (
         <>

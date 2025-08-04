@@ -43,15 +43,15 @@ function ChangeLeader({ memberId }) {
 }
 
 export default function TeamMembers({ user, team }) {
-    const leaderFirst = team.members.sort((a) => (a.id === team.leader_id ? -1 : 0));
+    const leaderFirst = team.members.sort((a) => (a.id == team.leader_id ? -1 : 0));
 
     const teamsData = team.members.map((member, i) => ({
         number: i + 1,
         nim: member.nim,
         name: member.name,
         angkatan: `20${member.nim.substring(0, 2)}`,
-        role: member.id === user.id ? 'Saya' : 'Anggota',
-        role_is_leader: team.leader_id === member.id ? 'Ketua' : '',
+        role: member.id == user.id ? 'Saya' : 'Anggota',
+        role_is_leader: team.leader_id == member.id ? 'Ketua' : '',
         email: member.email,
         phone: member.phone,
         line_id: member.line_id,

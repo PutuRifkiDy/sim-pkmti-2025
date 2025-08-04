@@ -38,7 +38,7 @@ export default function Show({ auth, proofs, flash }) {
                             role="tab"
                             className="tab leading-[28px] tracking-[0.03em] "
                             aria-label="Form Bukti"
-                            checked={activeTab === 0}
+                            checked={activeTab == 0}
                             onChange={() => setActiveTab(0)}
                         />
                         <div role="tabpanel" className="tab-content py-5">
@@ -75,7 +75,7 @@ export default function Show({ auth, proofs, flash }) {
                             role="tab"
                             className="tab leading-[28px] tracking-[0.03em] "
                             aria-label="Bukti Asistensi"
-                            checked={activeTab === 1}
+                            checked={activeTab == 1}
                             onChange={() => setActiveTab(1)}
                         />
                         <div role="tabpanel" className="tab-content py-5">

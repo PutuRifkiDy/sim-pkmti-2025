@@ -23,6 +23,9 @@ export default function UpdateProfileForm({ user }) {
         e.preventDefault();
 
         patch(route("profile.update"));
+        setTimeout(() => {
+            window.location.reload();
+        }, 3000);
     };
 
     return (

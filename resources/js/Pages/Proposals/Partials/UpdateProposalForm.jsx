@@ -189,7 +189,7 @@ export default function UpdateProposalForm({ user, proposal }) {
                                 >
                                     Simpan Proposal
                                 </button>
-                                {(user.id === proposal.team.leader_id || user.role === "admin") && (
+                                {(user.id == proposal.team.leader_id || user.role == "admin") && (
                                     <div className="w-full">
                                         <button type="button" className="w-full flex flex-row justify-center items-center gap-2 font-bold bg-[#E82323] py-2 tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#E82323]/70transition-all duration-300 shadow-[0_0_10px_#E82323]" onClick={() => document.getElementById("delete-proposal").showModal()}>
                                             Hapus Proposal

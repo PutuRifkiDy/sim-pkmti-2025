@@ -285,6 +285,7 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
                                             <a
                                                 href={proof.proof_url}
                                                 className="font-bold text-sm"
+                                                target="_blank"
                                             >
                                                 URL :&nbsp;
                                                 {useTruncatedString(
@@ -612,6 +613,7 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
                                                 rowData.draft_proposal_url
                                             }
                                             className="btn btn-sm btn-square"
+                                            target="_blank"
                                         >
                                             <PaperClipIcon className="h-4 w-4" />
                                         </a>
@@ -678,10 +680,9 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
                                         )}
                                         className="font-bold bg-[#4DE45C] px-3 py-3 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white  transition-all duration-300 shadow-[0_0_10px_#4DE45C]"
                                         onSuccess={() => {
-                                            // Saat permintaan berhasil, perbarui status di state lokal
                                             setSelectedFields((prevFields) =>
                                                 prevFields.map((proposal) =>
-                                                    proposal.id === rowData.id
+                                                    proposal.id == rowData.id
                                                         ? { ...proposal, status: 'approved' }
                                                         : proposal
                                                 )

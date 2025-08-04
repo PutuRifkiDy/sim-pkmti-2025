@@ -33,7 +33,7 @@ export default function Welcome({ auth }) {
     }, []);
 
     const handleAccordionClick = (index) => {
-        setOpenIndex(openIndex === index ? null : index);
+        setOpenIndex(openIndex == index ? null : index);
     };
 
     useEffect(() => {
@@ -102,7 +102,6 @@ export default function Welcome({ auth }) {
 
     const [showAll, setShowAll] = useState(false);
 
-    // Batasi data jika showAll === false
     const displayedEvents = showAll ? timeline : timeline.slice(0, 5);
 
 
@@ -724,21 +723,21 @@ export default function Welcome({ auth }) {
                 >
                     <div
                         onClick={() => setActiveCategoryFaq("Guidebook")}
-                        className={`${activeCategoryFaq === "Guidebook" ? "bg-[#59DFD1] shadow-[0_0_20px_#59DFD1] text-white" : ""
+                        className={`${activeCategoryFaq == "Guidebook" ? "bg-[#59DFD1] shadow-[0_0_20px_#59DFD1] text-white" : ""
                             } hover:bg-[#59DFD1] hover:shadow-[0_0_10px_#59DFD1] hover:text-white md:w-[196px] w-full md:h-[50px] h-[60px] flex justify-center items-center rounded-[50px] border-[1px] border-slate-200 text-[#42A1A4] font-bold text-[20px] transition-all duration-300 ease-in-out cursor-pointer`}
                     >
                         Guidebook
                     </div>
                     <div
                         onClick={() => setActiveCategoryFaq("Hari H PKM")}
-                        className={`${activeCategoryFaq === "Hari H PKM" ? "bg-[#59DFD1] text-white shadow-[0_0_20px_#59DFD1]" : ""
+                        className={`${activeCategoryFaq == "Hari H PKM" ? "bg-[#59DFD1] text-white shadow-[0_0_20px_#59DFD1]" : ""
                             } hover:bg-[#59DFD1] hover:shadow-[0_0_10px_#59DFD1] hover:text-white md:w-[196px] w-full md:h-[50px] h-[60px] flex justify-center items-center rounded-[50px] border-[1px] border-slate-200 text-[#42A1A4] font-bold text-[20px] transition-all duration-300 ease-in-out cursor-pointer`}
                     >
                         Hari H PKM
                     </div>
                     <div
                         onClick={() => setActiveCategoryFaq("Klinik PKM")}
-                        className={`${activeCategoryFaq === "Klinik PKM" ? "bg-[#59DFD1] text-white shadow-[0_0_20px_#59DFD1]" : ""
+                        className={`${activeCategoryFaq == "Klinik PKM" ? "bg-[#59DFD1] text-white shadow-[0_0_20px_#59DFD1]" : ""
                             } hover:bg-[#59DFD1] hover:shadow-[0_0_10px_#59DFD1] hover:text-white md:w-[196px] w-full md:h-[50px] h-[60px] flex justify-center items-center rounded-[50px] border-[1px] border-slate-200 text-[#42A1A4] font-bold text-[20px] transition-all duration-300 ease-in-out cursor-pointer`}
                     >
                         Klinik PKM
@@ -751,7 +750,7 @@ export default function Welcome({ auth }) {
                             <IconFaq />
                         </div>
                     </div>
-                    {activeCategoryFaq === "Guidebook" && (
+                    {activeCategoryFaq == "Guidebook" && (
                         <div
                             className="flex flex-col gap-2 md:w-[636px] w-full dark:text-gray-400"
 
@@ -759,31 +758,31 @@ export default function Welcome({ auth }) {
                             <Accordion
                                 heading="Apa fungsi guidebook PKM TI 2025?"
                                 description="Guidebook berfungsi sebagai panduan resmi yang memuat seluruh informasi penting terkait alur pelaksanaan pelatihan PKM TI 2025."
-                                isOpen={openIndex === 0}
+                                isOpen={openIndex == 0}
                                 onClick={() => handleAccordionClick(0)}
                             />
                             <Accordion
                                 heading="Bagaimana jika terdapat bagian dalam guidebook yang tidak dipahami peserta?"
                                 description="Peserta dapat menanyakan langsung kepada narahubung (contact person) yang tertera pada halaman web."
-                                isOpen={openIndex === 1}
+                                isOpen={openIndex == 1}
                                 onClick={() => handleAccordionClick(1)}
                             />
                             <Accordion
                                 heading="Apakah ketentuan tim dan proposal dijelaskan di Guidebook?"
                                 description="Ya, guidebook mencantumkan ketentuan terkait pembentukan tim, mekanisme pelatihan, dan struktur penyusunan proposal yang harus diikuti peserta."
-                                isOpen={openIndex === 2}
+                                isOpen={openIndex == 2}
                                 onClick={() => handleAccordionClick(2)}
                             />
                             <Accordion
                                 heading="Apakah isi guidebook mencakup contoh proposal PKM dan format proposal PKM?"
                                 description="Ya, guidebook menyertakan contoh proposal serta format penulisan proposal PKM sesuai pedoman yang berlaku agar memudahkan peserta dalam penulisan."
-                                isOpen={openIndex === 3}
+                                isOpen={openIndex == 3}
                                 onClick={() => handleAccordionClick(3)}
                             />
 
                         </div>
                     )}
-                    {activeCategoryFaq === "Hari H PKM" && (
+                    {activeCategoryFaq == "Hari H PKM" && (
                         <div
                             className="flex flex-col gap-2 md:w-[636px] w-full dark:text-gray-400"
 
@@ -791,56 +790,56 @@ export default function Welcome({ auth }) {
                             <Accordion
                                 heading="Kapan dan di mana Hari H Pelatihan PKM TI akan dilaksanakan?"
                                 description="Hari H pelatihan PKM TI akan dilaksanakan pada Sabtu, 23 Agustus 2025 melalui zoom. Informasi lengkap mengenai tanggal dan platform pelaksanaan akan diumumkan melalui media resmi panitia."
-                                isOpen={openIndex === 0}
+                                isOpen={openIndex == 0}
                                 onClick={() => handleAccordionClick(0)}
                             />
                             <Accordion
                                 heading="Apa saja topik yang akan dibahas dalam kegiatan pelatihan?"
                                 description="Topik yang dibahas meliputi pengenalan PKM dan membedah judul proposal yang lolos pendanaan."
-                                isOpen={openIndex === 1}
+                                isOpen={openIndex == 1}
                                 onClick={() => handleAccordionClick(1)}
                             />
                             <Accordion
                                 heading="Apakah ada sesi tanya jawab langsung dengan pembicara pada Hari H?"
                                 description="Ya, sesi tanya jawab langsung disediakan agar peserta dapat berinteraksi dan memperdalam pemahaman terhadap materi yang disampaikan oleh narasumber."
-                                isOpen={openIndex === 2}
+                                isOpen={openIndex == 2}
                                 onClick={() => handleAccordionClick(2)}
                             />
                             <Accordion
                                 heading="Bagaimana jika saya berhalangan hadir pada Hari H PKM?"
                                 description="Kehadiran pada Hari H sangat dianjurkan karena berkaitan dengan absensi dan sertifikat. Peserta diperbolehkan tidak menghadiri kegiatan dengan syarat dan ketentuan berlaku."
-                                isOpen={openIndex === 3}
+                                isOpen={openIndex == 3}
                                 onClick={() => handleAccordionClick(3)}
                             />
 
                         </div>
                     )}
-                    {activeCategoryFaq === "Klinik PKM" && (
+                    {activeCategoryFaq == "Klinik PKM" && (
                         <div
                             className="flex flex-col gap-2 md:w-[636px] w-full dark:text-gray-400"
                         >
                             <Accordion
                                 heading="Apakah Klinik PKM TI wajib diikuti oleh seluruh peserta pelatihan?"
                                 description="Ya, seluruh peserta pelatihan PKM TI wajib mengikuti Klinik PKM TI."
-                                isOpen={openIndex === 0}
+                                isOpen={openIndex == 0}
                                 onClick={() => handleAccordionClick(0)}
                             />
                             <Accordion
                                 heading="Apakah draft proposal akan dievaluasi dalam Klinik PKM TI?"
                                 description="Draft proposal akan dievaluasi pada Klinik PKM TI, selanjutnya proposal yang dievaluasi harus diperbaiki oleh tim terkait."
-                                isOpen={openIndex === 1}
+                                isOpen={openIndex == 1}
                                 onClick={() => handleAccordionClick(1)}
                             />
                             <Accordion
                                 heading="Di mana saya harus mengunggah proposal hasil revisi setelah Klinik PKM?"
                                 description="Proposal hasil revisi wajib diunggah kembali pada platform resmi pelatihan yaitu di menu Proposal PKM di laman pkm.hmtiudayana.id, sesuai dengan batas waktu yang ditentukan."
-                                isOpen={openIndex === 2}
+                                isOpen={openIndex == 2}
                                 onClick={() => handleAccordionClick(2)}
                             />
                             <Accordion
                                 heading="Apakah peserta harus menyalakan kamera selama mengikuti Klinik PKM?"
                                 description="Ya, peserta wajib menghidupkan kamera selama Klinik PKM berlangsung sebagai bukti kehadiran. Kehadiran hanya akan dicatat jika kamera aktif dan peserta tidak menggunakan virtual background dengan foto."
-                                isOpen={openIndex === 3}
+                                isOpen={openIndex == 3}
                                 onClick={() => handleAccordionClick(3)}
                             />
 

@@ -178,10 +178,10 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
         };
 
         return (
-            <div className={`w-full px-5 py-3.5 flex flex-row gap-5 items-center ${mode === "error" ? "bg-[#FA3434]/10 border-l-4 rounded-l-[4px] border-[#FA3434]" : " "} ${mode === "warning" ? "bg-[#CFD249]/10 border-l-4 rounded-l-[4px] border-[#CFD249]" : " "} ${mode === "success" ? "bg-[#4DE45C]/10 border-l-4 rounded-l-[4px] border-[#4DE45C]" : " "} mb-2`}>
+            <div className={`w-full px-5 py-3.5 flex flex-row gap-5 items-center ${mode == "error" ? "bg-[#FA3434]/10 border-l-4 rounded-l-[4px] border-[#FA3434]" : " "} ${mode == "warning" ? "bg-[#CFD249]/10 border-l-4 rounded-l-[4px] border-[#CFD249]" : " "} ${mode == "success" ? "bg-[#4DE45C]/10 border-l-4 rounded-l-[4px] border-[#4DE45C]" : " "} mb-2`}>
                 {icon[mode]}
                 <div>
-                    <div className={`font-bold text-[14px] leading-[16px] ${mode === "error" ? "text-[#FA3434]" : " "} ${mode === "warning" ? "text-[#CFD249]" : " "} ${mode === "success" ? "text-[#4DE45C]" : " "}`} >{text}</div>
+                    <div className={`font-bold text-[14px] leading-[16px] ${mode == "error" ? "text-[#FA3434]" : " "} ${mode == "warning" ? "text-[#CFD249]" : " "} ${mode == "success" ? "text-[#4DE45C]" : " "}`} >{text}</div>
                 </div>
             </div>
         );

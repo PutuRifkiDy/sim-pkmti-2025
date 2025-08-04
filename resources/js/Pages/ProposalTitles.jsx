@@ -14,7 +14,7 @@ export default function ProposalTitles({ auth }) {
     // Filter data berdasarkan jenis PKM
     const filteredData = selectedType
         ? propos_title_example
-            .filter(proposal => proposal.scheme === selectedType)
+            .filter(proposal => proposal.scheme == selectedType)
             .map(proposal => ({
                 id: proposal.id,
                 title: proposal.title,
@@ -42,7 +42,7 @@ export default function ProposalTitles({ auth }) {
                         <button
                             key={type}
                             onClick={() => setSelectedType(type)}
-                            className={`border px-16 py-4 md:min-w-fit min-w-full rounded-xl shadow-xl font-bold ${selectedType === type ? 'bg-[#42A1A4] text-white' : 'border-gray-300 text-black dark:text-gray-400 '
+                            className={`border px-16 py-4 md:min-w-fit min-w-full rounded-xl shadow-xl font-bold ${selectedType == type ? 'bg-[#42A1A4] text-white' : 'border-gray-300 text-black dark:text-gray-400 '
                                 }`}
                         >
                             {type}
@@ -50,7 +50,7 @@ export default function ProposalTitles({ auth }) {
                     ))}
                     <button
                         onClick={() => setSelectedType(null)}
-                        className={`border px-16 py-4 rounded-xl shadow-xl font-bold ${selectedType === null ? 'bg-[#42A1A4] text-white' : 'border-gray-300 text-black dark:text-gray-400 '
+                        className={`border px-16 py-4 rounded-xl shadow-xl font-bold ${selectedType == null ? 'bg-[#42A1A4] text-white' : 'border-gray-300 text-black dark:text-gray-400 '
                             }`}
                     >
                         Semua
