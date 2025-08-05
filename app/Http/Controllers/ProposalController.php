@@ -104,7 +104,7 @@ class ProposalController extends Controller
         Proposal::where('team_id', $teamId)->first()->update($request->all());
 
         // if updated by participant, set status to pending
-        if ($request->user()->role == 'participant') {
+        if ($request->user()->role == 'participant' || $request->user()->role == 'admin') {
             Proposal::where('team_id', $teamId)->first()->update(['status' => 'pending']);
         }
 
