@@ -158,7 +158,6 @@ Route::middleware('auth')->group(function () {
 
     Route::middleware(['role:admin'])->resource('users', UserController::class);
     Route::middleware(['role:admin'])->post('users/{user}', [UserController::class, 'update'])->name('users.update');
-    // route untuk fitur reset password menjadi nim mereka
     Route::middleware(['role:admin'])->post('user/{user}/reset-password', [UserController::class, 'resetPassword'])->name('users.reset-password');
 });
 

@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use App\Jobs\SendEmailJob;
 use App\Models\Proposal;
+use App\Models\Team;
 use App\Models\User;
 use App\Rules\MaxWordCount;
 use App\Rules\ValidProposalScheme;
@@ -64,6 +65,10 @@ class ProposalController extends Controller
             if ($teamMembersCount < 3) {
                 return back()->with('msg', 'Tim terdiri dari minimal 3 orang untuk mengajukan proposal');
             }
+        }
+
+        if (!Team::find($teamId)->lecturer_id) {
+            return back()->with('msg', 'Tim anda belum memiliki dosen pembimbing');
         }
 
         Proposal::create([
