@@ -895,7 +895,7 @@ export default function Welcome({ auth }) {
                         </div>
                         <div className="flex flex-row justify-start gap-4">
                             <IconWhatsapp />
-                            <a href="https://wa.me/6281214633420" target="_blank" className="text-base text-[#2A3374] dark:text-white">+62 859-4089-9163</a>
+                            <a href="https://wa.me/6281214633420" target="_blank" className="text-base text-[#2A3374] dark:text-white">+62 812-1463-3420</a>
                         </div>
                     </div>
                     <div className="flex flex-col gap-2 bg-[#285B70] py-4 pl-4 pr-24 rounded-b-2xl border-t-2 border-[#285B70] bg-opacity-20 dark:text-gray-400" data-aos="fade-up" data-aos-duration="600">

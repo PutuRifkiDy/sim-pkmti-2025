@@ -440,7 +440,7 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
             router.delete(route("proposals.destroy", proposalToDelete.team_id), {
                 onSuccess: () => {
                     setSelectedFields((prevData) =>
-                        prevData.filter((proposals) => proposals.id !== proposalToDelete.id)
+                        prevData.filter((proposals) => proposals.id != proposalToDelete.id)
                     );
                 },
                 onError: () => {
