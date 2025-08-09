@@ -25,6 +25,7 @@ import {
 import { Link, router, useForm, usePage } from "@inertiajs/react";
 import Toast from "@/Components/Toast";
 import { useIsObjectEmpty, useRandomInt, useTruncatedString } from "@/utils";
+import { useRef } from "react";
 
 export default function ShowProposals({ auth, proposals, flash, errors, total_proposal, total_pending, total_accept, total_reject }) {
     const { user } = auth;
@@ -345,11 +346,15 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
                 type: 'array'
             });
 
-            saveAsExcelFile(excelBuffer, 'Peserta PKM TI 2025');
+            saveAsExcelFile(excelBuffer, 'Proposala PKM TI 2025');
         });
     };
 
+    const dt = useRef(null);
 
+    const exportCSV = (selectionOnly) => {
+        dt.current.exportCSV({ selectionOnly });
+    };
 
     const saveAsExcelFile = (buffer, fileName) => {
         import('file-saver').then((module) => {
@@ -568,14 +573,14 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
                             field="nomor"
                             className="text-center"
                             body={rowNumberTemplate}
-                            header={<span className="me-2">#</span>}
+                            header="#"
                         />
                         <Column
                             editor={(rowData) => textEditor(rowData)}
                             key="title"
                             field="title"
                             className="min-w-64 text-justify"
-                            header={<span className="me-2">Judul</span>}
+                            header="Judul"
                             sortable
                         />
                         <Column
@@ -583,9 +588,7 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
                             key="description"
                             field="description"
                             className="min-w-96 text-justify"
-                            header={
-                                <span className="me-2">Gambaran Umum</span>
-                            }
+                            header="Gambaran Umum"
                             body={(rowData) =>
                                 rowData.description &&
                                 useTruncatedString(rowData.description, 150)
@@ -595,17 +598,13 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
                             key="lecturer"
                             field="lecturer"
                             className="min-w-64"
-                            header={
-                                <span className="me-2">
-                                    Dosen Pembimbing
-                                </span>
-                            }
+                            header="Dosen Pembimbing"
                         />
                         <Column
                             key="team_name"
                             field="team_name"
                             className="min-w-48"
-                            header={<span className="me-2">Nama Tim</span>}
+                            header="Nama Tim"
                             sortable
                         />
                         <Column
@@ -613,7 +612,7 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
                             key="scheme"
                             field="scheme"
                             className="min-w-48"
-                            header={<span className="me-2">Skema PKM</span>}
+                            header="Skema PKM"
                             sortable
                             filter
                             filterElement={SkemaPKMFilterTemplate}
@@ -665,7 +664,7 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
                             editor={(rowData) => textEditor(rowData)}
                             key="note"
                             field="note"
-                            header={<span className="me-2">Catatan</span>}
+                            header="Catatan"
                             className="min-w-96 text-justify"
                         />
                         <Column
@@ -680,7 +679,7 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
                             key="status"
                             field="status"
                             className="min-w-44 text-center"
-                            header={<span className="me-2">Status</span>}
+                            header="Status"
                             sortable
                             filter
                             filterElement={StatusFilterTemplate}

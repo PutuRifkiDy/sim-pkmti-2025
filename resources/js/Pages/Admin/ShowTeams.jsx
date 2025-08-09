@@ -25,6 +25,7 @@ import Toast from "@/Components/Toast";
 import { Tooltip } from 'primereact/tooltip';
 import { useIsObjectEmpty, useRandomInt } from "@/utils";
 import { ConfirmDialog } from "primereact/confirmdialog";
+import { useRef } from "react";
 
 
 export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
@@ -305,11 +306,9 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
                 type: 'array'
             });
 
-            saveAsExcelFile(excelBuffer, 'Peserta PKM TI 2025');
+            saveAsExcelFile(excelBuffer, 'Daftar Team PKM TI 2025');
         });
     };
-
-
 
     const saveAsExcelFile = (buffer, fileName) => {
         import('file-saver').then((module) => {
@@ -323,6 +322,11 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
         });
     };
 
+    const dt = useRef(null);
+
+    const exportCSV = (selectionOnly) => {
+        dt.current.exportCSV({ selectionOnly });
+    };
 
     const exportPdf = () => {
         import('jspdf').then((jsPDF) => {
@@ -400,6 +404,7 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
                     )}
                     <div className="px-8 py-8 rounded-[14px] card bg-white mt-10 shadow">
                         <DataTable
+                            ref={dt}
                             paginator
                             showGridlines
                             value={selectedFields}
@@ -444,7 +449,7 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
                                 editor={(rowData) => textEditor(rowData)}
                                 key="team_name"
                                 field="team_name"
-                                header={<span className="me-2">Nama Tim</span>}
+                                header="Nama Tim"
                                 sortable
                                 filter
                                 filterElement={NameTeamFilterTemplate}
@@ -453,16 +458,14 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
                             <Column
                                 key="leader_nim"
                                 field="leader_nim"
-                                header={<span className="me-2">NIM Ketua</span>}
+                                header="NIM Ketua"
                                 sortable
                                 style={{ minWidth: '12rem' }}
                             />
                             <Column
                                 key="leader_name"
                                 field="leader_name"
-                                header={
-                                    <span className="me-2">Nama Ketua</span>
-                                }
+                                header="Nama Ketua"
                                 sortable
                                 filter
                                 style={{ minWidth: '15rem' }}
@@ -471,11 +474,7 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
                             <Column
                                 key="lecturer"
                                 field="lecturer"
-                                header={
-                                    <span className="me-2">
-                                        Dosen Pembimbing
-                                    </span>
-                                }
+                                header="Dosen Pembimbing"
                                 sortable
                                 filter
                                 style={{ minWidth: '15rem' }}
@@ -486,13 +485,13 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
                                 field="members"
                                 body={membersDetail}
                                 className="text-center"
-                                header={<span className="me-2">Anggota</span>}
+                                header="Anggota"
                             />
                             <Column
                                 editor={(rowData) => textEditor(rowData)}
                                 key="token"
                                 field="token"
-                                header={<span className="me-2">Token</span>}
+                                header="Token"
                             />
                             <Column
                                 rowEditor={true}
@@ -518,8 +517,8 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
                             ></Column>
                         </DataTable>
                     </div>
-                </div>
-            </AdminLayout>
+                </div >
+            </AdminLayout >
             <ConfirmDialog
                 visible={visible}
                 onHide={() => setVisible(false)}
