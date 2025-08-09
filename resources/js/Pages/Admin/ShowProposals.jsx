@@ -346,7 +346,7 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
                 type: 'array'
             });
 
-            saveAsExcelFile(excelBuffer, 'Proposala PKM TI 2025');
+            saveAsExcelFile(excelBuffer, 'Proposal PKM TI 2025');
         });
     };
 
