@@ -234,7 +234,7 @@ export default function Dashboard({ auth, proposals, teams, users, proposal_ispe
 
 
     const NameTeamFilterTemplate = (options) => {
-        const teams = [...new Set(get_teams.map((team) => team.role))].map(team_name => ({
+        const teams = [...new Set(get_teams.map((team) => team.team_name))].map(team_name => ({
             label: team_name ? team_name : "-",
             value: team_name ? team_name : "-"
         }));
