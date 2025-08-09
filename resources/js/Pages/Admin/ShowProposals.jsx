@@ -104,6 +104,10 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
             global: { value: null, matchMode: FilterMatchMode.CONTAINS },
             scheme: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
             status: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
+            title: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
+            description: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
+            status: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
+            note: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
         });
         setGlobalFilterValue("");
     };
@@ -546,7 +550,7 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
                         paginatorTemplate="RowsPerPageDropdown FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
                         currentPageReportTemplate="{first} to {last} of {totalRecords}"
                         filters={filters}
-                        globalFilterFields={["team_name", "leader_name", "leader_nim", "lecturer", "token"]}
+                        globalFilterFields={["scheme", "title", "description", "status", "note"]}
                         header={renderHeader()}
                         emptyMessage="Tidak ada data ditemukan."
                         onFilter={(e) => setFilters(e.filters)}
