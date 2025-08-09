@@ -154,7 +154,7 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
                     id={"reject_proposal_modal" + rowData.id}
                     className="modal text-left"
                 >
-                    <div className="modal-box w-1/2 max-w-5xl">
+                    <div className="modal-box md:w-1/2 w-full max-w-5xl">
                         <h3 className="font-bold text-lg mb-4">Anggota</h3>
 
                         <DataTable value={rowData.members}>
