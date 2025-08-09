@@ -535,6 +535,7 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
                 )}
                 <div className="px-8 py-8 rounded-[14px] bg-white  mt-10 shadow">
                     <DataTable
+                        ref={dt}
                         paginator
                         showGridlines
                         value={selectedFields}
