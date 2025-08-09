@@ -5,9 +5,9 @@ import {
     PencilIcon,
     TrashIcon,
 } from "@heroicons/react/24/solid";
-import { Link, useForm } from "@inertiajs/react";
+import { Link, router, useForm } from "@inertiajs/react";
 
-export default function Proof({ proof, order }) {
+export default function Proof({ proof, order, key }) {
     const { data, setData, patch, processing, errors } = useForm({
         proof_url: proof.proof_url,
         assistance_date: proof.assistance_date,
@@ -17,6 +17,7 @@ export default function Proof({ proof, order }) {
         e.preventDefault();
 
         patch(route("assistance-proofs.update", [useParam(1), proof.id]));
+
     };
 
     return (
@@ -105,17 +106,27 @@ export default function Proof({ proof, order }) {
                             <p className="py-4">Apakah Anda yakin untuk hapus bukti asistensi ini?</p>
                             <div className="modal-action">
                                 <form method="dialog">
-                                    <Link
-                                        as="button"
+                                    <button
+                                        type="button"
                                         className="btn bg-red-500 text-white"
-                                        method="delete"
-                                        href={route("assistance-proofs.destroy", [
-                                            useParam(1),
-                                            proof.id,
-                                        ])}
-                                    >
-                                        Hapus
-                                    </Link>
+                                        onClick={() => {
+                                            router.delete(
+                                                route("assistance-proofs.destroy", [
+                                                    useParam(1),
+                                                    proof.id,
+                                                ]),
+                                                {
+                                                    onSuccess: () => {
+                                                        document
+                                                            .getElementById(
+                                                                "delete-asistance-confirmation"
+                                                            )
+                                                            .close();
+                                                    },
+                                                }
+                                            );
+                                        }}
+                                    >Hapus</button>
                                     <button className="btn ms-1">Batal</button>
                                 </form>
                             </div>

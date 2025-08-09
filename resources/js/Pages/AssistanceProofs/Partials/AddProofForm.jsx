@@ -14,9 +14,6 @@ export default function AddProofForm({onSuccess}) {
         post(route("assistance-proofs.add", useParam(1)), {
             onSuccess: () => {
                 reset("proof_url", "assistance_date");
-                if (onSuccess) {
-                    onSuccess();
-                }
             },
         });
     };
