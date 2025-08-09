@@ -30,6 +30,8 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
     const { props } = usePage();
     const [visible, setVisible] = useState(false);
     const [userToDelete, setUserToDelete] = useState(null);
+    const [toastShown, setToastShown] = useState(false);
+    const [toastKey, setToastKey] = useState(0);
 
     const [selectedFields, setSelectedFields] = useState(
         users.map((user) => {
@@ -78,6 +80,17 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
     useEffect(() => {
         initFilters();
     }, []);
+
+    useEffect(() => {
+        if (flash.msg) {
+            setToastKey(prev => prev + 1);
+            setToastShown(true);
+            const timeout = setTimeout(() => {
+                setToastShown(false);
+            }, 3000);
+            return () => clearTimeout(timeout);
+        }
+    }, [flash.msg]);
 
     const initFilters = () => {
         setFilters({
@@ -140,6 +153,10 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
         });
 
         setSelectedFields(_selectedFields);
+
+        setToastKey(prev => prev + 1);
+        setToastShown(true);
+        setTimeout(() => setToastShown(false), 3000);
     };
 
 
@@ -416,8 +433,11 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
             router.delete(route("users.destroy", userToDelete.id), {
                 onSuccess: () => {
                     setSelectedFields((prevData) =>
-                        prevData.filter((user) => user.id !== userToDelete.id)
+                        prevData.filter((user) => user.id != userToDelete.id)
                     );
+                    setToastKey(prev => prev + 1);
+                    setToastShown(true);
+                    setTimeout(() => setToastShown(false), 3000);
                 },
                 onError: () => {
                     alert("Penghapusan gagal.");
@@ -431,11 +451,11 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
 
     return (
         <>
-            {flash.msg && (
+            {flash.msg && toastShown && (
                 <Toast
                     content={flash.msg}
-                    key={useRandomInt()}
-                    id="users_update_information"
+                    key={toastKey}
+                    id="teams_update_information"
                 />
             )}
             <AdminLayout user={user} title="Admin">

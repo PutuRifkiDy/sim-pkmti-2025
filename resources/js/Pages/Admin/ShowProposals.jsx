@@ -33,6 +33,19 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
     const [globalFilterValue, setGlobalFilterValue] = useState("");
     const [visible, setVisible] = useState(false);
     const [proposalToDelete, setProposalToDelete] = useState(null);
+    const [toastShown, setToastShown] = useState(false);
+    const [toastKey, setToastKey] = useState(0);
+
+    useEffect(() => {
+        if (flash.msg) {
+            setToastKey(prev => prev + 1);
+            setToastShown(true);
+            const timeout = setTimeout(() => {
+                setToastShown(false);
+            }, 3000);
+            return () => clearTimeout(timeout);
+        }
+    }, [flash.msg]);
 
     // Select field that want to display
     const [selectedFields, setSelectedFields] = useState(
@@ -133,6 +146,9 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
         router.patch(route("proposals.update", e.data.team_id), patchData);
 
         setSelectedFields(_selectedFields);
+        setToastKey(prev => prev + 1);
+        setToastShown(true);
+        setTimeout(() => setToastShown(false), 3000);
     };
 
     const textEditor = (rowData) => {
@@ -442,6 +458,9 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
                     setSelectedFields((prevData) =>
                         prevData.filter((proposals) => proposals.id != proposalToDelete.id)
                     );
+                    setToastKey(prev => prev + 1);
+                    setToastShown(true);
+                    setTimeout(() => setToastShown(false), 3000);
                 },
                 onError: () => {
                     alert("Penghapusan gagal.");
@@ -453,7 +472,7 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
 
     return (
         <>
-            {flash.msg && (
+            {flash.msg && toastShown && (
                 <Toast
                     content={flash.msg}
                     key={useRandomInt()}

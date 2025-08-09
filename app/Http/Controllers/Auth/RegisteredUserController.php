@@ -58,16 +58,16 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
 
         // send welcome email
-        $emailArgs = [
-            'email' => $user->email,
-            'subject' => 'Selamat Datang di PKM TI',
-            'view' => 'emails.welcome',
-            'data' => [
-                'name' => $user->name
-            ],
-            'attachments' => []
-        ];
-        dispatch(new SendEmailJob($emailArgs));
+        // $emailArgs = [
+        //     'email' => $user->email,
+        //     'subject' => 'Selamat Datang di PKM TI',
+        //     'view' => 'emails.welcome',
+        //     'data' => [
+        //         'name' => $user->name
+        //     ],
+        //     'attachments' => []
+        // ];
+        // dispatch(new SendEmailJob($emailArgs));
 
         Auth::login($user);
 

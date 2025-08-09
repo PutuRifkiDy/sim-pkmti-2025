@@ -33,6 +33,8 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
     const [globalFilterValue, setGlobalFilterValue] = useState("");
     const [visible, setVisible] = useState(false);
     const [teamToDelete, setTeamToDelete] = useState(null);
+    const [toastShown, setToastShown] = useState(false);
+    const [toastKey, setToastKey] = useState(0);
 
     const [selectedFields, setSelectedFields] = useState(
         teams.map((team) => ({
@@ -46,6 +48,16 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
         }))
     );
 
+    useEffect(() => {
+        if (flash.msg) {
+            setToastKey(prev => prev + 1);
+            setToastShown(true);
+            const timeout = setTimeout(() => {
+                setToastShown(false);
+            }, 3000);
+            return () => clearTimeout(timeout);
+        }
+    }, [flash.msg]);
 
     useEffect(() => {
         initFilters();
@@ -94,6 +106,9 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
         router.patch(route("teams.update", e.data.id), patchData);
 
         setSelectedFields(_selectedFields);
+        setToastKey(prev => prev + 1);
+        setToastShown(true);
+        setTimeout(() => setToastShown(false), 3000);
     };
 
 
@@ -333,8 +348,11 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
             router.delete(route("admin.teams.destroy", teamToDelete.id), {
                 onSuccess: () => {
                     setSelectedFields((prevData) =>
-                        prevData.filter((teams) => teams.id !== teamToDelete.id)
+                        prevData.filter((teams) => teams.id != teamToDelete.id)
                     );
+                    setToastKey(prev => prev + 1);
+                    setToastShown(true);
+                    setTimeout(() => setToastShown(false), 3000);
                 },
                 onError: () => {
                     alert("Penghapusan gagal.");
@@ -346,7 +364,7 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
 
     return (
         <>
-            {flash.msg && (
+            {flash.msg && toastShown && (
                 <Toast
                     content={flash.msg}
                     key={useRandomInt()}
