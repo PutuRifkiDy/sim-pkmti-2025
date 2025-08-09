@@ -87,7 +87,7 @@ export default function NavBar({ auth }) {
                                 href={route("login")}
                             className="font-medium bg-[#42A1A4] px-6 py-2 rounded-md text-white hover:text-white hover:bg-[#59DFD1] dark:hover:text-white transition-all duration-300 hover:shadow-[0_0_10px_#42A1A4] shadow-[0_0_10px_#42A1A4]"
                             >
-                                Log in
+                                Masuk
                             </Link>
 
                             {/* <Link

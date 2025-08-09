@@ -204,7 +204,7 @@ export default function Welcome({ auth }) {
                                 </li>
                             </ul>
                         </details>
-                        <button className="font-bold border-[1px] border-slate-300 px-6 py-2 rounded-md text-[#59DFD1] hover:text-white hover:bg-[#42A1A4] dark:text-gray-400 dark:hover:text-white transition-all duration-300 flex flex-row gap-2 justify-center items-center hover:shadow-[0_0_10px_#42A1A4] z-40 text-[18px]" onClick={() => document.getElementById('my_modal_3').showModal()}>View Demo</button>
+                        <button className="font-bold border-[1px] border-slate-300 px-6 py-2 rounded-md text-[#59DFD1] hover:text-white hover:bg-[#42A1A4] dark:text-gray-400 dark:hover:text-white transition-all duration-300 flex flex-row gap-2 justify-center items-center hover:shadow-[0_0_10px_#42A1A4] z-40 text-[18px]" onClick={() => document.getElementById('my_modal_3').showModal()}>See Demo</button>
                         <dialog id="my_modal_3" className="modal">
                             <div className="modal-box w-11/12 max-w-5xl">
                                 <form method="dialog">
