@@ -67,7 +67,7 @@ class ProposalController extends Controller
             }
         }
 
-        if (!Team::find($teamId)->lecturer_id) {
+        if (! Team::find($teamId)->lecturer_id) {
             return back()->with('msg', 'Tim anda belum memiliki dosen pembimbing');
         }
 
@@ -105,6 +105,25 @@ class ProposalController extends Controller
         //     }
 
         // }
+
+        $user             = Auth::user();
+        $teamMembersCount = User::where('team_id', $teamId)->count();
+
+        $angkatan = substr($user->nim, 0, 2);
+
+        if ($angkatan == '24') {
+            if ($teamMembersCount != 3) {
+                return back()->with('msg', 'Tim angkatan 24 wajib terdiri dari 3 orang untuk mengajukan proposal');
+            }
+        } else {
+            if ($teamMembersCount < 3) {
+                return back()->with('msg', 'Tim terdiri dari minimal 3 orang untuk mengajukan proposal');
+            }
+        }
+
+        if (! Team::find($teamId)->lecturer_id) {
+            return back()->with('msg', 'Tim anda belum memiliki dosen pembimbing');
+        }
 
         Proposal::where('team_id', $teamId)->first()->update($request->all());
 

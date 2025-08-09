@@ -552,6 +552,14 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                         <div className="flex flex-col mt-8 justify-center items-center">
                             <img src="images/passed-icon.png" alt="" className="w-[290px] h-[290px]" />
                         </div>
+                        <div className="flex flex-col gap-1">
+                            <p className="text-[13px] text-[#5A607F] italic">
+                                *Kelulusan ini berdasarkan draf proposal, jumlah asistensi dan kehadiran pada kegiatan PKM TI 2025.
+                            </p>
+                            <p className="text-[13px] text-[#5A607F] italic">
+                                *Khusus untuk Angkatan 2023 dan 2024 wajib membuat tim ulang untuk mendapatkan sertifikat pelatihan PKM TI 2025.
+                            </p>
+                        </div>
                     </div>
 
                     <div className="flex flex-col bg-white rounded-[12px] shadow-xl p-10 gap-10 md:w-1/2 w-full">
