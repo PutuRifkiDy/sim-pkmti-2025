@@ -288,7 +288,7 @@ export default function Register() {
                                 className="mt-3 btn text-[18px] bg-[#42A1A4] text-white w-full mb-2 hover:text-white hover:bg-[#59DFD1] transition-all duration-300 hover:shadow-[0_0_10px_#42A1A4]"
                                 disabled={processing}
                             >
-                                Masuk
+                                Daftar
                             </button>
                             <p className="text-center mt-5 flex flex-row justify-center gap-1 text-[16px] ">
                                 Sudah mempunyai akun?
@@ -297,7 +297,7 @@ export default function Register() {
                                     className="text-[#42A1A4]"
                                     as="button"
                                 >
-                                    Login
+                                    Masuk
                                 </Link>
                             </p>
                         </form>
