@@ -290,7 +290,7 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
             <>
                 <Tooltip target=".export-button" />
                 <div className="flex md:flex-row flex-col md:gap-0 gap-5 justify-between items-center">
-                    <div className="flex flex-row gap-2">
+                    <div className="flex md:flex-row flex-col gap-2">
                         <IconField iconPosition="left">
                             <InputIcon className="pi pi-search" />
                             <InputText
@@ -460,28 +460,28 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
             )}
             <AdminLayout user={user} title="Admin">
                 <div className="flex flex-col md:flex-row justify-between gap-2">
-                    <div className="flex flex-row gap-5 bg-white rounded-[14px] p-5 shadow">
+                    <div className="flex flex-row justify-between gap-5 bg-white rounded-[14px] p-5 shadow">
                         <div className="flex flex-col gap-1">
                             <p className="font-medium text-[16px] text-[#202224]/70  tracking-[0.03em]">Jumlah Angkatan 2021</p>
                             <p className="font-bold text-[28px] tracking-[1px] ">{akt21}</p>
                         </div>
                         <img src="/images/admin/icon-jumlah-pengguna.png" className="w-[60px] h-[60px]" alt="" />
                     </div>
-                    <div className="flex flex-row gap-5 bg-white rounded-[14px] p-5 shadow">
+                    <div className="flex flex-row justify-between gap-5 bg-white rounded-[14px] p-5 shadow">
                         <div className="flex flex-col gap-1">
                             <p className="font-medium text-[16px] text-[#202224]/70 tracking-[0.03em] ">Jumlah Angkatan 2022</p>
                             <p className=" font-bold text-[28px] tracking-[1px]">{akt22}</p>
                         </div>
                         <img src="/images/admin/icon-jumlah-pengguna.png" className="w-[60px] h-[60px]" alt="" />
                     </div>
-                    <div className="flex flex-row gap-5 bg-white rounded-[14px] p-5 shadow">
+                    <div className="flex flex-row justify-between gap-5 bg-white rounded-[14px] p-5 shadow">
                         <div className="flex flex-col gap-1">
                             <p className="font-medium text-[16px] text-[#202224]/70 tracking-[0.03em] ">Jumlah Angkatan 2023</p>
                             <p className=" font-bold text-[28px] tracking-[1px]">{akt23}</p>
                         </div>
                         <img src="/images/admin/icon-jumlah-pengguna.png" className="w-[60px] h-[60px]" alt="" />
                     </div>
-                    <div className="flex flex-row gap-5 bg-white rounded-[14px] p-5 shadow">
+                    <div className="flex flex-row justify-between gap-5 bg-white rounded-[14px] p-5 shadow">
                         <div className="flex flex-col gap-1">
                             <p className=" font-medium text-[16px] text-[#202224]/70 tracking-[0.03em]">Jumlah Angkatan 2024</p>
                             <p className=" font-bold text-[28px] tracking-[1px]">

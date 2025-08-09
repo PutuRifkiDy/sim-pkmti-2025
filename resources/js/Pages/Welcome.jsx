@@ -188,10 +188,10 @@ export default function Welcome({ auth }) {
                             Guidebook
                         </a> */}
                         <details className="dropdown">
-                            <summary className="btn font-bold bg-[#42A1A4] px-12 py-3 rounded-md text-white hover:text-white hover:bg-[#59DFD1] dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#42A1A4] z-50 border-none text-[18px]">
+                            <summary className="btn font-bold bg-[#42A1A4] px-12 py-3 rounded-md text-white hover:text-white hover:bg-[#59DFD1] dark:hover:text-white transition-all duration-300 shadow-[0_0_10px_#42A1A4] z-50 border-none text-[18px] w-full">
                                 Guidebook
                             </summary>
-                            <ul className="menu dropdown-content bg-base-100 rounded-md z-1 w-max p-2 shadow-sm">
+                            <ul className="menu dropdown-content bg-base-100 rounded-md md:w-max w-full p-2 shadow-sm dark:bg-white z-50">
                                 <li>
                                     <a href="https://docs.google.com/document/d/1IiPt4fwXxcEtM3zykOxGxDptC3VsGJLM/edit?usp=sharing&ouid=112988973086027762490&rtpof=true&sd=true" className="font-medium" target="_blank">
                                         Guidebook Angkatan 24
@@ -204,12 +204,10 @@ export default function Welcome({ auth }) {
                                 </li>
                             </ul>
                         </details>
-                        {/* You can open the modal using document.getElementById('ID').showModal() method */}
-                        <button className="font-bold border-[1px] border-slate-300 px-6 py-2 rounded-md text-[#59DFD1] hover:text-white hover:bg-[#42A1A4] dark:text-gray-400 dark:hover:text-white transition-all duration-300 flex flex-row gap-2 justify-center items-center hover:shadow-[0_0_10px_#42A1A4] z-50 text-[18px]" onClick={() => document.getElementById('my_modal_3').showModal()}>View Demo</button>
+                        <button className="font-bold border-[1px] border-slate-300 px-6 py-2 rounded-md text-[#59DFD1] hover:text-white hover:bg-[#42A1A4] dark:text-gray-400 dark:hover:text-white transition-all duration-300 flex flex-row gap-2 justify-center items-center hover:shadow-[0_0_10px_#42A1A4] z-40 text-[18px]" onClick={() => document.getElementById('my_modal_3').showModal()}>View Demo</button>
                         <dialog id="my_modal_3" className="modal">
                             <div className="modal-box w-11/12 max-w-5xl">
                                 <form method="dialog">
-                                    {/* if there is a button in form, it will close the modal */}
                                     <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                                 </form>
                                 <h3 className="font-bold text-lg mb-3 dark:text-slate-200">Demonstrasi Sistem Informasi PKM TI 2025</h3>
@@ -296,7 +294,7 @@ export default function Welcome({ auth }) {
                         <p className="text-[24px] leading-[1.8em] text-[#111E41] dark:text-[#42A1A4] font-bold" data-aos="fade-up" data-aos-delay="200">
                             Apa itu PKM TI 2025?
                         </p>
-                        <p className="text-[17px] leading-[1.8em] text-[#111E41] dark:text-gray-400 z-50" data-aos="fade-up" data-aos-delay="300">
+                        <p className="text-[17px] leading-[1.8em] text-[#111E41] dark:text-gray-400 z-40" data-aos="fade-up" data-aos-delay="300">
                             Pelatihan PKM Teknologi Informasi 2025 oleh HMTI bertujuan memberikan platform bagi mahasiswa untuk memperluas pengetahuan tentang Program Kreativitas Mahasiswa (PKM). Mengusung tema “Mengasah Kreativitas Mahasiswa untuk Menghasilkan
                             Karya Inovatif Melalui PKM” pelatihan ini diharapkan memotivasi mahasiswa Teknologi Informasi untuk mengembangkan kreativitas visioner dan mengikuti tren masa depan. Kegiatan ini juga bertujuan meningkatkan pemahaman mahasiswa terkait pengembangan judul, penyesuaian format pedoman, teknik penelitian, dan keterampilan teknis.
                         </p>

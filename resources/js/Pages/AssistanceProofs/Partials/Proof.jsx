@@ -126,7 +126,9 @@ export default function Proof({ proof, order, key }) {
                                                 }
                                             );
                                         }}
-                                    >Hapus</button>
+                                    >
+                                        Hapus
+                                    </button>
                                     <button className="btn ms-1">Batal</button>
                                 </form>
                             </div>

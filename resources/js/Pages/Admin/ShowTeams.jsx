@@ -272,7 +272,7 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
             <>
                 <Tooltip target=".export-button" />
                 <div className="flex md:flex-row flex-col md:gap-0 gap-5 justify-between items-center">
-                    <div className="flex flex-row gap-2">
+                    <div className="flex md:flex-row flex-col gap-2">
                         <IconField iconPosition="left">
                             <InputIcon className="pi pi-search" />
                             <InputText

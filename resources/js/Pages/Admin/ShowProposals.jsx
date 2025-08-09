@@ -429,7 +429,7 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
             <>
                 <Tooltip target=".export-button" />
                 <div className="flex md:flex-row flex-col md:gap-0 gap-5 justify-between items-center">
-                    <div className="flex flex-row gap-2">
+                    <div className="flex md:flex-row flex-col gap-2">
                         <IconField iconPosition="left">
                             <InputIcon className="pi pi-search" />
                             <InputText
@@ -482,28 +482,28 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
 
             <AdminLayout user={user} title="Admin">
                 <div className="flex flex-col md:flex-row justify-between gap-2 mt-5">
-                    <div className="flex flex-row gap-10 rounded-[14px] p-5 bg-white  shadow">
+                    <div className="flex flex-row justify-between gap-10 rounded-[14px] p-5 bg-white  shadow">
                         <div className="flex flex-col gap-1">
                             <p className="font-medium text-[16px] light:text-[#202224]/70  tracking-[0.03em]">Jumlah Proposal</p>
                             <p className=" font-bold text-[28px] tracking-[1px]">{total_proposal}</p>
                         </div>
                         <img src="/images/admin/icon-jumlah-pengguna.png" className="w-[60px] h-[60px]" alt="" />
                     </div>
-                    <div className="flex flex-row gap-12 rounded-[14px] p-5 bg-white  shadow">
+                    <div className="flex flex-row justify-between gap-12 rounded-[14px] p-5 bg-white  shadow">
                         <div className="flex flex-col gap-1">
                             <p className="font-medium text-[16px] light:text-[#202224]/70  tracking-[0.03em]">Jumlah Diterima</p>
                             <p className=" font-bold text-[28px] tracking-[1px]">{total_accept}</p>
                         </div>
                         <img src="/images/admin/icon-jumlah-tim.png" className="w-[60px] h-[60px]" alt="" />
                     </div>
-                    <div className="flex flex-row gap-12 rounded-[14px] p-5 bg-white  shadow">
+                    <div className="flex flex-row justify-between gap-12 rounded-[14px] p-5 bg-white  shadow">
                         <div className="flex flex-col gap-1">
                             <p className="font-medium text-[16px] light:text-[#202224]/70  tracking-[0.03em]">Jumlah Diperiksa</p>
                             <p className=" font-bold text-[28px] tracking-[1px]">{total_pending}</p>
                         </div>
                         <img src="/images/admin/icon-jumlah-proposal.png" className="w-[60px] h-[60px]" alt="" />
                     </div>
-                    <div className="flex flex-row gap-12 rounded-[14px] p-5 bg-white  shadow">
+                    <div className="flex flex-row justify-between gap-12 rounded-[14px] p-5 bg-white  shadow">
                         <div className="flex flex-col gap-1">
                             <p className="font-medium text-[16px] light:text-[#202224]/70  tracking-[0.03em]">Jumlah Ditolak</p>
                             <p className="font-bold text-[28px] tracking-[1px] ">
