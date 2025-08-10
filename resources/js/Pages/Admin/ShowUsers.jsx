@@ -45,11 +45,13 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                 line_id: user.line_id,
                 email: user.email,
                 status: user.status,
+                status_grup_line_join: user.status_grup_line_join,
                 certificate_path: user.certificate_path,
                 have_team: user.team_id == null ? 'Belum Punya Tim' : 'Punya Tim',
             };
         })
     );
+
 
     useEffect(() => {
         setSelectedFields(
@@ -64,6 +66,7 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                     line_id: user.line_id,
                     email: user.email,
                     status: user.status,
+                    status_grup_line_join: user.status_grup_line_join,
                     certificate_path: user.certificate_path,
                     have_team: user.team_id == null ? 'Belum Punya Tim' : 'Punya Tim',
                 };
@@ -99,6 +102,7 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
             status: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
             class_of: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
             have_team: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }] },
+            status_grup_line_join: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
         });
         setGlobalFilterValue("");
     };
@@ -128,6 +132,7 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
             nim,
             name,
             role,
+            status_grup_line_join,
             phone,
             email,
             line_id,
@@ -138,6 +143,7 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
         formData.append("nim", nim);
         formData.append("name", name);
         formData.append("role", role);
+        formData.append("status_grup_line_join", status_grup_line_join);
         formData.append("phone", phone);
         formData.append("email", email);
         formData.append("line_id", line_id);
@@ -171,12 +177,31 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
         );
     };
 
-    const selectEditor = (rowData) => {
+    const selectRoleEditor = (rowData) => {
         return (
-            <select id="" value={rowData.value} onChange={(e) => rowData.editorCallback(e.target.value)} className="input input-bordered">
+            <select
+                id=""
+                value={rowData.value}
+                onChange={(e) => rowData.editorCallback(e.target.value)}
+                className="input input-bordered"
+            >
                 <option value="participant">Participant</option>
                 <option value="admin">Admin</option>
                 <option value="lecturer">Dosen</option>
+            </select>
+        );
+    }
+
+    const selectStatusGrupLineJoinEditor = (rowData) => {
+        return (
+            <select
+                id=""
+                value={rowData.value}
+                onChange={(e) => rowData.editorCallback(e.target.value)}
+                className="input input-bordered"
+            >
+                <option value="joined">Sudah Bergabung Grup Line</option>
+                <option value="not_joined">Belum Bergabung Grup Line</option>
             </select>
         );
     }
@@ -331,6 +356,25 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
         );
     };
 
+    const StatusJoinGroupLineFilterTemplate = (props) => {
+        const user_data = [...new Set(users.map((user) => user.status_grup_line_join))].map(status_grup_line_join => ({
+            label: status_grup_line_join ? status_grup_line_join : "-",
+            value: status_grup_line_join ? status_grup_line_join : "-"
+        }));
+
+
+        return (
+            <Dropdown
+                value={props.value}
+                options={user_data}
+                onChange={(e) => props.filterApplyCallback(e.value)}
+                placeholder="Select Status Grup Line Join"
+                className="p-column-filter"
+                showClear
+            />
+        );
+    };
+
     const AngkatanFilterTemplate = (props) => {
         const angkatanData = [...new Set(users.map((user) => 20 + user.nim.substring(0, 2)))].map(angkatan => ({
             label: angkatan,
@@ -392,6 +436,15 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
             return <span className="text-red-500">Belum Punya Tim</span>;
         } else {
             return <span className="text-green-500">Punya Tim</span>;
+        }
+    }
+
+
+    const StatusJoinGroupLineTemplate = (rowData) => {
+        if (rowData.status_grup_line_join == "not_joined") {
+            return <span className="text-red-500">Belum Bergabung Group Line</span>;
+        } else if (rowData.status_grup_line_join == "joined") {
+            return <span className="text-green-500">Sudah Bergabung Group Line</span>;
         }
     }
 
@@ -574,7 +627,18 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                             style={{ minWidth: '12rem' }}
                         />
                         <Column
-                            editor={(rowData) => selectEditor(rowData)}
+                            editor={(rowData) => selectStatusGrupLineJoinEditor(rowData)}
+                            key="status_grup_line_join"
+                            field="status_grup_line_join"
+                            header="Status Join Grup Line"
+                            filter
+                            sortable
+                            body={StatusJoinGroupLineTemplate}
+                            filterElement={StatusJoinGroupLineFilterTemplate}
+                            style={{ minWidth: '12rem' }}
+                        />
+                        <Column
+                            editor={(rowData) => selectRoleEditor(rowData)}
                             key="role"
                             field="role"
                             header="Role"

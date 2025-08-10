@@ -26,6 +26,7 @@ class User extends Authenticatable
         'line_id',
         'password',
         'role',
+        'status_grup_line_join',
         'team_id',
         'status',
         'certificate_path',

@@ -18,6 +18,7 @@ return new class extends Migration
                 $table->string('line_id');
                 $table->enum('role', ['admin', 'participant', 'lecturer'])->default('participant');
                 $table->enum('status', ['passed', 'failed'])->nullable();
+                $table->enum('status_grup_line_join', ['joined', 'not_joined'])->default('not_joined');
                 $table->string('certificate_path')->nullable();
             });
         });
@@ -34,7 +35,7 @@ return new class extends Migration
             $table->dropColumn('line_id');
             $table->dropColumn('role');
             $table->dropColumn('status');
-            $table->dropColumn('certificate_path'); 
+            $table->dropColumn('certificate_path');
         });
     }
 };

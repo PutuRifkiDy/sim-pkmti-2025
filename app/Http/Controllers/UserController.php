@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\Team;
@@ -7,7 +6,6 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
-use Inertia\Inertia;
 
 class UserController extends Controller
 {
@@ -19,35 +17,39 @@ class UserController extends Controller
     public function update(Request $request, string $id)
     {
         $selectedRequest = [
-            'name' => $request->input('name'),
-            'role' => $request->input('role'),
-            'email' => $request->input('email'),
-            'nim' => $request->input('nim'),
-            'phone' => $request->input('phone'),
-            'line_id' => $request->input('line_id'),
-            'status' => $request->input('status'),
-            'certificate_path' => $request->input('certificate_path'),
+            'name'                  => $request->input('name'),
+            'role'                  => $request->input('role'),
+            'status_grup_line_join' => $request->input('status_grup_line_join'),
+            'email'                 => $request->input('email'),
+            'nim'                   => $request->input('nim'),
+            'phone'                 => $request->input('phone'),
+            'line_id'               => $request->input('line_id'),
+            'status'                => $request->input('status'),
+            'certificate_path'      => $request->input('certificate_path'),
         ];
 
+        // dd($selectedRequest);
+
         $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:255',
-            'role' => 'required|string',
-            'email' => [
+            'name'                  => 'required|string|max:255',
+            'role'                  => 'required|string',
+            'status_grup_line_join' => 'required|string',
+            'email'                 => [
                 'required',
                 'email',
-                Rule::unique('users')->ignore($id, 'id')
+                Rule::unique('users')->ignore($id, 'id'),
             ],
-            'nim' => [
+            'nim'                   => [
                 'required',
                 'string',
                 'min:10',
                 'max:10',
-                Rule::unique('users')->ignore($id, 'id')
+                Rule::unique('users')->ignore($id, 'id'),
             ],
-            'phone' => 'required|regex:/^08[0-9]+$/',
-            'line_id' => 'required|string',
-            'status' => 'nullable|string',
-            'certificate_path' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'phone'                 => 'required|regex:/^08[0-9]+$/',
+            'line_id'               => 'required|string',
+            'status'                => 'nullable|string',
+            'certificate_path'      => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
         if ($validator->fails()) {
@@ -55,7 +57,6 @@ class UserController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         }
-
 
         if ($request->hasFile('certificate_path') && $request->file('certificate_path')->isValid()) {
             $image = $request->file('certificate_path');
@@ -79,8 +80,8 @@ class UserController extends Controller
         $user = User::find($userId);
 
         if ($user->team_id) {
-            $teamId = $user->team_id;
-            $pastTeam = Team::with('members')->find($teamId);
+            $teamId           = $user->team_id;
+            $pastTeam         = Team::with('members')->find($teamId);
             $teamMembersCount = User::where('team_id', $teamId)->count();
 
             if ($teamMembersCount == 1) {
@@ -89,7 +90,7 @@ class UserController extends Controller
             } else {
                 // logic if he/she was a leader at the team
                 if ($pastTeam->leader_id == $userId) {
-                    $pastTeam->update(['leader_id' =>  $pastTeam->members()->first()->id]);
+                    $pastTeam->update(['leader_id' => $pastTeam->members()->first()->id]);
                 }
             }
         }
@@ -102,7 +103,7 @@ class UserController extends Controller
     public function resetPassword(User $user)
     {
         $user->update([
-            'password' => bcrypt($user->nim)
+            'password' => bcrypt($user->nim),
         ]);
         return back()->with('msg', 'Password berhasil direset');
     }
