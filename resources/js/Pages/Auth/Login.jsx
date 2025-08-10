@@ -172,7 +172,7 @@ export default function Login({ status, canResetPassword }) {
                                     className="text-[#42A1A4]"
                                     as="button"
                                 >
-                                    Daftar
+                                    Daftar akun
                                 </Link>
                             </p>
                         </form>

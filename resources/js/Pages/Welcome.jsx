@@ -651,19 +651,19 @@ export default function Welcome({ auth }) {
                             <div className="flex flex-col items-center w-11/12 md:max-w-[50rem] p-6 bg-white backdrop-brightness-150 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
                                 <div className="flex justify-center items-center mb-4 max-w-[12rem] max-h-[12rem] rounded-full overflow-hidden border-2 border-[#285b70]">
                                     <img
-                                        src="images/foto-rifki.jpg"
+                                        src="images/kak-kepin.jpg"
                                         className="object-contain object-center bg-no-repeat hover:scale-110"
                                         alt="Bayu"
                                     />
                                 </div>
                                 <p className="text-center text-slate-600 mb-2">
-                                    “Program Kreativitas Mahasiswa-Karsa Cipta (PKM-KC) merupakan program penciptaan yang didasari atas karsa dan nalar mahasiswa, bersifat konstruktif serta menghasilkan suatu sistem, desain, model/barang atau prototipe dan sejenisnya.“
+                                    “Pelatihan PKM TI ini bener-bener berguna banget. Lewat pelatihan ini aku jadi tau gimana buat proposal yang baik dan ampuh buat lolos pendanaan. Ditambah lagi pemateri nya bener-bener ngasih insight baru!!!“
                                 </p>
                                 <h3 className="capitalize text-xl text-[#285b70] font-bold mb-2">
-                                    Dirkayuda
+                                    Kevin Siringo ringo
                                 </h3>
                                 <p className="capitalize text-slate-400">
-                                    mahasiswa aktif teknologi informasi
+                                    Peraih Pendanaan PKM 2023
                                 </p>
                             </div>
                         </div>
@@ -684,7 +684,7 @@ export default function Welcome({ auth }) {
                                     Christina
                                 </h3>
                                 <p className="capitalize text-slate-400">
-                                    mahasiswa aktif teknologi informasi
+                                    Peraih Pendanaan PKM 2023
                                 </p>
                             </div>
                         </div>
@@ -942,17 +942,17 @@ export default function Welcome({ auth }) {
                     <a className="link link-hover mb-4 dark:text-gray-400" href="tel:0361701806">(0361) 701806</a>
 
                     <h6 className="footer-title mb-0 dark:text-gray-100">Email</h6>
-                    <a className="link link-hover mb-4 dark:text-gray-400" href="mailto:hmti@unud.ac.id">hmti@unud.ac.id</a>
+                    <a className="link link-hover mb-4 dark:text-gray-400" href="mailto:pkmti2025@gmail.com">pkmti2025@gmail.com</a>
                 </nav>
                 <nav className="col-span-1 md:col-span-2">
                     <h6 className="footer-title mb-0 dark:text-gray-100">Terkait</h6>
                     <a className="link link-hover mb-2 dark:text-gray-400">
-                        UNUD | Teknologi Informasi
+                        Universitas Udayana
                     </a>
 
-                    <a className="link link-hover mb-2 dark:text-gray-400">BEM PM Udayna</a>
+                    <a className="link link-hover mb-2 dark:text-gray-400">Teknik Udayana | Teknologi Informasi</a>
 
-                    <a className="link link-hover mb-2 dark:text-gray-400">SMFT Udayana</a>
+                    <a className="link link-hover mb-2 dark:text-gray-400">Himpunan Mahasiswa Teknologi Informasi</a>
                 </nav>
             </footer>
             <footer className="py-5 px-12 bg-base-300 text-slate-600 dark:bg-[#15191e] dark:text-gray-400 text-center">
