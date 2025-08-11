@@ -417,12 +417,12 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                             <div className="flex flex-row gap-10 items-center">
                                 <div className="flex flex-row gap-1 w-full items-center justify-end">
                                     <CalendarDaysIcon className="h-6 w-6 text-[#111E41] flex-shrink-0" />
-                                    <p className="text-[15px] z-10 text-[#111E41]">Kamis, 23 Agustus 2025</p>
+                                    <p className="text-[15px] z-10 text-[#111E41]">01 September 2025</p>
                                 </div>
                                 <div className="w-[4px] h-8 bg-[#111E41]"></div>
                                 <div className="flex flex-row gap-1 w-full items-center">
                                     <MapPinIcon className="h-6 w-6 text-[#111E41] flex-shrink-0" />
-                                    <p className="text-[15px] z-10 text-[#111E41]">Online Via Zoom Meeting</p>
+                                    <p className="text-[15px] z-10 text-[#111E41]">Melalui Website Resmi PKM TI 2025</p>
                                 </div>
                             </div>
 
