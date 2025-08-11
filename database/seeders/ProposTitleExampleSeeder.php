@@ -525,107 +525,107 @@ class ProposTitleExampleSeeder extends Seeder
             ],
             [
                 'title'       => "Holomate Virtual Reality: Intervensi Psikologis sebagai Solusi Revolusioner untuk Mempersiapkan Hidup Berkeluarga",
-                'scheme'      => "PKM - GFT",
+                'scheme'      => "PKM - VGK",
                 'institution' => "Universitas Buana Perjuangan Karawang",
             ],
             [
                 'title'       => "SMART DISASTER PREPARADNESS APP: SOLUSI CERDAS KESELAMATAN DAN PEMANTAUAN LINGKUNGAN BERBASIS TEKNOLOGI GPS, IOT, DAN AI UNTUK RESPON CEPAT BENCANA",
-                'scheme'      => "PKM - GFT",
+                'scheme'      => "PKM - VGK",
                 'institution' => "Universitas Jenderal Achmad Yani",
             ],
             [
                 'title'       => "SmartEcoWave: Penghasil Energi Listrik Tenaga Gelombang dan Surya Terintegrasi AI-IoT Sebagai Solusi Pemerataan Infrastruktur dan Diversifikasi Kelistrikan Nasional",
-                'scheme'      => "PKM - GFT",
+                'scheme'      => "PKM - VGK",
                 'institution' => "Universitas Kristen Duta Wacana",
             ],
             [
                 'title'       => "Konseling Berbasis Metaverse Menggunakan Teknologi Virtual Reality Sebagai Upaya Pemulihan Psikologis Perempuan Korban Kekerasan",
-                'scheme'      => "PKM - GFT",
+                'scheme'      => "PKM - VGK",
                 'institution' => "Universitas Sanata Dharma",
             ],
             [
                 'title'       => "Glasses of Voice: Kacamata AI Multi-bahasa dengan audio interaktif dan pembaca dunia bagi tunanetra",
-                'scheme'      => "PKM - GFT",
+                'scheme'      => "PKM - VGK",
                 'institution' => "Institut Teknologi Sains dan Kesehatan PKU Muhammadiyah Surakarta",
             ],
             [
                 'title'       => "Inovasi Sekolah Rakyat Berbasis Internet of Things Untuk Pemerataan Pendidikan dan Pengurangan Kesenjangan Sosial di Kabupaten Banjarnegara",
-                'scheme'      => "PKM - GFT",
+                'scheme'      => "PKM - VGK",
                 'institution' => "Sekolah Tinggi Ilmu Ekonomi Tamansiswa",
             ],
             [
                 'title'       => "REGIONAL AI DRIVE COMMUNITY, STRATEGI PENANGGULANGAN DEGRADASI INTELEKTUAL AKIBAT PENGGUNAAN AI YANG BERLEBIHAN",
-                'scheme'      => "PKM - GFT",
+                'scheme'      => "PKM - VGK",
                 'institution' => "Universitas Pignatelli Triputra",
             ],
             [
                 'title'       => "AI Based Smart Agriculture: Pertanian Berbasis AI untuk Meningkatkan Minat Petani Muda dengan Sistem Pertanian Terbarukan",
-                'scheme'      => "PKM - GFT",
+                'scheme'      => "PKM - VGK",
                 'institution' => "Universitas Muhammadiyah Ponorogo",
             ],
             [
                 'title'       => "Virtual Heritage Gallery: Platform Promosi Kain Endek Bali Berbasis Teknologi XR",
-                'scheme'      => "PKM - GFT",
+                'scheme'      => "PKM - VGK",
                 'institution' => "Institut Pariwisata dan Bisnis International",
             ],
             [
                 'title'       => "SAPAPUA: Inovasi Berbasis Teknologi Aplikasi sebagai Upaya Meningkatkan Eksistensi Bahasa Papua",
-                'scheme'      => "PKM - GFT",
+                'scheme'      => "PKM - VGK",
                 'institution' => "Universitas Pendidikan Muhammadiyah Sorong",
             ],
             [
                 'title'       => "Autonomous AI and IOT Based Port Sebagai Solusi Pengurangan Turnaround Time dan Meningkatkan Efisiensi Distribusi Migas Nasional dan Internasional",
-                'scheme'      => "PKM - GFT",
+                'scheme'      => "PKM - VGK",
                 'institution' => "Institut Teknologi Sepuluh Nopember",
             ],
             [
                 'title'       => "Gerakan Hidup Sehat Berbasis Smart Gym, IoT, dan Green Building: Strategi Terintegrasi BPJS dalam Penanggulangan Obesitas Menuju Ekosistem Kebugaran Berkelanjutan",
-                'scheme'      => "PKM - GFT",
+                'scheme'      => "PKM - VGK",
                 'institution' => "Institut Teknologi Sepuluh Nopember",
             ],
             [
                 'title'       => "CerebrAI: Smart Cognitive and Mental Health Companion Berbasis AI sebagai Upaya Pencegahan Brain Rot dan Platform Penguatan Literasi Kesehatan Digital",
-                'scheme'      => "PKM - GFT",
+                'scheme'      => "PKM - VGK",
                 'institution' => "Institut Teknologi Sumatera",
             ],
             [
                 'title'       => "EASY-G: CUTTING-EDGE SMART APPLICATION SEBAGAI SISTEM PENGELOLAAN GIZI SEHAT MELALUI COMMUNITY-SUPPORTED AGRICULTURE (CSA) GUNA MENDUKUNG PROGRAM MAKAN BERGIZI GRATIS",
-                'scheme'      => "PKM - GFT",
+                'scheme'      => "PKM - VGK",
                 'institution' => "Institut Teknologi Sumatera",
             ],
             [
                 'title'       => "NOTOBATES (Non-Fungible Token-Based Certificate): Inovasi Digital Penyelesaian Sengketa Pertanahan Berbasis Blockchain dengan Integrasi Multisig Wallet dan Smart Contract",
-                'scheme'      => "PKM - GFT",
+                'scheme'      => "PKM - VGK",
                 'institution' => "Universitas Gadjah Mada",
             ],
             [
                 'title'       => "Sustainable Integrated Kitchen System (SIKE): Pemantauan Berbasis AI untuk Optimalisasi Makan Bergizi Gratis serta Pengimplementasian Limbah Makanan Menjadi Energi Terbarukan",
-                'scheme'      => "PKM - GFT",
+                'scheme'      => "PKM - VGK",
                 'institution' => "Universitas Gadjah Mada",
             ],
             [
                 'title'       => "Gambling Activity Tracing Engine (GATE) System: Inovasi Berbasis Artificial Intelligence Untuk Pemblokiran Situs Judi Online Sebagai Upaya Pemberantasan Kemiskinan",
-                'scheme'      => "PKM - GFT",
+                'scheme'      => "PKM - VGK",
                 'institution' => "Universitas Lampung",
             ],
             [
                 'title'       => "CLAIM DEEPFAKE MELALUI UMPAN BALIK ARTIFICIAL INTELLIGENCE",
-                'scheme'      => "PKM - GFT",
+                'scheme'      => "PKM - VGK",
                 'institution' => "Universitas Negeri Medan",
             ],
             [
                 'title'       => "FARMORA: Smart Aquaponic Reservoir Berbasis Artificial Intelligence of Things dengan Pendekatan Bioremediasi Mewujudkan Kemandirian Pangan di Morokrembangan Kota Surabaya",
-                'scheme'      => "PKM - GFT",
+                'scheme'      => "PKM - VGK",
                 'institution' => "Universitas Negeri Surabaya",
             ],
             [
                 'title'       => "WayangVerse: Pemanfaatan Teknologi Metaverse untuk Melestarikan Seni Wayang Kulit Demi Mewujudkan Indonesia Berkebudayaan 2045",
-                'scheme'      => "PKM - GFT",
+                'scheme'      => "PKM - VGK",
                 'institution' => "Universitas Sriwijaya",
             ],
             [
                 'title'       => "Literacy Catalyst Building: Wajah Baru Pusat Literasi Berbasis Teknologi MR, AI, dan Robotika Demi Mewujudkan Indonesia Emas 2045",
-                'scheme'      => "PKM - GFT",
+                'scheme'      => "PKM - VGK",
                 'institution' => "Universitas Sumatera Utara",
             ],
 
@@ -1139,6 +1139,133 @@ class ProposTitleExampleSeeder extends Seeder
                 'title'       => "Robobox: Asisten Penerimaan Paket Ramah Lingkungan Berbasis Audiovisual",
                 'scheme'      => "PKM - KC",
                 'institution' => "Politeknik Negeri Ujung Pandang",
+            ],
+
+            // START PKM - GFT
+            [
+                'title'       => "Bio-Arc Agroecosphere: Kawasan Futuristik Agri-Terra dengan IoT, CRISPR Crops, dan Zero Waste untuk Swasembada Pangan Indonesia Emas",
+                'scheme'      => "PKM - GFT",
+                'institution' => "Institut Pertanian Bogor",
+            ],
+            [
+                'title'       => "PlanThrive: Kawasan Pertanian Ruang Bawah Tanah Berbasis Artificial Intelligence, Internet of Things, dan Blockchain untuk Mendukung Ketahanan Pangan Berkelanjutan",
+                'scheme'      => "PKM - GFT",
+                'institution' => "Institut Pertanian Bogor",
+            ],
+            [
+                'title'       => "WAVERY: Integrated Smart Water Source Using Artificial Intelligence for Sustainable Clean Water in Indonesian Archipelago",
+                'scheme'      => "PKM - GFT",
+                'institution' => "Institut Pertanian Bogor",
+            ],
+            [
+                'title'       => "Inovasi Integrated Flood Management System Berbasis Artificial Intelligence, Internet of Things, dan Tanggul Hijau sebagai Solusi Berkelanjutan Pengendalian Banjir Perkotaan",
+                'scheme'      => "PKM - GFT",
+                'institution' => "Institut Teknologi Bandung",
+            ],
+            [
+                'title'       => "Eco-Struvite City: Smart City Zero Waste Berbasis IoT dan Energi Surya untuk Produksi Struvite dari Limbah Domestik",
+                'scheme'      => "PKM - GFT",
+                'institution' => "Institut Teknologi Perusahaan Listrik Negara",
+            ],
+            [
+                'title'       => "Integrasi Underground Biofilter dan IoT-Driven Road Monitoring System untuk Optimalisasi Drainase dan Transformasi Infrastruktur Berkelanjutan",
+                'scheme'      => "PKM - GFT",
+                'institution' => "Politeknik Negeri Balikpapan",
+            ],
+            [
+                'title'       => "Subsidence Twin Space: Platform Digital Terintegrasi AI, IoT dan Blockchain untuk Deteksi, Prediksi, dan Pemantauan Penurunan Tanah secara Real-Time",
+                'scheme'      => "PKM - GFT",
+                'institution' => "Universitas Gadjah Mada",
+            ],
+            [
+                'title'       => "Sistem Deteksi Mikroplastik Berbasis Optik Nirkabel Jarak Jauh dengan Memanfaatkan Prinsip Laser Scattering dan Implementasi Machine Learning",
+                'scheme'      => "PKM - GFT",
+                'institution' => "Universitas Gadjah Mada",
+            ],
+            [
+                'title'       => "Seismic Energy Generator (SeisGen): Sistem Perkotaan Zero Disaster Berbasis Viscopiezoelektrik dan Internet of Things sebagai Solusi Mitigasi Bencana Gempa Bumi",
+                'scheme'      => "PKM - GFT",
+                'institution' => "Universitas Hasanuddin",
+            ],
+            [
+                'title'       => "Xyterra Dome: Inovasi Smart Climate Farming Berbasis IoT dan AI untuk Ketahanan Pangan, Air, dan Energi Berkelanjutan",
+                'scheme'      => "PKM - GFT",
+                'institution' => "Universitas Indraprasta PGRI",
+            ],
+            [
+                'title'       => "INTEGRATED LIGHTHOUSE ELECTRICAL PLATFORM (ILEP) : Stasiun Listrik Apung untuk Kemandirian Energi, Keselamatan Laut, dan Kontrol Lingkungan Pesisir Berbasis AI & IoT",
+                'scheme'      => "PKM - GFT",
+                'institution' => "Universitas Islam Indonesia",
+            ],
+            [
+                'title'       => "Smart Water: Konsep Pengurangan Resiko Banjir dan Konservasi Sumber Daya Air Berbasis SIG dan IoT",
+                'scheme'      => "PKM - GFT",
+                'institution' => "Universitas Muhammadiyah Surakarta",
+            ],
+            [
+                'title'       => "TerraGuard Urban: Transformasi Pulau Minim Penduduk Sebagai Smart Island dengan IoT untuk Mitigasi Bencana dan Infrastruktur Cerdas",
+                'scheme'      => "PKM - GFT",
+                'institution' => "Universitas Sultan Ageng Tirtayasa",
+            ],
+            [
+                'title'       => "Blockchain AgriChain: Transparansi dan Keamanan Rantai Pasok Pertanian Berbasis Blockchain dan Artificial Intelligence",
+                'scheme'      => "PKM - GFT",
+                'institution' => "Universitas Nahdlatul Ulama Surabaya",
+            ],
+            [
+                'title'       => "Algenix-Nexus: Transformasi Limbah dan Emisi Karbon Menjadi Bioekonomi Tropis Melalui Fotobioreaktor Mikroalga Unggul Berbasis AI, IoT, dan Quantum MRV",
+                'scheme'      => "PKM - GFT",
+                'institution' => "Universitas Palangka Raya",
+            ],
+            [
+                'title'       => "Model Ekosistem Pertanian Organik Nasional Berbasis IoT dan Edukasi Digital Menuju Ketahanan Pangan 2045",
+                'scheme'      => "PKM - GFT",
+                'institution' => "Universitas Palangka Raya",
+            ],
+            [
+                'title'       => "Blockchain Food System (BFS): Sistem Monitoring Distribusi Pangan Terintegrasi Berbasis Blockchain untuk Mencapai Indonesia Sustainable Food Security Tahun 2045",
+                'scheme'      => "PKM - GFT",
+                'institution' => "Universitas Pendidikan Indonesia",
+            ],
+            [
+                'title'       => "GoMulung: Solusi Integrasi IoT dan Teknologi Informasi dalam Pengelolaan Sampah Berbasis Pemberdayaan Pemulung untuk Mewujudkan Smart Waste Management di Indonesia",
+                'scheme'      => "PKM - GFT",
+                'institution' => "Universitas Pendidikan Indonesia",
+            ],
+            [
+                'title'       => "GrainSync: Sistem Sentralisasi Produk Agribisnis Berbasis API dan IoT Terintegrasi untuk Mendukung Zero Hunger pada UN SDGs 2030",
+                'scheme'      => "PKM - GFT",
+                'institution' => "Universitas Pendidikan Indonesia",
+            ],
+            [
+                'title'       => "Smart Reef Berbasis AI dan Energi Otonom Sebagai Solusi Inovatif untuk Pemulihan Ekosistem Terumbu Karang",
+                'scheme'      => "PKM - GFT",
+                'institution' => "Universitas PGRI Madiun",
+            ],
+            [
+                'title'       => "Smart Reef Berbasis AI dan Energi Otonom Sebagai Solusi Inovatif untuk Pemulihan Ekosistem Terumbu Karang",
+                'scheme'      => "PKM - GFT",
+                'institution' => "Universitas PGRI Madiun",
+            ],
+            [
+                'title'       => "KONSEP SISTEM PENDAFTARAN TANAH BERBASIS BLOCKCHAIN UNTUK MEWUJUDKAN KEPASTIAN HUKUM DAN MENCEGAH SENGKETA TANAH",
+                'scheme'      => "PKM - GFT",
+                'institution' => "Universitas Sam Ratulangi",
+            ],
+            [
+                'title'       => "Pendekatan Sistem Kesehatan Terintegrasi Berbasis AI dalam Meningkatkan Kualitas Layanan Kesehatan Nasional",
+                'scheme'      => "PKM - GFT",
+                'institution' => "Universitas Sumatera Utara",
+            ],
+            [
+                'title'       => "SEMAR-Net: Model Deep Learning Efisien dan Akurat untuk Mendeteksi Polip Kolorektal Secara Otomatis",
+                'scheme'      => "PKM - GFT",
+                'institution' => "Universitas Sebelas Maret",
+            ],
+            [
+                'title'       => "Pendekatan Sistem Kesehatan Terintegrasi Berbasis AI dalam Meningkatkan Kualitas Layanan Kesehatan Nasional",
+                'scheme'      => "PKM - GFT",
+                'institution' => "Universitas Sumatera Utara",
             ],
         ];
 

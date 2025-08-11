@@ -739,22 +739,33 @@ export default function ShowProposals({ auth, proposals, flash, errors, total_pr
                                 unstyled
                             />
                         )}
-                        <Column
-                            header={"Hapus"}
-                            style={{ textAlign: 'center' }}
-                            body={(rowData) => {
-                                return (
-                                    <Button
-                                        unstyled
-                                        className="font-bold bg-[#FA3434] px-3 py-3 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#FA3434]/70  transition-all duration-300 shadow-[0_0_10px_#FA3434] text-center"
-                                        onClick={() => {
-                                            setProposalToDelete(rowData);
-                                            setVisible(true);
-                                        }}
-                                    ><TrashIcon className="w-4 h-4" /></Button>
-                                );
-                            }}
-                        ></Column>
+                        {auth.user.role == "lecturer" ? (
+                            <Column
+                                rowEditor={false}
+                                body="Tidak diizinkan"
+                                header={"Hapus"}
+                                className="text-center text-red-600"
+                                unstyled
+                            />
+
+                        ) : (
+                            <Column
+                                header={"Hapus"}
+                                style={{ textAlign: 'center' }}
+                                body={(rowData) => {
+                                    return (
+                                        <Button
+                                            unstyled
+                                            className="font-bold bg-[#FA3434] px-3 py-3 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#FA3434]/70  transition-all duration-300 shadow-[0_0_10px_#FA3434] text-center"
+                                            onClick={() => {
+                                                setProposalToDelete(rowData);
+                                                setVisible(true);
+                                            }}
+                                        ><TrashIcon className="w-4 h-4" /></Button>
+                                    );
+                                }}
+                            ></Column>
+                        )}
                     </DataTable>
                 </div>
             </AdminLayout>

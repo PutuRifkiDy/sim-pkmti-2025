@@ -193,13 +193,13 @@ export default function Welcome({ auth }) {
                             </summary>
                             <ul className="menu dropdown-content bg-base-100 rounded-md md:w-max w-full p-2 shadow-sm dark:bg-white z-50">
                                 <li>
-                                    <a href="https://docs.google.com/document/d/1IiPt4fwXxcEtM3zykOxGxDptC3VsGJLM/edit?usp=sharing&ouid=112988973086027762490&rtpof=true&sd=true" className="font-medium" target="_blank">
+                                    <a href="https://drive.google.com/file/d/1VsRIpy9fxBXNflD7Js8U6MYwE2AnzK01/view?usp=sharing" className="font-medium" target="_blank">
                                         Guidebook Angkatan 24
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://docs.google.com/document/d/1OidG8QoRDvZLOK9x5JKFvxxbAtQt7Qi3/edit?usp=sharing&ouid=112988973086027762490&rtpof=true&sd=true" className="font-medium" target="_blank">
-                                        Guidebook Angkatan 23, 22, 21
+                                    <a href="https://drive.google.com/file/d/1kqieh-SX4Guqa5qTnDTdIkCC4bJFrEV6/view?usp=sharing" className="font-medium" target="_blank">
+                                        Guidebook Angkatan 23, 22, dst
                                     </a>
                                 </li>
                             </ul>
@@ -365,22 +365,22 @@ export default function Welcome({ auth }) {
             <section className="md:px-12 px-2 light:bg-[#F7F7F7] dark:bg-[#1d232a] flex flex-col-reverse lg:flex-row items-center max-w-full gap-6">
                 <SlickCarousel>
                     <div>
-                        <div className="relative mx-2 overflow-hidden group rounded-lg">
-                            <div className="w-64 h-80 overflow-hidden">
+                        <div className="relative mx-2 overflow-hidden group rounded-lg border-gray-200 border-2">
+                            <div className="w-64 h-80 overflow-hidden bg-[#285B70]/70">
                                 <img
-                                    src="images/arya-sasmita-2.JPG"
-                                    className="w-[750px] h-[422px] rounded-lg object-cover object-center cursor-pointer group-hover:scale-125 duration-300"
+                                    src="images/foto_bu_sutra.jpg"
+                                    className="w-auto h-[422px] rounded-lg object-cover object-center cursor-pointer group-hover:scale-125 duration-300"
                                 />
                             </div>
                             <div className="absolute w-64 h-80 inset-0 cursor-pointer bg-gradient-blue opacity-0 hover:opacity-100 rounded-lg transition-opacity flex justify-center items-center">
                                 <div className="px-4">
                                     <p className="text-white opacity-100 text-lg font-bold leading-5">
-                                        “Tips Untuk Menyusun Proposal PKM yang Sesuai!"
+                                        “Sesi bedah judul PKM-TI 2025”
                                     </p>
                                     <div className="divider before:bg-white after:bg-white"></div>
                                     <div className="flex flex-col">
                                         <span className="font-bold capitalize text-sm text-white">
-                                            Gusti Made Arya Sasmita, ST., MT.
+                                            Dr. Ni Putu Sutramiani, S.Kom., M.T.
                                         </span>
                                         <p className="font-light text-sm md:text-xs text-white">
                                             Dosen Teknologi Informasi
@@ -391,17 +391,14 @@ export default function Welcome({ auth }) {
                                         <div className="flex flex-row gap-4 items-center">
                                             <CalendarIcon className="w-4 h-4 text-white" />
                                             <p className="text-xs font-thin capitalize text-white">
-                                                Sabtu, 30 Maret 2024
+                                                Sabtu, 23 Agustus 2025
                                             </p>
                                         </div>
 
                                         <div className="flex flex-row gap-4 items-center">
-                                            <MapPinIcon className="w-8 h-8 text-white" />
+                                            <MapPinIcon className="w-4 h-4 text-white" />
                                             <p className="text-xs font-thin capitalize text-white">
-                                                Gedung Teknologi
-                                                Informasi, Fakultas
-                                                Teknik Universitas
-                                                Udayana
+                                                Online, Melalui zoom meeting
                                             </p>
                                         </div>
                                     </div>
@@ -410,23 +407,22 @@ export default function Welcome({ auth }) {
                         </div>
                     </div>
                     <div>
-                        <div className="relative mx-2 overflow-hidden group rounded-lg">
-                            <div className="w-64 h-80 overflow-hidden">
+                        <div className="relative mx-2 overflow-hidden group rounded-lg border-gray-200 border-2">
+                            <div className="w-64 h-80 overflow-hidden bg-[#285B70]/70">
                                 <img
-                                    src="images/anak-agung-harry-susila.JPG?Dosen-TeknologiInformasi"
+                                    src="images/sri_arsa_foto_1.jpeg"
                                     className="w-[750px] h-[422px] rounded-lg object-cover object-center cursor-pointer group-hover:scale-125 duration-300"
                                 />
                             </div>
                             <div className="absolute w-64 h-80 inset-0 cursor-pointer bg-gradient-blue opacity-0 hover:opacity-100 rounded-lg transition-opacity flex justify-center items-center">
                                 <div className="px-4">
                                     <p className="text-white opacity-100 text-lg font-bold leading-5">
-                                        “Tips and Trik Menyusun Proposal
-                                        PKM dengan Benar”
+                                        “Sesi bedah judul PKM-TI 2025”
                                     </p>
                                     <div className="divider before:bg-white after:bg-white"></div>
                                     <div className="flex flex-col">
                                         <span className="font-bold capitalize text-sm text-white">
-                                            Anak Agung Ngurah Hary Susila, S.TI., M.MT.
+                                            Dewa Made Sri Arsa, S.Kom., M.Kom., Ph.D.
                                         </span>
                                         <p className="font-light text-sm md:text-xs text-white">
                                             Dosen Teknologi Informasi
@@ -437,17 +433,14 @@ export default function Welcome({ auth }) {
                                         <div className="flex flex-row gap-4 items-center">
                                             <CalendarIcon className="w-4 h-4 text-white" />
                                             <p className="text-xs font-thin capitalize text-white">
-                                                Sabtu, 30 Maret 2024
+                                                Sabtu, 23 Agustus 2025
                                             </p>
                                         </div>
 
                                         <div className="flex flex-row gap-4 items-center">
-                                            <MapPinIcon className="w-8 h-8 text-white" />
+                                            <MapPinIcon className="w-4 h-4 text-white" />
                                             <p className="text-xs font-thin capitalize text-white">
-                                                Gedung Teknologi
-                                                Informasi, Fakultas
-                                                Teknik Universitas
-                                                Udayana
+                                                Online, Melalui zoom meeting
                                             </p>
                                         </div>
                                     </div>
@@ -456,24 +449,25 @@ export default function Welcome({ auth }) {
                         </div>
                     </div>
                     <div>
-                        <div className="relative mx-2 overflow-hidden group rounded-lg">
-                            <img
-                                src="images/seorang-ahli.jpg"
-                                className="w-64 h-80 rounded-lg object-fill object-center cursor-pointer group-hover:scale-125 duration-300"
-                            />
+                        <div className="relative mx-2 overflow-hidden group rounded-lg border-gray-200 border-2">
+                            <div className="w-64 h-80 overflow-hidden bg-[#285B70]/70">
+                                <img
+                                    src="images/tedy_indrayana.png"
+                                    className="w-[750px] h-[422px] rounded-lg object-cover object-center cursor-pointer group-hover:scale-125 duration-300"
+                                />
+                            </div>
                             <div className="absolute w-64 h-80 inset-0 cursor-pointer bg-gradient-blue opacity-0 hover:opacity-100 rounded-lg transition-opacity flex justify-center items-center">
                                 <div className="px-4">
                                     <p className="text-white opacity-100 text-lg font-bold leading-5">
-                                        “Tips and Trik Membuat Proposal
-                                        PKM Lolos Pimnas 1”
+                                        “Pemaparan materi dari sekretaris unit penalaran”
                                     </p>
                                     <div className="divider before:bg-white after:bg-white"></div>
                                     <div className="flex flex-col">
                                         <span className="font-bold capitalize text-sm text-white">
-                                            Seseorang Ahli
+                                            I Putu Tedy Indrayana, S.Pd., M.Sc.
                                         </span>
                                         <p className="font-light text-sm md:text-xs text-white">
-                                            Ahli Proposal PKM
+                                            Sekretaris Unit Penalaran
                                         </p>
                                     </div>
 
@@ -481,17 +475,98 @@ export default function Welcome({ auth }) {
                                         <div className="flex flex-row gap-4 items-center">
                                             <CalendarIcon className="w-4 h-4 text-white" />
                                             <p className="text-xs font-thin capitalize text-white">
-                                                Sabtu, 30 Maret 2024
+                                                Sabtu, 23 Agustus 2025
                                             </p>
                                         </div>
 
                                         <div className="flex flex-row gap-4 items-center">
-                                            <MapPinIcon className="w-8 h-8 text-white" />
+                                            <MapPinIcon className="w-4 h-4 text-white" />
                                             <p className="text-xs font-thin capitalize text-white">
-                                                Gedung Teknologi
-                                                Informasi, Fakultas
-                                                Teknik Universitas
-                                                Udayana
+                                                Online melalui zoom meeting
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div className="relative mx-2 overflow-hidden group rounded-lg border-gray-200 border-2">
+                            <div className="w-64 h-80 overflow-hidden">
+                                <img
+                                    src="images/foto_geby.jpg"
+                                    className="w-[750px] h-[422px] rounded-lg object-cover object-center cursor-pointer group-hover:scale-125 duration-300"
+                                />
+                            </div>
+                            <div className="absolute w-64 h-80 inset-0 cursor-pointer bg-gradient-blue opacity-0 hover:opacity-100 rounded-lg transition-opacity flex justify-center items-center">
+                                <div className="px-4">
+                                    <p className="text-white opacity-100 text-lg font-bold leading-5">
+                                        “Sesi sharing session dari team bratayuda”
+                                    </p>
+                                    <div className="divider before:bg-white after:bg-white"></div>
+                                    <div className="flex flex-col">
+                                        <span className="font-bold capitalize text-sm text-white">
+                                            Gabriella Sunsugos Sianturi
+                                        </span>
+                                        <p className="font-light text-sm md:text-xs text-white">
+                                            Team Bratayuda
+                                        </p>
+                                    </div>
+
+                                    <div className="flex flex-col mt-4 gap-3">
+                                        <div className="flex flex-row gap-4 items-center">
+                                            <CalendarIcon className="w-4 h-4 text-white" />
+                                            <p className="text-xs font-thin capitalize text-white">
+                                                Sabtu, 23 Agustus 2025
+                                            </p>
+                                        </div>
+
+                                        <div className="flex flex-row gap-4 items-center">
+                                            <MapPinIcon className="w-4 h-4 text-white" />
+                                            <p className="text-xs font-thin capitalize text-white">
+                                                Online melalui zoom meeting
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div className="relative mx-2 overflow-hidden group rounded-lg border-gray-200 border-2">
+                            <div className="w-64 h-80 overflow-hidden">
+                                <img
+                                    src="images/foto_yochan.png"
+                                    className="w-[750px] h-[350px] rounded-lg object-cover object-center cursor-pointer group-hover:scale-125 duration-300"
+                                />
+                            </div>
+                            <div className="absolute w-64 h-80 inset-0 cursor-pointer bg-gradient-blue opacity-0 hover:opacity-100 rounded-lg transition-opacity flex justify-center items-center">
+                                <div className="px-4">
+                                    <p className="text-white opacity-100 text-lg font-bold leading-5">
+                                        “Sesi sharing session dari team bratayuda”
+                                    </p>
+                                    <div className="divider before:bg-white after:bg-white"></div>
+                                    <div className="flex flex-col">
+                                        <span className="font-bold capitalize text-sm text-white">
+                                            I Komang Chandra Yogananda
+                                        </span>
+                                        <p className="font-light text-sm md:text-xs text-white">
+                                            Team Bratayuda
+                                        </p>
+                                    </div>
+
+                                    <div className="flex flex-col mt-4 gap-3">
+                                        <div className="flex flex-row gap-4 items-center">
+                                            <CalendarIcon className="w-4 h-4 text-white shrink-0" />
+                                            <p className="text-xs font-thin capitalize text-white">
+                                                Sabtu, 23 Agustus 2025
+                                            </p>
+                                        </div>
+
+                                        <div className="flex flex-row gap-4 items-center">
+                                            <MapPinIcon className="w-4 h-4 text-white shrink-0" />
+                                            <p className="text-xs font-thin capitalize text-white">
+                                                Online melalui zoom meeting
                                             </p>
                                         </div>
                                     </div>

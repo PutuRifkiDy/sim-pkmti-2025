@@ -221,7 +221,7 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                         <img src="images/elements/element_dashboard_section_1.png" className="absolute md:h-[200vh] w-screen h-[200vh] z-0" alt="" />
                         <img src="images/elements/element_dashboard_section_2.png" className="absolute left-0 top-0 w-[250px] h-auto" alt="" />
                         <img src="images/elements/element_dashboard_section_3.png" className="absolute right-0 bottom-0 w-[250px] h-auto" alt="" />
-                        <div className="p-10">
+                        <div className="p-6">
                             <div className="flex justify-center items-center">
                                 <p className="font-bold md:text-[28px] text-[24px] text-[#202224] text-center md:w-[500px] z-20">
                                     {titleActive}
@@ -230,42 +230,47 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                             <div className="flex flex-col">
                                 {/* pembicara ke-1 */}
                                 <div className="flex flex-col justify-center items-center relative pb-10">
-                                    <img src="images/pembicara-1.png" alt="Pembicara 1" className="w-[177px] h-[195px]" />
+                                    <img src="images/tedy_no_bg.png" alt="Pembicara 1" className="w-auto h-[150px]" />
                                     <div className="bg-gradient-to-r from-[#285B70] via-[#42A1A4] to-[#285B70] absolute bottom-0 rounded-[15px] p-4">
                                         <p className="font-bold text-white text-[13px] leading-[110%]">
                                             I Putu Tedy Indrayana, S.Pd., M.Sc.
                                         </p>
                                         <p className="max-w-[177px] text-center text-[17px] leading-[110%] font-bold absolute top-14 left-6">
-                                            Akademisi TI
-                                            Universitas Udayana
+                                            Sekeretaris Unit Penalaran
                                         </p>
                                     </div>
                                 </div>
 
-                                {/* pembicara ke-2 dan ke-3 */}
-                                <div className="flex md:flex-row flex-col justify-around md:mt-5 mt-20 pb-10">
-                                    <div className="flex flex-col justify-center items-center relative">
-                                        <img src="images/pembicara-1.png" alt="Pembicara 1" className="w-[177px] h-[195px]" />
-                                        <div className="bg-gradient-to-r from-[#285B70] via-[#42A1A4] to-[#285B70] absolute bottom-0 rounded-[15px] p-4">
-                                            <p className="font-bold text-white text-[13px] leading-[110%]">
+                                <div className="flex md:flex-row justify-between flex-col md:gap-6 gap-12">
+
+                                    {/* pembicara ke-2 dan ke-3 */}
+                                    <div className="flex flex-col justify-center items-center relative md:mt-24 mt-20 pb-10">
+                                        <img src="images/tedy_and_sutra.png" alt="Pembicara 1" className="" />
+                                        <div className="bg-gradient-to-r from-[#285B70] via-[#42A1A4] to-[#285B70] absolute bottom-1 rounded-[15px] text-center py-2 md:w-[105%] w-full">
+                                            <p className="font-bold text-white text-[11px] leading-[110%]">
                                                 Dr. Ni Putu Sutramiani, S.Kom., M.T.
                                             </p>
-                                            <p className="max-w-[177px] text-center text-[17px] leading-[110%] font-bold absolute top-16 md:left-0 left-12">
+                                            <p className="font-bold text-white text-[11px] leading-[110%]">
+                                                Dewa Made Sri Arsa, S.Kom., M.Kom., Ph.D.
+                                            </p>
+                                            <p className="w-full text-center text-[17px] leading-[110%] font-bold absolute top-12">
                                                 Akademisi TI
                                                 Universitas Udayana
                                             </p>
                                         </div>
                                     </div>
-
-                                    <div className="flex flex-col justify-center items-center relative md:mt-10 mt-16 md:mb-0 pb-10">
-                                        <img src="images/sri_arsa_foto.png" alt="Pembicara 1" className="w-[177px] h-[195px]" />
-                                        <div className="bg-gradient-to-r from-[#285B70] via-[#42A1A4] to-[#285B70] rounded-[15px] absolute bottom-0 p-4">
-                                            <p className="font-bold text-white text-[13px] leading-[110%]">
-                                                Dewa Made Sri Arsa, S.Kom., M.Kom., Ph.D.
+                                    {/* pembicara ke-2 dan ke-3 */}
+                                    <div className="flex flex-col justify-center items-center relative md:mt-24 mt-20 pb-10">
+                                        <img src="images/yochan_and_geby.png" alt="Pembicara 1" className="" />
+                                        <div className="bg-gradient-to-r from-[#285B70] via-[#42A1A4] to-[#285B70] absolute bottom-1 rounded-[15px] py-2 md:w-[110%] text-center w-full">
+                                            <p className="font-bold text-white text-[11px] leading-[110%]">
+                                                I Komang Chandra Yogananda
                                             </p>
-                                            <p className="max-w-[177px] text-center text-[17px] leading-[110%] font-bold absolute top-16 md:left-0 left-12">
-                                                Akademisi TI
-                                                Universitas Udayana
+                                            <p className="font-bold text-white text-[11px] leading-[110%]">
+                                                Gabriella Sunsugos Sianturi
+                                            </p>
+                                            <p className="w-full text-center text-[17px] leading-[110%] font-bold absolute top-12">
+                                                Tim Bratayuda
                                             </p>
                                         </div>
                                     </div>
@@ -284,7 +289,7 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                                 <div className="flex flex-row gap-4">
                                     <div className="flex flex-row gap-1 w-full items-center justify-end">
                                         <CalendarDaysIcon className="h-6 w-6 text-[#111E41] flex-shrink-0" />
-                                        <p className="text-[10px] z-10 text-[#111E41]">Kamis, 23 Agustus 2025</p>
+                                        <p className="text-[10px] z-10 text-[#111E41]">Sabtu, 23 Agustus 2025</p>
                                     </div>
                                     <div className="w-[1px] h-8 bg-[#111E41]"></div>
                                     <div className="flex flex-row gap-1 w-full">
@@ -354,7 +359,7 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                                 </div>
 
                                 <div className="flex flex-col justify-center items-center mt-5">
-                                    <p className="text-[24px] leading-[110%] text-[#111E41] z-20 font-bold text-center">Any Questions? Contact the following contact</p>
+                                    <p className="text-[24px] leading-[110%] text-[#111E41] z-20 font-bold text-center">Any Questions? Feel free to ask</p>
                                 </div>
                                 <div className="flex flex-wrap gap-5 justify-center items-center mt-5">
                                     <div className="flex flex-col gap-2">
@@ -488,7 +493,7 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                             </div>
 
                             <div className="flex flex-col justify-center items-center mt-5">
-                                <p className="text-[24px] leading-[110%] text-[#111E41] z-20 font-bold text-center">Any Questions? Contact the following contact</p>
+                                <p className="text-[24px] leading-[110%] text-[#111E41] z-20 font-bold text-center">Any Questions? Feel free to ask</p>
                             </div>
                             <div className="flex flex-wrap gap-5 justify-center items-center mt-5">
                                 <div className="flex flex-col gap-2">

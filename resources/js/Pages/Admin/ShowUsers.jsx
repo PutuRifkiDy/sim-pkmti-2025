@@ -686,7 +686,7 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                             filterElement={StatusFilterTemplate}
                             sortable
                         ></Column>
-                        <Column
+                        {/* <Column
                             className="min-w-48 text-center"
                             editor={(rowData) => fileEditor(rowData)}
                             key="certificate_path"
@@ -702,7 +702,7 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                                     "Belum ada sertifikat"
                                 )
                             }
-                        />
+                        /> */}
                         <Column
                             body={resetPasswordAction}
                             key="reset_password"
