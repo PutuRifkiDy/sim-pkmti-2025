@@ -233,9 +233,9 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                                     <img src="images/pembicara-1.png" alt="Pembicara 1" className="w-[177px] h-[195px]" />
                                     <div className="bg-gradient-to-r from-[#285B70] via-[#42A1A4] to-[#285B70] absolute bottom-0 rounded-[15px] p-4">
                                         <p className="font-bold text-white text-[13px] leading-[110%]">
-                                            Anak Agung Ngurah Hary Susila, S.TI., M.MT.
+                                            I Putu Tedy Indrayana, S.Pd., M.Sc.
                                         </p>
-                                        <p className="max-w-[177px] text-center text-[17px] leading-[110%] font-bold absolute top-16 left-12">
+                                        <p className="max-w-[177px] text-center text-[17px] leading-[110%] font-bold absolute top-14 left-6">
                                             Akademisi TI
                                             Universitas Udayana
                                         </p>
@@ -248,7 +248,7 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                                         <img src="images/pembicara-1.png" alt="Pembicara 1" className="w-[177px] h-[195px]" />
                                         <div className="bg-gradient-to-r from-[#285B70] via-[#42A1A4] to-[#285B70] absolute bottom-0 rounded-[15px] p-4">
                                             <p className="font-bold text-white text-[13px] leading-[110%]">
-                                                Anak Agung Ngurah Hary Susila, S.TI., M.MT.
+                                                Dr. Ni Putu Sutramiani, S.Kom., M.T.
                                             </p>
                                             <p className="max-w-[177px] text-center text-[17px] leading-[110%] font-bold absolute top-16 md:left-0 left-12">
                                                 Akademisi TI
@@ -258,10 +258,10 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                                     </div>
 
                                     <div className="flex flex-col justify-center items-center relative md:mt-10 mt-16 md:mb-0 pb-10">
-                                        <img src="images/pembicara-1.png" alt="Pembicara 1" className="w-[177px] h-[195px]" />
+                                        <img src="images/sri_arsa_foto.png" alt="Pembicara 1" className="w-[177px] h-[195px]" />
                                         <div className="bg-gradient-to-r from-[#285B70] via-[#42A1A4] to-[#285B70] rounded-[15px] absolute bottom-0 p-4">
                                             <p className="font-bold text-white text-[13px] leading-[110%]">
-                                                Anak Agung Ngurah Hary Susila, S.TI., M.MT.
+                                                Dewa Made Sri Arsa, S.Kom., M.Kom., Ph.D.
                                             </p>
                                             <p className="max-w-[177px] text-center text-[17px] leading-[110%] font-bold absolute top-16 md:left-0 left-12">
                                                 Akademisi TI
@@ -345,12 +345,12 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                                 <div className="flex flex-row gap-1 justify-center items-center">
                                     <div className="flex flex-col gap-1">
                                         <p className="text-[27px] leading-[110%] text-[#000000] z-20">Don’t Forget to join our official  LINE group</p>
-                                        <a href="https://line.me/R/ti/g/uzvemAzAVdrt" className="text-[16px] leading-[110%] text-indigo-800 z-20 cursor-pointer" target="_blank" >
-                                            https://line.me/R/ti/g/uzvemAzAVdrt
+                                        <a href="https://line.me/R/ti/g/jBUgzep53m" className="text-[16px] leading-[110%] text-indigo-800 z-20 cursor-pointer" target="_blank" >
+                                            https://line.me/R/ti/g/jBUgzep53m
                                         </a>
                                     </div>
 
-                                    <img src="/images/elements/element_dashboard_line_qr.png" className="w-[129px] h-[129px] z-10" alt="" />
+                                    <img src="/images/elements/element_dashboard_line_qr_1.jpg" className="w-[129px] h-[129px] z-10" alt="" />
                                 </div>
 
                                 <div className="flex flex-col justify-center items-center mt-5">
@@ -363,7 +363,7 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                                         </p>
                                         <div className="flex flex-row mt-3 gap-2">
                                             <IconWhatsapp />
-                                            <a href="wa.me/6285739490558" className="text-base text-[#2A3374] dark:text-white text-[12px] z-20">+62 857-3949-0558</a>
+                                            <a href="https://wa.me/6285739490558" className="text-base text-[#2A3374] dark:text-white text-[12px] z-20">+62 857-3949-0558</a>
                                         </div>
                                         <div className="flex flex-row gap-2">
                                             <IconLine />
@@ -378,7 +378,7 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                                         </p>
                                         <div className="flex flex-row mt-3 gap-2">
                                             <IconWhatsapp />
-                                            <a href="wa.me/6285940899163" className="text-base text-[#2A3374] dark:text-white text-[12px] z-20">+62 859-4089-9163</a>
+                                            <a href="https://wa.me/6281214633420" className="text-base text-[#2A3374] dark:text-white text-[12px] z-20">+62 812-1463-3420</a>
                                         </div>
                                         <div className="flex flex-row gap-2">
                                             <IconLine />
@@ -392,7 +392,7 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                                         </p>
                                         <div className="flex flex-row mt-3 gap-2">
                                             <IconWhatsapp />
-                                            <a href="wa.me/62881038194017" className="text-base text-[#2A3374] dark:text-white text-[12px] z-20">+62 881-0381-94017</a>
+                                            <a href="https://wa.me/62881038194017" className="text-base text-[#2A3374] dark:text-white text-[12px] z-20">+62 881-0381-94017</a>
                                         </div>
                                         <div className="flex flex-row gap-2">
                                             <IconLine />
@@ -406,7 +406,7 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                     </div>
                 </div>
             ) : isCoachingPKMEvent && (
-                <div className={`flex flex-col gap-5 md:w-[42%] w-full ${isCoachingPKMEvent ? "md:w-[100%]" : ""}`}>
+                <div className={`flex flex-col gap-5 w-full`}>
                     <div className="flex flex-col relative rounded-[10px] overflow-hidden object cover min-h-max">
 
                         <img src="images/elements/element_dashboard_section_1.png" className="absolute md:h-[200vh] w-screen h-[200vh] z-0" alt="" />
@@ -479,12 +479,12 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
 
                                 <div className="flex flex-col gap-1">
                                     <p className="text-[27px] leading-[110%] text-[#000000] z-20">Don’t Forget to join our official  LINE group</p>
-                                    <a href="https://line.me/R/ti/g/uzvemAzAVdrt" className="text-[16px] leading-[110%] text-indigo-800 z-30" target="_blank" >
-                                        https://line.me/R/ti/g/uzvemAzAVdrt
+                                    <a href="https://line.me/R/ti/g/jBUgzep53m" className="text-[16px] leading-[110%] text-indigo-800 z-30" target="_blank" >
+                                        https://line.me/R/ti/g/jBUgzep53m
                                     </a>
                                 </div>
 
-                                <img src="/images/elements/element_dashboard_line_qr.png" className="w-[129px] h-[129px] z-10" alt="" />
+                                <img src="/images/elements/element_dashboard_line_qr_1.jpg" className="w-[129px] h-[129px] z-10" alt="" />
                             </div>
 
                             <div className="flex flex-col justify-center items-center mt-5">
@@ -497,11 +497,11 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                                     </p>
                                     <div className="flex flex-row mt-3 gap-2">
                                         <IconWhatsapp />
-                                        <a href="https://wa.me//6285739490558" className="text-base text-[#2A3374] dark:text-white text-[12px] z-20">+62 857-3949-0558</a>
+                                        <a href="https://wa.me//6285739490558" target="_blank" className="text-base text-[#2A3374] dark:text-white text-[12px] z-20">+62 857-3949-0558</a>
                                     </div>
                                     <div className="flex flex-row gap-2">
                                         <IconLine />
-                                        <a href="https://line.me/R/ti/p/~tiksnaapsr." className="text-base text-[#2A3374] dark:text-white text-[12px] z-20">tiksnaapsr.</a>
+                                        <a href="https://line.me/R/ti/p/~tiksnaapsr." target="_blank" className="text-base text-[#2A3374] dark:text-white text-[12px] z-20">tiksnaapsr.</a>
                                     </div>
 
                                 </div>
@@ -512,11 +512,11 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                                     </p>
                                     <div className="flex flex-row mt-3 gap-2">
                                         <IconWhatsapp />
-                                        <a href="https://wa.me//6285940899163" className="text-base text-[#2A3374] dark:text-white text-[12px] z-20">+62 859-4089-9163</a>
+                                        <a href="https://wa.me/6281214633420" target="_blank" className="text-base text-[#2A3374] dark:text-white text-[12px] z-20">+62 812-1463-3420</a>
                                     </div>
                                     <div className="flex flex-row gap-2">
                                         <IconLine />
-                                        <a href="https://line.me/R/ti/p/~dewayu1275" className="text-base text-[#2A3374] dark:text-white text-[12px] z-20">dewayu1275</a>
+                                        <a href="https://line.me/R/ti/p/~dewayu1275" target="_blank" className="text-base text-[#2A3374] dark:text-white text-[12px] z-20">dewayu1275</a>
                                     </div>
                                 </div>
 
@@ -526,11 +526,11 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                                     </p>
                                     <div className="flex flex-row mt-3 gap-2">
                                         <IconWhatsapp />
-                                        <a href="https://wa.me//62881038194017" className="text-base text-[#2A3374] dark:text-white text-[12px] z-20">+62 881-0381-94017</a>
+                                        <a href="https://wa.me//62881038194017" target="_blank" className="text-base text-[#2A3374] dark:text-white text-[12px] z-20">+62 881-0381-94017</a>
                                     </div>
                                     <div className="flex flex-row gap-2">
                                         <IconLine />
-                                        <a href="https://line.me/R/ti/p/~puturifki56" className="text-base text-[#2A3374] dark:text-white text-[12px] z-20">puturifki56</a>
+                                        <a href="https://line.me/R/ti/p/~puturifki56" target="_blank" className="text-base text-[#2A3374] dark:text-white text-[12px] z-20">puturifki56</a>
                                     </div>
                                 </div>
                             </div>
