@@ -99,7 +99,7 @@ class UserSeeder extends Seeder
                 'phone'    => "082144209422",
                 'line_id'  => "adminDosenPKMTI",
                 'status'   => "failed",
-                'role'     => "dosen",
+                'role'     => "lecturer",
                 'password' => bcrypt("adminDosenPKMTI2025"),
             ],
         ];
