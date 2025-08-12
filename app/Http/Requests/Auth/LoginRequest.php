@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Requests\Auth;
 
 use Illuminate\Auth\Events\Lockout;
@@ -27,8 +26,8 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-                'nim' => ['required', 'string', 'max:10', 'min:10'],
-                'password' => ['required', 'string'],
+            'nim'      => ['required', 'string', 'max:10', 'min:10'],
+            'password' => ['required', 'string'],
         ];
     }
 
@@ -80,6 +79,6 @@ class LoginRequest extends FormRequest
      */
     public function throttleKey(): string
     {
-        return Str::transliterate(Str::lower($this->input('nim')).'|'.$this->ip());
+        return Str::transliterate(Str::lower($this->input('nim')) . '|' . $this->ip());
     }
 }

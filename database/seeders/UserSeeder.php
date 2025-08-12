@@ -94,8 +94,8 @@ class UserSeeder extends Seeder
             ],
             [
                 'name'     => "Admin Dosen",
-                'email'    => "puturifki56@gmail.com",
-                'nim'      => "adminDosenPKMTI2025",
+                'email'    => "dirkayudaputurifki@gmail.com",
+                'nim'      => "adminDosen",
                 'phone'    => "082144209422",
                 'line_id'  => "adminDosenPKMTI",
                 'status'   => "failed",
