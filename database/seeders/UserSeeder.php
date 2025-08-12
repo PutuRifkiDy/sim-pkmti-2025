@@ -92,6 +92,16 @@ class UserSeeder extends Seeder
                 'role'     => "admin",
                 'password' => bcrypt("ilmiah231009"),
             ],
+            [
+                'name'     => "Admin Dosen",
+                'email'    => "puturifki56@gmail.com",
+                'nim'      => "adminDosenPKMTI2025",
+                'phone'    => "082144209422",
+                'line_id'  => "adminDosenPKMTI",
+                'status'   => "failed",
+                'role'     => "dosen",
+                'password' => bcrypt("adminDosenPKMTI2025"),
+            ],
         ];
 
         DB::table('users')->insertOrIgnore($data);
