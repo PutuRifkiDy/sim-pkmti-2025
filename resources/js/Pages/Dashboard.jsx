@@ -22,6 +22,8 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
     const [certPath, setCertPath] = useState(null);
     const date_now = usePage().props.date_now;
 
+
+
     let dateActive = null;
     let titleActive = "";
     let isCoachingPKMEvent = false;
@@ -29,6 +31,8 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
 
     const date_coaching_pkm = usePage().props.date_coaching_pkm;
     const date_sharing_session = usePage().props.date_sharing_session;
+    const text_hari_h = usePage().props.text_hari_h;
+    const end_date_hari_h_event = usePage().props.end_date_hari_h_event;
     // console.log("date_coaching_pkm", date_coaching_pkm);
     // console.log("date_sharing_session", date_sharing_session);
 
@@ -36,12 +40,17 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
         dateActive = date_sharing_session.date;
         titleActive = date_sharing_session.title;
         isSharingSessionEvent = true;
+    } else if (date_now < end_date_hari_h_event) {
+        dateActive = null;;
+        titleActive = text_hari_h;
+        isSharingSessionEvent = true;
     } else if (date_now < date_coaching_pkm && date_sharing_session == null) {
         dateActive = date_coaching_pkm.date;
         titleActive = date_coaching_pkm.title;
         isCoachingPKMEvent = true;
     }
 
+    console.log("tanggal hari ini", date_now);
     console.log("cek isi", date_sharing_session);
     console.log("cek isi", date_coaching_pkm);
     console.log("ini adalaah isCoachingPKMEvent", isCoachingPKMEvent);
@@ -132,8 +141,8 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
         },
         proposalStatus: {
             unsubmitted: {
-                text: "Mohon segera ajukan proposal",
-                mode: "warning",
+                text: "Belum mengajukan proposal",
+                mode: "error",
             },
             approved: {
                 text: "Proposal disetujui",
@@ -206,7 +215,7 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
     };
 
     return (
-        <ParticipantLayout user={user} title="Beranda" header={"Dashboard"} date_coaching_pkm={date_coaching_pkm} date_sharing_session={date_sharing_session}>
+        <ParticipantLayout user={user} title="Beranda" header={"Dashboard"} date_coaching_pkm={date_coaching_pkm} date_sharing_session={date_sharing_session} end_date_hari_h_event={end_date_hari_h_event} text_hari_h={text_hari_h}>
             {flash.msg && (
                 <Toast
                     key={useRandomInt()}

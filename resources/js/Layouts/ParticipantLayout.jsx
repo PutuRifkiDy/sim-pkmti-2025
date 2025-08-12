@@ -9,7 +9,7 @@ import {
 } from "@heroicons/react/24/solid";
 import { Head, usePage } from "@inertiajs/react";
 
-export default function ParticipantLayout({ user, title, children, header, date_coaching_pkm, date_sharing_session }) {
+export default function ParticipantLayout({ user, title, children, header, date_coaching_pkm, date_sharing_session, end_date_hari_h_event, text_hari_h }) {
     const date_now = usePage().props.date_now;
 
     let dateActive = null;
@@ -21,6 +21,10 @@ export default function ParticipantLayout({ user, title, children, header, date_
         dateActive = date_sharing_session.date;
         titleActive = date_sharing_session.title;
         isSharingSessionEvent = true;
+    } else if (date_now < end_date_hari_h_event) {
+        dateActive = null;
+        titleActive = text_hari_h;
+        isSharingSessionEvent = true;
     } else if (date_now < date_coaching_pkm && date_sharing_session == null) {
         dateActive = date_coaching_pkm.date;
         titleActive = date_coaching_pkm.title;
@@ -28,7 +32,7 @@ export default function ParticipantLayout({ user, title, children, header, date_
     }
 
     const navigations = [
-        ...(isSharingSessionEvent || isCoachingPKMEvent  ? [
+        ...(isSharingSessionEvent || isCoachingPKMEvent ? [
             {
                 icon: <IconBerandaSideBar />,
                 text: "Dashboard",
@@ -79,7 +83,7 @@ export default function ParticipantLayout({ user, title, children, header, date_
     return (
         <>
             <Head title={title} />
-            <Sidebar user={user} navigations={navigations} header={header}>
+            <Sidebar user={user} navigations={navigations} header={header} date_coaching_pkm={date_coaching_pkm} date_sharing_session={date_sharing_session} end_date_hari_h_event={end_date_hari_h_event} text_hari_h={text_hari_h} date_now={date_now}>
                 {children}
             </Sidebar>
         </>

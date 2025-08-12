@@ -12,20 +12,20 @@ import { useEffect, useState } from "react";
 import { IconDashboard, IconDropdown, IconHome, IconLogout, IconLogoutSideBar, IconProfile, IconSideBar, IconSilangResponsiveWeb } from "./IconAdmin";
 import { IconWarning } from "./IconLanding";
 
-export default function Sidebar({ user, navigations, children, header }) {
+export default function Sidebar({ user, navigations, children, header, date_coaching_pkm, date_sharing_session, end_date_hari_h_event, text_hari_h, date_now }) {
     const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth >= 768);
-    const date_now = usePage().props.date_now;
     let dateActive;
     let titleActive;
     let isCoachingPKMEvent = false;
     let isSharingSessionEvent = false;
 
-    const date_coaching_pkm = usePage().props.date_coaching_pkm;
-    const date_sharing_session = usePage().props.date_sharing_session;
-
     if (date_now < date_sharing_session) {
         dateActive = date_sharing_session.date;
         titleActive = date_sharing_session.title;
+        isSharingSessionEvent = true;
+    } else if (date_now < end_date_hari_h_event) {
+        dateActive = null;;
+        titleActive = text_hari_h;
         isSharingSessionEvent = true;
     } else if (date_now < date_coaching_pkm && date_sharing_session == null) {
         dateActive = date_coaching_pkm.date;

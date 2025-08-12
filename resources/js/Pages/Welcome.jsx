@@ -375,7 +375,7 @@ export default function Welcome({ auth }) {
                             <div className="absolute w-64 h-80 inset-0 cursor-pointer bg-gradient-blue opacity-0 hover:opacity-100 rounded-lg transition-opacity flex justify-center items-center">
                                 <div className="px-4">
                                     <p className="text-white opacity-100 text-lg font-bold leading-5">
-                                        “Sesi bedah judul PKM-TI 2025”
+                                        “Sesi bedah judul PKM lolos pendanaan 2025”
                                     </p>
                                     <div className="divider before:bg-white after:bg-white"></div>
                                     <div className="flex flex-col">
@@ -417,7 +417,7 @@ export default function Welcome({ auth }) {
                             <div className="absolute w-64 h-80 inset-0 cursor-pointer bg-gradient-blue opacity-0 hover:opacity-100 rounded-lg transition-opacity flex justify-center items-center">
                                 <div className="px-4">
                                     <p className="text-white opacity-100 text-lg font-bold leading-5">
-                                        “Sesi bedah judul PKM-TI 2025”
+                                        “Sesi bedah judul PKM lolos pendanaan 2025”
                                     </p>
                                     <div className="divider before:bg-white after:bg-white"></div>
                                     <div className="flex flex-col">
@@ -501,7 +501,7 @@ export default function Welcome({ auth }) {
                             <div className="absolute w-64 h-80 inset-0 cursor-pointer bg-gradient-blue opacity-0 hover:opacity-100 rounded-lg transition-opacity flex justify-center items-center">
                                 <div className="px-4">
                                     <p className="text-white opacity-100 text-lg font-bold leading-5">
-                                        “Sesi sharing session dari team bratayuda”
+                                        “Sesi sharing session dari tim PKM-KC lolos pendanaan 2025”
                                     </p>
                                     <div className="divider before:bg-white after:bg-white"></div>
                                     <div className="flex flex-col">
@@ -509,7 +509,7 @@ export default function Welcome({ auth }) {
                                             Gabriella Sunsugos Sianturi
                                         </span>
                                         <p className="font-light text-sm md:text-xs text-white">
-                                            Team Bratayuda
+                                            Tim Bratayuda
                                         </p>
                                     </div>
 
@@ -543,7 +543,7 @@ export default function Welcome({ auth }) {
                             <div className="absolute w-64 h-80 inset-0 cursor-pointer bg-gradient-blue opacity-0 hover:opacity-100 rounded-lg transition-opacity flex justify-center items-center">
                                 <div className="px-4">
                                     <p className="text-white opacity-100 text-lg font-bold leading-5">
-                                        “Sesi sharing session dari team bratayuda”
+                                        “Sesi sharing session dari tim PKM-KC lolos pendanaan 2025”
                                     </p>
                                     <div className="divider before:bg-white after:bg-white"></div>
                                     <div className="flex flex-col">
@@ -551,7 +551,7 @@ export default function Welcome({ auth }) {
                                             I Komang Chandra Yogananda
                                         </span>
                                         <p className="font-light text-sm md:text-xs text-white">
-                                            Team Bratayuda
+                                            Tim Bratayuda
                                         </p>
                                     </div>
 

@@ -66,9 +66,12 @@ Route::get('/dashboard', function () {
     $user     = User::with('team', 'team.proposal', 'team.members', 'team.assistanceProofs')->find(Auth::id());
     $get_user = User::select('name', 'nim', 'status')->where('status', 'passed')->find(Auth::id());
 
-    $end_date_sharing_session_event = date('Y-m-d H:i:s', strtotime('2025-08-22 15:59:00'));
-    $end_date_hari_h_event          = date('Y-m-d H:i:s', strtotime('2025-08-23 15:59:00'));
-    $start_date_coaching_PKM        = date('Y-m-d H:i:s', strtotime('2025-09-01 16:00:00'));
+    // sharing session
+    $end_date_sharing_session_event = date('Y-m-d H:i:s', strtotime('2025-08-12 03:07:00'));
+    // setelah sharing session
+    $end_date_hari_h_event = date('Y-m-d H:i:s', strtotime('2025-08-12 03:09:00'));
+    // sebelum daftar tim
+    $start_date_coaching_PKM = date('Y-m-d H:i:s', strtotime('2025-08-12 03:10:00'));
 
     $timeline_events = [
         [
@@ -83,21 +86,20 @@ Route::get('/dashboard', function () {
 
     $date_sharing_session = null;
     $date_coaching_pkm    = null;
+    $text_hari_h          = "";
 
     if (Carbon::now() < Carbon::parse($end_date_sharing_session_event)) {
         $date_sharing_session = $timeline_events[0];
-    } elseif (
-        Carbon::now() > Carbon::parse($end_date_sharing_session_event)
-        &&
-        Carbon::now() < Carbon::parse($start_date_coaching_PKM)
-    ) {
+    } elseif (Carbon::now() < Carbon::parse($end_date_hari_h_event)) {
+        $text_hari_h = "Sedang berlangsung acara Pembukaan dan Sharing Session Pelatihan PKM-TI 2025";
+    } elseif (Carbon::now() < Carbon::parse($start_date_coaching_PKM)) {
         $date_coaching_pkm = $timeline_events[1];
     }
 
     $infos = [
         "hasTeam"                   => ! is_null($user->team),
         "hasProposal"               => $user->team && ! is_null($user->team->proposal),
-        "proposalStatus"            => $user->team && $user->team->proposal ? $user->team->proposal->status : "unsubmitted",
+        "proposalStatus"            => $user->team && $user->team->proposal ? $user->team->proposal->status : 'unsubmitted',
         "hasEnoughAssistanceProofs" => $user->team && $user->team->assistanceProofs->count() >= 3,
         "hasNotUploadFinalProposal" => $user->team?->proposal?->final_proposal_url == null,
     ];
@@ -108,7 +110,7 @@ Route::get('/dashboard', function () {
         $infos["hasEnoughTeamMembersNonAkt24"] = $user->team && $user->team->members->count() >= 3;
     }
 
-    return Inertia::render('Dashboard', compact('infos', 'user', 'get_user', 'date_sharing_session', 'date_coaching_pkm'));
+    return Inertia::render('Dashboard', compact('infos', 'user', 'get_user', 'date_sharing_session', 'date_coaching_pkm', 'end_date_hari_h_event', 'text_hari_h', 'timeline_events'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
