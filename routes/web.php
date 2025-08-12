@@ -5,6 +5,7 @@ use App\Http\Controllers\AssistanceProofController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProposalController;
 use App\Http\Controllers\ProposTitleExampleController;
+use App\Http\Controllers\SearchUserController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserController;
 use App\Jobs\SendEmailJob;
@@ -118,6 +119,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    Route::get('/search-user', [SearchUserController::class, 'index'])->name('search.your_tim');
+
     Route::middleware('has.no-team')->group(function () {
         Route::get('/teams', fn() => Inertia::render('Teams/JoinOrCreate'))->name('teams.join_or_create');
         Route::get('/teams/join-tim', fn() => Inertia::render('Teams/JoinTeam'))->name('teams.join_tim');
@@ -162,6 +165,7 @@ Route::middleware('auth')->group(function () {
     Route::middleware(['role:admin'])->resource('users', UserController::class);
     Route::middleware(['role:admin'])->post('users/{user}', [UserController::class, 'update'])->name('users.update');
     Route::middleware(['role:admin'])->post('user/{user}/reset-password', [UserController::class, 'resetPassword'])->name('users.reset-password');
+
 });
 
 Route::middleware('auth')->prefix('admin')->group(function () {

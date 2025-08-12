@@ -50,13 +50,6 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
         isCoachingPKMEvent = true;
     }
 
-    console.log("tanggal hari ini", date_now);
-    console.log("cek isi", date_sharing_session);
-    console.log("cek isi", date_coaching_pkm);
-    console.log("ini adalaah isCoachingPKMEvent", isCoachingPKMEvent);
-    console.log("ini adalaah isSharingSessionEvent", isSharingSessionEvent);
-    console.log("ini adalaah dateActive", dateActive);
-
     const [timeLeft, setTimeLeft] = useState({
         days: 0,
         hours: 0,

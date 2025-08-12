@@ -1,6 +1,7 @@
 import { IconBerandaSideBar, IconBuktiProposal, IconGabungTim, IconProfileSideBar, IconProposal } from "@/Components/iconAdmin";
 import Sidebar from "@/Components/Sidebar";
 import { useParam } from "@/utils";
+import { TvIcon } from "@heroicons/react/24/outline";
 import {
     CameraIcon,
     DocumentTextIcon,
@@ -44,6 +45,16 @@ export default function ParticipantLayout({ user, title, children, header, date_
                 text: "Beranda",
                 link: route("dashboard"),
             },
+            {
+                icon: <IconProfileSideBar />,
+                text: "Profile",
+                link: route("profile.edit"),
+            },
+            {
+                icon: <TvIcon className="w-[22px] h-[22px]" />,
+                text: "Cari tim anda",
+                link: route("search.your_tim"),
+            },
 
             ...(!user.team_id ? [{
                 icon: <IconGabungTim />,
@@ -51,11 +62,7 @@ export default function ParticipantLayout({ user, title, children, header, date_
                 link: route("teams.join_or_create"),
             }] : []),
 
-            {
-                icon: <IconProfileSideBar />,
-                text: "Profile",
-                link: route("profile.edit"),
-            },
+
         ]),
     ];
 
