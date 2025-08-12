@@ -1,9 +1,13 @@
 import ParticipantLayout from "@/Layouts/ParticipantLayout";
 import { usePage } from "@inertiajs/react";
 import { FilterMatchMode, FilterOperator } from "primereact/api";
+import { Button } from "primereact/button";
 import { Column } from "primereact/column";
 import { DataTable } from "primereact/datatable";
 import { Dropdown } from "primereact/dropdown";
+import { IconField } from "primereact/iconfield";
+import { InputIcon } from "primereact/inputicon";
+import { InputText } from "primereact/inputtext";
 import { useEffect } from "react";
 import { useState } from "react";
 
@@ -33,11 +37,12 @@ export default function Index({ auth }) {
     const initFilters = () => {
         setFilters({
             global: { value: null, matchMode: FilterMatchMode.CONTAINS },
-            role: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
-            status: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
-            class_of: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
+            angkatan: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
             have_team: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }] },
-            status_grup_line_join: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
+            nim: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
+            name: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
+            phone: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
+            line_id: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
         });
         setGlobalFilterValue("");
     };
@@ -99,6 +104,27 @@ export default function Index({ auth }) {
         }
     }
 
+    const renderHeader = () => {
+        return (
+            <>
+                <div className="flex md:flex-row flex-col md:gap-0 gap-5 justify-between items-center">
+                    <div className="flex md:flex-row flex-col gap-2">
+                        <IconField iconPosition="left">
+                            <InputIcon className="pi pi-search" />
+                            <InputText
+                                value={globalFilterValue}
+                                onChange={onGlobalFilterChange}
+                                placeholder="Cari Data..."
+                                className=""
+                            />
+                        </IconField>
+                        <Button type="button" icon="pi pi-filter-slash" label="Bersihkan Filter" outlined onClick={clearFilter} />
+                    </div>
+                </div>
+            </>
+        );
+    };
+
 
     return (
         <>
@@ -115,8 +141,10 @@ export default function Index({ auth }) {
 
                     <DataTable
                         value={userData}
+                        filters={filters}
                         paginator
                         rows={10}
+                        header={renderHeader}
                         rowsPerPageOptions={[10, 25, 50, 100, 200]}
                         paginatorTemplate="RowsPerPageDropdown FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
                         currentPageReportTemplate="{first} to {last} of {totalRecords}"
