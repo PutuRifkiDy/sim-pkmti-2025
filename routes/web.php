@@ -68,11 +68,11 @@ Route::get('/dashboard', function () {
     $get_user = User::select('name', 'nim', 'status')->where('status', 'passed')->find(Auth::id());
 
     // sharing session
-    $end_date_sharing_session_event = date('Y-m-d H:i:s', strtotime('2025-08-12 03:07:00'));
+    $end_date_sharing_session_event = date('Y-m-d H:i:s', strtotime('2025-08-23 09:00:00'));
     // setelah sharing session
-    $end_date_hari_h_event = date('Y-m-d H:i:s', strtotime('2025-08-12 03:09:00'));
+    $end_date_hari_h_event = date('Y-m-d H:i:s', strtotime('2025-08-23 16:00:00'));
     // sebelum daftar tim
-    $start_date_coaching_PKM = date('Y-m-d H:i:s', strtotime('2025-08-12 03:10:00'));
+    $start_date_coaching_PKM = date('Y-m-d H:i:s', strtotime('2025-08-31 23:59:00'));
 
     $timeline_events = [
         [
