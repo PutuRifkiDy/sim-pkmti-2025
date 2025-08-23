@@ -24,7 +24,7 @@ export default function NavBar({ auth }) {
 
     return (
         <nav
-            className={`navbar bg-white dark:bg-[#1d232a] p-0 lg:px-12 z-50 fixed top-0 flex-col items-start lg:items-center lg:flex-row ${
+            className={`navbar bg-white dark:bg-[#1d232a] p-0 lg:px-12 z-40 fixed top-0 flex-col items-start lg:items-center lg:flex-row ${
                 scrolled ? "shadow-md" : "shadow-none"
             } duration-300 z-20`}
         >

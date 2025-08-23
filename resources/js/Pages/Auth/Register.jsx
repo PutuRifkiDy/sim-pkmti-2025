@@ -1,9 +1,10 @@
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/solid";
 import { Head, Link, useForm } from "@inertiajs/react";
 import { useEffect, useState } from "react";
-import ToastError from "../../Components/ToastError"
-import * as AOS from 'aos';
-import 'aos/dist/aos.css';
+import ToastError from "../../Components/ToastError";
+import Toast from "@/Components/Toast";
+import * as AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function Register() {
     const [toastMessages, setToastMessages] = useState([]);
@@ -21,9 +22,7 @@ export default function Register() {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-
     useEffect(() => {
-        // Ambil semua pesan error yang ada dan simpan dalam array
         const newMessages = Object.values(errors).flat();
         setToastMessages(newMessages);
     }, [errors]);
@@ -37,7 +36,6 @@ export default function Register() {
         }
     }, [toastMessages]);
 
-
     useEffect(() => {
         return () => {
             reset("password", "password_confirmation");
@@ -50,16 +48,15 @@ export default function Register() {
         post(route("register"));
     };
 
-
     useEffect(() => {
         AOS.init({
             duration: 800,
             once: false,
-            easing: 'ease-out-cubic',
+            easing: "ease-out-cubic",
             offset: 100,
             delay: 0,
             mirror: false,
-            anchorPlacement: 'top-bottom',
+            anchorPlacement: "top-bottom",
         });
     }, []);
 
@@ -71,32 +68,43 @@ export default function Register() {
                 {toastMessages.map((message, index) => (
                     <ToastError key={index} content={message} />
                 ))}
+
             </div>
             <section className="flex md:flex-row flex-col md:justify-between justify-center items-center md:px-24 px-2 light:bg-[#F4F4F4] w-full md:py-12 py-0">
-
                 {status && (
                     <div className="mb-4 font-medium text-sm text-green-600">
                         {status}
                     </div>
                 )}
-                <div
-                    className="md:flex hidden justify-center items-center md:w-7/12 w-full"
-                >
-                    <img src="images/icon-login.png" className="md:w-[504px] w-full md:h-[504.06px] h-auto" data-aos="zoom-in" data-aos-delay="200" alt="icon-login" />
+                <div className="md:flex hidden justify-center items-center md:w-7/12 w-full">
+                    <img
+                        src="images/icon-login.png"
+                        className="md:w-[504px] w-full md:h-[504.06px] h-auto"
+                        data-aos="zoom-in"
+                        data-aos-delay="200"
+                        alt="icon-login"
+                    />
                 </div>
-                <div
-                    className="border-[1px] shadow-sm-[#000000] border-slate-300 flex flex-col light:bg-[#FFFFFF] rounded-[15px] md:p-10 p-5 md:w-5/12 w-full gap-5"
-                >
+                <div className="border-[1px] shadow-sm-[#000000] border-slate-300 flex flex-col light:bg-[#FFFFFF] rounded-[15px] md:p-10 p-5 md:w-5/12 w-full gap-5">
                     <div className="flex justify-center items-center">
                         <Link href={route("welcome")}>
-                            <img src="images/Logo-PKM-TI-2025.png" alt="" className="w-[115px] h-[143px] " />
+                            <img
+                                src="images/Logo-PKM-TI-2025.png"
+                                alt=""
+                                className="w-[115px] h-[143px] "
+                            />
                         </Link>
                     </div>
                     <div className="flex flex-col gap-2">
                         <form onSubmit={submit}>
                             <div className="flex flex-col gap-2">
                                 <div className="flex flex-col gap-2">
-                                    <label htmlFor="fullName" className="text-[18px] font-semibold">Nama Lengkap</label>
+                                    <label
+                                        htmlFor="fullName"
+                                        className="text-[18px] font-semibold"
+                                    >
+                                        Nama Lengkap
+                                    </label>
                                     <input
                                         id="name"
                                         type="text"
@@ -108,11 +116,15 @@ export default function Register() {
                                             setData("name", e.target.value)
                                         }
                                         className="input input-bordered"
-
                                     />
                                 </div>
                                 <div className="flex flex-col gap-2">
-                                    <label htmlFor="email" className="text-[18px] font-semibold">Email</label>
+                                    <label
+                                        htmlFor="email"
+                                        className="text-[18px] font-semibold"
+                                    >
+                                        Email
+                                    </label>
                                     <input
                                         id="email"
                                         type="email"
@@ -124,13 +136,15 @@ export default function Register() {
                                             setData("email", e.target.value)
                                         }
                                         className="input input-bordered"
-
                                     />
-
-
                                 </div>
                                 <div className="flex flex-col gap-2">
-                                    <label htmlFor="line_id" className="text-[18px] font-semibold ">ID Line</label>
+                                    <label
+                                        htmlFor="line_id"
+                                        className="text-[18px] font-semibold "
+                                    >
+                                        ID Line
+                                    </label>
                                     <input
                                         id="line_id"
                                         type="text"
@@ -142,12 +156,16 @@ export default function Register() {
                                             setData("line_id", e.target.value)
                                         }
                                         className="input input-bordered"
-
                                     />
                                 </div>
 
                                 <div className="flex flex-col gap-2">
-                                    <label htmlFor="phone" className="text-[18px] font-semibold">Telepon</label>
+                                    <label
+                                        htmlFor="phone"
+                                        className="text-[18px] font-semibold"
+                                    >
+                                        Telepon
+                                    </label>
                                     <input
                                         id="phone"
                                         type="text"
@@ -159,13 +177,13 @@ export default function Register() {
                                             setData("phone", e.target.value)
                                         }
                                         className="input input-bordered"
-
                                     />
-
-
                                 </div>
                                 <div className="flex flex-col gap-2">
-                                    <label htmlFor="nim" className="text-[18px] font-semibold">
+                                    <label
+                                        htmlFor="nim"
+                                        className="text-[18px] font-semibold"
+                                    >
                                         NIM
                                     </label>
                                     <input
@@ -175,12 +193,11 @@ export default function Register() {
                                         value={data.nim}
                                         autoComplete="nim"
                                         isfocused="true"
-                                        onChange={(e) => setData("nim", e.target.value)}
+                                        onChange={(e) =>
+                                            setData("nim", e.target.value)
+                                        }
                                         className="input input-bordered"
-
                                     />
-
-
                                 </div>
 
                                 <div className="flex flex-col gap-2">
@@ -197,9 +214,11 @@ export default function Register() {
                                             name="password"
                                             value={data.password}
                                             onChange={(e) =>
-                                                setData("password", e.target.value)
+                                                setData(
+                                                    "password",
+                                                    e.target.value
+                                                )
                                             }
-
                                             className="input input-bordered w-full join-item z-[1]"
                                         />
                                         <label className="btn btn-square join-item swap">
@@ -220,8 +239,6 @@ export default function Register() {
                                             <EyeIcon className="h-6 w-6 swap-off" />
                                         </label>
                                     </div>
-
-
                                 </div>
 
                                 <div className="flex flex-col gap-2">
@@ -243,16 +260,16 @@ export default function Register() {
                                                     e.target.value
                                                 )
                                             }
-
                                             className="input input-bordered w-full join-item z-[1]"
                                         />
                                         <label className="btn btn-square join-item swap">
                                             <input
                                                 type="checkbox"
                                                 onClick={() => {
-                                                    let x = document.getElementById(
-                                                        "password_confirmation"
-                                                    );
+                                                    let x =
+                                                        document.getElementById(
+                                                            "password_confirmation"
+                                                        );
                                                     x.type =
                                                         x.type == "password"
                                                             ? "text"
@@ -263,12 +280,8 @@ export default function Register() {
                                             <EyeIcon className="h-6 w-6 swap-off" />
                                         </label>
                                     </div>
-
                                 </div>
                             </div>
-
-
-
 
                             {/* <button
                                     className="mt-3 btn text-[18px] bg-[#42A1A4] text-white w-full mb-2 hover:text-white hover:bg-[#59DFD1] dark:text-gray-400 dark:hover:text-white transition-all duration-300 hover:shadow-[0_0_10px_#42A1A4]"
@@ -304,9 +317,6 @@ export default function Register() {
                     </div>
                 </div>
             </section>
-
-
-
 
             {/* <div className="w-full flex justify-center items-center">
                 <div className="flex-col border-[1px] border-base-content border-opacity-20 rounded-lg p-8 my-8">

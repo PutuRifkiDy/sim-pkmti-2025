@@ -8,8 +8,8 @@ import { useState, useEffect, useRef } from "react";
 import { FilterMatchMode, FilterOperator } from "primereact/api";
 import { IconField } from "primereact/iconfield";
 import { InputIcon } from "primereact/inputicon";
-import { Dropdown } from 'primereact/dropdown';
-import { Tooltip } from 'primereact/tooltip';
+import { Dropdown } from "primereact/dropdown";
+import { Tooltip } from "primereact/tooltip";
 import { ConfirmDialog } from "primereact/confirmdialog";
 import { FileUpload } from "primereact/fileupload";
 import {
@@ -21,11 +21,20 @@ import {
     XMarkIcon,
 } from "@heroicons/react/24/solid";
 import { Link, router, usePage } from "@inertiajs/react";
-import { Inertia } from '@inertiajs/inertia';
+import { Inertia } from "@inertiajs/inertia";
 import Toast from "@/Components/Toast";
 import { useIsObjectEmpty, useRandomInt } from "@/utils";
 
-export default function Users({ auth, users, flash, errors, akt21, akt22, akt23, akt24 }) {
+export default function Users({
+    auth,
+    users,
+    flash,
+    errors,
+    akt21,
+    akt22,
+    akt23,
+    akt24,
+}) {
     const { user } = auth;
     const { props } = usePage();
     const [visible, setVisible] = useState(false);
@@ -47,11 +56,11 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                 status: user.status,
                 status_grup_line_join: user.status_grup_line_join,
                 certificate_path: user.certificate_path,
-                have_team: user.team_id == null ? 'Belum Punya Tim' : 'Punya Tim',
+                have_team:
+                    user.team_id == null ? "Belum Punya Tim" : "Punya Tim",
             };
         })
     );
-
 
     useEffect(() => {
         setSelectedFields(
@@ -68,17 +77,17 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                     status: user.status,
                     status_grup_line_join: user.status_grup_line_join,
                     certificate_path: user.certificate_path,
-                    have_team: user.team_id == null ? 'Belum Punya Tim' : 'Punya Tim',
+                    have_team:
+                        user.team_id == null ? "Belum Punya Tim" : "Punya Tim",
                 };
             })
         );
         initFilters();
-    }, [props.users])
+    }, [props.users]);
 
     // Search
     const [filters, setFilters] = useState(null);
     const [globalFilterValue, setGlobalFilterValue] = useState("");
-
 
     useEffect(() => {
         initFilters();
@@ -86,7 +95,7 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
 
     useEffect(() => {
         if (flash.msg) {
-            setToastKey(prev => prev + 1);
+            setToastKey((prev) => prev + 1);
             setToastShown(true);
             const timeout = setTimeout(() => {
                 setToastShown(false);
@@ -98,25 +107,73 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
     const initFilters = () => {
         setFilters({
             global: { value: null, matchMode: FilterMatchMode.CONTAINS },
-            role: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
-            nim: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
-            name: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
-            phone: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
-            line_id: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
-            email: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
-            status: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
-            class_of: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
-            have_team: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }] },
-            status_grup_line_join: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
+            role: {
+                operator: FilterOperator.AND,
+                constraints: [
+                    { value: null, matchMode: FilterMatchMode.STARTS_WITH },
+                ],
+            },
+            nim: {
+                operator: FilterOperator.AND,
+                constraints: [
+                    { value: null, matchMode: FilterMatchMode.STARTS_WITH },
+                ],
+            },
+            name: {
+                operator: FilterOperator.AND,
+                constraints: [
+                    { value: null, matchMode: FilterMatchMode.STARTS_WITH },
+                ],
+            },
+            phone: {
+                operator: FilterOperator.AND,
+                constraints: [
+                    { value: null, matchMode: FilterMatchMode.STARTS_WITH },
+                ],
+            },
+            line_id: {
+                operator: FilterOperator.AND,
+                constraints: [
+                    { value: null, matchMode: FilterMatchMode.STARTS_WITH },
+                ],
+            },
+            email: {
+                operator: FilterOperator.AND,
+                constraints: [
+                    { value: null, matchMode: FilterMatchMode.STARTS_WITH },
+                ],
+            },
+            status: {
+                operator: FilterOperator.AND,
+                constraints: [
+                    { value: null, matchMode: FilterMatchMode.STARTS_WITH },
+                ],
+            },
+            class_of: {
+                operator: FilterOperator.AND,
+                constraints: [
+                    { value: null, matchMode: FilterMatchMode.STARTS_WITH },
+                ],
+            },
+            have_team: {
+                operator: FilterOperator.AND,
+                constraints: [
+                    { value: null, matchMode: FilterMatchMode.EQUALS },
+                ],
+            },
+            status_grup_line_join: {
+                operator: FilterOperator.AND,
+                constraints: [
+                    { value: null, matchMode: FilterMatchMode.STARTS_WITH },
+                ],
+            },
         });
         setGlobalFilterValue("");
     };
 
-
     const clearFilter = () => {
         initFilters();
     };
-
 
     const onGlobalFilterChange = (e) => {
         const value = e.target.value;
@@ -126,7 +183,6 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
         setFilters(_filters);
         setGlobalFilterValue(value);
     };
-
 
     // Edit
     const onRowEditComplete = async (e) => {
@@ -165,11 +221,10 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
 
         setSelectedFields(_selectedFields);
 
-        setToastKey(prev => prev + 1);
+        setToastKey((prev) => prev + 1);
         setToastShown(true);
         setTimeout(() => setToastShown(false), 3000);
     };
-
 
     const textEditor = (rowData) => {
         return (
@@ -195,7 +250,7 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                 <option value="lecturer">Dosen</option>
             </select>
         );
-    }
+    };
 
     const selectStatusGrupLineJoinEditor = (rowData) => {
         return (
@@ -209,7 +264,7 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                 <option value="not_joined">Belum Bergabung Grup Line</option>
             </select>
         );
-    }
+    };
 
     const fileEditor = (rowData) => {
         return (
@@ -220,7 +275,6 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
             />
         );
     };
-
 
     const handleFileChange = (e, rowData) => {
         const file = e.target.files[0];
@@ -237,8 +291,14 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
     const statusBadge = (rowData) => {
         const status = rowData.status;
         const statuses = {
-            passed: { style: "font-bold bg-[#00B69B] px-3 py-1 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white   transition-all duration-300 shadow-[0_0_10px_#00B69B]", content: "Lulus" },
-            failed: { style: "font-bold bg-[#F93C65] px-3 py-1 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white   transition-all duration-300 shadow-[0_0_10px_#F93C65]", content: "Gagal" },
+            passed: {
+                style: "font-bold bg-[#00B69B] px-3 py-1 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white   transition-all duration-300 shadow-[0_0_10px_#00B69B]",
+                content: "Lulus",
+            },
+            failed: {
+                style: "font-bold bg-[#F93C65] px-3 py-1 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white   transition-all duration-300 shadow-[0_0_10px_#F93C65]",
+                content: "Gagal",
+            },
         };
 
         return (
@@ -254,7 +314,7 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
             e.preventDefault();
 
             router.post(route("users.reset-password", rowData.id));
-        }
+        };
 
         return (
             <button
@@ -264,7 +324,7 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                 <ArrowPathIcon className="h-4 w-4" />
             </button>
         );
-    }
+    };
 
     const dt = useRef(null);
 
@@ -273,44 +333,57 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
     };
 
     const exportExcel = () => {
-        import('xlsx').then((xlsx) => {
+        import("xlsx").then((xlsx) => {
             const worksheet = xlsx.utils.json_to_sheet(selectedFields);
-            const workbook = { Sheets: { data: worksheet }, SheetNames: ['data'] };
+            const workbook = {
+                Sheets: { data: worksheet },
+                SheetNames: ["data"],
+            };
             const excelBuffer = xlsx.write(workbook, {
-                bookType: 'xlsx',
-                type: 'array'
+                bookType: "xlsx",
+                type: "array",
             });
 
-            saveAsExcelFile(excelBuffer, 'Peserta PKM TI 2025');
+            saveAsExcelFile(excelBuffer, "Peserta PKM TI 2025");
         });
     };
 
     const saveAsExcelFile = (buffer, fileName) => {
-        import('file-saver').then((module) => {
+        import("file-saver").then((module) => {
             if (module && module.default) {
-                let EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
-                let EXCEL_EXTENSION = '.xlsx';
+                let EXCEL_TYPE =
+                    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8";
+                let EXCEL_EXTENSION = ".xlsx";
                 const data = new Blob([buffer], { type: EXCEL_TYPE });
 
-                module.default.saveAs(data, fileName + '_export_' + new Date().toLocaleDateString() + EXCEL_EXTENSION);
+                module.default.saveAs(
+                    data,
+                    fileName +
+                        "_export_" +
+                        new Date().toLocaleDateString() +
+                        EXCEL_EXTENSION
+                );
             }
         });
     };
 
     const exportPdf = () => {
-        import('jspdf').then((jsPDF) => {
-            import('jspdf-autotable').then(() => {
+        import("jspdf").then((jsPDF) => {
+            import("jspdf-autotable").then(() => {
                 const doc = new jsPDF.default();
 
-                const columns = Object.keys(selectedFields[0]).map(key => ({ title: key, dataKey: key }));
-                const rows = selectedFields.map(item => Object.values(item));
+                const columns = Object.keys(selectedFields[0]).map((key) => ({
+                    title: key,
+                    dataKey: key,
+                }));
+                const rows = selectedFields.map((item) => Object.values(item));
 
                 doc.autoTable({
-                    head: [columns.map(col => col.title)], // Header
+                    head: [columns.map((col) => col.title)], // Header
                     body: rows, // Isi tabel
                 });
 
-                doc.save('Peserta_PKM_TI_2025.pdf');
+                doc.save("Peserta_PKM_TI_2025.pdf");
             });
         });
     };
@@ -330,12 +403,35 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                                 className=""
                             />
                         </IconField>
-                        <Button type="button" icon="pi pi-filter-slash" label="Bersihkan Filter" outlined onClick={clearFilter} />
+                        <Button
+                            type="button"
+                            icon="pi pi-filter-slash"
+                            label="Bersihkan Filter"
+                            outlined
+                            onClick={clearFilter}
+                        />
                     </div>
 
                     <div className="flex flex-row gap-2">
-                        <Button type="button" className="export-button" icon="pi pi-file" rounded onClick={() => exportCSV(false)} data-pr-tooltip="Export Sebagai CSV File" data-pr-position="top" />
-                        <Button type="button" className="export-button" icon="pi pi-file-excel" severity="success" rounded onClick={exportExcel} data-pr-tooltip="Export Sebagai Excel File" data-pr-position="top" />
+                        <Button
+                            type="button"
+                            className="export-button"
+                            icon="pi pi-file"
+                            rounded
+                            onClick={() => exportCSV(false)}
+                            data-pr-tooltip="Export Sebagai CSV File"
+                            data-pr-position="top"
+                        />
+                        <Button
+                            type="button"
+                            className="export-button"
+                            icon="pi pi-file-excel"
+                            severity="success"
+                            rounded
+                            onClick={exportExcel}
+                            data-pr-tooltip="Export Sebagai Excel File"
+                            data-pr-position="top"
+                        />
                     </div>
                 </div>
             </>
@@ -343,11 +439,12 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
     };
 
     const RoleFilterTemplate = (props) => {
-        const user_data = [...new Set(users.map((user) => user.role))].map(role => ({
-            label: role ? role : "-",
-            value: role ? role : "-"
-        }));
-
+        const user_data = [...new Set(users.map((user) => user.role))].map(
+            (role) => ({
+                label: role ? role : "-",
+                value: role ? role : "-",
+            })
+        );
 
         return (
             <Dropdown
@@ -362,11 +459,12 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
     };
 
     const StatusJoinGroupLineFilterTemplate = (props) => {
-        const user_data = [...new Set(users.map((user) => user.status_grup_line_join))].map(status_grup_line_join => ({
+        const user_data = [
+            ...new Set(users.map((user) => user.status_grup_line_join)),
+        ].map((status_grup_line_join) => ({
             label: status_grup_line_join ? status_grup_line_join : "-",
-            value: status_grup_line_join ? status_grup_line_join : "-"
+            value: status_grup_line_join ? status_grup_line_join : "-",
         }));
-
 
         return (
             <Dropdown
@@ -381,15 +479,17 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
     };
 
     const AngkatanFilterTemplate = (props) => {
-        const angkatanData = [...new Set(users.map((user) => 20 + user.nim.substring(0, 2)))].map(angkatan => ({
+        const angkatanData = [
+            ...new Set(users.map((user) => 20 + user.nim.substring(0, 2))),
+        ].map((angkatan) => ({
             label: angkatan,
-            value: angkatan
+            value: angkatan,
         }));
 
         return (
             <Dropdown
                 value={props.value}
-                options={angkatanData}  // Menyaring data agar tidak duplikat
+                options={angkatanData} // Menyaring data agar tidak duplikat
                 onChange={(e) => props.filterApplyCallback(e.value)}
                 placeholder="Select Angkatan"
                 className="p-column-filter"
@@ -399,11 +499,12 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
     };
 
     const StatusFilterTemplate = (props) => {
-        const user_data = [...new Set(users.map((user) => user.status))].map(status => ({
-            label: status ? status : "-",
-            value: status ? status : "-"
-        }));
-
+        const user_data = [...new Set(users.map((user) => user.status))].map(
+            (status) => ({
+                label: status ? status : "-",
+                value: status ? status : "-",
+            })
+        );
 
         return (
             <Dropdown
@@ -419,8 +520,8 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
 
     const TeamFilterTemplate = (props) => {
         const options = [
-            { label: 'Punya Tim', value: 'Punya Tim' },
-            { label: 'Belum Punya Tim', value: 'Belum Punya Tim' },
+            { label: "Punya Tim", value: "Punya Tim" },
+            { label: "Belum Punya Tim", value: "Belum Punya Tim" },
         ];
 
         return (
@@ -435,23 +536,27 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
         );
     };
 
-
     const HaveTeamTemplate = (rowData) => {
         if (rowData.have_team == "Belum Punya Tim") {
             return <span className="text-red-500">Belum Punya Tim</span>;
         } else {
             return <span className="text-green-500">Punya Tim</span>;
         }
-    }
-
+    };
 
     const StatusJoinGroupLineTemplate = (rowData) => {
         if (rowData.status_grup_line_join == "not_joined") {
-            return <span className="text-red-500">Belum Bergabung Group Line</span>;
+            return (
+                <span className="text-red-500">Belum Bergabung Group Line</span>
+            );
         } else if (rowData.status_grup_line_join == "joined") {
-            return <span className="text-green-500">Sudah Bergabung Group Line</span>;
+            return (
+                <span className="text-green-500">
+                    Sudah Bergabung Group Line
+                </span>
+            );
         }
-    }
+    };
 
     const CertificateModal = ({ imageUrl, modalId }) => {
         return (
@@ -485,7 +590,6 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
         );
     };
 
-
     const handleDelete = () => {
         if (userToDelete) {
             router.delete(route("users.destroy", userToDelete.id), {
@@ -493,13 +597,13 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                     setSelectedFields((prevData) =>
                         prevData.filter((user) => user.id != userToDelete.id)
                     );
-                    setToastKey(prev => prev + 1);
+                    setToastKey((prev) => prev + 1);
                     setToastShown(true);
                     setTimeout(() => setToastShown(false), 3000);
                 },
                 onError: () => {
                     alert("Penghapusan gagal.");
-                }
+                },
             });
         }
         setVisible(false);
@@ -520,33 +624,63 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                 <div className="flex flex-col md:flex-row justify-between gap-2">
                     <div className="flex flex-row justify-between gap-5 bg-white rounded-[14px] p-5 shadow">
                         <div className="flex flex-col gap-1">
-                            <p className="font-medium text-[16px] text-[#202224]/70  tracking-[0.03em]">Jumlah Angkatan 2021</p>
-                            <p className="font-bold text-[28px] tracking-[1px] ">{akt21}</p>
+                            <p className="font-medium text-[16px] text-[#202224]/70  tracking-[0.03em]">
+                                Jumlah Angkatan 2021
+                            </p>
+                            <p className="font-bold text-[28px] tracking-[1px] ">
+                                {akt21}
+                            </p>
                         </div>
-                        <img src="/images/admin/icon-jumlah-pengguna.png" className="w-[60px] h-[60px]" alt="" />
+                        <img
+                            src="/images/admin/icon-jumlah-pengguna.png"
+                            className="w-[60px] h-[60px]"
+                            alt=""
+                        />
                     </div>
                     <div className="flex flex-row justify-between gap-5 bg-white rounded-[14px] p-5 shadow">
                         <div className="flex flex-col gap-1">
-                            <p className="font-medium text-[16px] text-[#202224]/70 tracking-[0.03em] ">Jumlah Angkatan 2022</p>
-                            <p className=" font-bold text-[28px] tracking-[1px]">{akt22}</p>
+                            <p className="font-medium text-[16px] text-[#202224]/70 tracking-[0.03em] ">
+                                Jumlah Angkatan 2022
+                            </p>
+                            <p className=" font-bold text-[28px] tracking-[1px]">
+                                {akt22}
+                            </p>
                         </div>
-                        <img src="/images/admin/icon-jumlah-pengguna.png" className="w-[60px] h-[60px]" alt="" />
+                        <img
+                            src="/images/admin/icon-jumlah-pengguna.png"
+                            className="w-[60px] h-[60px]"
+                            alt=""
+                        />
                     </div>
                     <div className="flex flex-row justify-between gap-5 bg-white rounded-[14px] p-5 shadow">
                         <div className="flex flex-col gap-1">
-                            <p className="font-medium text-[16px] text-[#202224]/70 tracking-[0.03em] ">Jumlah Angkatan 2023</p>
-                            <p className=" font-bold text-[28px] tracking-[1px]">{akt23}</p>
+                            <p className="font-medium text-[16px] text-[#202224]/70 tracking-[0.03em] ">
+                                Jumlah Angkatan 2023
+                            </p>
+                            <p className=" font-bold text-[28px] tracking-[1px]">
+                                {akt23}
+                            </p>
                         </div>
-                        <img src="/images/admin/icon-jumlah-pengguna.png" className="w-[60px] h-[60px]" alt="" />
+                        <img
+                            src="/images/admin/icon-jumlah-pengguna.png"
+                            className="w-[60px] h-[60px]"
+                            alt=""
+                        />
                     </div>
                     <div className="flex flex-row justify-between gap-5 bg-white rounded-[14px] p-5 shadow">
                         <div className="flex flex-col gap-1">
-                            <p className=" font-medium text-[16px] text-[#202224]/70 tracking-[0.03em]">Jumlah Angkatan 2024</p>
+                            <p className=" font-medium text-[16px] text-[#202224]/70 tracking-[0.03em]">
+                                Jumlah Angkatan 2024
+                            </p>
                             <p className=" font-bold text-[28px] tracking-[1px]">
                                 {akt24}
                             </p>
                         </div>
-                        <img src="/images/admin/icon-jumlah-pengguna.png" className="w-[60px] h-[60px]" alt="" />
+                        <img
+                            src="/images/admin/icon-jumlah-pengguna.png"
+                            className="w-[60px] h-[60px]"
+                            alt=""
+                        />
                     </div>
                 </div>
                 <div className="bg-white px-8 py-8 rounded-[14px] mt-10 shadow">
@@ -581,7 +715,7 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                         currentPageReportTemplate="{first} to {last} of {totalRecords}"
                         emptyMessage="Tidak ada data ditemukan."
                         onFilter={(e) => setFilters(e.filters)}
-                        tableStyle={{ minWidth: '50rem' }}
+                        tableStyle={{ minWidth: "50rem" }}
                         onRowEditComplete={onRowEditComplete}
                         rowEditorInitIcon={
                             <div className=" bg-yellow-400 btn-sm text-center flex justify-center items-center mx-1">
@@ -604,7 +738,7 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                             field="nomor"
                             header="#"
                             body={rowNumberTemplate}
-                            style={{ textAlign: 'center' }}
+                            style={{ textAlign: "center" }}
                         />
                         <Column
                             editor={(rowData) => textEditor(rowData)}
@@ -612,14 +746,14 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                             field="nim"
                             header="NIM"
                             sortable
-                            style={{ textAlign: 'center' }}
+                            style={{ textAlign: "center" }}
                         />
                         <Column
                             editor={(rowData) => textEditor(rowData)}
                             key="name"
                             field="name"
                             header="Nama"
-                            style={{ minWidth: '14rem' }}
+                            style={{ minWidth: "14rem" }}
                         />
                         <Column
                             key="have_team"
@@ -629,10 +763,12 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                             filterElement={TeamFilterTemplate}
                             sortable
                             body={HaveTeamTemplate}
-                            style={{ minWidth: '12rem' }}
+                            style={{ minWidth: "12rem" }}
                         />
                         <Column
-                            editor={(rowData) => selectStatusGrupLineJoinEditor(rowData)}
+                            editor={(rowData) =>
+                                selectStatusGrupLineJoinEditor(rowData)
+                            }
                             key="status_grup_line_join"
                             field="status_grup_line_join"
                             header="Status Join Grup Line"
@@ -640,7 +776,7 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                             sortable
                             body={StatusJoinGroupLineTemplate}
                             filterElement={StatusJoinGroupLineFilterTemplate}
-                            style={{ minWidth: '12rem' }}
+                            style={{ minWidth: "12rem" }}
                         />
                         <Column
                             editor={(rowData) => selectRoleEditor(rowData)}
@@ -649,8 +785,8 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                             header="Role"
                             sortable
                             showFilterMenu={true}
-                            filterMenuStyle={{ width: '14rem' }}
-                            style={{ minWidth: '10rem' }}
+                            filterMenuStyle={{ width: "14rem" }}
+                            style={{ minWidth: "10rem" }}
                             filter
                             filterElement={RoleFilterTemplate}
                         />
@@ -659,7 +795,7 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                             field="class_of"
                             header="Angkatan"
                             sortable
-                            style={{ textAlign: 'center' }}
+                            style={{ textAlign: "center" }}
                             filter
                             filterElement={AngkatanFilterTemplate}
                         />
@@ -686,7 +822,7 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                             field="status"
                             body={statusBadge}
                             header="Status"
-                            style={{ textAlign: 'center' }}
+                            style={{ textAlign: "center" }}
                             filter
                             filterElement={StatusFilterTemplate}
                             sortable
@@ -712,12 +848,14 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                             body={resetPasswordAction}
                             key="reset_password"
                             className="min-w-44 text-center"
-                            header={<span className="me-2">Reset Password</span>}
+                            header={
+                                <span className="me-2">Reset Password</span>
+                            }
                         />
                         <Column rowEditor={true} header={"Edit"}></Column>
                         <Column
                             header={"Hapus"}
-                            style={{ textAlign: 'center' }}
+                            style={{ textAlign: "center" }}
                             body={(rowData) => {
                                 return (
                                     <Button
@@ -727,7 +865,9 @@ export default function Users({ auth, users, flash, errors, akt21, akt22, akt23,
                                             setUserToDelete(rowData);
                                             setVisible(true);
                                         }}
-                                    ><TrashIcon className="w-4 h-4" /></Button>
+                                    >
+                                        <TrashIcon className="w-4 h-4" />
+                                    </Button>
                                 );
                             }}
                         ></Column>

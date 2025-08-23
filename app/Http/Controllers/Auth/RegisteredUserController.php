@@ -45,6 +45,12 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
+        $end_date_registered_pkm =  date('Y-m-d H:i:s', strtotime('2025-08-23 09:00:00'));
+
+        if (now() >= $end_date_registered_pkm) {
+            return to_route('welcome')->with("msg","Pendaftaran PKM-TI 2025 Telah Ditutup");
+        }
+
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
