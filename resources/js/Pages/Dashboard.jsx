@@ -349,16 +349,16 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                             <img src="images/elements/element_dashboard_section_2.png" className="absolute left-0 top-0 w-[200px] h-auto z-0" alt="" />
                             <img src="images/elements/element_dashboard_section_3.png" className="absolute right-0 bottom-0 w-[200px] h-auto z-0" alt="" />
                             <div className="p-8">
-                                <div className="flex flex-row gap-1 justify-center items-center">
+                                {/* <div className="flex flex-row gap-1 justify-center items-center">
                                     <div className="flex flex-col gap-1">
                                         <p className="text-[27px] leading-[110%] text-[#000000] z-20">Don’t Forget to join our official  LINE group</p>
                                         <a href="https://line.me/R/ti/g/jBUgzep53m" className="text-[16px] leading-[110%] text-indigo-800 z-20 cursor-pointer" target="_blank" >
                                             https://line.me/R/ti/g/jBUgzep53m
                                         </a>
-                                    </div>
+                                    </div> 
 
                                     <img src="/images/elements/element_dashboard_line_qr_1.jpg" className="w-[129px] h-[129px] z-10" alt="" />
-                                </div>
+                                </div> */}
 
                                 <div className="flex flex-col justify-center items-center mt-5">
                                     <p className="text-[24px] leading-[110%] text-[#111E41] z-20 font-bold text-center">Any Questions? Feel free to ask</p>
@@ -482,7 +482,7 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                         <img src="images/elements/element_dashboard_section_2.png" className="absolute left-0 top-0 w-[200px] h-auto z-0" alt="" />
                         <img src="images/elements/element_dashboard_section_3.png" className="absolute right-0 bottom-0 w-[200px] h-auto z-0" alt="" />
                         <div className="p-8">
-                            <div className="flex flex-row gap-10 justify-center items-center">
+                            {/* <div className="flex flex-row gap-10 justify-center items-center">
 
                                 <div className="flex flex-col gap-1">
                                     <p className="text-[27px] leading-[110%] text-[#000000] z-20">Don’t Forget to join our official  LINE group</p>
@@ -492,7 +492,7 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                                 </div>
 
                                 <img src="/images/elements/element_dashboard_line_qr_1.jpg" className="w-[129px] h-[129px] z-10" alt="" />
-                            </div>
+                            </div> */}
 
                             <div className="flex flex-col justify-center items-center mt-5">
                                 <p className="text-[24px] leading-[110%] text-[#111E41] z-20 font-bold text-center">Any Questions? Feel free to ask</p>
