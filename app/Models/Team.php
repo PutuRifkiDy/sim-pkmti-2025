@@ -12,6 +12,7 @@ class Team extends Model
     protected $fillable = [
         'team_name',
         'token',
+        'is_team_get_min_member',
         'leader_id', 
         'lecturer_id', 
     ];

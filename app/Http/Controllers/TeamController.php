@@ -23,7 +23,8 @@ class TeamController extends Controller
 
         $team = Team::with('leader', 'members', 'proposal')->find($teamId);
 
-        if (!$team) abort(404);
+        if (!$team)
+            abort(404);
 
         $lecturers = Lecturer::all();
 
@@ -32,17 +33,23 @@ class TeamController extends Controller
 
     public function create(Request $request)
     {
+        $user = auth()->user();
+
         if (Auth::getUser()->team_id) {
             return to_route('teams.show', Auth::getUser()->team_id);
         }
 
         $request->validate([
-            'team_name' => 'required|string|max:255|unique:'.Team::class,
+            'team_name' => 'required|string|max:255|unique:' . Team::class,
         ], [
             'team_name.required' => 'Mohon masukkan nama tim',
         ]);
 
         $token = Str::random(8);
+
+        if ($user->status_submission == "failed") {
+            return back()->with('msg', 'Tim tidak dapat dibuat karena kamu belum lulus ujian');
+        }
 
         $team = Team::create([
             'team_name' => $request->team_name,
@@ -61,7 +68,8 @@ class TeamController extends Controller
     {
         $user_login = Auth::user();
         $team = Team::where('token', $token)->first();
-        if (!$team) return back()->with('msg', 'Tim tidak ditemukan.');
+        if (!$team)
+            return back()->with('msg', 'Tim tidak ditemukan.');
 
         $teamId = $team->id;
         $teamMembersCount = User::where('team_id', $teamId)->count();
@@ -78,18 +86,25 @@ class TeamController extends Controller
             }
         }
 
+        if ($user_login->status_submission == "failed") {
+            return back()->with('msg', 'Tidak bisa join ke tim manapun karena resume kamu belum sesuai');
+        }
 
-        $teamMembers = User::where('team_id', $teamId)->get();
-        foreach ($teamMembers as $member) {
-            if (str_contains($user_login->nim, '24') && !str_contains($member->nim, '24')) {
-                return back()->with('msg', 'Kamu tidak bisa bergabung dengan tim yang anggotanya bukan angkatan 24!');
-            } elseif (!str_contains($user_login->nim, '24') && str_contains($member->nim, '24')) {
-                return back()->with('msg', 'Kamu tidak bisa bergabung dengan tim yang anggotanya angkatan 24!');
+        if ($user_login->is_failed_inov == true) {
+            User::find(Auth::id())->update(['team_id' => $teamId]);
+        } else {
+            $teamMembers = User::where('team_id', $teamId)->get();
+            foreach ($teamMembers as $member) {
+                if (str_contains($user_login->nim, '24') && !str_contains($member->nim, '24')) {
+                    return back()->with('msg', 'Kamu tidak bisa bergabung dengan tim yang anggotanya bukan angkatan 24!');
+                } elseif (!str_contains($user_login->nim, '24') && str_contains($member->nim, '24')) {
+                    return back()->with('msg', 'Kamu tidak bisa bergabung dengan tim yang anggotanya angkatan 24!');
+                }
             }
         }
 
         User::find(Auth::id())->update(['team_id' => $teamId]);
-
+        // User::find(Auth::id())->update(['team_id' => $teamId]);
         return to_route('teams.show', $teamId)->with('msg', 'Selamat bergabung!');
     }
 
@@ -104,7 +119,7 @@ class TeamController extends Controller
         if ($teamMembersCount == 1) {
             $pastTeam->delete();
         } else if ($pastTeam->leader_id == $user->id) {
-            $pastTeam->update(['leader_id' =>  User::where('team_id', $teamId)->first()->id]);
+            $pastTeam->update(['leader_id' => User::where('team_id', $teamId)->first()->id]);
         }
 
         return to_route('dashboard')->with('msg', 'Kamu berhasil keluar dari tim');
@@ -122,7 +137,7 @@ class TeamController extends Controller
             $pastTeam->delete();
             return to_route('dashboard')->with('msg', 'Tim dibubarkan');
         } else if ($pastTeam->leader_id == $userId) {
-            $pastTeam->update(['leader_id' =>  User::where('team_id', $teamId)->first()->id]);
+            $pastTeam->update(['leader_id' => User::where('team_id', $teamId)->first()->id]);
         }
 
         return back()->with('msg', 'Anggota tim berhasil dikeluarkan');
@@ -139,9 +154,11 @@ class TeamController extends Controller
     {
         $request->validate([
             'team_name' => 'required|string|max:255',
+            'is_team_get_min_member' => 'nullable|boolean',
         ], [
             'team_name.required' => 'Nama tim tidak boleh kosong',
         ]);
+
 
         Team::find($teamId)->update($request->all());
 

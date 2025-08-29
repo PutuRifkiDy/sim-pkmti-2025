@@ -18,15 +18,14 @@ import { IconField } from "primereact/iconfield";
 import { InputIcon } from "primereact/inputicon";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
-import { Dropdown } from 'primereact/dropdown';
+import { Dropdown } from "primereact/dropdown";
 import { Link, router } from "@inertiajs/react";
 import { FilterMatchMode, FilterOperator } from "primereact/api";
 import Toast from "@/Components/Toast";
-import { Tooltip } from 'primereact/tooltip';
+import { Tooltip } from "primereact/tooltip";
 import { useIsObjectEmpty, useRandomInt } from "@/utils";
 import { ConfirmDialog } from "primereact/confirmdialog";
 import { useRef } from "react";
-
 
 export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
     const { user } = auth;
@@ -45,13 +44,14 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
             leader_nim: team.leader ? team.leader.nim : "-",
             lecturer: team.lecturer ? team.lecturer.name : "-",
             token: team.token,
+            is_team_get_min_member: team.is_team_get_min_member,
             members: team.members,
         }))
     );
 
     useEffect(() => {
         if (flash.msg) {
-            setToastKey(prev => prev + 1);
+            setToastKey((prev) => prev + 1);
             setToastShown(true);
             const timeout = setTimeout(() => {
                 setToastShown(false);
@@ -64,24 +64,46 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
         initFilters();
     }, []);
 
-
     const initFilters = () => {
         setFilters({
             global: { value: null, matchMode: FilterMatchMode.CONTAINS },
-            team_name: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
-            leader_name: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
-            leader_nim: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
-            lecturer: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
-            token: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] }
+            team_name: {
+                operator: FilterOperator.AND,
+                constraints: [
+                    { value: null, matchMode: FilterMatchMode.STARTS_WITH },
+                ],
+            },
+            leader_name: {
+                operator: FilterOperator.AND,
+                constraints: [
+                    { value: null, matchMode: FilterMatchMode.STARTS_WITH },
+                ],
+            },
+            leader_nim: {
+                operator: FilterOperator.AND,
+                constraints: [
+                    { value: null, matchMode: FilterMatchMode.STARTS_WITH },
+                ],
+            },
+            lecturer: {
+                operator: FilterOperator.AND,
+                constraints: [
+                    { value: null, matchMode: FilterMatchMode.STARTS_WITH },
+                ],
+            },
+            token: {
+                operator: FilterOperator.AND,
+                constraints: [
+                    { value: null, matchMode: FilterMatchMode.STARTS_WITH },
+                ],
+            },
         });
         setGlobalFilterValue("");
     };
 
-
     const clearFilter = () => {
         initFilters();
     };
-
 
     const onGlobalFilterChange = (e) => {
         const value = e.target.value;
@@ -92,26 +114,25 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
         setGlobalFilterValue(value);
     };
 
-
     // Edit
     const onRowEditComplete = (e) => {
         let _selectedFields = [...selectedFields];
         let { newData, index } = e;
 
         _selectedFields[index] = newData;
-        const { id, team_name, token } = newData;
+        const { id, team_name, token, is_team_get_min_member } = newData;
         const patchData = {
             team_name,
             token,
+            is_team_get_min_member,
         };
         router.patch(route("teams.update", e.data.id), patchData);
 
         setSelectedFields(_selectedFields);
-        setToastKey(prev => prev + 1);
+        setToastKey((prev) => prev + 1);
         setToastShown(true);
         setTimeout(() => setToastShown(false), 3000);
     };
-
 
     const textEditor = (rowData) => {
         return (
@@ -124,7 +145,6 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
         );
     };
 
-
     const teamsData = teams.map((team) => ({
         id: team.id,
         team_name: team.team_name,
@@ -132,9 +152,9 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
         leader_nim: team.leader ? team.leader.nim : "-",
         lecturer: team.lecturer ? team.lecturer.name : "-",
         token: team.token,
+        is_team_get_min_member: team.is_team_get_min_member,
         members: team.members,
     }));
-
 
     const membersDetail = (rowData) => {
         return (
@@ -159,37 +179,50 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
                         <h3 className="font-bold text-lg mb-4">Anggota</h3>
 
                         <DataTable value={rowData.members}>
-                            <Column field="nim" header="NIM" body={(member) => (
-                                <span className="font-bold">
-                                    {member.nim}
-                                </span>
-                            )} />
+                            <Column
+                                field="nim"
+                                header="NIM"
+                                body={(member) => (
+                                    <span className="font-bold">
+                                        {member.nim}
+                                    </span>
+                                )}
+                            />
                             <Column field="name" header="Nama" />
-                            <Column header="Aksi" body={(member) => (
-                                <div className="flex gap-2">
-                                    <Link
-                                        as="button"
-                                        className="font-bold bg-[#E82323] px-3 py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#E82323]/70  transition-all duration-300 shadow-[0_0_10px_#E82323] tooltip"
-                                        method="delete"
-                                        href={route("teams.kick", [rowData.id, member.id])}
-                                        data-tip="Keluarkan Anggota Ini"
-                                    >
-                                        <UserMinusIcon className="h-4 w-4" />
-                                    </Link>
-
-                                    {member.nim !== rowData.leader_nim && (
+                            <Column
+                                header="Aksi"
+                                body={(member) => (
+                                    <div className="flex gap-2">
                                         <Link
                                             as="button"
-                                            className="font-bold bg-[#f5bc42] px-3 py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#f5bc42]/70  transition-all duration-300 shadow-[0_0_10px_#f5bc42] tooltip"
-                                            method="patch"
-                                            href={route("teams.changeLeader", [rowData.id, member.id])}
-                                            data-tip="Ganti Menjadi Ketua Tim"
+                                            className="font-bold bg-[#E82323] px-3 py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#E82323]/70  transition-all duration-300 shadow-[0_0_10px_#E82323] tooltip"
+                                            method="delete"
+                                            href={route("teams.kick", [
+                                                rowData.id,
+                                                member.id,
+                                            ])}
+                                            data-tip="Keluarkan Anggota Ini"
                                         >
-                                            <ArrowsRightLeftIcon className="h-4 w-4" />
+                                            <UserMinusIcon className="h-4 w-4" />
                                         </Link>
-                                    )}
-                                </div>
-                            )} />
+
+                                        {member.nim !== rowData.leader_nim && (
+                                            <Link
+                                                as="button"
+                                                className="font-bold bg-[#f5bc42] px-3 py-2 text-[18px tracking-[0.03em] leading-[26px] rounded-md text-white hover:text-white hover:bg-[#f5bc42]/70  transition-all duration-300 shadow-[0_0_10px_#f5bc42] tooltip"
+                                                method="patch"
+                                                href={route(
+                                                    "teams.changeLeader",
+                                                    [rowData.id, member.id]
+                                                )}
+                                                data-tip="Ganti Menjadi Ketua Tim"
+                                            >
+                                                <ArrowsRightLeftIcon className="h-4 w-4" />
+                                            </Link>
+                                        )}
+                                    </div>
+                                )}
+                            />
                         </DataTable>
 
                         <div className="modal-action">
@@ -203,18 +236,44 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
         );
     };
 
+    const selectIsGetMinMember = (rowData) => {
+        return (
+            <select
+                id=""
+                value={rowData.value}
+                onChange={(e) => rowData.editorCallback(e.target.value)}
+                className="input input-bordered"
+                >
+                <option value={1}>Mendapatkan Minimal Anggota</option>
+                <option value={0}>
+                    Tidak Bisa Mendapatkan Minimal Anggota
+                </option>
+            </select>
+        );
+    };
+
+    const statusGetMinMember = (rowData) => {
+        if (rowData.is_team_get_min_member == false) {
+            return <span className="text-red-500">Tidak Bisa Mendapatkan Minimal Anggota</span>;
+        } else if (rowData.is_team_get_min_member == true) {
+            return (
+                <span className="text-green-500">
+                    Mendapatkan Minimal Anggota
+                </span>
+            );
+        }
+    };
 
     const rowNumberTemplate = (rowData, column) => column.rowIndex + 1;
     // const DosenFilter = (rowData) => {
     //     return <Tag value={rowData.lecturer} />;
     // };
 
-
     // const [lectures] = useState(rowData.lecturer)
     const statusDosenFilterTemplate = (options) => {
         const lecturers = teams.map((team) => ({
             label: team.lecturer ? team.lecturer.name : "-",
-            value: team.lecturer ? team.lecturer.name : "-"
+            value: team.lecturer ? team.lecturer.name : "-",
         }));
 
         return (
@@ -229,11 +288,10 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
         );
     };
 
-
     const NameLeaderFilterTemplate = (options) => {
         const leaders = teams.map((team) => ({
             label: team.leader ? team.leader.name : "-",
-            value: team.leader ? team.leader.name : "-"
+            value: team.leader ? team.leader.name : "-",
         }));
 
         return (
@@ -248,11 +306,12 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
         );
     };
 
-
     const NameTeamFilterTemplate = (options) => {
-        const team_filter = [...new Set(teams.map((team) => team.team_name))].map(team_name => ({
+        const team_filter = [
+            ...new Set(teams.map((team) => team.team_name)),
+        ].map((team_name) => ({
             label: team_name ? team_name : "-",
-            value: team_name ? team_name : "-"
+            value: team_name ? team_name : "-",
         }));
 
         return (
@@ -266,7 +325,6 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
             />
         );
     };
-
 
     const renderHeader = () => {
         return (
@@ -283,41 +341,72 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
                                 className=""
                             />
                         </IconField>
-                        <Button type="button" icon="pi pi-filter-slash" label="Bersihkan Filter" outlined onClick={clearFilter} />
+                        <Button
+                            type="button"
+                            icon="pi pi-filter-slash"
+                            label="Bersihkan Filter"
+                            outlined
+                            onClick={clearFilter}
+                        />
                     </div>
 
                     <div className="flex flex-row gap-2">
-                        <Button type="button" className="export-button" icon="pi pi-file" rounded onClick={() => exportCSV(false)} data-pr-tooltip="Export Sebagai CSV File" data-pr-position="top" />
-                        <Button type="button" className="export-button" icon="pi pi-file-excel" severity="success" rounded onClick={exportExcel} data-pr-tooltip="Export Sebagai Excel File" data-pr-position="top" />
+                        <Button
+                            type="button"
+                            className="export-button"
+                            icon="pi pi-file"
+                            rounded
+                            onClick={() => exportCSV(false)}
+                            data-pr-tooltip="Export Sebagai CSV File"
+                            data-pr-position="top"
+                        />
+                        <Button
+                            type="button"
+                            className="export-button"
+                            icon="pi pi-file-excel"
+                            severity="success"
+                            rounded
+                            onClick={exportExcel}
+                            data-pr-tooltip="Export Sebagai Excel File"
+                            data-pr-position="top"
+                        />
                     </div>
                 </div>
             </>
         );
     };
 
-
-
     const exportExcel = () => {
-        import('xlsx').then((xlsx) => {
+        import("xlsx").then((xlsx) => {
             const worksheet = xlsx.utils.json_to_sheet(selectedFields);
-            const workbook = { Sheets: { data: worksheet }, SheetNames: ['data'] };
+            const workbook = {
+                Sheets: { data: worksheet },
+                SheetNames: ["data"],
+            };
             const excelBuffer = xlsx.write(workbook, {
-                bookType: 'xlsx',
-                type: 'array'
+                bookType: "xlsx",
+                type: "array",
             });
 
-            saveAsExcelFile(excelBuffer, 'Daftar Team PKM TI 2025');
+            saveAsExcelFile(excelBuffer, "Daftar Team PKM TI 2025");
         });
     };
 
     const saveAsExcelFile = (buffer, fileName) => {
-        import('file-saver').then((module) => {
+        import("file-saver").then((module) => {
             if (module && module.default) {
-                let EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
-                let EXCEL_EXTENSION = '.xlsx';
+                let EXCEL_TYPE =
+                    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8";
+                let EXCEL_EXTENSION = ".xlsx";
                 const data = new Blob([buffer], { type: EXCEL_TYPE });
 
-                module.default.saveAs(data, fileName + '_export_' + new Date().toLocaleDateString() + EXCEL_EXTENSION);
+                module.default.saveAs(
+                    data,
+                    fileName +
+                        "_export_" +
+                        new Date().toLocaleDateString() +
+                        EXCEL_EXTENSION
+                );
             }
         });
     };
@@ -329,23 +418,25 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
     };
 
     const exportPdf = () => {
-        import('jspdf').then((jsPDF) => {
-            import('jspdf-autotable').then(() => {
+        import("jspdf").then((jsPDF) => {
+            import("jspdf-autotable").then(() => {
                 const doc = new jsPDF.default();
 
-                const columns = Object.keys(selectedFields[0]).map(key => ({ title: key, dataKey: key }));
-                const rows = selectedFields.map(item => Object.values(item));
+                const columns = Object.keys(selectedFields[0]).map((key) => ({
+                    title: key,
+                    dataKey: key,
+                }));
+                const rows = selectedFields.map((item) => Object.values(item));
 
                 doc.autoTable({
-                    head: [columns.map(col => col.title)], // Header
+                    head: [columns.map((col) => col.title)], // Header
                     body: rows, // Isi tabel
                 });
 
-                doc.save('Peserta_PKM_TI_2025.pdf');
+                doc.save("Peserta_PKM_TI_2025.pdf");
             });
         });
     };
-
 
     const handleDelete = () => {
         if (teamToDelete) {
@@ -354,13 +445,13 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
                     setSelectedFields((prevData) =>
                         prevData.filter((teams) => teams.id != teamToDelete.id)
                     );
-                    setToastKey(prev => prev + 1);
+                    setToastKey((prev) => prev + 1);
                     setToastShown(true);
                     setTimeout(() => setToastShown(false), 3000);
                 },
                 onError: () => {
                     alert("Penghapusan gagal.");
-                }
+                },
             });
         }
         setVisible(false);
@@ -380,10 +471,18 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
                 <div className="grid md:grid-cols-4 grid-cols-1 gap-2">
                     <div className="flex flex-row justify-between bg-white rounded-[14px] p-5 shadow">
                         <div className="flex flex-col gap-1">
-                            <p className="font-medium text-[16px] text-[#202224]/70 tracking-[0.03em] ">Total Tim PKM</p>
-                            <p className="font-bold text-[28px] tracking-[1px] ">{total_teams ? total_teams : 0}</p>
+                            <p className="font-medium text-[16px] text-[#202224]/70 tracking-[0.03em] ">
+                                Total Tim PKM
+                            </p>
+                            <p className="font-bold text-[28px] tracking-[1px] ">
+                                {total_teams ? total_teams : 0}
+                            </p>
                         </div>
-                        <img src="/images/admin/icon-jumlah-pengguna.png" className="w-[60px] h-[60px]" alt="" />
+                        <img
+                            src="/images/admin/icon-jumlah-pengguna.png"
+                            className="w-[60px] h-[60px]"
+                            alt=""
+                        />
                     </div>
                 </div>
                 <div className="w-full justify-start">
@@ -415,11 +514,17 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
                             paginatorTemplate="RowsPerPageDropdown FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
                             currentPageReportTemplate="{first} to {last} of {totalRecords}"
                             filters={filters}
-                            globalFilterFields={["team_name", "leader_name", "leader_nim", "lecturer", "token"]}
+                            globalFilterFields={[
+                                "team_name",
+                                "leader_name",
+                                "leader_nim",
+                                "lecturer",
+                                "token",
+                            ]}
                             header={renderHeader()}
                             emptyMessage="Tidak ada data ditemukan."
                             onFilter={(e) => setFilters(e.filters)}
-                            tableStyle={{ minWidth: '50rem' }}
+                            tableStyle={{ minWidth: "50rem" }}
                             editMode="row"
                             onRowEditComplete={onRowEditComplete}
                             rowEditorInitIcon={
@@ -442,7 +547,7 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
                                 key="nomor"
                                 field="nomor"
                                 header="#"
-                                style={{ textAlign: 'center' }}
+                                style={{ textAlign: "center" }}
                                 body={rowNumberTemplate}
                             />
                             <Column
@@ -453,14 +558,15 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
                                 sortable
                                 filter
                                 filterElement={NameTeamFilterTemplate}
-                                style={{ minWidth: '13rem' }}
+                                style={{ minWidth: "13rem" }}
                             />
+  
                             <Column
                                 key="leader_nim"
                                 field="leader_nim"
                                 header="NIM Ketua"
                                 sortable
-                                style={{ minWidth: '12rem' }}
+                                style={{ minWidth: "12rem" }}
                             />
                             <Column
                                 key="leader_name"
@@ -468,7 +574,7 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
                                 header="Nama Ketua"
                                 sortable
                                 filter
-                                style={{ minWidth: '15rem' }}
+                                style={{ minWidth: "15rem" }}
                                 filterElement={NameLeaderFilterTemplate}
                             />
                             <Column
@@ -477,7 +583,7 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
                                 header="Dosen Pembimbing"
                                 sortable
                                 filter
-                                style={{ minWidth: '15rem' }}
+                                style={{ minWidth: "15rem" }}
                                 filterElement={statusDosenFilterTemplate}
                             />
                             <Column
@@ -494,6 +600,16 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
                                 header="Token"
                             />
                             <Column
+                                editor={(rowData) => selectIsGetMinMember(rowData)}
+                                key={"is_team_get_min_member"}
+                                field={"is_team_get_min_member"}
+                                header={"Status Minimal Anggota"}
+                                body={statusGetMinMember}
+                                filter
+                                sortable
+                                style={{ minWidth: "15rem" }}
+                            />
+                            <Column
                                 rowEditor={true}
                                 header={"Edit"}
                                 className="whitespace-nowrap"
@@ -501,7 +617,7 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
                             />
                             <Column
                                 header={"Hapus"}
-                                style={{ textAlign: 'center' }}
+                                style={{ textAlign: "center" }}
                                 body={(rowData) => {
                                     return (
                                         <Button
@@ -511,14 +627,16 @@ export default function ShowTeams({ auth, teams, flash, errors, total_teams }) {
                                                 setTeamToDelete(rowData);
                                                 setVisible(true);
                                             }}
-                                        ><TrashIcon className="w-4 h-4" /></Button>
+                                        >
+                                            <TrashIcon className="w-4 h-4" />
+                                        </Button>
                                     );
                                 }}
                             ></Column>
                         </DataTable>
                     </div>
-                </div >
-            </AdminLayout >
+                </div>
+            </AdminLayout>
             <ConfirmDialog
                 visible={visible}
                 onHide={() => setVisible(false)}

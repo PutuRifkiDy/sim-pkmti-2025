@@ -32,13 +32,13 @@ use Inertia\Inertia;
 
 Route::get('/test-email', function () {
     $emailArgs = [
-        'email'       => 'ptadityamahendrap@gmail.com',
-        'subject'     => 'Selamat Datang di PKM TI',
-        'view'        => 'emails.reject-proposal',
-        'data'        => [
-            'name'           => 'Aditya Mahendra',
+        'email' => 'ptadityamahendrap@gmail.com',
+        'subject' => 'Selamat Datang di PKM TI',
+        'view' => 'emails.reject-proposal',
+        'data' => [
+            'name' => 'Aditya Mahendra',
             'proposal_title' => 'HAHAHA',
-            'note'           => 'Skill Issue',
+            'note' => 'Skill Issue',
         ],
         'attachments' => [],
     ];
@@ -50,10 +50,10 @@ Route::get('/panduan-belmawa', fn() => Redirect::to('https://drive.google.com/dr
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
-        'canLogin'       => Route::has('login'),
-        'canRegister'    => Route::has('register'),
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
-        'phpVersion'     => PHP_VERSION,
+        'phpVersion' => PHP_VERSION,
     ]);
 })->name('welcome');
 
@@ -64,7 +64,7 @@ Route::get('/', function () {
 Route::get('proposal-titles', [ProposTitleExampleController::class, 'index'])->name('proposal-titles');
 
 Route::get('/dashboard', function () {
-    $user     = User::with('team', 'team.proposal', 'team.members', 'team.assistanceProofs')->find(Auth::id());
+    $user = User::with('team', 'team.proposal', 'team.members', 'team.assistanceProofs')->find(Auth::id());
     $get_user = User::select('name', 'nim', 'status')->where('status', 'passed')->find(Auth::id());
 
     // sharing session
@@ -72,22 +72,22 @@ Route::get('/dashboard', function () {
     // setelah sharing session
     $end_date_hari_h_event = date('Y-m-d H:i:s', strtotime('2025-08-23 16:00:00'));
     // sebelum daftar tim
-    $start_date_coaching_PKM = date('Y-m-d H:i:s', strtotime('2025-08-31 23:59:00'));
+    $start_date_coaching_PKM = date('Y-m-d H:i:s', strtotime('2025-09-01 23:59:00'));
 
     $timeline_events = [
         [
             'title' => 'Pembukaan dan Sharing Session Pelatihan PKM-TI 2025',
-            'date'  => $end_date_sharing_session_event,
+            'date' => $end_date_sharing_session_event,
         ],
         [
             'title' => 'Pendaftaran Pelatihan PKM-TI 2025',
-            'date'  => $start_date_coaching_PKM,
+            'date' => $start_date_coaching_PKM,
         ],
     ];
 
     $date_sharing_session = null;
-    $date_coaching_pkm    = null;
-    $text_hari_h          = "";
+    $date_coaching_pkm = null;
+    $text_hari_h = "";
 
     if (Carbon::now() < Carbon::parse($end_date_sharing_session_event)) {
         $date_sharing_session = $timeline_events[0];
@@ -98,9 +98,9 @@ Route::get('/dashboard', function () {
     }
 
     $infos = [
-        "hasTeam"                   => ! is_null($user->team),
-        "hasProposal"               => $user->team && ! is_null($user->team->proposal),
-        "proposalStatus"            => $user->team && $user->team->proposal ? $user->team->proposal->status : 'unsubmitted',
+        "hasTeam" => !is_null($user->team),
+        "hasProposal" => $user->team && !is_null($user->team->proposal),
+        "proposalStatus" => $user->team && $user->team->proposal ? $user->team->proposal->status : 'unsubmitted',
         "hasEnoughAssistanceProofs" => $user->team && $user->team->assistanceProofs->count() >= 3,
         "hasNotUploadFinalProposal" => $user->team?->proposal?->final_proposal_url == null,
     ];
@@ -115,6 +115,8 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -123,9 +125,20 @@ Route::middleware('auth')->group(function () {
 
     Route::middleware('has.no-team')->group(function () {
         Route::get('/teams', fn() => Inertia::render('Teams/JoinOrCreate'))->name('teams.join_or_create');
-        Route::get('/teams/join-tim', fn() => Inertia::render('Teams/JoinTeam'))->name('teams.join_tim');
-        Route::get('/teams/create-tim', fn() => Inertia::render('Teams/CreateTeam'))->name('teams.create_tim');
-        // Route::get('/teams', fn () => Inertia::render('Teams/NotTeamed'))->name('teams.not-teamed');
+        Route::get('/teams/join-tim', function () {
+            $user = auth()->user();
+            if ($user->status_submission == "failed") {
+                return to_route('teams.join_or_create')->with('msg', 'Tidak dapat buat tim karena resume kamu belum sesuai');
+            }
+            return Inertia::render('Teams/JoinTeam');
+        })->name('teams.join_tim');
+        Route::get('/teams/create-tim', function () {
+            $user = auth()->user();
+            if ($user->status_submission == "failed") {
+                return to_route('teams.join_or_create')->with('msg', 'Tidak dapat join tim karena resume kamu belum sesuai');
+            }
+            return Inertia::render('Teams/CreateTeam');
+        })->name('teams.create_tim');
         Route::post('/teams', [TeamController::class, 'create'])->name('teams.create');
         Route::get('/teams/{token}/join', [TeamController::class, 'join'])->name('teams.join');
     });

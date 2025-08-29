@@ -20,6 +20,8 @@ class UserController extends Controller
             'name'                  => $request->input('name'),
             'role'                  => $request->input('role'),
             'status_grup_line_join' => $request->input('status_grup_line_join'),
+            'status_submission'     => $request->input('status_submission'),
+            'is_failed_inov'        => $request->input('is_failed_inov'),
             'email'                 => $request->input('email'),
             'nim'                   => $request->input('nim'),
             'phone'                 => $request->input('phone'),
@@ -34,6 +36,8 @@ class UserController extends Controller
             'name'                  => 'required|string|max:255',
             'role'                  => 'required|string',
             'status_grup_line_join' => 'required|string',
+            'status_submission'     => 'required|string',
+            'is_failed_inov'        => 'required|boolean',
             'email'                 => [
                 'required',
                 'email',

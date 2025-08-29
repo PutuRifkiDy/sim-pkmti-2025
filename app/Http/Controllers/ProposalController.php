@@ -24,12 +24,12 @@ class ProposalController extends Controller
     public function create(Request $request, $teamId)
     {
         $request->validate([
-            'scheme'      => ['required', 'string', 'max:255', new ValidProposalScheme],
-            'title'       => ['required', 'string', 'max:255', new MaxWordCount(20)],
+            'scheme' => ['required', 'string', 'max:255', new ValidProposalScheme],
+            'title' => ['required', 'string', 'max:255', new MaxWordCount(20)],
             'description' => ['string', 'max:512', 'nullable'],
         ], [
             'scheme.required' => 'Mohon pilih bidang PKM',
-            'title.required'  => 'Mohon masukkan judul proposal',
+            'title.required' => 'Mohon masukkan judul proposal',
         ]);
 
         // validate quota for PKM-GFT
@@ -52,31 +52,39 @@ class ProposalController extends Controller
         //     return back()->with('msg', 'Masa pengajuan proposal telah berakhir');
         // }
 
-        $user             = Auth::user();
+        $user = Auth::user();
         $teamMembersCount = User::where('team_id', $teamId)->count();
+        $team = Team::find($teamId);
 
         $angkatan = substr($user->nim, 0, 2);
 
-        if ($angkatan == '24') {
-            if ($teamMembersCount != 3) {
-                return back()->with('msg', 'Tim angkatan 24 wajib terdiri dari 3 orang untuk mengajukan proposal');
+        if ($team->is_team_get_min_member == false) {
+            if ($teamMembersCount < 2) {
+                return back()->with('msg', 'Tim terdiri dari minimal 2 orang untuk mengajukan proposal');
             }
-        } else {
-            if ($teamMembersCount < 3) {
-                return back()->with('msg', 'Tim terdiri dari minimal 3 orang untuk mengajukan proposal');
+        } else if ($team->is_team_get_min_member == true) {
+            if ($angkatan == '24') {
+                if ($teamMembersCount != 3) {
+                    return back()->with('msg', 'Tim angkatan 24 wajib terdiri dari 3 orang untuk mengajukan proposal');
+                }
+            } else {
+                if ($teamMembersCount < 3) {
+                    return back()->with('msg', 'Tim terdiri dari minimal 3 orang untuk mengajukan proposal');
+                }
             }
         }
 
-        if (! Team::find($teamId)->lecturer_id) {
+
+        if (!Team::find($teamId)->lecturer_id) {
             return back()->with('msg', 'Tim anda belum memiliki dosen pembimbing');
         }
 
         Proposal::create([
-            'team_id'     => $teamId,
-            'scheme'      => $request->scheme,
-            'title'       => $request->title,
+            'team_id' => $teamId,
+            'scheme' => $request->scheme,
+            'title' => $request->title,
             'description' => $request->description,
-            'status'      => 'pending',
+            'status' => 'pending',
         ]);
 
         return back()->with('msg', 'Timmu telah berhasil mengajukan proposal');
@@ -85,15 +93,15 @@ class ProposalController extends Controller
     public function update(Request $request, $teamId)
     {
         $request->validate([
-            'title'              => ['required', 'string', 'max:255', new MaxWordCount(20)],
-            'scheme'             => ['required', 'string', 'max:255', new ValidProposalScheme],
-            'description'        => ['string', 'max:255', 'nullable'],
+            'title' => ['required', 'string', 'max:255', new MaxWordCount(20)],
+            'scheme' => ['required', 'string', 'max:255', new ValidProposalScheme],
+            'description' => ['string', 'max:255', 'nullable'],
             'draft_proposal_url' => ['url', 'nullable'],
             'final_proposal_url' => ['url', 'nullable'],
-            'note'               => ['string', 'nullable'],
+            'note' => ['string', 'nullable'],
         ], [
             'scheme.required' => 'Mohon pilih bidang PKM',
-            'title.required'  => 'Mohon masukkan judul proposal',
+            'title.required' => 'Mohon masukkan judul proposal',
         ]);
 
         // validate quota for PKM-GFT
@@ -106,7 +114,7 @@ class ProposalController extends Controller
 
         // }
 
-        $user             = Auth::user();
+        $user = Auth::user();
         $teamMembersCount = User::where('team_id', $teamId)->count();
 
         $angkatan = substr($user->nim, 0, 2);
@@ -121,7 +129,7 @@ class ProposalController extends Controller
             }
         }
 
-        if (! Team::find($teamId)->lecturer_id) {
+        if (!Team::find($teamId)->lecturer_id) {
             return back()->with('msg', 'Tim anda belum memiliki dosen pembimbing');
         }
 
@@ -142,14 +150,14 @@ class ProposalController extends Controller
             $proposal->update(['status' => 'approved']);
             // send email to team leader
             $proposalTitle = Proposal::find($proposalId)->title;
-            $leaderId      = Proposal::with('team')->find($proposalId)->team->leader_id;
-            $leader        = User::find($leaderId)->first();
-            $emailArgs     = [
-                'email'       => $leader->email,
-                'subject'     => 'Selamat! Proposal PKM Kalian Telah Disetujui! 🎉',
-                'view'        => 'emails.accept-proposal',
-                'data'        => [
-                    'name'           => $leader->name,
+            $leaderId = Proposal::with('team')->find($proposalId)->team->leader_id;
+            $leader = User::find($leaderId)->first();
+            $emailArgs = [
+                'email' => $leader->email,
+                'subject' => 'Selamat! Proposal PKM Kalian Telah Disetujui! 🎉',
+                'view' => 'emails.accept-proposal',
+                'data' => [
+                    'name' => $leader->name,
                     'proposal_title' => $proposalTitle,
                 ],
                 'attachments' => [],
@@ -171,21 +179,21 @@ class ProposalController extends Controller
 
         Proposal::find($proposalId)->update([
             'status' => 'rejected',
-            'note'   => $request->note,
+            'note' => $request->note,
         ]);
 
         // send email to team leader
         $proposalTitle = Proposal::find($proposalId)->title;
-        $leaderId      = Proposal::with('team')->find($proposalId)->team->leader_id;
-        $leader        = User::find($leaderId)->first();
-        $emailArgs     = [
-            'email'       => $leader->email,
-            'subject'     => 'Yuk, Semangat! Proposal PKM Kalian Masih Bisa Direvisi! 💪',
-            'view'        => 'emails.reject-proposal',
-            'data'        => [
-                'name'           => $leader->name,
+        $leaderId = Proposal::with('team')->find($proposalId)->team->leader_id;
+        $leader = User::find($leaderId)->first();
+        $emailArgs = [
+            'email' => $leader->email,
+            'subject' => 'Yuk, Semangat! Proposal PKM Kalian Masih Bisa Direvisi! 💪',
+            'view' => 'emails.reject-proposal',
+            'data' => [
+                'name' => $leader->name,
                 'proposal_title' => $proposalTitle,
-                'note'           => $request->note,
+                'note' => $request->note,
             ],
             'attachments' => [],
         ];

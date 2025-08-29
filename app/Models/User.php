@@ -30,6 +30,8 @@ class User extends Authenticatable
         'team_id',
         'status',
         'certificate_path',
+        'status_submission',
+        'is_failed_inov',
     ];
 
     /**

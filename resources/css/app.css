@@ -70,6 +70,8 @@ body {
     animation: parallax 5s infinite alternate ease-in-out;
 }
 
+
+
 .tabs-bordered input[type="radio"]:checked {
     border-bottom: 4px solid #42a1a4 !important;
     border-color: #42a1a4 !important;

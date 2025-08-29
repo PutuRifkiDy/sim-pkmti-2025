@@ -38,7 +38,12 @@ export default function ParticipantLayout({ user, title, children, header, date_
                 icon: <IconBerandaSideBar />,
                 text: "Dashboard",
                 link: route("dashboard"),
-            }
+            },
+            {
+                icon: <TvIcon className="w-[22px] h-[22px]" />,
+                text: "Cari tim anda",
+                link: route("search.your_tim"),
+            },
         ] : [
             {
                 icon: <IconBerandaSideBar />,

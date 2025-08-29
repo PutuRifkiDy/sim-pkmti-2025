@@ -55,6 +55,8 @@ export default function Users({
                 email: user.email,
                 status: user.status,
                 status_grup_line_join: user.status_grup_line_join,
+                status_submission: user.status_submission,
+                is_failed_inov: user.is_failed_inov,
                 certificate_path: user.certificate_path,
                 have_team:
                     user.team_id == null ? "Belum Punya Tim" : "Punya Tim",
@@ -76,6 +78,8 @@ export default function Users({
                     email: user.email,
                     status: user.status,
                     status_grup_line_join: user.status_grup_line_join,
+                    status_submission: user.status_submission,
+                    is_failed_inov: user.is_failed_inov,
                     certificate_path: user.certificate_path,
                     have_team:
                         user.team_id == null ? "Belum Punya Tim" : "Punya Tim",
@@ -167,6 +171,13 @@ export default function Users({
                     { value: null, matchMode: FilterMatchMode.STARTS_WITH },
                 ],
             },
+            status_submission: {
+                operator: FilterOperator.AND,
+                constraints: [
+                    { value: null, matchMode: FilterMatchMode.STARTS_WITH },
+                ],
+            },
+            
         });
         setGlobalFilterValue("");
     };
@@ -194,6 +205,8 @@ export default function Users({
             name,
             role,
             status_grup_line_join,
+            status_submission,
+            is_failed_inov,
             phone,
             email,
             line_id,
@@ -205,6 +218,8 @@ export default function Users({
         formData.append("name", name);
         formData.append("role", role);
         formData.append("status_grup_line_join", status_grup_line_join);
+        formData.append("status_submission", status_submission);
+        formData.append("is_failed_inov", is_failed_inov);
         formData.append("phone", phone);
         formData.append("email", email);
         formData.append("line_id", line_id);
@@ -251,6 +266,34 @@ export default function Users({
             </select>
         );
     };
+
+    const selectStatusSubmissionEditor = (rowData) => {
+        return (
+            <select
+                id=""
+                value={rowData.value}
+                onChange={(e) => rowData.editorCallback(e.target.value)}
+                className="input input-bordered"
+            >
+                <option value="passed">Sudah Ikut Hari H atau Resume Sesuai</option>
+                <option value="failed">Belum Ikut Hari H atau Resume Tidak Sesuai</option>
+            </select>
+        );
+    };
+
+    const selectIsFailedInovEditor = (rowData) => {
+        return (
+            <select
+                id=""
+                value={rowData.value}
+                onChange={(e) => rowData.editorCallback(e.target.value)}
+                className="input input-bordered"
+            >
+                <option value={0}>Lulus</option>
+                <option value={1}>Tidak Lulus</option>
+            </select>
+        );
+    }
 
     const selectStatusGrupLineJoinEditor = (rowData) => {
         return (
@@ -478,6 +521,26 @@ export default function Users({
         );
     };
 
+    const statusSubmissionFilterTemplate = (props) => {
+        const user_data = [
+            ...new Set(users.map((user) => user.status_submission)),
+        ].map((status_submission) => ({
+            label: status_submission ? status_submission : "-",
+            value: status_submission ? status_submission : "-",
+        }));
+
+        return (
+            <Dropdown
+                value={props.value}
+                options={user_data}
+                onChange={(e) => props.filterApplyCallback(e.value)}
+                placeholder="Select Status Submission"
+                className="p-column-filter"
+                showClear
+            />
+        );
+    };
+
     const AngkatanFilterTemplate = (props) => {
         const angkatanData = [
             ...new Set(users.map((user) => 20 + user.nim.substring(0, 2))),
@@ -557,6 +620,28 @@ export default function Users({
             );
         }
     };
+
+    const statusSubmissionTemplate = (rowData) => {
+        if (rowData.status_submission == "failed") {
+            return (
+                <span className="text-red-500">Resume Belum Sesuai</span>
+            );
+        } else if (rowData.status_submission == "passed") {
+            return (
+                <span className="text-green-500">
+                    Resume Sesuai atau Sudah Ikut Hari H
+                </span>
+            );
+        }
+    };
+
+    const isFailedInovTemplate = (rowData) => {
+        if (rowData.is_failed_inov == true) {
+            return <span className="text-red-500">Tidak Lulus</span>;
+        } else if (rowData.is_failed_inov == false) {
+            return <span className="text-green-500">Lulus</span>;
+        }
+    }
 
     const CertificateModal = ({ imageUrl, modalId }) => {
         return (
@@ -777,6 +862,27 @@ export default function Users({
                             body={StatusJoinGroupLineTemplate}
                             filterElement={StatusJoinGroupLineFilterTemplate}
                             style={{ minWidth: "12rem" }}
+                        />
+                        <Column
+                            editor={(rowData) => selectStatusSubmissionEditor(rowData)}
+                            key="status_submission"
+                            field="status_submission"
+                            header="Status Resume"
+                            filter
+                            sortable
+                            body={statusSubmissionTemplate}
+                            filterElement={statusSubmissionFilterTemplate}
+                            style={{ minWidth: "12rem" }}
+                        />
+                        <Column
+                            editor={(rowData) => selectIsFailedInovEditor(rowData)}
+                            key="is_failed_inov"
+                            field="is_failed_inov"
+                            header="Status Kelulusan Kelas Inovasi"
+                            filter
+                            sortable
+                            body={isFailedInovTemplate}
+                            style={{ minWidth: "14rem" }}
                         />
                         <Column
                             editor={(rowData) => selectRoleEditor(rowData)}

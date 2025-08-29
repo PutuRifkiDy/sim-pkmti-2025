@@ -470,7 +470,7 @@ export default function Welcome({ auth, flash }) {
                             Apa itu PKM TI 2025?
                         </p>
                         <p
-                            className="text-[17px] leading-[1.8em] text-[#111E41] dark:text-gray-400 z-40"
+                            className="text-[17px] leading-[1.8em] text-[#111E41] dark:text-gray-400 z-30"
                             data-aos="fade-up"
                             data-aos-delay="300"
                         >

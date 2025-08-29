@@ -43,15 +43,17 @@ function ChangeLeader({ memberId }) {
 }
 
 export default function TeamMembers({ user, team }) {
-    const leaderFirst = team.members.sort((a) => (a.id == team.leader_id ? -1 : 0));
+    const leaderFirst = team.members.sort((a) =>
+        a.id == team.leader_id ? -1 : 0
+    );
 
     const teamsData = team.members.map((member, i) => ({
         number: i + 1,
         nim: member.nim,
         name: member.name,
         angkatan: `20${member.nim.substring(0, 2)}`,
-        role: member.id == user.id ? 'Saya' : 'Anggota',
-        role_is_leader: team.leader_id == member.id ? 'Ketua' : '',
+        role: member.id == user.id ? "Saya" : "Anggota",
+        role_is_leader: team.leader_id == member.id ? "Ketua" : "",
         email: member.email,
         phone: member.phone,
         line_id: member.line_id,
@@ -61,7 +63,9 @@ export default function TeamMembers({ user, team }) {
     return (
         <>
             <header>
-                <h2 className="text-lg font-medium text-gray-900 ">Informasi Anggota Tim</h2>
+                <h2 className="text-lg font-medium text-gray-900 ">
+                    Informasi Anggota Tim
+                </h2>
 
                 <p className="mt-1 text-sm text-gray-600">
                     Kelola anggota tim Anda.
@@ -69,7 +73,9 @@ export default function TeamMembers({ user, team }) {
             </header>
             <div className="flex flex-row items-center gap-4 mt-4 mb-4">
                 <IconGabungTim />
-                <span className="font-bold">{team.members.length} / {user.nim.includes('24') ? 3 : 5}</span>
+                <span className="font-bold">
+                    {team.members.length} / {user.nim.includes("24") ? 3 : 5}
+                </span>
             </div>
             <div className="card">
                 <DataTable
@@ -79,9 +85,8 @@ export default function TeamMembers({ user, team }) {
                     rows={5}
                     scrollable
                     className="p-datatable-striped whitespace-nowrap overflow-x-auto "
-                    tableStyle={{ maxWidth: '50rem' }}
+                    tableStyle={{ maxWidth: "50rem" }}
                 >
-
                     <Column field="nim" header="NIM" sortable />
                     <Column field="name" header="Nama" sortable />
                     <Column field="angkatan" header="Angkatan" sortable />
@@ -91,19 +96,31 @@ export default function TeamMembers({ user, team }) {
                         sortable
                         body={(rowData) => (
                             <div className="flex flex-row items-center">
-                                {rowData.role == 'Saya' && (
-                                    <div className="tooltip tooltip-bottom flex flex-row" data-tip="Saya">
+                                {rowData.role == "Saya" && (
+                                    <div
+                                        className="tooltip tooltip-bottom flex flex-row"
+                                        data-tip="Saya"
+                                    >
                                         <TagIcon className="h-5 w-5 text-green-500 me-2" />
+                                    </div>  
+                                )}
+                                {rowData.role == "Saya" &&
+                                    rowData.role_is_leader != "Ketua" &&
+                                    "Anggota"}
+                                {rowData.role_is_leader == "Ketua" && (
+                                    <div
+                                        className="tooltip tooltip-bottom"
+                                        data-tip="Ketua"
+                                    >
+                                        <div className="flex items-center">
+                                            <CodeBracketSquareIcon className="h-5 w-5 text-blue-500 me-2" />
+                                            <p>Ketua</p>
+                                        </div>
                                     </div>
                                 )}
-                                {rowData.role == 'Saya' && rowData.role_is_leader != 'Ketua' && "Anggota"}
-                                {rowData.role_is_leader == 'Ketua' && (
-                                    <div className="tooltip tooltip-bottom flex" data-tip="Ketua">
-                                        <CodeBracketSquareIcon className="h-5 w-5 text-blue-500 me-2" />
-                                        <p>Ketua</p>
-                                    </div>
-                                )}
-                                {rowData.role == "Anggota" && rowData.role_is_leader != 'Ketua' && "Anggota"}
+                                {rowData.role == "Anggota" &&
+                                    rowData.role_is_leader != "Ketua" &&
+                                    "Anggota"}
                             </div>
                         )}
                     />
@@ -115,12 +132,15 @@ export default function TeamMembers({ user, team }) {
                         header="Aksi"
                         body={(rowData) => (
                             <div className="flex gap-1">
-                                {(user.id != rowData.id && user.id == team.leader_id) && (
-                                    <>
-                                        <KickMember memberId={rowData.id} />
-                                        <ChangeLeader memberId={rowData.id} />
-                                    </>
-                                )}
+                                {user.id != rowData.id &&
+                                    user.id == team.leader_id && (
+                                        <>
+                                            <KickMember memberId={rowData.id} />
+                                            <ChangeLeader
+                                                memberId={rowData.id}
+                                            />
+                                        </>
+                                    )}
                             </div>
                         )}
                     />

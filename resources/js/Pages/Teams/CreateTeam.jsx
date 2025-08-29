@@ -1,11 +1,12 @@
-import { useRandomTeamName } from "@/utils";
+import { useRandomInt, useRandomTeamName } from "@/utils";
 import { ArrowPathIcon, UserPlusIcon } from "@heroicons/react/24/solid";
 import { useForm, Link } from "@inertiajs/react";
 import { useEffect } from "react";
 import ParticipantLayout from "@/Layouts/ParticipantLayout";
 import { IconJoinOrCreate } from "@/Components/IconAdmin";
+import Toast from "@/Components/Toast";
 
-export default function CreateTeam({ auth }) {
+export default function CreateTeam({ auth, flash }) {
     const { user } = auth;
 
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -27,12 +28,25 @@ export default function CreateTeam({ auth }) {
     return (
         <>
             <ParticipantLayout user={user} title="Buat Tim">
+                {flash.msg && (
+                    <Toast
+                        key={useRandomInt()}
+                        id="create_team_information"
+                        content={flash.msg}
+                    />
+                )}
                 <div className="bg-white  flex gap-5 flex-col justify-center items-center py-10 rounded-[14px]">
                     <form onSubmit={submit}>
                         <div className="flex flex-col gap-2 justify-center items-center">
                             <IconJoinOrCreate />
-                            <h3 className="font-semibold text-[24px] text-[#42A1A4]"><span className="text-[#285B70]">PKM</span> TI 2025</h3>
-                            <label htmlFor="team_name" className="text-[16px] leading-[28px]">
+                            <h3 className="font-semibold text-[24px] text-[#42A1A4]">
+                                <span className="text-[#285B70]">PKM</span> TI
+                                2025
+                            </h3>
+                            <label
+                                htmlFor="team_name"
+                                className="text-[16px] leading-[28px]"
+                            >
                                 Masukan Nama Tim
                             </label>
                         </div>
@@ -51,11 +65,17 @@ export default function CreateTeam({ auth }) {
                                     }
                                     className="input input-bordered text-start join-item z-[1] w-full"
                                 />
-                                <div className="tooltip" data-tip="Generate nama tim">
+                                <div
+                                    className="tooltip"
+                                    data-tip="Generate Nama Tim Secara Acak"
+                                >
                                     <label
                                         className="btn btn-square join-item"
                                         onClick={() =>
-                                            setData("team_name", useRandomTeamName())
+                                            setData(
+                                                "team_name",
+                                                useRandomTeamName()
+                                            )
                                         }
                                     >
                                         <ArrowPathIcon className="h-6 w-6" />
@@ -64,7 +84,7 @@ export default function CreateTeam({ auth }) {
                             </div>
 
                             {errors.team_name && (
-                                <p className="mt-2 text-error">{errors.team_name}</p>
+                                <p className="text-error">{errors.team_name}</p>
                             )}
                             <div className="flex flex-row w-full gap-5">
                                 <Link
@@ -82,10 +102,11 @@ export default function CreateTeam({ auth }) {
                                 </button>
                             </div>
                         </div>
-                            <p className="text-[14px] leading-[28px] text-start">*Hanya ketua tim yang membuat tim</p>
+                        <p className="text-[14px] leading-[28px] text-start">
+                            *Hanya ketua tim yang membuat tim
+                        </p>
                     </form>
                 </div>
-
             </ParticipantLayout>
         </>
     );
