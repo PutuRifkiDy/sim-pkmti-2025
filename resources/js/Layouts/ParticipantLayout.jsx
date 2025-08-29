@@ -1,4 +1,10 @@
-import { IconBerandaSideBar, IconBuktiProposal, IconGabungTim, IconProfileSideBar, IconProposal } from "@/Components/iconAdmin";
+import {
+    IconBerandaSideBar,
+    IconBuktiProposal,
+    IconGabungTim,
+    IconProfileSideBar,
+    IconProposal,
+} from "@/Components/iconAdmin";
 import Sidebar from "@/Components/Sidebar";
 import { useParam } from "@/utils";
 import { TvIcon } from "@heroicons/react/24/outline";
@@ -10,7 +16,16 @@ import {
 } from "@heroicons/react/24/solid";
 import { Head, usePage } from "@inertiajs/react";
 
-export default function ParticipantLayout({ user, title, children, header, date_coaching_pkm, date_sharing_session, end_date_hari_h_event, text_hari_h }) {
+export default function ParticipantLayout({
+    user,
+    title,
+    children,
+    header,
+    date_coaching_pkm,
+    date_sharing_session,
+    end_date_hari_h_event,
+    text_hari_h,
+}) {
     const date_now = usePage().props.date_now;
 
     let dateActive = null;
@@ -33,44 +48,42 @@ export default function ParticipantLayout({ user, title, children, header, date_
     }
 
     const navigations = [
-        ...(isSharingSessionEvent || isCoachingPKMEvent ? [
-            {
-                icon: <IconBerandaSideBar />,
-                text: "Dashboard",
-                link: route("dashboard"),
-            },
-            {
-                icon: <TvIcon className="w-[22px] h-[22px]" />,
-                text: "Cari tim anda",
-                link: route("search.your_tim"),
-            },
-        ] : [
-            {
-                icon: <IconBerandaSideBar />,
-                text: "Beranda",
-                link: route("dashboard"),
-            },
-            {
-                icon: <IconProfileSideBar />,
-                text: "Profile",
-                link: route("profile.edit"),
-            },
-            {
-                icon: <TvIcon className="w-[22px] h-[22px]" />,
-                text: "Cari tim anda",
-                link: route("search.your_tim"),
-            },
+        ...(isSharingSessionEvent || isCoachingPKMEvent
+            ? [
+                  {
+                      icon: <IconBerandaSideBar />,
+                      text: "Dashboard",
+                      link: route("dashboard"),
+                  },
+              ]
+            : [
+                  {
+                      icon: <IconBerandaSideBar />,
+                      text: "Beranda",
+                      link: route("dashboard"),
+                  },
+                  {
+                      icon: <IconProfileSideBar />,
+                      text: "Profile",
+                      link: route("profile.edit"),
+                  },
+                  {
+                      icon: <TvIcon className="w-[22px] h-[22px]" />,
+                      text: "Cari tim anda",
+                      link: route("search.your_tim"),
+                  },
 
-            ...(!user.team_id ? [{
-                icon: <IconGabungTim />,
-                text: "Gabung Tim",
-                link: route("teams.join_or_create"),
-            }] : []),
-
-
-        ]),
+                  ...(!user.team_id
+                      ? [
+                            {
+                                icon: <IconGabungTim />,
+                                text: "Gabung Tim",
+                                link: route("teams.join_or_create"),
+                            },
+                        ]
+                      : []),
+              ]),
     ];
-
 
     if (user.team_id) {
         navigations.push(
@@ -95,7 +108,16 @@ export default function ParticipantLayout({ user, title, children, header, date_
     return (
         <>
             <Head title={title} />
-            <Sidebar user={user} navigations={navigations} header={header} date_coaching_pkm={date_coaching_pkm} date_sharing_session={date_sharing_session} end_date_hari_h_event={end_date_hari_h_event} text_hari_h={text_hari_h} date_now={date_now}>
+            <Sidebar
+                user={user}
+                navigations={navigations}
+                header={header}
+                date_coaching_pkm={date_coaching_pkm}
+                date_sharing_session={date_sharing_session}
+                end_date_hari_h_event={end_date_hari_h_event}
+                text_hari_h={text_hari_h}
+                date_now={date_now}
+            >
                 {children}
             </Sidebar>
         </>

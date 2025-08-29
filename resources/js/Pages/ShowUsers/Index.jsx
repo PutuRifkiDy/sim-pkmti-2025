@@ -14,7 +14,6 @@ import { useState } from "react";
 export default function Index({ auth }) {
     const user = auth.user;
     const users_except_lecturer_user = usePage().props.users_except_lecturer_user;
-    console.log(users_except_lecturer_user);
 
     const [filters, setFilters] = useState(null);
     const [globalFilterValue, setGlobalFilterValue] = useState("");

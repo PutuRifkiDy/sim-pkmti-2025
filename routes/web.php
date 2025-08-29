@@ -66,6 +66,8 @@ Route::get('proposal-titles', [ProposTitleExampleController::class, 'index'])->n
 Route::get('/dashboard', function () {
     $user = User::with('team', 'team.proposal', 'team.members', 'team.assistanceProofs')->find(Auth::id());
     $get_user = User::select('name', 'nim', 'status')->where('status', 'passed')->find(Auth::id());
+    $users_except_lecturer_user = User::where('role', '!=', 'lecturer')->get();
+
 
     // sharing session
     $end_date_sharing_session_event = date('Y-m-d H:i:s', strtotime('2025-08-23 09:00:00'));
@@ -111,7 +113,7 @@ Route::get('/dashboard', function () {
         $infos["hasEnoughTeamMembersNonAkt24"] = $user->team && $user->team->members->count() >= 3;
     }
 
-    return Inertia::render('Dashboard', compact('infos', 'user', 'get_user', 'date_sharing_session', 'date_coaching_pkm', 'end_date_hari_h_event', 'text_hari_h', 'timeline_events'));
+    return Inertia::render('Dashboard', compact('infos', 'user', 'get_user', 'date_sharing_session', 'date_coaching_pkm', 'end_date_hari_h_event', 'text_hari_h', 'timeline_events', 'users_except_lecturer_user'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

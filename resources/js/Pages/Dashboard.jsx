@@ -11,18 +11,31 @@ import {
 } from "@heroicons/react/24/solid";
 import { IconPassed, IconUnduh } from "@/Components/IconAdmin";
 import { Link, usePage } from "@inertiajs/react";
-import { DataTable } from 'primereact/datatable';
-import { Column } from 'primereact/column';
+import { DataTable } from "primereact/datatable";
+import { Column } from "primereact/column";
 import { useState, useEffect } from "react";
 import jsPDF from "jspdf";
 import { IconLine, IconWhatsapp } from "@/Components/IconLanding";
 
-export default function Dashboard({ auth, infos, flash, get_user, certificate }) {
+import { FilterMatchMode, FilterOperator } from "primereact/api";
+import { Button } from "primereact/button";
+import { Dropdown } from "primereact/dropdown";
+import { IconField } from "primereact/iconfield";
+import { InputIcon } from "primereact/inputicon";
+import { InputText } from "primereact/inputtext";
+
+export default function Dashboard({
+    auth,
+    infos,
+    flash,
+    get_user,
+    certificate,
+}) {
     const { user } = auth;
     const [certPath, setCertPath] = useState(null);
     const date_now = usePage().props.date_now;
-
-
+    const users_except_lecturer_user =
+        usePage().props.users_except_lecturer_user;
 
     let dateActive = null;
     let titleActive = "";
@@ -41,7 +54,7 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
         titleActive = date_sharing_session.title;
         isSharingSessionEvent = true;
     } else if (date_now < end_date_hari_h_event) {
-        dateActive = null;;
+        dateActive = null;
         titleActive = text_hari_h;
         isSharingSessionEvent = true;
     } else if (date_now < date_coaching_pkm && date_sharing_session == null) {
@@ -175,40 +188,231 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
     const InfoElement = ({ text, mode }) => {
         const icon = {
             success: <CheckCircleIcon className="h-6 w-6 fill-[#4DE45C]" />,
-            error: <ExclamationTriangleIcon className="h-6 w-6 fill-[#FA3434]" />,
-            warning: <ExclamationCircleIcon className="h-6 w-6 fill-[#CFD249]" />,
+            error: (
+                <ExclamationTriangleIcon className="h-6 w-6 fill-[#FA3434]" />
+            ),
+            warning: (
+                <ExclamationCircleIcon className="h-6 w-6 fill-[#CFD249]" />
+            ),
         };
 
         return (
-            <div className={`w-full px-5 py-3.5 flex flex-row gap-5 items-center ${mode == "error" ? "bg-[#FA3434]/10 border-l-4 rounded-l-[4px] border-[#FA3434]" : " "} ${mode == "warning" ? "bg-[#CFD249]/10 border-l-4 rounded-l-[4px] border-[#CFD249]" : " "} ${mode == "success" ? "bg-[#4DE45C]/10 border-l-4 rounded-l-[4px] border-[#4DE45C]" : " "} mb-2`}>
+            <div
+                className={`w-full px-5 py-3.5 flex flex-row gap-5 items-center ${
+                    mode == "error"
+                        ? "bg-[#FA3434]/10 border-l-4 rounded-l-[4px] border-[#FA3434]"
+                        : " "
+                } ${
+                    mode == "warning"
+                        ? "bg-[#CFD249]/10 border-l-4 rounded-l-[4px] border-[#CFD249]"
+                        : " "
+                } ${
+                    mode == "success"
+                        ? "bg-[#4DE45C]/10 border-l-4 rounded-l-[4px] border-[#4DE45C]"
+                        : " "
+                } mb-2`}
+            >
                 {icon[mode]}
                 <div>
-                    <div className={`font-bold text-[14px] leading-[16px] ${mode == "error" ? "text-[#FA3434]" : " "} ${mode == "warning" ? "text-[#CFD249]" : " "} ${mode == "success" ? "text-[#4DE45C]" : " "}`} >{text}</div>
+                    <div
+                        className={`font-bold text-[14px] leading-[16px] ${
+                            mode == "error" ? "text-[#FA3434]" : " "
+                        } ${mode == "warning" ? "text-[#CFD249]" : " "} ${
+                            mode == "success" ? "text-[#4DE45C]" : " "
+                        }`}
+                    >
+                        {text}
+                    </div>
                 </div>
             </div>
         );
     };
 
-    console.log(`${window.location.origin}/${user.certificate_path}`);
     const downloadCertificate = () => {
         if (user.certificate_path) {
             const doc = new jsPDF({
                 orientation: "landscape",
                 unit: "mm",
-                format: "a4"
+                format: "a4",
             });
             const pageWidth = doc.internal.pageSize.getWidth();
             const pageHeight = doc.internal.pageSize.getHeight();
-            doc.addImage(`${window.location.origin}/${user.certificate_path}`, "PNG", 10, 10, pageWidth - 20, pageHeight - 20);
+            doc.addImage(
+                `${window.location.origin}/${user.certificate_path}`,
+                "PNG",
+                10,
+                10,
+                pageWidth - 20,
+                pageHeight - 20
+            );
             doc.autoPrint();
             doc.save("Sertifikat.pdf");
         } else {
-            alert('Sertifikat tidak ditemukan');
+            alert("Sertifikat tidak ditemukan");
         }
     };
 
+    const [filters, setFilters] = useState(null);
+    const [globalFilterValue, setGlobalFilterValue] = useState("");
+
+    const userData = users_except_lecturer_user.map((user, i) => ({
+        number: i + 1,
+        nim: user.nim,
+        name: user.name,
+        angkatan: 20 + user.nim.substring(0, 2),
+        phone: user.phone,
+        line_id: user.line_id,
+        email: user.email,
+        have_team: user.team_id == null ? "Belum Punya Tim" : "Punya Tim",
+    }));
+
+    useEffect(() => {
+        initFilters();
+    }, []);
+
+    const initFilters = () => {
+        setFilters({
+            global: { value: null, matchMode: FilterMatchMode.CONTAINS },
+            angkatan: {
+                operator: FilterOperator.AND,
+                constraints: [
+                    { value: null, matchMode: FilterMatchMode.STARTS_WITH },
+                ],
+            },
+            have_team: {
+                operator: FilterOperator.AND,
+                constraints: [
+                    { value: null, matchMode: FilterMatchMode.EQUALS },
+                ],
+            },
+            nim: {
+                operator: FilterOperator.AND,
+                constraints: [
+                    { value: null, matchMode: FilterMatchMode.STARTS_WITH },
+                ],
+            },
+            name: {
+                operator: FilterOperator.AND,
+                constraints: [
+                    { value: null, matchMode: FilterMatchMode.STARTS_WITH },
+                ],
+            },
+            phone: {
+                operator: FilterOperator.AND,
+                constraints: [
+                    { value: null, matchMode: FilterMatchMode.STARTS_WITH },
+                ],
+            },
+            line_id: {
+                operator: FilterOperator.AND,
+                constraints: [
+                    { value: null, matchMode: FilterMatchMode.STARTS_WITH },
+                ],
+            },
+        });
+        setGlobalFilterValue("");
+    };
+
+    const clearFilter = () => {
+        initFilters();
+    };
+
+    const onGlobalFilterChange = (e) => {
+        const value = e.target.value;
+        let _filters = { ...filters };
+        _filters["global"].value = value;
+
+        setFilters(_filters);
+        setGlobalFilterValue(value);
+    };
+
+    const AngkatanFilterTemplate = (props) => {
+        const angkatanData = [
+            ...new Set(
+                users_except_lecturer_user.map(
+                    (user) => 20 + user.nim.substring(0, 2)
+                )
+            ),
+        ].map((angkatan) => ({
+            label: angkatan,
+            value: angkatan,
+        }));
+
+        return (
+            <Dropdown
+                value={props.value}
+                options={angkatanData}
+                onChange={(e) => props.filterApplyCallback(e.value)}
+                placeholder="Filter Angkatan"
+                className="p-column-filter"
+                showClear
+            />
+        );
+    };
+
+    const TeamFilterTemplate = (props) => {
+        const options = [
+            { label: "Punya Tim", value: "Punya Tim" },
+            { label: "Belum Punya Tim", value: "Belum Punya Tim" },
+        ];
+
+        return (
+            <Dropdown
+                value={props.value}
+                options={options}
+                onChange={(e) => props.filterApplyCallback(e.value)}
+                placeholder="Filter Tim"
+                className="p-column-filter"
+                showClear
+            />
+        );
+    };
+
+    const HaveTeamTemplate = (rowData) => {
+        if (rowData.have_team == "Belum Punya Tim") {
+            return <span className="text-red-500">Belum Punya Tim</span>;
+        } else {
+            return <span className="text-green-500">Punya Tim</span>;
+        }
+    };
+
+    const renderHeader = () => {
+        return (
+            <>
+                <div className="flex md:flex-row flex-col md:gap-0 gap-5 justify-between items-center">
+                    <div className="flex md:flex-row flex-col gap-2">
+                        <IconField iconPosition="left">
+                            <InputIcon className="pi pi-search" />
+                            <InputText
+                                value={globalFilterValue}
+                                onChange={onGlobalFilterChange}
+                                placeholder="Cari Data..."
+                                className=""
+                            />
+                        </IconField>
+                        <Button
+                            type="button"
+                            icon="pi pi-filter-slash"
+                            label="Bersihkan Filter"
+                            outlined
+                            onClick={clearFilter}
+                        />
+                    </div>
+                </div>
+            </>
+        );
+    };
+
     return (
-        <ParticipantLayout user={user} title="Beranda" header={"Dashboard"} date_coaching_pkm={date_coaching_pkm} date_sharing_session={date_sharing_session} end_date_hari_h_event={end_date_hari_h_event} text_hari_h={text_hari_h}>
+        <ParticipantLayout
+            user={user}
+            title="Beranda"
+            header={"Dashboard"}
+            date_coaching_pkm={date_coaching_pkm}
+            date_sharing_session={date_sharing_session}
+            end_date_hari_h_event={end_date_hari_h_event}
+            text_hari_h={text_hari_h}
+        >
             {flash.msg && (
                 <Toast
                     key={useRandomInt()}
@@ -220,9 +424,21 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                 <div className="w-full flex md:flex-row flex-col-reverse gap-5">
                     {/* card yang di kiri */}
                     <div className="flex flex-col relative rounded-[10px] overflow-y-hidden min-h-max w-full md:w-[58%]">
-                        <img src="images/elements/element_dashboard_section_1.png" className="absolute md:h-[200vh] w-screen h-[200vh] z-0" alt="" />
-                        <img src="images/elements/element_dashboard_section_2.png" className="absolute left-0 top-0 w-[250px] h-auto" alt="" />
-                        <img src="images/elements/element_dashboard_section_3.png" className="absolute right-0 bottom-0 w-[250px] h-auto" alt="" />
+                        <img
+                            src="images/elements/element_dashboard_section_1.png"
+                            className="absolute md:h-[200vh] w-screen h-[200vh] z-0"
+                            alt=""
+                        />
+                        <img
+                            src="images/elements/element_dashboard_section_2.png"
+                            className="absolute left-0 top-0 w-[250px] h-auto"
+                            alt=""
+                        />
+                        <img
+                            src="images/elements/element_dashboard_section_3.png"
+                            className="absolute right-0 bottom-0 w-[250px] h-auto"
+                            alt=""
+                        />
                         <div className="p-6">
                             <div className="flex justify-center items-center">
                                 <p className="font-bold md:text-[28px] text-[24px] text-[#202224] text-center md:w-[500px] z-20">
@@ -232,7 +448,11 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                             <div className="flex flex-col">
                                 {/* pembicara ke-1 */}
                                 <div className="flex flex-col justify-center items-center relative pb-10">
-                                    <img src="images/tedy_no_bg.png" alt="Pembicara 1" className="w-auto h-[150px]" />
+                                    <img
+                                        src="images/tedy_no_bg.png"
+                                        alt="Pembicara 1"
+                                        className="w-auto h-[150px]"
+                                    />
                                     <div className="bg-gradient-to-r from-[#285B70] via-[#42A1A4] to-[#285B70] absolute bottom-0 rounded-[15px] p-4">
                                         <p className="font-bold text-white text-[13px] leading-[110%]">
                                             I Putu Tedy Indrayana, S.Pd., M.Sc.
@@ -244,26 +464,34 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                                 </div>
 
                                 <div className="flex md:flex-row justify-between flex-col md:gap-6 gap-12">
-
                                     {/* pembicara ke-2 dan ke-3 */}
                                     <div className="flex flex-col justify-center items-center relative md:mt-24 mt-20 pb-10">
-                                        <img src="images/tedy_and_sutra.png" alt="Pembicara 1" className="" />
+                                        <img
+                                            src="images/tedy_and_sutra.png"
+                                            alt="Pembicara 1"
+                                            className=""
+                                        />
                                         <div className="bg-gradient-to-r from-[#285B70] via-[#42A1A4] to-[#285B70] absolute bottom-1 rounded-[15px] text-center py-2 md:w-[105%] w-full">
                                             <p className="font-bold text-white text-[11px] leading-[110%]">
-                                                Dr. Ni Putu Sutramiani, S.Kom., M.T.
+                                                Dr. Ni Putu Sutramiani, S.Kom.,
+                                                M.T.
                                             </p>
                                             <p className="font-bold text-white text-[11px] leading-[110%]">
-                                                Dewa Made Sri Arsa, S.Kom., M.Kom., Ph.D.
+                                                Dewa Made Sri Arsa, S.Kom.,
+                                                M.Kom., Ph.D.
                                             </p>
                                             <p className="w-full text-center text-[17px] leading-[110%] font-bold absolute top-12">
-                                                Akademisi TI
-                                                Universitas Udayana
+                                                Akademisi TI Universitas Udayana
                                             </p>
                                         </div>
                                     </div>
                                     {/* pembicara ke-2 dan ke-3 */}
                                     <div className="flex flex-col justify-center items-center relative md:mt-24 mt-20 pb-10">
-                                        <img src="images/yochan_and_geby.png" alt="Pembicara 1" className="" />
+                                        <img
+                                            src="images/yochan_and_geby.png"
+                                            alt="Pembicara 1"
+                                            className=""
+                                        />
                                         <div className="bg-gradient-to-r from-[#285B70] via-[#42A1A4] to-[#285B70] absolute bottom-1 rounded-[15px] py-2 md:w-[110%] text-center w-full">
                                             <p className="font-bold text-white text-[11px] leading-[110%]">
                                                 I Komang Chandra Yogananda
@@ -281,59 +509,95 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                         </div>
                     </div>
                     {/* card yang di kanan */}
-                    <div className={`flex flex-col gap-5 md:w-[42%] w-full ${isCoachingPKMEvent ? "md:w-[100%]" : ""}`}>
+                    <div
+                        className={`flex flex-col gap-5 md:w-[42%] w-full ${
+                            isCoachingPKMEvent ? "md:w-[100%]" : ""
+                        }`}
+                    >
                         <div className="flex flex-col relative rounded-[10px] overflow-hidden object cover min-h-max">
-
-                            <img src="images/elements/element_dashboard_section_1.png" className="absolute md:h-[200vh] w-screen h-[200vh] z-0" alt="" />
-                            <img src="images/elements/element_dashboard_section_2.png" className="absolute left-0 top-0 w-[200px] h-auto" alt="" />
-                            <img src="images/elements/element_dashboard_section_3.png" className="absolute right-0 bottom-0 w-[200px] h-auto" alt="" />
+                            <img
+                                src="images/elements/element_dashboard_section_1.png"
+                                className="absolute md:h-[200vh] w-screen h-[200vh] z-0"
+                                alt=""
+                            />
+                            <img
+                                src="images/elements/element_dashboard_section_2.png"
+                                className="absolute left-0 top-0 w-[200px] h-auto"
+                                alt=""
+                            />
+                            <img
+                                src="images/elements/element_dashboard_section_3.png"
+                                className="absolute right-0 bottom-0 w-[200px] h-auto"
+                                alt=""
+                            />
                             <div className="p-10">
                                 <div className="flex flex-row gap-4">
                                     <div className="flex flex-row gap-1 w-full items-center justify-end">
                                         <CalendarDaysIcon className="h-6 w-6 text-[#111E41] flex-shrink-0" />
-                                        <p className="text-[10px] z-10 text-[#111E41]">Sabtu, 23 Agustus 2025</p>
+                                        <p className="text-[10px] z-10 text-[#111E41]">
+                                            Sabtu, 23 Agustus 2025
+                                        </p>
                                     </div>
                                     <div className="w-[1px] h-8 bg-[#111E41]"></div>
                                     <div className="flex flex-row gap-1 w-full">
                                         <MapPinIcon className="h-6 w-6 text-[#111E41] flex-shrink-0" />
-                                        <p className="text-[10px] z-10 text-[#111E41]">Gedung Teknologi Informasi Fakultas Teknik Universitas Udayana</p>
+                                        <p className="text-[10px] z-10 text-[#111E41]">
+                                            Gedung Teknologi Informasi Fakultas
+                                            Teknik Universitas Udayana
+                                        </p>
                                     </div>
                                 </div>
 
                                 <div className="flex flex-col justify-center items-center mt-5">
-                                    <p className="text-[30px] leading-[110%] text-[#111E41] z-20 font-bold">COUNTDOWN</p>
+                                    <p className="text-[30px] leading-[110%] text-[#111E41] z-20 font-bold">
+                                        COUNTDOWN
+                                    </p>
                                 </div>
                                 <div className="flex flex-row gap-3 justify-center items-center mt-5">
                                     <div className="flex flex-col gap-1">
                                         <p className="font-bold text-[24px] md:text-[50px] text-[#285B70] leading-[110%] z-20">
-                                            {timeLeft.days.toString().padStart(2, "0")}
+                                            {timeLeft.days
+                                                .toString()
+                                                .padStart(2, "0")}
                                         </p>
                                         <p className="text-[#141619] text-[15px] leading-[110%] z-20 text-center">
                                             Days
                                         </p>
                                     </div>
-                                    <p className="text-[50px] leading-[110%] text-[#000000] z-20">:</p>
+                                    <p className="text-[50px] leading-[110%] text-[#000000] z-20">
+                                        :
+                                    </p>
                                     <div className="flex flex-col gap-1">
                                         <p className="font-bold text-[24px] md:text-[50px] text-[#357F8B] leading-[110%] z-20">
-                                            {timeLeft.hours.toString().padStart(2, "0")}
+                                            {timeLeft.hours
+                                                .toString()
+                                                .padStart(2, "0")}
                                         </p>
                                         <p className="text-[#141619] text-[15px] leading-[110%] z-20 text-center">
                                             Hours
                                         </p>
                                     </div>
-                                    <p className="text-[50px] leading-[110%] text-[#000000] z-20">:</p>
+                                    <p className="text-[50px] leading-[110%] text-[#000000] z-20">
+                                        :
+                                    </p>
                                     <div className="flex flex-col gap-1">
                                         <p className="font-bold text-[24px] md:text-[50px] text-[#42A1A4] leading-[110%] z-20">
-                                            {timeLeft.minutes.toString().padStart(2, "0")}
+                                            {timeLeft.minutes
+                                                .toString()
+                                                .padStart(2, "0")}
                                         </p>
                                         <p className="text-[#141619] text-[15px] leading-[110%] z-20 text-center">
                                             Minutes
                                         </p>
                                     </div>
-                                    <p className="text-[50px] leading-[110%] text-[#000000] z-20">:</p>
+                                    <p className="text-[50px] leading-[110%] text-[#000000] z-20">
+                                        :
+                                    </p>
                                     <div className="flex flex-col gap-1">
                                         <p className="font-bold text-[24px] md:text-[50px] text-[#59DFD1] leading-[110%] z-20">
-                                            {timeLeft.seconds.toString().padStart(2, "0")}
+                                            {timeLeft.seconds
+                                                .toString()
+                                                .padStart(2, "0")}
                                         </p>
                                         <p className="text-[#141619] text-[15px] leading-[110%] z-20 text-center">
                                             Seconds
@@ -344,10 +608,21 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                         </div>
 
                         <div className="flex flex-col relative rounded-[10px] overflow-hidden object cover min-h-max">
-
-                            <img src="images/elements/element_dashboard_section_1.png" className="absolute md:h-[200vh] w-screen h-[200vh] z-0" alt="" />
-                            <img src="images/elements/element_dashboard_section_2.png" className="absolute left-0 top-0 w-[200px] h-auto z-0" alt="" />
-                            <img src="images/elements/element_dashboard_section_3.png" className="absolute right-0 bottom-0 w-[200px] h-auto z-0" alt="" />
+                            <img
+                                src="images/elements/element_dashboard_section_1.png"
+                                className="absolute md:h-[200vh] w-screen h-[200vh] z-0"
+                                alt=""
+                            />
+                            <img
+                                src="images/elements/element_dashboard_section_2.png"
+                                className="absolute left-0 top-0 w-[200px] h-auto z-0"
+                                alt=""
+                            />
+                            <img
+                                src="images/elements/element_dashboard_section_3.png"
+                                className="absolute right-0 bottom-0 w-[200px] h-auto z-0"
+                                alt=""
+                            />
                             <div className="p-8">
                                 {/* <div className="flex flex-row gap-1 justify-center items-center">
                                     <div className="flex flex-col gap-1">
@@ -361,7 +636,9 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                                 </div> */}
 
                                 <div className="flex flex-col justify-center items-center mt-5">
-                                    <p className="text-[24px] leading-[110%] text-[#111E41] z-20 font-bold text-center">Any Questions? Feel free to ask</p>
+                                    <p className="text-[24px] leading-[110%] text-[#111E41] z-20 font-bold text-center">
+                                        Any Questions? Feel free to ask
+                                    </p>
                                 </div>
                                 <div className="flex flex-wrap gap-5 justify-center items-center mt-5">
                                     <div className="flex flex-col gap-2">
@@ -370,13 +647,22 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                                         </p>
                                         <div className="flex flex-row mt-3 gap-2">
                                             <IconWhatsapp />
-                                            <a href="https://wa.me/6285739490558" className="text-base text-[#2A3374] dark:text-white text-[12px] z-20">+62 857-3949-0558</a>
+                                            <a
+                                                href="https://wa.me/6285739490558"
+                                                className="text-base text-[#2A3374] dark:text-white text-[12px] z-20"
+                                            >
+                                                +62 857-3949-0558
+                                            </a>
                                         </div>
                                         <div className="flex flex-row gap-2">
                                             <IconLine />
-                                            <a href="https://line.me/R/ti/p/~tiksnaapsr." className="text-base text-[#2A3374] dark:text-white text-[12px] z-20">tiksnaapsr.</a>
+                                            <a
+                                                href="https://line.me/R/ti/p/~tiksnaapsr."
+                                                className="text-base text-[#2A3374] dark:text-white text-[12px] z-20"
+                                            >
+                                                tiksnaapsr.
+                                            </a>
                                         </div>
-
                                     </div>
 
                                     <div className="flex flex-col gap-2">
@@ -385,11 +671,21 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                                         </p>
                                         <div className="flex flex-row mt-3 gap-2">
                                             <IconWhatsapp />
-                                            <a href="https://wa.me/6281214633420" className="text-base text-[#2A3374] dark:text-white text-[12px] z-20">+62 812-1463-3420</a>
+                                            <a
+                                                href="https://wa.me/6281214633420"
+                                                className="text-base text-[#2A3374] dark:text-white text-[12px] z-20"
+                                            >
+                                                +62 812-1463-3420
+                                            </a>
                                         </div>
                                         <div className="flex flex-row gap-2">
                                             <IconLine />
-                                            <a href="https://line.me/R/ti/p/~dewayu1275" className="text-base text-[#2A3374] dark:text-white text-[12px] z-20">dewayu1275</a>
+                                            <a
+                                                href="https://line.me/R/ti/p/~dewayu1275"
+                                                className="text-base text-[#2A3374] dark:text-white text-[12px] z-20"
+                                            >
+                                                dewayu1275
+                                            </a>
                                         </div>
                                     </div>
 
@@ -399,90 +695,147 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                                         </p>
                                         <div className="flex flex-row mt-3 gap-2">
                                             <IconWhatsapp />
-                                            <a href="https://wa.me/62881038194017" className="text-base text-[#2A3374] dark:text-white text-[12px] z-20">+62 881-0381-94017</a>
+                                            <a
+                                                href="https://wa.me/62881038194017"
+                                                className="text-base text-[#2A3374] dark:text-white text-[12px] z-20"
+                                            >
+                                                +62 881-0381-94017
+                                            </a>
                                         </div>
                                         <div className="flex flex-row gap-2">
                                             <IconLine />
-                                            <a href="https://line.me/R/ti/p/~puturifki56" className="text-base text-[#2A3374] dark:text-white text-[12px] z-20">puturifki56</a>
+                                            <a
+                                                href="https://line.me/R/ti/p/~puturifki56"
+                                                className="text-base text-[#2A3374] dark:text-white text-[12px] z-20"
+                                            >
+                                                puturifki56
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
-            ) : isCoachingPKMEvent && (
-                <div className={`flex flex-col gap-5 w-full`}>
-                    <div className="flex flex-col relative rounded-[10px] overflow-hidden object cover min-h-max">
+            ) : (
+                isCoachingPKMEvent && (
+                    <div className="flex flex-col-reverse gap-5">
+                        <div className={`flex flex-col gap-5 w-full`}>
+                            <div className="flex flex-col relative rounded-[10px] overflow-hidden object cover min-h-max">
+                                <img
+                                    src="images/elements/element_dashboard_section_1.png"
+                                    className="absolute md:h-[200vh] w-screen h-[200vh] z-0"
+                                    alt=""
+                                />
+                                <img
+                                    src="images/elements/element_dashboard_section_2.png"
+                                    className="absolute left-0 top-0 w-[200px] h-auto"
+                                    alt=""
+                                />
+                                <img
+                                    src="images/elements/element_dashboard_section_3.png"
+                                    className="absolute right-0 bottom-0 w-[200px] h-auto"
+                                    alt=""
+                                />
+                                <div className="p-10">
+                                    <div className="flex flex-row gap-10 items-center">
+                                        <div className="flex flex-row gap-1 w-full items-center justify-end">
+                                            <CalendarDaysIcon className="h-6 w-6 text-[#111E41] flex-shrink-0" />
+                                            <p className="text-[15px] z-10 text-[#111E41]">
+                                                01 September 2025
+                                            </p>
+                                        </div>
+                                        <div className="w-[4px] h-8 bg-[#111E41]"></div>
+                                        <div className="flex flex-row gap-1 w-full items-center">
+                                            <MapPinIcon className="h-6 w-6 text-[#111E41] flex-shrink-0" />
+                                            <p className="text-[15px] z-10 text-[#111E41]">
+                                                Melalui Website Resmi PKM TI
+                                                2025
+                                            </p>
+                                        </div>
+                                    </div>
 
-                        <img src="images/elements/element_dashboard_section_1.png" className="absolute md:h-[200vh] w-screen h-[200vh] z-0" alt="" />
-                        <img src="images/elements/element_dashboard_section_2.png" className="absolute left-0 top-0 w-[200px] h-auto" alt="" />
-                        <img src="images/elements/element_dashboard_section_3.png" className="absolute right-0 bottom-0 w-[200px] h-auto" alt="" />
-                        <div className="p-10">
-
-                            <div className="flex flex-row gap-10 items-center">
-                                <div className="flex flex-row gap-1 w-full items-center justify-end">
-                                    <CalendarDaysIcon className="h-6 w-6 text-[#111E41] flex-shrink-0" />
-                                    <p className="text-[15px] z-10 text-[#111E41]">01 September 2025</p>
-                                </div>
-                                <div className="w-[4px] h-8 bg-[#111E41]"></div>
-                                <div className="flex flex-row gap-1 w-full items-center">
-                                    <MapPinIcon className="h-6 w-6 text-[#111E41] flex-shrink-0" />
-                                    <p className="text-[15px] z-10 text-[#111E41]">Melalui Website Resmi PKM TI 2025</p>
+                                    <div className="flex flex-col justify-center items-center mt-5">
+                                        <p className="text-[30px] leading-[110%] text-[#111E41] z-20 font-bold">
+                                            {isCoachingPKMEvent
+                                                ? titleActive
+                                                : "COUNTDOWN"}
+                                        </p>
+                                    </div>
+                                    <div className="flex flex-row gap-3 justify-center items-center mt-5">
+                                        <div className="flex flex-col gap-1">
+                                            <p className="font-bold text-[24px] md:text-[50px] text-[#285B70] leading-[110%] z-20">
+                                                {timeLeft.days
+                                                    .toString()
+                                                    .padStart(2, "0")}
+                                            </p>
+                                            <p className="text-[#141619] text-[15px] leading-[110%] z-20 text-center">
+                                                Days
+                                            </p>
+                                        </div>
+                                        <p className="text-[50px] leading-[110%] text-[#000000] z-20">
+                                            :
+                                        </p>
+                                        <div className="flex flex-col gap-1">
+                                            <p className="font-bold text-[24px] md:text-[50px] text-[#357F8B] leading-[110%] z-20">
+                                                {timeLeft.hours
+                                                    .toString()
+                                                    .padStart(2, "0")}
+                                            </p>
+                                            <p className="text-[#141619] text-[15px] leading-[110%] z-20 text-center">
+                                                Hours
+                                            </p>
+                                        </div>
+                                        <p className="text-[50px] leading-[110%] text-[#000000] z-20">
+                                            :
+                                        </p>
+                                        <div className="flex flex-col gap-1">
+                                            <p className="font-bold text-[24px] md:text-[50px] text-[#42A1A4] leading-[110%] z-20">
+                                                {timeLeft.minutes
+                                                    .toString()
+                                                    .padStart(2, "0")}
+                                            </p>
+                                            <p className="text-[#141619] text-[15px] leading-[110%] z-20 text-center">
+                                                Minutes
+                                            </p>
+                                        </div>
+                                        <p className="text-[50px] leading-[110%] text-[#000000] z-20">
+                                            :
+                                        </p>
+                                        <div className="flex flex-col gap-1">
+                                            <p className="font-bold text-[24px] md:text-[50px] text-[#59DFD1] leading-[110%] z-20">
+                                                {timeLeft.seconds
+                                                    .toString()
+                                                    .padStart(2, "0")}
+                                            </p>
+                                            <p className="text-[#141619] text-[15px] leading-[110%] z-20 text-center">
+                                                Seconds
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div className="flex flex-col justify-center items-center mt-5">
-                                <p className="text-[30px] leading-[110%] text-[#111E41] z-20 font-bold">{isCoachingPKMEvent ? titleActive : "COUNTDOWN"}</p>
-                            </div>
-                            <div className="flex flex-row gap-3 justify-center items-center mt-5">
-                                <div className="flex flex-col gap-1">
-                                    <p className="font-bold text-[24px] md:text-[50px] text-[#285B70] leading-[110%] z-20">
-                                        {timeLeft.days.toString().padStart(2, "0")}
-                                    </p>
-                                    <p className="text-[#141619] text-[15px] leading-[110%] z-20 text-center">
-                                        Days
-                                    </p>
-                                </div>
-                                <p className="text-[50px] leading-[110%] text-[#000000] z-20">:</p>
-                                <div className="flex flex-col gap-1">
-                                    <p className="font-bold text-[24px] md:text-[50px] text-[#357F8B] leading-[110%] z-20">
-                                        {timeLeft.hours.toString().padStart(2, "0")}
-                                    </p>
-                                    <p className="text-[#141619] text-[15px] leading-[110%] z-20 text-center">
-                                        Hours
-                                    </p>
-                                </div>
-                                <p className="text-[50px] leading-[110%] text-[#000000] z-20">:</p>
-                                <div className="flex flex-col gap-1">
-                                    <p className="font-bold text-[24px] md:text-[50px] text-[#42A1A4] leading-[110%] z-20">
-                                        {timeLeft.minutes.toString().padStart(2, "0")}
-                                    </p>
-                                    <p className="text-[#141619] text-[15px] leading-[110%] z-20 text-center">
-                                        Minutes
-                                    </p>
-                                </div>
-                                <p className="text-[50px] leading-[110%] text-[#000000] z-20">:</p>
-                                <div className="flex flex-col gap-1">
-                                    <p className="font-bold text-[24px] md:text-[50px] text-[#59DFD1] leading-[110%] z-20">
-                                        {timeLeft.seconds.toString().padStart(2, "0")}
-                                    </p>
-                                    <p className="text-[#141619] text-[15px] leading-[110%] z-20 text-center">
-                                        Seconds
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className={`flex flex-col relative rounded-[10px] overflow-hidden object cover min-h-max`}>
-
-                        <img src="images/elements/element_dashboard_section_1.png" className="absolute md:h-[200vh] w-screen h-[200vh] z-0" alt="" />
-                        <img src="images/elements/element_dashboard_section_2.png" className="absolute left-0 top-0 w-[200px] h-auto z-0" alt="" />
-                        <img src="images/elements/element_dashboard_section_3.png" className="absolute right-0 bottom-0 w-[200px] h-auto z-0" alt="" />
-                        <div className="p-8">
-                            {/* <div className="flex flex-row gap-10 justify-center items-center">
+                            <div
+                                className={`flex flex-col relative rounded-[10px] overflow-hidden object cover min-h-max`}
+                            >
+                                <img
+                                    src="images/elements/element_dashboard_section_1.png"
+                                    className="absolute md:h-[200vh] w-screen h-[200vh] z-0"
+                                    alt=""
+                                />
+                                <img
+                                    src="images/elements/element_dashboard_section_2.png"
+                                    className="absolute left-0 top-0 w-[200px] h-auto z-0"
+                                    alt=""
+                                />
+                                <img
+                                    src="images/elements/element_dashboard_section_3.png"
+                                    className="absolute right-0 bottom-0 w-[200px] h-auto z-0"
+                                    alt=""
+                                />
+                                <div className="p-8">
+                                    {/* <div className="flex flex-row gap-10 justify-center items-center">
 
                                 <div className="flex flex-col gap-1">
                                     <p className="text-[27px] leading-[110%] text-[#000000] z-20">Don’t Forget to join our official  LINE group</p>
@@ -494,57 +847,153 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                                 <img src="/images/elements/element_dashboard_line_qr_1.jpg" className="w-[129px] h-[129px] z-10" alt="" />
                             </div> */}
 
-                            <div className="flex flex-col justify-center items-center mt-5">
-                                <p className="text-[24px] leading-[110%] text-[#111E41] z-20 font-bold text-center">Any Questions? Feel free to ask</p>
-                            </div>
-                            <div className="flex flex-wrap gap-5 justify-center items-center mt-5">
-                                <div className="flex flex-col gap-2">
-                                    <p className="font-bold text-[13px] text-[#3A3A3A] leading-[110%] z-20">
-                                        Contact Person 1
-                                    </p>
-                                    <div className="flex flex-row mt-3 gap-2">
-                                        <IconWhatsapp />
-                                        <a href="https://wa.me//6285739490558" target="_blank" className="text-base text-[#2A3374] dark:text-white text-[12px] z-20">+62 857-3949-0558</a>
+                                    <div className="flex flex-col justify-center items-center mt-5">
+                                        <p className="text-[24px] leading-[110%] text-[#111E41] z-20 font-bold text-center">
+                                            Any Questions? Feel free to ask
+                                        </p>
                                     </div>
-                                    <div className="flex flex-row gap-2">
-                                        <IconLine />
-                                        <a href="https://line.me/R/ti/p/~tiksnaapsr." target="_blank" className="text-base text-[#2A3374] dark:text-white text-[12px] z-20">tiksnaapsr.</a>
-                                    </div>
+                                    <div className="flex flex-wrap gap-5 justify-center items-center mt-5">
+                                        <div className="flex flex-col gap-2">
+                                            <p className="font-bold text-[13px] text-[#3A3A3A] leading-[110%] z-20">
+                                                Contact Person 1
+                                            </p>
+                                            <div className="flex flex-row mt-3 gap-2">
+                                                <IconWhatsapp />
+                                                <a
+                                                    href="https://wa.me//6285739490558"
+                                                    target="_blank"
+                                                    className="text-base text-[#2A3374] dark:text-white text-[12px] z-20"
+                                                >
+                                                    +62 857-3949-0558
+                                                </a>
+                                            </div>
+                                            <div className="flex flex-row gap-2">
+                                                <IconLine />
+                                                <a
+                                                    href="https://line.me/R/ti/p/~tiksnaapsr."
+                                                    target="_blank"
+                                                    className="text-base text-[#2A3374] dark:text-white text-[12px] z-20"
+                                                >
+                                                    tiksnaapsr.
+                                                </a>
+                                            </div>
+                                        </div>
 
-                                </div>
+                                        <div className="flex flex-col gap-2">
+                                            <p className="font-bold text-[13px] text-[#3A3A3A] leading-[110%] z-20">
+                                                Contact Person 2
+                                            </p>
+                                            <div className="flex flex-row mt-3 gap-2">
+                                                <IconWhatsapp />
+                                                <a
+                                                    href="https://wa.me/6281214633420"
+                                                    target="_blank"
+                                                    className="text-base text-[#2A3374] dark:text-white text-[12px] z-20"
+                                                >
+                                                    +62 812-1463-3420
+                                                </a>
+                                            </div>
+                                            <div className="flex flex-row gap-2">
+                                                <IconLine />
+                                                <a
+                                                    href="https://line.me/R/ti/p/~dewayu1275"
+                                                    target="_blank"
+                                                    className="text-base text-[#2A3374] dark:text-white text-[12px] z-20"
+                                                >
+                                                    dewayu1275
+                                                </a>
+                                            </div>
+                                        </div>
 
-                                <div className="flex flex-col gap-2">
-                                    <p className="font-bold text-[13px] text-[#3A3A3A] leading-[110%] z-20">
-                                        Contact Person 2
-                                    </p>
-                                    <div className="flex flex-row mt-3 gap-2">
-                                        <IconWhatsapp />
-                                        <a href="https://wa.me/6281214633420" target="_blank" className="text-base text-[#2A3374] dark:text-white text-[12px] z-20">+62 812-1463-3420</a>
-                                    </div>
-                                    <div className="flex flex-row gap-2">
-                                        <IconLine />
-                                        <a href="https://line.me/R/ti/p/~dewayu1275" target="_blank" className="text-base text-[#2A3374] dark:text-white text-[12px] z-20">dewayu1275</a>
-                                    </div>
-                                </div>
-
-                                <div className="flex flex-col gap-2">
-                                    <p className="font-bold text-[13px] text-[#3A3A3A] leading-[110%] z-20">
-                                        Contact Person 3
-                                    </p>
-                                    <div className="flex flex-row mt-3 gap-2">
-                                        <IconWhatsapp />
-                                        <a href="https://wa.me//62881038194017" target="_blank" className="text-base text-[#2A3374] dark:text-white text-[12px] z-20">+62 881-0381-94017</a>
-                                    </div>
-                                    <div className="flex flex-row gap-2">
-                                        <IconLine />
-                                        <a href="https://line.me/R/ti/p/~puturifki56" target="_blank" className="text-base text-[#2A3374] dark:text-white text-[12px] z-20">puturifki56</a>
+                                        <div className="flex flex-col gap-2">
+                                            <p className="font-bold text-[13px] text-[#3A3A3A] leading-[110%] z-20">
+                                                Contact Person 3
+                                            </p>
+                                            <div className="flex flex-row mt-3 gap-2">
+                                                <IconWhatsapp />
+                                                <a
+                                                    href="https://wa.me//62881038194017"
+                                                    target="_blank"
+                                                    className="text-base text-[#2A3374] dark:text-white text-[12px] z-20"
+                                                >
+                                                    +62 881-0381-94017
+                                                </a>
+                                            </div>
+                                            <div className="flex flex-row gap-2">
+                                                <IconLine />
+                                                <a
+                                                    href="https://line.me/R/ti/p/~puturifki56"
+                                                    target="_blank"
+                                                    className="text-base text-[#2A3374] dark:text-white text-[12px] z-20"
+                                                >
+                                                    puturifki56
+                                                </a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                </div>
+                        <div className="bg-white p-4 shadow sm:rounded-lg sm:p-8 mb-6">
+                            <header className="mb-5">
+                                <h2 className="text-lg font-medium text-gray-900 ">
+                                    Informasi peserta PKM TI 2025
+                                </h2>
+
+                                <p className="mt-1 text-sm text-gray-600">
+                                    Temukkan anggota tim pada pelatihan PKM TI
+                                    2025.
+                                </p>
+                            </header>
+
+                            <DataTable
+                                value={userData}
+                                filters={filters}
+                                paginator
+                                rows={5}
+                                header={renderHeader}
+                                rowsPerPageOptions={[10, 25, 50, 100, 200]}
+                                paginatorTemplate="RowsPerPageDropdown FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
+                                currentPageReportTemplate="{first} to {last} of {totalRecords}"
+                                emptyMessage="Tidak ada data ditemukan."
+                                scrollable
+                                className="p-datatable-striped whitespace-nowrap overflow-x-auto "
+                                tableStyle={{ maxWidth: "50rem" }}
+                            >
+                                <Column field="number" header="No" sortable />
+                                <Column
+                                    field="have_team"
+                                    header="Status Tim"
+                                    filter
+                                    body={HaveTeamTemplate}
+                                    sortable
+                                    filterElement={TeamFilterTemplate}
+                                />
+                                <Column field="nim" header="NIM" sortable />
+                                <Column field="name" header="Nama" sortable />
+                                <Column
+                                    field="angkatan"
+                                    header="Angkatan"
+                                    sortable
+                                    filter
+                                    filterElement={AngkatanFilterTemplate}
+                                />
+                                <Column field="email" header="Email" sortable />
+                                <Column
+                                    field="phone"
+                                    header="Telepon"
+                                    sortable
+                                />
+                                <Column
+                                    field="line_id"
+                                    header="ID Line"
+                                    sortable
+                                />
+                            </DataTable>
+                        </div>
+                    </div>
+                )
             )}
 
             {user.status == "passed" ? (
@@ -557,50 +1006,67 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                             </p>
                         </div>
                         <div className="flex flex-col mt-8 justify-center items-center">
-                            <img src="images/passed-icon.png" alt="" className="w-[290px] h-[290px]" />
+                            <img
+                                src="images/passed-icon.png"
+                                alt=""
+                                className="w-[290px] h-[290px]"
+                            />
                         </div>
                         <div className="flex flex-col gap-1">
                             <p className="text-[13px] text-[#5A607F] italic">
-                                *Kelulusan ini berdasarkan draf proposal, jumlah asistensi dan kehadiran pada kegiatan PKM TI 2025.
+                                *Kelulusan ini berdasarkan draf proposal, jumlah
+                                asistensi dan kehadiran pada kegiatan PKM TI
+                                2025.
                             </p>
                             <p className="text-[13px] text-[#5A607F] italic">
-                                *Khusus untuk Angkatan 2023 dan 2024 wajib membuat tim ulang untuk mendapatkan sertifikat pelatihan PKM TI 2025.
+                                *Khusus untuk Angkatan 2023 dan 2024 wajib
+                                membuat tim ulang untuk mendapatkan sertifikat
+                                pelatihan PKM TI 2025.
                             </p>
                         </div>
                     </div>
 
                     <div className="flex flex-col bg-white rounded-[12px] shadow-xl p-10 gap-10 md:w-1/2 w-full">
-                        <p className="font-bold text-[36px] leading-[24px] text-[#131523]/80 tracking-[0.03em]">Identitas</p>
+                        <p className="font-bold text-[36px] leading-[24px] text-[#131523]/80 tracking-[0.03em]">
+                            Identitas
+                        </p>
                         <div className="flex flex-col gap-5 w-full">
                             <div className="flex flex-col gap-1">
                                 <label className="relative  flex items-center gap-2 font-normal leading-[20px] text-[#5A607F]">
                                     Nama
                                 </label>
-                                <p className="flex items-center input input-bordered rounded-[4px] tracking-[0.03em]">{get_user.name}</p>
+                                <p className="flex items-center input input-bordered rounded-[4px] tracking-[0.03em]">
+                                    {get_user.name}
+                                </p>
                             </div>
                             <div className="flex flex-col gap-1">
                                 <label className="relative  flex items-center gap-2 font-normal leading-[20px] text-[#5A607F]">
                                     NIM
                                 </label>
-                                <p className="flex items-center input input-bordered rounded-[4px] tracking-[0.03em]">{get_user.nim}</p>
+                                <p className="flex items-center input input-bordered rounded-[4px] tracking-[0.03em]">
+                                    {get_user.nim}
+                                </p>
                             </div>
                             <div className="flex flex-col gap-1">
                                 <label className="relative  flex items-center gap-2 font-normal leading-[20px] text-[#5A607F]">
                                     Angkatan
                                 </label>
-                                <p className="flex items-center input input-bordered rounded-[4px] tracking-[0.03em]">{20 + get_user.nim.substring(0, 2)}</p>
+                                <p className="flex items-center input input-bordered rounded-[4px] tracking-[0.03em]">
+                                    {20 + get_user.nim.substring(0, 2)}
+                                </p>
                             </div>
                             <p className="font-bold tracking-[0.03em] flex justify-center items-center bg-[#C4F8E2] rounded-[12px] py-2 px-3 text-[#06A561] md:w-[130px] w-full">
                                 {get_user.status && "Completed"}
                             </p>
                         </div>
                     </div>
-
                 </div>
-            ) : (user.status == "failed" || user.status == null || user.status == "") && isSharingSessionEvent != true && isCoachingPKMEvent != true ? (
-
+            ) : (user.status == "failed" ||
+                  user.status == null ||
+                  user.status == "") &&
+              isSharingSessionEvent != true &&
+              isCoachingPKMEvent != true ? (
                 <div className="flex flex-col gap-3 w-full items-start mt-5">
-
                     {Object.keys(infos).map((key, i) => {
                         const text =
                             displayedInfos[key][infos[key].toString()].text;
@@ -609,8 +1075,7 @@ export default function Dashboard({ auth, infos, flash, get_user, certificate })
                         return <InfoElement text={text} mode={mode} key={i} />;
                     })}
                 </div>
-            ) : null
-            }
+            ) : null}
         </ParticipantLayout>
     );
 }
